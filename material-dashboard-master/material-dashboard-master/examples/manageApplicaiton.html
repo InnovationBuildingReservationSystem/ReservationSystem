@@ -144,7 +144,7 @@
 											<option id="4"></option><!--放教室号-->
 											</select>
 										</span>
-										<input type="submit" id="searchButton" name="searchButton" value="查询"/>
+										<button type="button" class="btn btn-warning" style="width: 20px;height: 31px;padding-top: 7px;margin-top: 2px;padding-right: 53px;">查询</button>
 									</div>
 								</div>
 								<div class="card-body">
@@ -184,6 +184,9 @@
 												<th>
 													活动团体名称
 												</th>
+												<th>
+													操作
+												</th>
 											</thead>
 											<tbody>
 												<tr>
@@ -220,6 +223,10 @@
 													<td class="text-primary">
 														$36,738
 													</td>
+													<td>
+														<button type="button" class="btn btn-success" style="width: 20px;height: 33px;padding-left: 19px;padding-right: 42px;padding-top: 9px;">同意</button>
+														<button type="button" class="btn btn-danger" style="width: 20px;height: 33px;padding-left: 19px;padding-right: 42px;padding-top: 9px;">拒绝</button>
+													</td>
 												</tr>
 											</tbody>
 										</table>
@@ -230,7 +237,18 @@
 					</div>
 				</div>
 				<!--</div>-->
-				<footer class="footer">
+				<!--<div class="container">-->
+				  
+				<!--</div>-->
+				<footer class="footer" >
+					<div class="pageTurning">
+						<ul class="pager">
+							<li><a href="#">首页</a></li>
+						    <li><a href="#">下一页</a></li>
+						    <li><a href="#">上一页</a></li>
+						    <li><a href="#">尾页</a></li>
+						</ul>
+					</div>
 				</footer>
 			</div>
 		</div>
