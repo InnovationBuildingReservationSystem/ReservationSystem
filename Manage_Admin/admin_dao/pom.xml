@@ -14,7 +14,7 @@
     <name>admin_dao</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
-
+    <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -68,6 +68,17 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <!--需要打包的目录-->
+                <directory>src/main/java</directory>
+                <!--目录中的文件类型-->
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
