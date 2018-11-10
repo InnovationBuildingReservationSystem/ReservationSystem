@@ -320,4 +320,5 @@
       status = #{status,jdbcType=INTEGER}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
+
 </mapper>

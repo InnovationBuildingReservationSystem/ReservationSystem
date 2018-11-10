@@ -18,6 +18,11 @@ public class changPasswordController
 {
     @Autowired
     private ChangePasswordService changePasswordService;
+    @RequestMapping("changePassword")
+    public  String getChangePassword()
+    {
+        return  "changePassword";
+    }
     @RequestMapping("/changePasswordById")
     public String changePasswordById(@RequestParam(defaultValue = "6") String id,  String password, String newPassword,Model model)
     {
@@ -33,4 +38,5 @@ public class changPasswordController
         model.addAttribute("check",check);
         return  "changePassword";
     }
+
 }

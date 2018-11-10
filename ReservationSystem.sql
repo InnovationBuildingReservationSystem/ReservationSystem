@@ -81,7 +81,7 @@ CREATE TABLE `classroomorder` (
   `teacher` varchar(50) NOT NULL,
   `stelephone` varchar(50) NOT NULL,
   `attendcount` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL, /*0 申请中 1 同意 2 拒绝 3 撤销 4 已使用*/
   PRIMARY KEY (`oid`),
   KEY `FK_1_idx` (`cid`),
   KEY `FK_2_idx` (`snum`),
