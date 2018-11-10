@@ -22,10 +22,11 @@
 DROP TABLE IF EXISTS `administrator`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+/*管理员表*/
 CREATE TABLE `administrator` (
-  `aid` varchar(50) NOT NULL,
-  `apwd` varchar(50) NOT NULL,
-  `arole` int(11) NOT NULL DEFAULT '1',
+  `aid` varchar(50) NOT NULL, /*管理员id*/
+  `apwd` varchar(50) NOT NULL, /*管理员密码*/
+  `arole` int(11) NOT NULL DEFAULT '1', /*用户角色（管理员为1）*/
   PRIMARY KEY (`aid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -46,9 +47,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `classroom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+/*教室表*/
 CREATE TABLE `classroom` (
-  `cid` varchar(50) NOT NULL,
-  `cnum` int(11) NOT NULL,
+  `cid` varchar(50) NOT NULL, /*教室号*/
+  `cnum` int(11) NOT NULL, /*教室人数容量*/
   PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -63,26 +65,28 @@ LOCK TABLES `classroom` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `classroomorder`
+-- Table structure for table `order`
 --
 
-DROP TABLE IF EXISTS `classroomorder`;
+DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `classroomorder` (
-  `oid` int(11) NOT NULL AUTO_INCREMENT,
-  `cid` varchar(50) NOT NULL,
-  `starttime` varchar(50) NOT NULL,
-  `endtime` varchar(50) NOT NULL,
-  `theme` varchar(50) NOT NULL,
-  `snum` varchar(50) NOT NULL,
-  `faculty` varchar(50) NOT NULL,
-  `group` varchar(50) NOT NULL,
-  `teacher` varchar(50) NOT NULL,
-  `stelephone` varchar(50) NOT NULL,
-  `attendcount` int(11) NOT NULL,
-  `status` int(11) NOT NULL, /*0 申请中 1 同意 2 拒绝 3 撤销 4 已使用*/
-  PRIMARY KEY (`oid`),
+/*教室预订表*/
+CREATE TABLE `order` (
+  `orderid` int(11) NOT NULL AUTO_INCREMENT, /*预订单号*/
+  `cid` varchar(50) NOT NULL, /*教室号*/
+  `starttime` varchar(50) NOT NULL, /*使用开始时间*/
+  `endtime` varchar(50) NOT NULL, /*使用结束时间*/
+  `theme` varchar(50) NOT NULL, /*活动主题*/
+  `snum` varchar(50) NOT NULL, /*申请人学号*/
+  `faculty` varchar(50) NOT NULL, /*活动组织学院*/
+  `group` varchar(50) NOT NULL, /*活动团体名称*/
+  `teacher` varchar(50) NOT NULL, /*指导教师姓名*/
+  `stelephone` varchar(50) NOT NULL, /*申请人联系电话*/
+  `attendcount` int(11) NOT NULL, /*参加人数*/
+  `orderstatus` int(11) NOT NULL, /*订单状态：0-申请中，1-同意，2-拒绝，3-撤销，4-已使用*/
+  `createtime` varchar(50) NOT NULL, /*订单创建时间*/
+  PRIMARY KEY (`orderid`),
   KEY `FK_1_idx` (`cid`),
   KEY `FK_2_idx` (`snum`),
   CONSTRAINT `FK_1` FOREIGN KEY (`cid`) REFERENCES `classroom` (`cid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -91,12 +95,12 @@ CREATE TABLE `classroomorder` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `classroomorder`
+-- Dumping data for table `order`
 --
 
-LOCK TABLES `classroomorder` WRITE;
-/*!40000 ALTER TABLE `classroomorder` DISABLE KEYS */;
-/*!40000 ALTER TABLE `classroomorder` ENABLE KEYS */;
+LOCK TABLES `order` WRITE;
+/*!40000 ALTER TABLE `order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -106,11 +110,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `notice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+/*公告表*/
 CREATE TABLE `notice` (
-  `nid` int(11) NOT NULL AUTO_INCREMENT,
-  `ntitle` varchar(50) NOT NULL,
-  `ncontent` varchar(50) NOT NULL,
-  `ntime` varchar(50) NOT NULL,
+  `nid` int(11) NOT NULL AUTO_INCREMENT, /*公告id*/
+  `ntitle` varchar(50) NOT NULL, /*标题*/
+  `ncontent` varchar(50) NOT NULL, /*内容*/
+  `ntime` varchar(50) NOT NULL, /*发布时间*/
   PRIMARY KEY (`nid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -131,16 +136,18 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+/*学生表*/
 CREATE TABLE `student` (
-  `snum` varchar(50) NOT NULL,
-  `sname` varchar(50) NOT NULL,
-  `sid` varchar(50) NOT NULL,
-  `sfaculty` varchar(50) NOT NULL,
-  `sclass` varchar(50) NOT NULL,
-  `stelphone` varchar(50) NOT NULL,
-  `spwd` varchar(50) NOT NULL,
-  `sstatus` int(11) NOT NULL DEFAULT '0',
-  `srole` int(11) NOT NULL DEFAULT '0',
+  `snum` varchar(50) NOT NULL, /*学号*/
+  `sname` varchar(50) NOT NULL, /*姓名*/
+  `sid` varchar(50) NOT NULL, /*身份证号码*/
+  `sfaculty` varchar(50) NOT NULL, /*学院*/
+  `smajor` varchar(50) NOT NULL, /*专业*/
+  `sclass` varchar(50) NOT NULL, /*班级*/
+  `stelphone` varchar(50) NOT NULL, /*手机号*/
+  `spwd` varchar(50) NOT NULL, /*密码*/
+  `sstatus` int(11) NOT NULL DEFAULT '0', /*激活状态：0-未激活，1-已激活*/
+  `srole` int(11) NOT NULL DEFAULT '0', /*用户角色：学生为0*/
   PRIMARY KEY (`snum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -171,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-06 17:11:10
+-- Dump completed on 2018-11-10 20:36:12
