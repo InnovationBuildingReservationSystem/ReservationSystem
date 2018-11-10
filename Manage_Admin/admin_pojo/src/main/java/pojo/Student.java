@@ -9,6 +9,8 @@ public class Student {
 
     private String sfaculty;
 
+    private String smajor;
+
     private String sclass;
 
     private String stelphone;
@@ -49,6 +51,14 @@ public class Student {
 
     public void setSfaculty(String sfaculty) {
         this.sfaculty = sfaculty == null ? null : sfaculty.trim();
+    }
+
+    public String getSmajor() {
+        return smajor;
+    }
+
+    public void setSmajor(String smajor) {
+        this.smajor = smajor == null ? null : smajor.trim();
     }
 
     public String getSclass() {

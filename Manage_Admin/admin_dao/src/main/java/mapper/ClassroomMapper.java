@@ -1,7 +1,6 @@
 package mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 import pojo.Classroom;
 import pojo.ClassroomExample;
 

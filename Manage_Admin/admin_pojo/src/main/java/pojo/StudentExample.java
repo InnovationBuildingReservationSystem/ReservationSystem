@@ -384,6 +384,76 @@ public class StudentExample {
             return (Criteria) this;
         }
 
+        public Criteria andSmajorIsNull() {
+            addCriterion("smajor is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorIsNotNull() {
+            addCriterion("smajor is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorEqualTo(String value) {
+            addCriterion("smajor =", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorNotEqualTo(String value) {
+            addCriterion("smajor <>", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorGreaterThan(String value) {
+            addCriterion("smajor >", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorGreaterThanOrEqualTo(String value) {
+            addCriterion("smajor >=", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorLessThan(String value) {
+            addCriterion("smajor <", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorLessThanOrEqualTo(String value) {
+            addCriterion("smajor <=", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorLike(String value) {
+            addCriterion("smajor like", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorNotLike(String value) {
+            addCriterion("smajor not like", value, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorIn(List<String> values) {
+            addCriterion("smajor in", values, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorNotIn(List<String> values) {
+            addCriterion("smajor not in", values, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorBetween(String value1, String value2) {
+            addCriterion("smajor between", value1, value2, "smajor");
+            return (Criteria) this;
+        }
+
+        public Criteria andSmajorNotBetween(String value1, String value2) {
+            addCriterion("smajor not between", value1, value2, "smajor");
+            return (Criteria) this;
+        }
+
         public Criteria andSclassIsNull() {
             addCriterion("sclass is null");
             return (Criteria) this;

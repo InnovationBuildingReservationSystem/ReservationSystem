@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.ClassroomorderMapper" >
-  <resultMap id="BaseResultMap" type="pojo.Classroomorder" >
-    <id column="oid" property="oid" jdbcType="INTEGER" />
+<mapper namespace="mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="pojo.Order" >
+    <id column="orderid" property="orderid" jdbcType="INTEGER" />
     <result column="cid" property="cid" jdbcType="VARCHAR" />
-    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
-    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="starttime" property="starttime" jdbcType="VARCHAR" />
+    <result column="endtime" property="endtime" jdbcType="VARCHAR" />
     <result column="theme" property="theme" jdbcType="VARCHAR" />
     <result column="snum" property="snum" jdbcType="VARCHAR" />
     <result column="faculty" property="faculty" jdbcType="VARCHAR" />
@@ -13,7 +13,8 @@
     <result column="teacher" property="teacher" jdbcType="VARCHAR" />
     <result column="stelephone" property="stelephone" jdbcType="VARCHAR" />
     <result column="attendcount" property="attendcount" jdbcType="INTEGER" />
-    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="orderstatus" property="orderstatus" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,16 +75,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    oid, cid, starttime, endtime, theme, snum, faculty, group, teacher, stelephone, attendcount, 
-    status
+    orderid, cid, starttime, endtime, theme, snum, faculty, group, teacher, stelephone, 
+    attendcount, orderstatus, createtime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.ClassroomorderExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrderExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from classroomorder
+    from order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -94,36 +95,36 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from classroomorder
-    where oid = #{oid,jdbcType=INTEGER}
+    from order
+    where orderid = #{orderid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from classroomorder
-    where oid = #{oid,jdbcType=INTEGER}
+    delete from order
+    where orderid = #{orderid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="pojo.ClassroomorderExample" >
-    delete from classroomorder
+  <delete id="deleteByExample" parameterType="pojo.OrderExample" >
+    delete from order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="pojo.Classroomorder" >
-    insert into classroomorder (oid, cid, starttime, 
+  <insert id="insert" parameterType="pojo.Order" >
+    insert into order (orderid, cid, starttime, 
       endtime, theme, snum, 
       faculty, group, teacher, 
-      stelephone, attendcount, status
-      )
-    values (#{oid,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
-      #{endtime,jdbcType=TIMESTAMP}, #{theme,jdbcType=VARCHAR}, #{snum,jdbcType=VARCHAR}, 
+      stelephone, attendcount, orderstatus, 
+      createtime)
+    values (#{orderid,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{snum,jdbcType=VARCHAR}, 
       #{faculty,jdbcType=VARCHAR}, #{group,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
-      #{stelephone,jdbcType=VARCHAR}, #{attendcount,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}
-      )
+      #{stelephone,jdbcType=VARCHAR}, #{attendcount,jdbcType=INTEGER}, #{orderstatus,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="pojo.Classroomorder" >
-    insert into classroomorder
+  <insert id="insertSelective" parameterType="pojo.Order" >
+    insert into order
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="oid != null" >
-        oid,
+      <if test="orderid != null" >
+        orderid,
       </if>
       <if test="cid != null" >
         cid,
@@ -155,22 +156,25 @@
       <if test="attendcount != null" >
         attendcount,
       </if>
-      <if test="status != null" >
-        status,
+      <if test="orderstatus != null" >
+        orderstatus,
+      </if>
+      <if test="createtime != null" >
+        createtime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="oid != null" >
-        #{oid,jdbcType=INTEGER},
+      <if test="orderid != null" >
+        #{orderid,jdbcType=INTEGER},
       </if>
       <if test="cid != null" >
         #{cid,jdbcType=VARCHAR},
       </if>
       <if test="starttime != null" >
-        #{starttime,jdbcType=TIMESTAMP},
+        #{starttime,jdbcType=VARCHAR},
       </if>
       <if test="endtime != null" >
-        #{endtime,jdbcType=TIMESTAMP},
+        #{endtime,jdbcType=VARCHAR},
       </if>
       <if test="theme != null" >
         #{theme,jdbcType=VARCHAR},
@@ -193,31 +197,34 @@
       <if test="attendcount != null" >
         #{attendcount,jdbcType=INTEGER},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+      <if test="orderstatus != null" >
+        #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="pojo.ClassroomorderExample" resultType="java.lang.Integer" >
-    select count(*) from classroomorder
+  <select id="countByExample" parameterType="pojo.OrderExample" resultType="java.lang.Integer" >
+    select count(*) from order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update classroomorder
+    update order
     <set >
-      <if test="record.oid != null" >
-        oid = #{record.oid,jdbcType=INTEGER},
+      <if test="record.orderid != null" >
+        orderid = #{record.orderid,jdbcType=INTEGER},
       </if>
       <if test="record.cid != null" >
         cid = #{record.cid,jdbcType=VARCHAR},
       </if>
       <if test="record.starttime != null" >
-        starttime = #{record.starttime,jdbcType=TIMESTAMP},
+        starttime = #{record.starttime,jdbcType=VARCHAR},
       </if>
       <if test="record.endtime != null" >
-        endtime = #{record.endtime,jdbcType=TIMESTAMP},
+        endtime = #{record.endtime,jdbcType=VARCHAR},
       </if>
       <if test="record.theme != null" >
         theme = #{record.theme,jdbcType=VARCHAR},
@@ -240,8 +247,11 @@
       <if test="record.attendcount != null" >
         attendcount = #{record.attendcount,jdbcType=INTEGER},
       </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=INTEGER},
+      <if test="record.orderstatus != null" >
+        orderstatus = #{record.orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -249,11 +259,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update classroomorder
-    set oid = #{record.oid,jdbcType=INTEGER},
+    update order
+    set orderid = #{record.orderid,jdbcType=INTEGER},
       cid = #{record.cid,jdbcType=VARCHAR},
-      starttime = #{record.starttime,jdbcType=TIMESTAMP},
-      endtime = #{record.endtime,jdbcType=TIMESTAMP},
+      starttime = #{record.starttime,jdbcType=VARCHAR},
+      endtime = #{record.endtime,jdbcType=VARCHAR},
       theme = #{record.theme,jdbcType=VARCHAR},
       snum = #{record.snum,jdbcType=VARCHAR},
       faculty = #{record.faculty,jdbcType=VARCHAR},
@@ -261,22 +271,23 @@
       teacher = #{record.teacher,jdbcType=VARCHAR},
       stelephone = #{record.stelephone,jdbcType=VARCHAR},
       attendcount = #{record.attendcount,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER}
+      orderstatus = #{record.orderstatus,jdbcType=INTEGER},
+      createtime = #{record.createtime,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="pojo.Classroomorder" >
-    update classroomorder
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.Order" >
+    update order
     <set >
       <if test="cid != null" >
         cid = #{cid,jdbcType=VARCHAR},
       </if>
       <if test="starttime != null" >
-        starttime = #{starttime,jdbcType=TIMESTAMP},
+        starttime = #{starttime,jdbcType=VARCHAR},
       </if>
       <if test="endtime != null" >
-        endtime = #{endtime,jdbcType=TIMESTAMP},
+        endtime = #{endtime,jdbcType=VARCHAR},
       </if>
       <if test="theme != null" >
         theme = #{theme,jdbcType=VARCHAR},
@@ -299,17 +310,20 @@
       <if test="attendcount != null" >
         attendcount = #{attendcount,jdbcType=INTEGER},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+      <if test="orderstatus != null" >
+        orderstatus = #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=VARCHAR},
       </if>
     </set>
-    where oid = #{oid,jdbcType=INTEGER}
+    where orderid = #{orderid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="pojo.Classroomorder" >
-    update classroomorder
+  <update id="updateByPrimaryKey" parameterType="pojo.Order" >
+    update order
     set cid = #{cid,jdbcType=VARCHAR},
-      starttime = #{starttime,jdbcType=TIMESTAMP},
-      endtime = #{endtime,jdbcType=TIMESTAMP},
+      starttime = #{starttime,jdbcType=VARCHAR},
+      endtime = #{endtime,jdbcType=VARCHAR},
       theme = #{theme,jdbcType=VARCHAR},
       snum = #{snum,jdbcType=VARCHAR},
       faculty = #{faculty,jdbcType=VARCHAR},
@@ -317,8 +331,8 @@
       teacher = #{teacher,jdbcType=VARCHAR},
       stelephone = #{stelephone,jdbcType=VARCHAR},
       attendcount = #{attendcount,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER}
-    where oid = #{oid,jdbcType=INTEGER}
+      orderstatus = #{orderstatus,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR}
+    where orderid = #{orderid,jdbcType=INTEGER}
   </update>
-
 </mapper>

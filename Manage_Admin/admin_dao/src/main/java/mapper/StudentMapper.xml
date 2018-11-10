@@ -6,6 +6,7 @@
     <result column="sname" property="sname" jdbcType="VARCHAR" />
     <result column="sid" property="sid" jdbcType="VARCHAR" />
     <result column="sfaculty" property="sfaculty" jdbcType="VARCHAR" />
+    <result column="smajor" property="smajor" jdbcType="VARCHAR" />
     <result column="sclass" property="sclass" jdbcType="VARCHAR" />
     <result column="stelphone" property="stelphone" jdbcType="VARCHAR" />
     <result column="spwd" property="spwd" jdbcType="VARCHAR" />
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    snum, sname, sid, sfaculty, sclass, stelphone, spwd, sstatus, srole
+    snum, sname, sid, sfaculty, smajor, sclass, stelphone, spwd, sstatus, srole
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.StudentExample" >
     select
@@ -105,13 +106,13 @@
   </delete>
   <insert id="insert" parameterType="pojo.Student" >
     insert into student (snum, sname, sid, 
-      sfaculty, sclass, stelphone, 
-      spwd, sstatus, srole
-      )
+      sfaculty, smajor, sclass, 
+      stelphone, spwd, sstatus, 
+      srole)
     values (#{snum,jdbcType=VARCHAR}, #{sname,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, 
-      #{sfaculty,jdbcType=VARCHAR}, #{sclass,jdbcType=VARCHAR}, #{stelphone,jdbcType=VARCHAR}, 
-      #{spwd,jdbcType=VARCHAR}, #{sstatus,jdbcType=INTEGER}, #{srole,jdbcType=INTEGER}
-      )
+      #{sfaculty,jdbcType=VARCHAR}, #{smajor,jdbcType=VARCHAR}, #{sclass,jdbcType=VARCHAR}, 
+      #{stelphone,jdbcType=VARCHAR}, #{spwd,jdbcType=VARCHAR}, #{sstatus,jdbcType=INTEGER}, 
+      #{srole,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="pojo.Student" >
     insert into student
@@ -127,6 +128,9 @@
       </if>
       <if test="sfaculty != null" >
         sfaculty,
+      </if>
+      <if test="smajor != null" >
+        smajor,
       </if>
       <if test="sclass != null" >
         sclass,
@@ -156,6 +160,9 @@
       </if>
       <if test="sfaculty != null" >
         #{sfaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="smajor != null" >
+        #{smajor,jdbcType=VARCHAR},
       </if>
       <if test="sclass != null" >
         #{sclass,jdbcType=VARCHAR},
@@ -195,6 +202,9 @@
       <if test="record.sfaculty != null" >
         sfaculty = #{record.sfaculty,jdbcType=VARCHAR},
       </if>
+      <if test="record.smajor != null" >
+        smajor = #{record.smajor,jdbcType=VARCHAR},
+      </if>
       <if test="record.sclass != null" >
         sclass = #{record.sclass,jdbcType=VARCHAR},
       </if>
@@ -221,6 +231,7 @@
       sname = #{record.sname,jdbcType=VARCHAR},
       sid = #{record.sid,jdbcType=VARCHAR},
       sfaculty = #{record.sfaculty,jdbcType=VARCHAR},
+      smajor = #{record.smajor,jdbcType=VARCHAR},
       sclass = #{record.sclass,jdbcType=VARCHAR},
       stelphone = #{record.stelphone,jdbcType=VARCHAR},
       spwd = #{record.spwd,jdbcType=VARCHAR},
@@ -241,6 +252,9 @@
       </if>
       <if test="sfaculty != null" >
         sfaculty = #{sfaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="smajor != null" >
+        smajor = #{smajor,jdbcType=VARCHAR},
       </if>
       <if test="sclass != null" >
         sclass = #{sclass,jdbcType=VARCHAR},
@@ -265,6 +279,7 @@
     set sname = #{sname,jdbcType=VARCHAR},
       sid = #{sid,jdbcType=VARCHAR},
       sfaculty = #{sfaculty,jdbcType=VARCHAR},
+      smajor = #{smajor,jdbcType=VARCHAR},
       sclass = #{sclass,jdbcType=VARCHAR},
       stelphone = #{stelphone,jdbcType=VARCHAR},
       spwd = #{spwd,jdbcType=VARCHAR},

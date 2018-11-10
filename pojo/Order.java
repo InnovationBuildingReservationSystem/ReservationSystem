@@ -1,15 +1,13 @@
 package pojo;
 
-import java.util.Date;
-
-public class Classroomorder {
-    private Integer oid;
+public class Order {
+    private Integer orderid;
 
     private String cid;
 
-    private Date starttime;
+    private String starttime;
 
-    private Date endtime;
+    private String endtime;
 
     private String theme;
 
@@ -25,14 +23,16 @@ public class Classroomorder {
 
     private Integer attendcount;
 
-    private Integer status;
+    private Integer orderstatus;
 
-    public Integer getOid() {
-        return oid;
+    private String createtime;
+
+    public Integer getOrderid() {
+        return orderid;
     }
 
-    public void setOid(Integer oid) {
-        this.oid = oid;
+    public void setOrderid(Integer orderid) {
+        this.orderid = orderid;
     }
 
     public String getCid() {
@@ -43,20 +43,20 @@ public class Classroomorder {
         this.cid = cid == null ? null : cid.trim();
     }
 
-    public Date getStarttime() {
+    public String getStarttime() {
         return starttime;
     }
 
-    public void setStarttime(Date starttime) {
-        this.starttime = starttime;
+    public void setStarttime(String starttime) {
+        this.starttime = starttime == null ? null : starttime.trim();
     }
 
-    public Date getEndtime() {
+    public String getEndtime() {
         return endtime;
     }
 
-    public void setEndtime(Date endtime) {
-        this.endtime = endtime;
+    public void setEndtime(String endtime) {
+        this.endtime = endtime == null ? null : endtime.trim();
     }
 
     public String getTheme() {
@@ -115,11 +115,19 @@ public class Classroomorder {
         this.attendcount = attendcount;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getOrderstatus() {
+        return orderstatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setOrderstatus(Integer orderstatus) {
+        this.orderstatus = orderstatus;
+    }
+
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime == null ? null : createtime.trim();
     }
 }
