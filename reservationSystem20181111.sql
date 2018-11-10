@@ -65,14 +65,14 @@ LOCK TABLES `classroom` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `order`
+-- Table structure for table `ordercr`
 --
 
-DROP TABLE IF EXISTS `order`;
+DROP TABLE IF EXISTS `ordercr`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 /*教室预订表*/
-CREATE TABLE `order` (
+CREATE TABLE `ordercr` (
   `orderid` int(11) NOT NULL AUTO_INCREMENT, /*预订单号*/
   `cid` varchar(50) NOT NULL, /*教室号*/
   `starttime` varchar(50) NOT NULL, /*使用开始时间*/
@@ -95,12 +95,12 @@ CREATE TABLE `order` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `order`
+-- Dumping data for table `ordercr`
 --
 
-LOCK TABLES `order` WRITE;
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+LOCK TABLES `ordercr` WRITE;
+/*!40000 ALTER TABLE `ordercr` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ordercr` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
