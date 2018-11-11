@@ -1,11 +1,11 @@
 package service;
 
-import pojo.Classroomorder;
+import pojo.Order;
 
 import java.util.List;
 
 public interface OrderService
 {
-    List<Classroomorder> getOrderList();
+    List<Order> getOrderList();
     void  changeOption(Integer oid,Integer option);
 }

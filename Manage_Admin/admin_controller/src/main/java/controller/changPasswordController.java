@@ -1,17 +1,14 @@
 package controller;
 
-import Impl.ChangePasswordImpl;
-import com.sun.org.glassfish.gmbal.ParameterNames;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import service.ChangePasswordService;
 
-import javax.jws.WebParam;
 
 @Controller
 public class changPasswordController
@@ -24,7 +21,7 @@ public class changPasswordController
         return  "changePassword";
     }
     @RequestMapping("/changePasswordById")
-    public String changePasswordById(@RequestParam(defaultValue = "6") String id,  String password, String newPassword,Model model)
+    public String changePasswordById(@RequestParam(defaultValue = "6") String id, String password, String newPassword, Model model)
     {
         int check=0;
         model.addAttribute("check",check);

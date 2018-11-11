@@ -1,14 +1,15 @@
 package Impl;
 
-        import mapper.ClassroomorderMapper;
-        import mapper.OrderItemMapper;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import pojo.Classroomorder;
-        import service.OrderService;
 
-        import java.util.List;
+import mapper.OrderItemMapper;
+import mapper.OrderMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import pojo.Order;
+import service.OrderService;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -17,18 +18,18 @@ public class OrderListImpl implements OrderService
     @Autowired
     private OrderItemMapper orderItemMapper;
     @Autowired
-    private ClassroomorderMapper classroomorderMapper;
+    private OrderMapper orderMapper;
     @Override
-    public List<Classroomorder> getOrderList()
+    public List<Order> getOrderList()
     {
-        List<Classroomorder> orderItemList = orderItemMapper.getOrderItemList();
+        List<Order> orderItemList = orderItemMapper.getOrderItemList();
         return orderItemList;
     }
 
     @Override
     public void changeOption(Integer oid, Integer option)
     {
-        Classroomorder classroomorder = classroomorderMapper.selectByPrimaryKey(oid);
-        classroomorder.setStatus(option);
+        Order item = orderMapper.selectByPrimaryKey(oid);
+        item.setOrderstatus(option);
     }
 }

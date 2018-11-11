@@ -9,7 +9,7 @@
     <result column="theme" property="theme" jdbcType="VARCHAR" />
     <result column="snum" property="snum" jdbcType="VARCHAR" />
     <result column="faculty" property="faculty" jdbcType="VARCHAR" />
-    <result column="group" property="group" jdbcType="VARCHAR" />
+    <result column="groupname" property="groupname" jdbcType="VARCHAR" />
     <result column="teacher" property="teacher" jdbcType="VARCHAR" />
     <result column="stelephone" property="stelephone" jdbcType="VARCHAR" />
     <result column="attendcount" property="attendcount" jdbcType="INTEGER" />
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    orderid, cid, starttime, endtime, theme, snum, faculty, group, teacher, stelephone, 
+    orderid, cid, starttime, endtime, theme, snum, faculty, groupname, teacher, stelephone, 
     attendcount, orderstatus, createtime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrderExample" >
@@ -111,16 +111,16 @@
   <insert id="insert" parameterType="pojo.Order" >
     insert into order (orderid, cid, starttime, 
       endtime, theme, snum, 
-      faculty, group, teacher, 
+      faculty, groupname, teacher, 
       stelephone, attendcount, orderstatus, 
       createtime)
     values (#{orderid,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
       #{endtime,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{snum,jdbcType=VARCHAR}, 
-      #{faculty,jdbcType=VARCHAR}, #{group,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
+      #{faculty,jdbcType=VARCHAR}, #{groupname,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
       #{stelephone,jdbcType=VARCHAR}, #{attendcount,jdbcType=INTEGER}, #{orderstatus,jdbcType=INTEGER}, 
       #{createtime,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="pojo.Order" >
+  <insert id="insertSelective" parameterType="pojo.Order"  useGeneratedKeys="true" keyProperty="orderid">
     insert into order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderid != null" >
@@ -144,8 +144,8 @@
       <if test="faculty != null" >
         faculty,
       </if>
-      <if test="group != null" >
-        group,
+      <if test="groupname != null" >
+        groupname,
       </if>
       <if test="teacher != null" >
         teacher,
@@ -185,8 +185,8 @@
       <if test="faculty != null" >
         #{faculty,jdbcType=VARCHAR},
       </if>
-      <if test="group != null" >
-        #{group,jdbcType=VARCHAR},
+      <if test="groupname != null" >
+        #{groupname,jdbcType=VARCHAR},
       </if>
       <if test="teacher != null" >
         #{teacher,jdbcType=VARCHAR},
@@ -235,8 +235,8 @@
       <if test="record.faculty != null" >
         faculty = #{record.faculty,jdbcType=VARCHAR},
       </if>
-      <if test="record.group != null" >
-        group = #{record.group,jdbcType=VARCHAR},
+      <if test="record.groupname != null" >
+        groupname = #{record.groupname,jdbcType=VARCHAR},
       </if>
       <if test="record.teacher != null" >
         teacher = #{record.teacher,jdbcType=VARCHAR},
@@ -267,7 +267,7 @@
       theme = #{record.theme,jdbcType=VARCHAR},
       snum = #{record.snum,jdbcType=VARCHAR},
       faculty = #{record.faculty,jdbcType=VARCHAR},
-      group = #{record.group,jdbcType=VARCHAR},
+      groupname = #{record.groupname,jdbcType=VARCHAR},
       teacher = #{record.teacher,jdbcType=VARCHAR},
       stelephone = #{record.stelephone,jdbcType=VARCHAR},
       attendcount = #{record.attendcount,jdbcType=INTEGER},
@@ -298,8 +298,8 @@
       <if test="faculty != null" >
         faculty = #{faculty,jdbcType=VARCHAR},
       </if>
-      <if test="group != null" >
-        group = #{group,jdbcType=VARCHAR},
+      <if test="groupname != null" >
+        groupname = #{groupname,jdbcType=VARCHAR},
       </if>
       <if test="teacher != null" >
         teacher = #{teacher,jdbcType=VARCHAR},
@@ -327,7 +327,7 @@
       theme = #{theme,jdbcType=VARCHAR},
       snum = #{snum,jdbcType=VARCHAR},
       faculty = #{faculty,jdbcType=VARCHAR},
-      group = #{group,jdbcType=VARCHAR},
+      groupname = #{groupname,jdbcType=VARCHAR},
       teacher = #{teacher,jdbcType=VARCHAR},
       stelephone = #{stelephone,jdbcType=VARCHAR},
       attendcount = #{attendcount,jdbcType=INTEGER},

@@ -1,11 +1,12 @@
 package controller;
 
-import mapper.ClassroomorderMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pojo.Classroomorder;
+
+import pojo.Order;
 import service.OrderService;
 
 import java.text.ParseException;
@@ -19,7 +20,7 @@ public class OrderController
     @RequestMapping("orderTable")
     public  String getOrderTable(Model model) throws ParseException
     {
-        List<Classroomorder> orderList = orderListService.getOrderList();
+        List<Order> orderList = orderListService.getOrderList();
         model.addAttribute("orderList",orderList);
         return  "orderTable";
     }
