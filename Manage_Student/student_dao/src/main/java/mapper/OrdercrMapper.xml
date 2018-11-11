@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.OrderMapper" >
-  <resultMap id="BaseResultMap" type="pojo.Order" >
+<mapper namespace="mapper.OrdercrMapper" >
+  <resultMap id="BaseResultMap" type="pojo.Ordercr" >
     <id column="orderid" property="orderid" jdbcType="INTEGER" />
     <result column="cid" property="cid" jdbcType="VARCHAR" />
     <result column="starttime" property="starttime" jdbcType="VARCHAR" />
@@ -9,7 +9,7 @@
     <result column="theme" property="theme" jdbcType="VARCHAR" />
     <result column="snum" property="snum" jdbcType="VARCHAR" />
     <result column="faculty" property="faculty" jdbcType="VARCHAR" />
-    <result column="group" property="group" jdbcType="VARCHAR" />
+    <result column="groupname" property="groupname" jdbcType="VARCHAR" />
     <result column="teacher" property="teacher" jdbcType="VARCHAR" />
     <result column="stelephone" property="stelephone" jdbcType="VARCHAR" />
     <result column="attendcount" property="attendcount" jdbcType="INTEGER" />
@@ -75,16 +75,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    orderid, cid, starttime, endtime, theme, snum, faculty, group, teacher, stelephone, 
+    orderid, cid, starttime, endtime, theme, snum, faculty, groupname, teacher, stelephone, 
     attendcount, orderstatus, createtime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrderExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrdercrExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from order
+    from ordercr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -95,33 +95,33 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from order
+    from ordercr
     where orderid = #{orderid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from order
+    delete from ordercr
     where orderid = #{orderid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="pojo.OrderExample" >
-    delete from order
+  <delete id="deleteByExample" parameterType="pojo.OrdercrExample" >
+    delete from ordercr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="pojo.Order" >
-    insert into order (orderid, cid, starttime, 
+  <insert id="insert" parameterType="pojo.Ordercr" >
+    insert into ordercr (orderid, cid, starttime, 
       endtime, theme, snum, 
-      faculty, group, teacher, 
+      faculty, groupname, teacher, 
       stelephone, attendcount, orderstatus, 
       createtime)
     values (#{orderid,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
       #{endtime,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{snum,jdbcType=VARCHAR}, 
-      #{faculty,jdbcType=VARCHAR}, #{group,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
+      #{faculty,jdbcType=VARCHAR}, #{groupname,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
       #{stelephone,jdbcType=VARCHAR}, #{attendcount,jdbcType=INTEGER}, #{orderstatus,jdbcType=INTEGER}, 
       #{createtime,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="pojo.Order" >
-    insert into order
+  <insert id="insertSelective" parameterType="pojo.Ordercr" >
+    insert into ordercr
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderid != null" >
         orderid,
@@ -144,8 +144,8 @@
       <if test="faculty != null" >
         faculty,
       </if>
-      <if test="group != null" >
-        group,
+      <if test="groupname != null" >
+        groupname,
       </if>
       <if test="teacher != null" >
         teacher,
@@ -185,8 +185,8 @@
       <if test="faculty != null" >
         #{faculty,jdbcType=VARCHAR},
       </if>
-      <if test="group != null" >
-        #{group,jdbcType=VARCHAR},
+      <if test="groupname != null" >
+        #{groupname,jdbcType=VARCHAR},
       </if>
       <if test="teacher != null" >
         #{teacher,jdbcType=VARCHAR},
@@ -205,14 +205,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="pojo.OrderExample" resultType="java.lang.Integer" >
-    select count(*) from order
+  <select id="countByExample" parameterType="pojo.OrdercrExample" resultType="java.lang.Integer" >
+    select count(*) from ordercr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update order
+    update ordercr
     <set >
       <if test="record.orderid != null" >
         orderid = #{record.orderid,jdbcType=INTEGER},
@@ -235,8 +235,8 @@
       <if test="record.faculty != null" >
         faculty = #{record.faculty,jdbcType=VARCHAR},
       </if>
-      <if test="record.group != null" >
-        group = #{record.group,jdbcType=VARCHAR},
+      <if test="record.groupname != null" >
+        groupname = #{record.groupname,jdbcType=VARCHAR},
       </if>
       <if test="record.teacher != null" >
         teacher = #{record.teacher,jdbcType=VARCHAR},
@@ -259,7 +259,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update order
+    update ordercr
     set orderid = #{record.orderid,jdbcType=INTEGER},
       cid = #{record.cid,jdbcType=VARCHAR},
       starttime = #{record.starttime,jdbcType=VARCHAR},
@@ -267,7 +267,7 @@
       theme = #{record.theme,jdbcType=VARCHAR},
       snum = #{record.snum,jdbcType=VARCHAR},
       faculty = #{record.faculty,jdbcType=VARCHAR},
-      group = #{record.group,jdbcType=VARCHAR},
+      groupname = #{record.groupname,jdbcType=VARCHAR},
       teacher = #{record.teacher,jdbcType=VARCHAR},
       stelephone = #{record.stelephone,jdbcType=VARCHAR},
       attendcount = #{record.attendcount,jdbcType=INTEGER},
@@ -277,8 +277,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="pojo.Order" >
-    update order
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.Ordercr" >
+    update ordercr
     <set >
       <if test="cid != null" >
         cid = #{cid,jdbcType=VARCHAR},
@@ -298,8 +298,8 @@
       <if test="faculty != null" >
         faculty = #{faculty,jdbcType=VARCHAR},
       </if>
-      <if test="group != null" >
-        group = #{group,jdbcType=VARCHAR},
+      <if test="groupname != null" >
+        groupname = #{groupname,jdbcType=VARCHAR},
       </if>
       <if test="teacher != null" >
         teacher = #{teacher,jdbcType=VARCHAR},
@@ -319,15 +319,15 @@
     </set>
     where orderid = #{orderid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="pojo.Order" >
-    update order
+  <update id="updateByPrimaryKey" parameterType="pojo.Ordercr" >
+    update ordercr
     set cid = #{cid,jdbcType=VARCHAR},
       starttime = #{starttime,jdbcType=VARCHAR},
       endtime = #{endtime,jdbcType=VARCHAR},
       theme = #{theme,jdbcType=VARCHAR},
       snum = #{snum,jdbcType=VARCHAR},
       faculty = #{faculty,jdbcType=VARCHAR},
-      group = #{group,jdbcType=VARCHAR},
+      groupname = #{groupname,jdbcType=VARCHAR},
       teacher = #{teacher,jdbcType=VARCHAR},
       stelephone = #{stelephone,jdbcType=VARCHAR},
       attendcount = #{attendcount,jdbcType=INTEGER},
