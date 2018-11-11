@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OrderItemMapper" >
+    <sql id="orderInfo">
+        orderid, cid, starttime, endtime, snum, faculty, groupname, teacher, stelephone, attendcount, orderstatus, createtime
+    </sql>
+    <!--查询全部订单-->
+    <select id="getOrderItemList" resultType="pojo.Ordercr">
+        SELECT *
+        from ordercr
+    </select>
+</mapper>

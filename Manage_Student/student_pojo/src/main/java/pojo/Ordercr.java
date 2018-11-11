@@ -1,6 +1,6 @@
 package pojo;
 
-public class Order {
+public class Ordercr {
     private Integer orderid;
 
     private String cid;
@@ -15,7 +15,7 @@ public class Order {
 
     private String faculty;
 
-    private String group;
+    private String groupname;
 
     private String teacher;
 
@@ -83,12 +83,12 @@ public class Order {
         this.faculty = faculty == null ? null : faculty.trim();
     }
 
-    public String getGroup() {
-        return group;
+    public String getGroupname() {
+        return groupname;
     }
 
-    public void setGroup(String group) {
-        this.group = group == null ? null : group.trim();
+    public void setGroupname(String groupname) {
+        this.groupname = groupname == null ? null : groupname.trim();
     }
 
     public String getTeacher() {

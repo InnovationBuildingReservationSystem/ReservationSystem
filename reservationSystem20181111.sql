@@ -178,4 +178,46 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+
+--
+-- Table structure for table `faculty`
+--
+
+DROP TABLE IF EXISTS `faculty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `faculty` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `facultyname` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faculty`
+--
+
+LOCK TABLES `faculty` WRITE;
+/*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
+INSERT INTO `faculty` VALUES (1,'研究生学院'),(2,'环境与化学工程学院'),(3,'物理科学与技术学院'),(4,'马克思主义学院'),(5,'旅游学院'),(6,'美术学院'),(7,'体育学院'),(8,'国际文化交流学院'),(9,'新华临床学院'),(10,'机械工程学院'),(11,'建筑工程学院'),(12,'医学部'),(13,'经济管理学院'),(14,'日本语言文化学院'),(15,'音乐学院'),(16,'护理学院'),(17,'继续教育学院'),(18,'实验中心'),(19,'信息工程学院'),(20,'生命科学与技术学院'),(21,'医学院'),(22,'人文学部（法学院、文学院、历史学院）'),(23,'英语学院'),(24,'教育学院'),(25,'国际学院'),(26,'中山临床学院'),(27,'国际乒乓球培训交流中心');
+/*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'reservationsystem'
+--
+
+--
+-- Dumping routines for database 'reservationsystem'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
 -- Dump completed on 2018-11-10 20:36:12
