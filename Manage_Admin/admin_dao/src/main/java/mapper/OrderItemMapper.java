@@ -1,11 +1,13 @@
 package mapper;
 
-
-import pojo.Order;
+import pojo.OrderItem;
+import pojo.Ordercr;
 
 import java.util.List;
 
 public interface OrderItemMapper
 {
-    List<Order> getOrderItemList();
+    List<Ordercr> getOrderList();
+    List<OrderItem> getOrderItemList();
+    void  updateOrderStatus(Integer orderId,Integer orderStatus);
 }

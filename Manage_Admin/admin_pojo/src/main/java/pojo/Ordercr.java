@@ -1,6 +1,6 @@
 package pojo;
 
-public class Order {
+public class Ordercr {
     private Integer orderid;
 
     private String cid;

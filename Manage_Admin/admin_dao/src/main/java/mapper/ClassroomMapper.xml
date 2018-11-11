@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.ClassroomMapper" >
+  <select id="getTotalCount" resultType="java.lang.Integer">
+    select count(*) from classroom
+  </select>
+  <select id="selectPageBean" parameterType="pojo.PageBean" resultType="pojo.Classroom">
+    SELECT
+    *
+    FROM
+    classroom
+    limit #{start},#{pageSize}
+  </select>
+  <select id="selectAll" resultType="pojo.Classroom">
+    select * from  classroom;
+  </select>
   <resultMap id="BaseResultMap" type="pojo.Classroom" >
     <id column="cid" property="cid" jdbcType="VARCHAR" />
     <result column="cnum" property="cnum" jdbcType="INTEGER" />

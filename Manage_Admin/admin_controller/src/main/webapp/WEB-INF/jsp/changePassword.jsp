@@ -121,7 +121,7 @@
                         </li>
 
                         <li class="">
-                            <a href="elements.html">
+                            <a href="${pageContext.request.contextPath}/classroomInformation.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 教室信息管理
                             </a>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="reservationsystem@localhost" uuid="3760841a-7f2b-4e6e-a10c-b95de44b343a">
+    <data-source source="LOCAL" name="reservationSystem@localhost" uuid="84da3a97-4b78-4879-828b-70a3bffb0093">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/reservationsystem</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/reservationSystem</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

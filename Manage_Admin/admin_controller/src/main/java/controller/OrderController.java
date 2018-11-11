@@ -6,7 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pojo.Order;
+import pojo.OrderItem;
+import pojo.Ordercr;
 import service.OrderService;
 
 import java.text.ParseException;
@@ -20,14 +21,20 @@ public class OrderController
     @RequestMapping("orderTable")
     public  String getOrderTable(Model model) throws ParseException
     {
-        List<Order> orderList = orderListService.getOrderList();
+        List<OrderItem> orderList = orderListService.getOrderList();
         model.addAttribute("orderList",orderList);
         return  "orderTable";
     }
     @RequestMapping("/optionStatus")
     public  String changeStatus(Integer oid,Integer option)
     {
-        orderListService.changeOption(oid,option);
-        return "orderTable";
+        if(oid==null||option==null)
+        {
+            return "redirect:orderTable.html";
+        }
+        System.out.println("oid" + " : " +oid);
+        System.out.println("option" + " : " +option);
+        orderListService.changeOption(oid, option);
+        return "redirect:orderTable.html";
     }
 }

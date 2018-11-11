@@ -220,7 +220,7 @@
                             <div class="pull-right tableTools-container"></div>
                         </div>
                         <div class="table-header">
-                            预约列表
+                            学生预约列表
                         </div>
 
                         <!-- div.table-responsive -->
@@ -263,51 +263,43 @@
                                             </td>
 
                                             <td>
-                                                <a href="#">${order.cid}</a>
+                                               ${order.sname}
                                             </td>
-                                            <td>$45</td>
-                                            <td class="hidden-480">3,330</td>
+                                            <td>${order.snum}</td>
+                                            <td class="hidden-480">${order.stelephone}</td>
+                                            <td>${order.starttime}</td>
                                             <td>${order.endtime}</td>
-                                            <td>Feb 12</td>
-                                            <td>Feb 12</td>
+                                            <td>${order.groupname}</td>
                                             <td>1</td>
                                             <td class="hidden-480">
-                                                <C:if test="${order.status eq 0}">
+                                                <C:if test="${order.orderstatus eq 0}">
                                                     <span class="label label-sm label-warning">申请中</span>
                                                 </C:if>
-                                                <C:if test="${order.status eq 1}">
+                                                <C:if test="${order.orderstatus eq 1}">
                                                     <span class="label label-sm label-success">同意</span>
                                                 </C:if>
-                                                <C:if test="${order.status eq 2}">
+                                                <C:if test="${order.orderstatus eq 2}">
                                                     <span class="label label-sm label-inverse arrowed-in">拒绝</span>
                                                 </C:if>
-                                                <C:if test="${order.status eq 3}">
-                                                    <span class="label label-sm label-danger arrowed-in">拒绝</span>
+                                                <C:if test="${order.orderstatus eq 3}">
+                                                    <span class="label label-sm label-danger arrowed-in">撤销</span>
                                                 </C:if>
-                                                <C:if test="${order.status eq 4}">
+                                                <C:if test="${order.orderstatus eq 4}">
                                                     <span class="label label-sm label-info">已使用</span>
                                                 </C:if>
                                             </td>
 
                                             <td>
-
-
-                                                <div class="hidden-sm hidden-xs action-buttons">
-                                                    <a class="blue" href="#">
-                                                        <span class="label label-sm label-success">同意</span>
-                                                    </a>
-                                                    <a class="blue" href="#">
-                                                        <span class="label label-sm label-inverse arrowed-in">拒绝</span>
-                                                    </a>
-                                                    <a class="blue" href="#">
-                                                        <span class="label label-sm label-info arrowed-in">已使用</span>
-                                                    </a>
-                                                    <a class="blue" href="#">
-                                                        <span class="label label-sm label-danger arrowed-in">已使用</span>
-                                                    </a>
-                                                </div>
-
-
+                                                <C:if test="${order.orderstatus==0}">
+                                                    <div class="hidden-sm hidden-xs action-buttons">
+                                                        <a class="blue" href="${pageContext.request.contextPath}/optionStatus.html?oid=${order.orderid}&option=1">
+                                                            <span class="label label-sm label-success">同意</span>
+                                                        </a>
+                                                        <a class="blue" href="${pageContext.request.contextPath}/optionStatus.html?oid=${order.orderid}&option=2">
+                                                            <span class="label label-sm label-inverse arrowed-in">拒绝</span>
+                                                        </a>
+                                                    </div>
+                                                </C:if>
                                             </td>
                                         </tr>
                                     </C:forEach>
@@ -392,7 +384,7 @@
                     </div>
                 </div>
 
-                <div id="modal-table" class="modal fade" tabindex="-1">
+   <%--             <div id="modal-table" class="modal fade" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header no-padding">
@@ -502,7 +494,7 @@
                         <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
-                </div>
+                </div>--%>
 
                 <!-- PAGE CONTENT ENDS -->
             </div>
@@ -510,9 +502,7 @@
         </div>
         <!-- /.row -->
     </div>
-    <!-- /.page-content -->
-    </div>
-    </div>
+
     <!-- /.main-content -->
 
     <div class="footer">

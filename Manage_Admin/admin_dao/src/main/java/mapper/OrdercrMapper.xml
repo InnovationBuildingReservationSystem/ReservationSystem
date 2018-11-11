@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.OrderMapper" >
-  <resultMap id="BaseResultMap" type="pojo.Order" >
+<mapper namespace="mapper.OrdercrMapper" >
+  <resultMap id="BaseResultMap" type="pojo.Ordercr" >
     <id column="orderid" property="orderid" jdbcType="INTEGER" />
     <result column="cid" property="cid" jdbcType="VARCHAR" />
     <result column="starttime" property="starttime" jdbcType="VARCHAR" />
@@ -78,13 +78,13 @@
     orderid, cid, starttime, endtime, theme, snum, faculty, groupname, teacher, stelephone, 
     attendcount, orderstatus, createtime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrderExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrdercrExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from order
+    from ordercr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -95,21 +95,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from order
+    from ordercr
     where orderid = #{orderid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from order
+    delete from ordercr
     where orderid = #{orderid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="pojo.OrderExample" >
-    delete from order
+  <delete id="deleteByExample" parameterType="pojo.OrdercrExample" >
+    delete from ordercr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="pojo.Order" >
-    insert into order (orderid, cid, starttime, 
+  <insert id="insert" parameterType="pojo.Ordercr" >
+    insert into ordercr (orderid, cid, starttime, 
       endtime, theme, snum, 
       faculty, groupname, teacher, 
       stelephone, attendcount, orderstatus, 
@@ -120,8 +120,8 @@
       #{stelephone,jdbcType=VARCHAR}, #{attendcount,jdbcType=INTEGER}, #{orderstatus,jdbcType=INTEGER}, 
       #{createtime,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="pojo.Order"  useGeneratedKeys="true" keyProperty="orderid">
-    insert into order
+  <insert id="insertSelective" parameterType="pojo.Ordercr" >
+    insert into ordercr
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderid != null" >
         orderid,
@@ -205,14 +205,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="pojo.OrderExample" resultType="java.lang.Integer" >
-    select count(*) from order
+  <select id="countByExample" parameterType="pojo.OrdercrExample" resultType="java.lang.Integer" >
+    select count(*) from ordercr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update order
+    update ordercr
     <set >
       <if test="record.orderid != null" >
         orderid = #{record.orderid,jdbcType=INTEGER},
@@ -259,7 +259,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update order
+    update ordercr
     set orderid = #{record.orderid,jdbcType=INTEGER},
       cid = #{record.cid,jdbcType=VARCHAR},
       starttime = #{record.starttime,jdbcType=VARCHAR},
@@ -277,8 +277,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="pojo.Order" >
-    update order
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.Ordercr" >
+    update ordercr
     <set >
       <if test="cid != null" >
         cid = #{cid,jdbcType=VARCHAR},
@@ -319,8 +319,8 @@
     </set>
     where orderid = #{orderid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="pojo.Order" >
-    update order
+  <update id="updateByPrimaryKey" parameterType="pojo.Ordercr" >
+    update ordercr
     set cid = #{cid,jdbcType=VARCHAR},
       starttime = #{starttime,jdbcType=VARCHAR},
       endtime = #{endtime,jdbcType=VARCHAR},

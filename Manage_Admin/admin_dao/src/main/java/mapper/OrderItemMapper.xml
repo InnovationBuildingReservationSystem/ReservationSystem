@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.OrderItemMapper" >
- <select id="getOrderItemList" resultType="pojo.Order">
-   SELECT
-  *
-    from
-    "order"
+ <select id="getOrderList" resultType="pojo.Ordercr">
+   select * from ordercr;
  </select>
+  <select id="getOrderItemList" resultType="pojo.OrderItem">
+
+      SELECT
+      ordercr.orderid,
+      ordercr.cid,
+      s.snum,
+      s.sname,
+      ordercr.starttime,
+      ordercr.endtime,
+      ordercr.theme,
+      ordercr.faculty,
+      ordercr.groupname,
+      ordercr.teacher,
+      ordercr.stelephone,
+      ordercr.attendcount,
+      ordercr.orderstatus,
+      ordercr.createtime
+      FROM
+      ordercr LEFT  JOIN student s ON ordercr.snum = s.snum
+  </select>
+    <update id="updateOrderStatus" parameterType="java.lang.Integer">
+        update ordercr set  orderstatus =#{1}  where orderid=#{0};
+    </update>
 </mapper>
