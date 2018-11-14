@@ -1,6 +1,8 @@
 package pojo;
 
-public class Classroom {
+import java.io.Serializable;
+
+public class Classroom implements Serializable {
     private String cid;
 
     private Integer cnum;

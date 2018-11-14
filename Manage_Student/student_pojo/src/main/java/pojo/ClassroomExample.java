@@ -1,9 +1,10 @@
 package pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassroomExample {
+public class ClassroomExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;
