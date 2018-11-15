@@ -9,4 +9,38 @@
         SELECT *
         from ordercr
     </select>
+
+    <!--查询学院列表-->
+    <select id="getFacultyItemList" resultType="string">
+        SELECT facultyname
+        from faculty
+    </select>
+
+    <!--查询教室列表-->
+    <select id="getClassroomItemList" resultType="pojo.Classroom">
+        SELECT *
+        from classroom
+    </select>
+
+    <!--增加订单-->
+    <insert id="addOrder" parameterType="pojo.Ordercr">
+        <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="orderid">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into ordercr (<include refid="orderInfo"/>)
+        values (#{orderid},#{cid},#{starttime},#{endtime},#{theme},#{snum},#{faculty},#{groupname},#{teacher},#{stelephone},#{attendcount},0,#{createtime})
+    </insert>
+
+    <!--修改订单-->
+    <update id="updateOrderById" parameterType="pojo.Ordercr">
+		update ordercr
+		set cid = #{cid},starttime = #{starttime},endtime = #{endtime},snum = #{snum},faculty = #{faculty},groupname = #{groupname},groupname = #{groupname},teacher = #{teacher},stelephone = #{stelephone},orderstatus = 0
+		where orderid = #{orderid}
+	</update>
+
+    <!--删除订单-->
+    <delete id="deleteOrderById" parameterType="Integer">
+		delete from ordercr
+		where orderid = #{orderid}
+	</delete>
 </mapper>
