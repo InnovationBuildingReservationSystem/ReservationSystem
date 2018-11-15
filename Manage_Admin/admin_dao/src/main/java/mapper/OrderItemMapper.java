@@ -10,4 +10,5 @@ public interface OrderItemMapper
     List<Ordercr> getOrderList();
     List<OrderItem> getOrderItemList();
     void  updateOrderStatus(Integer orderId,Integer orderStatus);
+    List<OrderItem> getOrderItemTimeList();
 }

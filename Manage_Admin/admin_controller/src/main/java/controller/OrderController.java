@@ -18,23 +18,24 @@ public class OrderController
 {
     @Autowired
     private OrderService orderListService;
-    @RequestMapping("orderTable")
-    public  String getOrderTable(Model model) throws ParseException
+    @RequestMapping("/admin/orderTable")
+    public  String
+    getOrderTable(Model model)
     {
         List<OrderItem> orderList = orderListService.getOrderList();
         model.addAttribute("orderList",orderList);
         return  "orderTable";
     }
-    @RequestMapping("/optionStatus")
+    @RequestMapping("/admin/optionStatus")
     public  String changeStatus(Integer oid,Integer option)
     {
         if(oid==null||option==null)
         {
-            return "redirect:orderTable.html";
+            return "redirect:admin/orderTable.html";
         }
         System.out.println("oid" + " : " +oid);
         System.out.println("option" + " : " +option);
         orderListService.changeOption(oid, option);
-        return "redirect:orderTable.html";
+        return "redirect:admin/orderTable.html";
     }
 }

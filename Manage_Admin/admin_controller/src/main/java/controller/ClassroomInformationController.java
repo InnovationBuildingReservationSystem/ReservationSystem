@@ -15,26 +15,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class informationController
+public class ClassroomInformationController
 {
     @Value("${CLASSROOM_PAGESIZE}")
     private  Integer pageSize;
     @Autowired
     private ClassroomService classroomService;
-    @RequestMapping("/classroomInformation")
+    @RequestMapping("/admin/classroomInformation")
     public  String getClassroomInformation(String cid, Integer currentPage,  Model model)
     {
         PageBean   pageBean= classroomService.getPageBean(pageSize, currentPage, cid);
         model.addAttribute("pageBean",pageBean);
         return "classroomInformation";
     }
-    @RequestMapping("/deleteClassroom")
+    @RequestMapping("/admin/deleteClassroom")
     public  String deleteClassroom(String cid)
     {
+
         classroomService.deleteClassroom(cid);
         return "redirect:classroomInformation.html";
     }
-    @RequestMapping("/addClassroom")
+    @RequestMapping("/admin/addClassroom")
     public  Integer addClassroom(String cid,Integer cnum,Model model)
     {
         if(cid==null||cnum==null|| StringUtils.isEmpty(cid)||StringUtils.isEmpty(cid))

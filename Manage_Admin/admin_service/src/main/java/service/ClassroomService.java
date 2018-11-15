@@ -9,4 +9,5 @@ public interface ClassroomService
     void  deleteClassroom(String cid);
     Integer addClassroom(Classroom classroom);
     PageBean getPageBean(Integer pageSize,Integer currentPage,String cid);
+    int getClassroomById(String cid);
 }
