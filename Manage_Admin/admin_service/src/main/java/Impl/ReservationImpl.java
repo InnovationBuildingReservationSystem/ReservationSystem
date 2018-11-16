@@ -42,9 +42,14 @@ public class ReservationImpl implements ReservationService
         // 如果为空 即条件中不包含教室编号
         if(cid!=null&&(!StringUtils.isEmpty(cid)))
         {
-            Classroom classroom = classroomMapper.selectByPrimaryKey(cid);
-            classroomIdList.add(classroom);
             pageBean=new PageBean(pageSize,currentPage,1);
+            Classroom classroom = classroomMapper.selectByPrimaryKey(cid);
+            if(classroom==null)
+            {
+                return  pageBean;
+            }
+            classroomIdList.add(classroom);
+
         }
         else
         {
@@ -55,7 +60,6 @@ public class ReservationImpl implements ReservationService
             classroomIdList = classroomMapper.selectPageBean(pageBean);
         }
         //借助教室编号列表获取OrderTimeTable
-
         for (Classroom classroom:classroomIdList)
         {
             OrderTimeTable orderTimeTable = getOrderTimeTable(classroom.getCid(), orderDate);

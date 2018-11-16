@@ -213,32 +213,34 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <form class="form-horizontal" role="form">
+                            <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/admin/reservationClassroom.html">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                    <label class="col-sm-2 control-label no-padding-right no-padding-top" >
                                         教室
                                     </label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" id="form-field-select-1">
-                                            <option value=""></option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AK">Alaska</option>
-                                        </select>
+                                        <C:if test="${pageBean.totalCount eq 1}">
+                                                                  <input value="${pageBean.pageList[0].cid}" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
+                                        </C:if>
+                                        <C:if test="${pageBean.totalCount gt 1}">
+                                            <input  class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
+                                        </C:if>
+
                                     </div>
-                                    <label class="col-sm-1 control-label no-padding-right" for="datepicker">日期</label>
+                                    <label class="col-sm-1 control-label no-padding-right no-padding-top" for="datepicker">日期</label>
                                     <div class="col-sm-2">
                                         <div class="input-group ">
-                                            <input class="form-control date-picker" name="itemDate" id="datepicker" type="text"
+                                            <input name="orderDate" value="${pageBean.pageList[0].orderDate}"  class="typeahead scrollable date-picker" id="datepicker" type="text"
                                                    data-date-format="yyyy-mm-dd"/>
                                             <span class="input-group-addon">
 									        	<i class="fa fa-calendar bigger-110"></i>
 								        	</span>
                                         </div>
                                     </div>
-                                    <div class="col-sm-1"></div>
-                                    <div class="col-sm-1">
-                                        <button type="button" class="btn btn-sm btn-primary">
-                                            <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-2 no-padding-top">
+                                        <button type="submit" class="btn btn-sm btn-primary ">
+                                            <span class="ace-icon fa fa-search icon-on-right bigger-150 "></span>
                                             搜索
                                         </button>
                                     </div>
