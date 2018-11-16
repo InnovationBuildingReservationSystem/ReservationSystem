@@ -2,9 +2,6 @@ package Impl;
 
 import mapper.ClassroomMapper;
 import mapper.OrderItemMapper;
-import mapper.OrdercrMapper;
-import org.apache.taglibs.standard.tei.ImportTEI;
-import org.omg.CORBA.ORB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,20 +9,28 @@ import org.springframework.util.StringUtils;
 import pojo.*;
 import service.ReservationService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 @Transactional
 public class ReservationImpl implements ReservationService
 {
     @Autowired
-    private OrdercrMapper ordercrMapper;
-    @Autowired
     private ClassroomMapper classroomMapper;
+    @Autowired
+    private OrderItemMapper orderItemMapper;
     @Override
-    public List<OrderTimeTable> getOrderTimeTableList(Integer pageSize,Integer currentPage,String cid ,String orderDate)
+    public PageBean getOrderTimeTableList(Integer pageSize, Integer currentPage, String cid , String orderDate)
     {
+        //修改测试pageBean
+        pageSize=10;
+        if(orderDate==null||StringUtils.isEmpty(orderDate))
+        {
+            SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+            orderDate=dateFormat.format(new Date());
+        }
         //初始orderItemTimeTable
         List<OrderTimeTable> orderTimeTableList=new ArrayList<>();
 
@@ -39,6 +44,7 @@ public class ReservationImpl implements ReservationService
         {
             Classroom classroom = classroomMapper.selectByPrimaryKey(cid);
             classroomIdList.add(classroom);
+            pageBean=new PageBean(pageSize,currentPage,1);
         }
         else
         {
@@ -52,75 +58,88 @@ public class ReservationImpl implements ReservationService
 
         for (Classroom classroom:classroomIdList)
         {
-            OrderTimeTable orderTimeTable=new OrderTimeTable();
-            //设置教室编号
-            orderTimeTable.setCid(classroom.getCid());
-            //获取itemDataList集合
-            List<ItemDate> itemDateList = getItemDateList(orderTimeTable, cid, orderDate);
-            orderTimeTable.setItemDateList(itemDateList);
+            OrderTimeTable orderTimeTable = getOrderTimeTable(classroom.getCid(), orderDate);
+            orderTimeTableList.add(orderTimeTable);
         }
-        return  orderTimeTableList;
+        pageBean.setPageList(orderTimeTableList);
+        return  pageBean;
     }
 
     @Override
-    public List<ItemDate> getItemDateList(OrderTimeTable orderTimeTable, String cid, String orderDate)
+    public OrderTimeTable getOrderTimeTable(String cid, String orderDate)
     {
-        OrdercrExample ordercrExample=new OrdercrExample();
-        OrdercrExample.Criteria criteria = ordercrExample.createCriteria();
-        //初始化itemDataList
-        List<ItemDate> itemDateList=new ArrayList<>();
-        //得到教室编号
-        criteria.andCidEqualTo(cid);
-        //判断orderDate
-        if(orderDate!=null&&StringUtils.isEmpty(orderDate))
-        {
-            //当条件搜索的日期不为空时
-            criteria.andStarttimeLike(orderDate);
-        }
-        //得到与教室编号相等的预约信息或者得到与教室及其日期所对应的预约信息
-        List<Ordercr> ordercrs = ordercrMapper.selectByExample(ordercrExample);
-        for (Ordercr orderItem : ordercrs)
-        {
-            //初始化itemDateList
-            ItemDate itemDate = new ItemDate();
-            String startTime = orderItem.getStarttime();
-            String endTime = orderItem.getEndtime();
-            //获取当天年月日(不要小时)
-            //itemDate.orderDate中
-            itemDate.setOrderDate(startTime.substring(0, 10));
-            ItemTime itemTime = new ItemTime();
-            itemTime.setStartTime(startTime);
-            itemTime.setEndTime(endTime);
-            ordercrs.remove(orderItem);
-            List<ItemTime> itemTimeList = getItemTimeList(itemDate, ordercrs);
-            itemTimeList.add(itemTime);
-            itemDate.setOrderTimeList(itemTimeList);
-            itemDateList.add(itemDate);
-        }
-        return itemDateList;
+        OrderTimeTable orderTimeTable=new OrderTimeTable();
+        //设置查询的日期
+        orderTimeTable.setOrderDate(orderDate);
+        //设置查询的教室编号
+        orderTimeTable.setCid(cid);
+        //通过cid 以及日期模糊查询到与日期相关的预定数据
+        List<OrderItem> orderList = orderItemMapper.getOrderItemByCidAndStartDate(cid, orderDate);
+        ItemDate itemDate = getItemDate(orderDate, orderList);
+        orderTimeTable.setItemDate(itemDate);
+        return orderTimeTable;
     }
 
     @Override
-    public List<ItemTime> getItemTimeList(ItemDate itemDate, List<Ordercr> ordercrs)
+    public ItemDate getItemDate(String orderDate, List<OrderItem> orderList)
     {
+        ItemDate itemDate=new ItemDate();
+        //初始化记录表
+        Integer count[]={0,0,0,0,0,0,0,0,0,0,0,0,0};
         //初始化 itemTimeList
         List<ItemTime> itemTimeList=new ArrayList<>();
-        for(Ordercr orderItem:ordercrs)
+        //初始化时间列表
+        List<String> dateTableList = getDateTableList();
+        //格式化时间精确到小时
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH");
+        for(OrderItem orderItem:orderList)
         {
             String orderStartTime = orderItem.getStarttime();
             //如果当前的orderItemTime与itemDate中的日期不相同continue;
-            if(!(orderStartTime.substring(0,10).equals(itemDate.getOrderDate())))
+            if(!(orderStartTime.substring(0,10).equals(orderDate)))
             {
                 continue;
             }
             ItemTime orderItemTime=new ItemTime();
+            try
+            {
+                Calendar gregorianCalendar = new GregorianCalendar();
+                Date start = dateFormat.parse(orderItem.getStarttime());
+                Date end = dateFormat.parse(orderItem.getEndtime());
+                //compareTo 比较两个日期的大小
+                //如果start大 返回 1 相等 返回 0 小于返回 -1
+                while (start.compareTo(end)==-1)
+                {
+                    String formatStart = dateFormat.format(start);
+                    count[dateTableList.indexOf(formatStart.substring(11,13))]++;
+                    gregorianCalendar.setTime(start);
+                    gregorianCalendar.add(Calendar.HOUR, 1);
+                    start = gregorianCalendar.getTime();
+                }
+            } catch (ParseException e)
+            {
+                e.printStackTrace();
+            }
             orderItemTime.setStartTime(orderItem.getStarttime());
             orderItemTime.setEndTime(orderItem.getEndtime());
             //添加当前orderItem的时间信息
             itemTimeList.add(orderItemTime);
-            //从ordercrs中删除已经添加到 itemTimeList的中的orderItem 避免重复判断
-            ordercrs.remove(orderItem);
+
         }
-        return  itemTimeList;
+        itemDate.setOrderTimeList(itemTimeList);
+        itemDate.setDateCount(count);
+        return  itemDate;
+    }
+
+    @Override
+    public List<String> getDateTableList()
+    {
+        String[] dateTable={"08","09","10 ","11","12","13","14","15","16","17","18","19","20","21"};
+        ArrayList<String> arrayList=new ArrayList<String>();
+        for (int i=0;i<dateTable.length;i++)
+        {
+            arrayList.add(dateTable[i]);
+        }
+        return  arrayList;
     }
 }

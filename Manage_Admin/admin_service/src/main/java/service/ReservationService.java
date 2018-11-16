@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface ReservationService
 {
-    List<OrderTimeTable> getOrderTimeTableList(Integer pageSize,Integer currentPage,String cid ,String itemDate);
+    PageBean getOrderTimeTableList(Integer pageSize, Integer currentPage, String cid , String itemDate);
 
-    List<ItemDate> getItemDateList(OrderTimeTable orderTimeTable, String cid, String orderDate);
+    OrderTimeTable getOrderTimeTable(String cid, String orderDate);
 
-    List<ItemTime> getItemTimeList(ItemDate itemDate, List<Ordercr> ordercrs);
+    ItemDate getItemDate(String orderDate, List<OrderItem> orderList);
+
+    List<String> getDateTableList();
 }

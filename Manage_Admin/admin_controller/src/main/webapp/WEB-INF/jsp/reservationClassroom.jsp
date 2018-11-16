@@ -4,33 +4,35 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
     <title>Tables - Ace Admin</title>
 
-    <meta name="description" content="Static &amp; Dynamic Tables" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Static &amp; Dynamic Tables"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/assets/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
     <!-- page specific plugin styles -->
 
     <!-- text fonts -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fonts.googleapis.com.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fonts.googleapis.com.css"/>
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace.min.css" class="ace-main-stylesheet"
+          id="main-ace-style"/>
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet"/>
     <![endif]-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace-rtl.min.css"/>
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
     <![endif]-->
 
     <!-- inline styles related to this page -->
@@ -69,14 +71,16 @@
     <script type="text/javascript">
         try {
             ace.settings.loadState('main-container')
-        } catch (e) {}
+        } catch (e) {
+        }
     </script>
 
     <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
         <script type="text/javascript">
             try {
                 ace.settings.loadState('sidebar')
-            } catch (e) {}
+            } catch (e) {
+            }
         </script>
 
 
@@ -168,7 +172,8 @@
         <!-- /.nav-list -->
 
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+               data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
     </div>
 
@@ -188,7 +193,6 @@
                     <li>
                 </ul>
                 <!-- /.breadcrumb -->
-
 
 
                 <div class="page-content">
@@ -211,7 +215,9 @@
                         <div class="col-xs-12">
                             <form class="form-horizontal" role="form">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 教室 </label>
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        教室
+                                    </label>
                                     <div class="col-sm-2">
                                         <select class="form-control" id="form-field-select-1">
                                             <option value=""></option>
@@ -222,10 +228,11 @@
                                     <label class="col-sm-1 control-label no-padding-right" for="datepicker">日期</label>
                                     <div class="col-sm-2">
                                         <div class="input-group ">
-                                            <input class="form-control date-picker" id="datepicker" type="text" data-date-format="yyyy-mm-dd" />
+                                            <input class="form-control date-picker" name="itemDate" id="datepicker" type="text"
+                                                   data-date-format="yyyy-mm-dd"/>
                                             <span class="input-group-addon">
-										<i class="fa fa-calendar bigger-110"></i>
-									</span>
+									        	<i class="fa fa-calendar bigger-110"></i>
+								        	</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-1"></div>
@@ -249,14 +256,18 @@
                 <!-- div.table-responsive
 
                 <!-- div.dataTables_borderWrap -->
-                <span class="help-block">-----已被预订成功的教室标记为红色</span>
                 <div>
-                    <table id="dynamic-table" class="table table-striped table-bordered table-hover" >
+                    <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
                             <th class="center">
                                 <label class="pos-rel">
-                                    房间号\时间段
+                                    教室编号
+                                </label>
+                            </th>
+                            <th class="center">
+                                <label class="pos-rel">
+                                    日期
                                 </label>
                             </th>
                             <th> 8:00- 9:00</th>
@@ -276,71 +287,156 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td class="center">
-                                <label class="pos-rel">
-                                    1
-                                </label>
-                            </td>
-                            <td class="btn-danger"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
 
-                        </tr>
-
+                        <C:forEach items="${pageBean.pageList}" var="order">
+                            <tr>
+                                <td class="center">
+                                    <label class="pos-rel">
+                                            ${order.cid}
+                                    </label>
+                                </td>
+                                <td class="center">
+                                    <label class="pos-rel">
+                                            ${order.orderDate}
+                                    </label>
+                                </td>
+                                <!--8点到9点-->
+                                <C:if test="${order.itemDate.dateCount[0] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[0] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 9点到10点-->
+                                <C:if test="${order.itemDate.dateCount[1] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[1] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 10点到11点-->
+                                <C:if test="${order.itemDate.dateCount[2] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[2] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 11点到12点-->
+                                <C:if test="${order.itemDate.dateCount[3] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[3] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 12点到13点-->
+                                <C:if test="${order.itemDate.dateCount[4] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[4] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 13点到14点-->
+                                <C:if test="${order.itemDate.dateCount[5] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[5] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 14点到15点-->
+                                <C:if test="${order.itemDate.dateCount[6] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[6] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 15点到16点-->
+                                <C:if test="${order.itemDate.dateCount[7] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[7] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 16点到17点-->
+                                <C:if test="${order.itemDate.dateCount[8] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[8] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 17点到18点-->
+                                <C:if test="${order.itemDate.dateCount[9] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[9] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 18点到19点-->
+                                <C:if test="${order.itemDate.dateCount[10] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[10] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 19点到20点-->
+                                <C:if test="${order.itemDate.dateCount[11] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[11] eq 0}">
+                                    <td></td>
+                                </C:if>
+                                <!-- 20点到21点-->
+                                <C:if test="${order.itemDate.dateCount[12] eq 1}">
+                                    <td class="btn-danger"></td>
+                                </C:if>
+                                <C:if test="${order.itemDate.dateCount[12] eq 0}">
+                                    <td></td>
+                                </C:if>
+                            </tr>
+                        </C:forEach>
                         </tbody>
                     </table>
-                    <div class="message-footer clearfix">
-                        <div class="pull-right">
+                  <div class="message-footer clearfix">
+            <div class="pull-right">
 
-                            &nbsp; &nbsp;
-                            <ul class="pagination middle">
-                                <li class="disabled">
-																		<span>
-																			<i class="ace-icon fa fa-step-backward middle"></i>
-																		</span>
-                                </li>
+                &nbsp; &nbsp;
+                <ul class="pagination middle">
+                    <li >
+                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html?currentPage=1&orderDate=${pageBean.pageList[0].orderDate}">
+                            <i class="ace-icon fa fa-step-backward middle"></i>
+                        </a>
+                    </li>
 
-                                <li class="disabled">
-																		<span>
-																			<i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-																		</span>
-                                </li>
+                    <li >
+                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html?currentPage=${pageBean.currentPage-1}">
+                            <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+                        </a>
+                    </li>
 
-                                <li>
-																		<span>
-																			<input value="1" maxlength="3" type="text" />
-																		</span>
-                                </li>
+                    <li>
+                        <span>
+                            <input readonly="readonly"  value="${pageBean.currentPage}" maxlength="3" type="text"/>
+                        </span>
+                    </li>
 
-                                <li>
-                                    <a href="#">
-                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                                    </a>
-                                </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html?currentPage=${pageBean.currentPage+1}">
+                            <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                        </a>
+                    </li>
 
-                                <li>
-                                    <a href="#">
-                                        <i class="ace-icon fa fa-step-forward middle"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html?currentPage=${pageBean.totalPage}">
+                            <i class="ace-icon fa fa-step-forward middle"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+</div>
+</div>
 
+    <%--
         <div id="modal-table" class="modal fade" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -348,7 +444,8 @@
                         <div class="table-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                 <span class="white">&times;</span>
-                            </button> Results for "Latest Registered Domains
+                            </button>
+                            Results for "Latest Registered Domains
                         </div>
                     </div>
 
@@ -458,30 +555,9 @@
     <!-- /.col -->
 </div>
 
-
+--%>
 
 <!-- /.main-content -->
-
-<div class="footer">
-    <div class="footer-inner">
-        <div class="footer-content">
-
-                <span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
-        </div>
-    </div>
-</div>
 
 <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
     <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
@@ -522,7 +598,7 @@
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
 
-    jQuery(function($) {
+    jQuery(function ($) {
 
         $("#datepicker").datepicker({
             showOtherMonths: true,

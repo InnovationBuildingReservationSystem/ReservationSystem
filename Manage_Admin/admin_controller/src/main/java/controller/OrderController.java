@@ -33,8 +33,6 @@ public class OrderController
         {
             return "redirect:admin/orderTable.html";
         }
-        System.out.println("oid" + " : " +oid);
-        System.out.println("option" + " : " +option);
         orderListService.changeOption(oid, option);
         return "redirect:admin/orderTable.html";
     }

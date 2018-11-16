@@ -6,7 +6,18 @@ import java.util.List;
 public class OrderTimeTable implements Serializable
 {
     private  String cid;
-    private  List<ItemDate> itemDateList;
+    private  String orderDate;
+    private  ItemDate itemDate;
+
+    public String getOrderDate()
+    {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate)
+    {
+        this.orderDate = orderDate;
+    }
 
     public String getCid()
     {
@@ -18,13 +29,13 @@ public class OrderTimeTable implements Serializable
         this.cid = cid;
     }
 
-    public List<ItemDate> getItemDateList()
+    public ItemDate getItemDate()
     {
-        return itemDateList;
+        return itemDate;
     }
 
-    public void setItemDateList(List<ItemDate> itemDateList)
+    public void setItemDate(ItemDate itemDate)
     {
-        this.itemDateList = itemDateList;
+        this.itemDate = itemDate;
     }
 }
