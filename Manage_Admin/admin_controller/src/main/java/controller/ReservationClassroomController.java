@@ -26,6 +26,19 @@ public class ReservationClassroomController
 
     public  String getReservationClassroom(Model model,String cid,String orderDate,Integer currentPage)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : cid 教室编号 orderDate 预约日期 currentPage 当前页码
+
+         * @return : 返回  reservationClassroom.jsp
+
+         * @Description:
+
+         * 获取页面需要的数据封装到pageBean里面
+
+         */
         PageBean pageBean = reservationService.getOrderTimeTableList(pageSize, currentPage, cid, orderDate);
         model.addAttribute("pageBean",pageBean);
         return "reservationClassroom";

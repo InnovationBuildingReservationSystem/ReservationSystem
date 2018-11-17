@@ -19,16 +19,41 @@ public class OrderController
     @Autowired
     private OrderService orderListService;
     @RequestMapping("/admin/orderTable")
-    public  String
-    getOrderTable(Model model)
+    public String getOrderTable(Model model)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param :
+
+         * @return : 返回orderTable页面
+
+         * @Description:
+
+         * 获取预定信息
+
+         */
         List<OrderItem> orderList = orderListService.getOrderList();
-        model.addAttribute("orderList",orderList);
-        return  "orderTable";
+        model.addAttribute("orderList", orderList);
+        return "orderTable";
     }
     @RequestMapping("/admin/optionStatus")
     public  String changeStatus(Integer oid,Integer option)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param :
+
+         * @return : 跳转到orderTale页面
+
+         * @Description:
+
+         *
+
+         */
         if(oid==null||option==null)
         {
             return "redirect:admin/orderTable.html";

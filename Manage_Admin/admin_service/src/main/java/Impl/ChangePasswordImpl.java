@@ -19,6 +19,19 @@ public class ChangePasswordImpl implements ChangePasswordService
     @Override
     public int checkPassword(String id,String password)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : id 管理员id password 管理员密码
+
+         * @return : 1为账号密码验证正确
+
+         * @Description:
+
+         * 修改管理员密码之前首先验证输入的账号以及原密码是否正确
+
+         */
         AdministratorExample administratorExample=new AdministratorExample();
         AdministratorExample.Criteria criteria = administratorExample.createCriteria();
         criteria.andApwdEqualTo(password);
@@ -36,6 +49,19 @@ public class ChangePasswordImpl implements ChangePasswordService
     @Override
     public int changePassword(String id,String password,String newPassword)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : id 管理员账号 password 管理员原密码 newPassword 管理员新密码
+
+         * @return : 1 代表修改成功 0表示出错
+
+         * @Description:
+
+         * 修改管理员密码
+
+         */
         Administrator administrator=new Administrator();
         int check = checkPassword(id, password);
         administrator.setAid(id);

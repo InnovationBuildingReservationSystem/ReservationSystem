@@ -18,12 +18,26 @@ import java.util.List;
 public class ClassroomInformationController
 {
     @Value("${CLASSROOM_PAGESIZE}")
+    //页面信息条数设置
     private  Integer pageSize;
     @Autowired
     private ClassroomService classroomService;
     @RequestMapping("/admin/classroomInformation")
     public  String getClassroomInformation(String cid, Integer currentPage,  Model model)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : cid 教室编号 currentPage 当前页码
+
+         * @return: 返回到classroomInformation.jsp页面
+
+         * @Description:
+
+         * 初始化页面操作
+
+         */
         PageBean   pageBean= classroomService.getPageBean(pageSize, currentPage, cid);
         model.addAttribute("pageBean",pageBean);
         return "classroomInformation";
@@ -31,21 +45,52 @@ public class ClassroomInformationController
     @RequestMapping("/admin/deleteClassroom")
     public  String deleteClassroom(String cid)
     {
+        /*
 
+         * @Author: shize duan
+
+         * @param : cid 教室编号
+
+         * @return : 跳转到classroomInformation.jsp页面
+
+         * @Description:
+
+         * 删除教室信息
+
+         */
         classroomService.deleteClassroom(cid);
         return "redirect:classroomInformation.html";
     }
     @RequestMapping("/admin/addClassroom")
     public  Integer addClassroom(String cid,Integer cnum,Model model)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : cid 要添加的教室编号 cnum 教室可容纳人数
+
+         * @return : 当cid 或者cnum 为空时添加失败 返回 -1
+         *           或者当 cid 已经存在数据库时添加失败
+
+         * @Description:
+
+         * 添加教室信息
+
+         */
+        Integer check=-1;
         if(cid==null||cnum==null|| StringUtils.isEmpty(cid)||StringUtils.isEmpty(cid))
         {
-            return -1;
+            return check;
+        }
+        if (classroomService.getClassroomById(cid)==1)
+        {
+            return check;
         }
         Classroom classroom=new Classroom();
         classroom.setCid(cid);
         classroom.setCnum(cnum);
-        Integer check=-1;
+
         try
         {
            check= classroomService.addClassroom(classroom);

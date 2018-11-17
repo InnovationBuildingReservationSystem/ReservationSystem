@@ -24,6 +24,19 @@ public class ReservationImpl implements ReservationService
     @Override
     public PageBean getOrderTimeTableList(Integer pageSize, Integer currentPage, String cid , String orderDate)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : pageSize 页面展示信息的条数 currentPage 页面当前页码 cid 教室编号 orderDate 查询预约信息的日期(默认为今天)
+
+         * @return : pageBean 封装了页面所要的信息
+
+         * @Description:
+
+         * 获取页面所需要的所有信息
+
+         */
         //修改测试pageBean
         pageSize=10;
         if(orderDate==null||StringUtils.isEmpty(orderDate))
@@ -72,6 +85,19 @@ public class ReservationImpl implements ReservationService
     @Override
     public OrderTimeTable getOrderTimeTable(String cid, String orderDate)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : cid 教室编号 orderDate 预约日期
+
+         * @return:  返回当前教室编号对应日期下的预约信息
+
+         * @Description:
+
+         * 获取教室编号，日期对应下的信息
+
+         */
         OrderTimeTable orderTimeTable=new OrderTimeTable();
         //设置查询的日期
         orderTimeTable.setOrderDate(orderDate);
@@ -87,6 +113,19 @@ public class ReservationImpl implements ReservationService
     @Override
     public ItemDate getItemDate(String orderDate, List<OrderItem> orderList)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : orderDate 预约信息日期
+
+         * @return :
+
+         * @Description:
+
+         *
+
+         */
         ItemDate itemDate=new ItemDate();
         //初始化记录表
         Integer count[]={0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -138,6 +177,19 @@ public class ReservationImpl implements ReservationService
     @Override
     public List<String> getDateTableList()
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param :
+
+         * @return : 日期字符串表
+
+         * @Description:
+
+         * 初始化一个日期字符数组
+
+         */
         String[] dateTable={"08","09","10 ","11","12","13","14","15","16","17","18","19","20","21"};
         ArrayList<String> arrayList=new ArrayList<String>();
         for (int i=0;i<dateTable.length;i++)

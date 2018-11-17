@@ -30,6 +30,22 @@ public class OrderListImpl implements OrderService
     @Override
     public List<OrderItem> getOrderList()
     {
+        /*
+
+         * @Author: shize duan
+
+
+
+
+         * @param :
+
+         * @return :   返回预约信息
+
+         * @Description:
+
+         *  从数据库中取出预约信息并且根据时间判断并且修改预约状态
+
+         */
         List<OrderItem> orderItemList = orderItemMapper.getOrderItemList();
         System.out.println(orderItemList.size());
         for(int i=0;i<orderItemList.size();i++)
@@ -78,6 +94,19 @@ public class OrderListImpl implements OrderService
     //管理员修改预约状态
     public void changeOption(Integer oid, Integer option)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : oid 预约信息的id option 修改操作
+
+         * @return :
+
+         * @Description:
+
+         * 管理员学生预约的状态操作
+
+         */
         Ordercr item = orderMapper.selectByPrimaryKey(oid);
         item.setOrderstatus(option);
         orderMapper.updateByPrimaryKeySelective(item);
