@@ -7,6 +7,16 @@ public class Classroom implements Serializable {
 
     private Integer cnum;
 
+    private Ordercr ordercr;
+
+    public Ordercr getOrdercr() {
+        return ordercr;
+    }
+
+    public void setOrdercr(Ordercr ordercr) {
+        this.ordercr = ordercr;
+    }
+
     public String getCid() {
         return cid;
     }
