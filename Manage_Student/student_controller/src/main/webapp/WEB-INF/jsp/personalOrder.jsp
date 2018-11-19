@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>教室使用情况查询 - 创新楼教室预约系统</title>
+    <title>个人预订 - 创新楼教室预约系统</title>
 
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -336,7 +336,7 @@
                 </ul>
             </li>
 
-            <li class="active open">
+            <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> 教室查询 </span>
@@ -347,7 +347,7 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-                    <li class="active">
+                    <li class="">
                         <a href="${pageContext.request.contextPath}/student/ClassroomInfo.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             教室使用情况
@@ -367,7 +367,7 @@
                 </ul>
             </li>
 
-            <li class="">
+            <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-pencil-square-o"></i>
                     <span class="menu-text"> 教室预订 </span>
@@ -387,7 +387,7 @@
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="">
+                    <li class="active">
                         <a href="${pageContext.request.contextPath}/student/personalOrder.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             个人申请情况
@@ -624,11 +624,9 @@
                     </li>
 
                     <li>
-                        <a href="#">教室查询</a>
+                        <a href="#">教室预订</a>
                     </li>
-
-                    <li class="active">教室使用情况</li>
-
+                    <li class="active">个人申请情况</li>
                 </ul>
                 <!-- /.breadcrumb -->
 
@@ -653,23 +651,24 @@
                     </div>
                     <div class="page-header">
                         <h1>
-                            教室使用情况
+                            个人预订
                         </h1>
                     </div>
-
-
+                    <h4 class="pink">
+                        <i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i>
+                        <a href="#modal-table" role="button" class="green" data-toggle="modal"> 手机点击此处查看列表 </a>
+                    </h4>
+                    <div class="hr hr-18 dotted hr-double"></div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <form class="form-horizontal" role="form"
-                              action="${pageContext.request.contextPath}/student/queryClassroom.html">
+                        <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/student/queryOrder.html">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 教室 </label>
                                 <div class="col-sm-2">
-                                    <select class="form-control" id="form-field-select-1" name="cid" value="${cid}"
-                                            required readonly>
+                                    <select class="form-control" id="form-field-select-1" name="cid" required readonly>
                                         <option value="all">全部</option>
                                         <c:forEach items="${classroomList}" var="classroom">
                                             <option value="${classroom.cid}">${classroom.cid}</option>
@@ -679,10 +678,8 @@
                                 <label class="col-sm-1 control-label no-padding-right" for="datepicker">日期</label>
                                 <div class="col-sm-2">
                                     <div class="input-group ">
-                                        <input class="form-control date-picker" id="datepicker" type="text"
-                                               value="${startdate}"
-                                               name="startdate"
-                                               data-date-format="yyyy-mm-dd" readonly="readonly" required/>
+                                        <input class="form-control date-picker" name="startdate" id="datepicker" type="text"
+                                               data-date-format="yyyy-mm-dd" value="${startdate}" required readonly/>
                                         <span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -695,115 +692,108 @@
                                         搜索
                                     </button>
                                 </div>
-
                             </div>
-
-
                         </form>
-
                     </div>
-
                 </div>
 
             </div>
             <!-- div.table-responsive
 
             <!-- div.dataTables_borderWrap -->
-            <span class="help-block">-----已被预订成功的教室标记为红色</span>
             <div>
                 <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
                         <th class="center">
                             <label class="pos-rel">
-                                房间号\时间段
+                                房间号
                             </label>
                         </th>
-                        <th> 8:00- 9:00</th>
-                        <th> 9:00-10:00</th>
-                        <th>10:00-11:00</th>
-                        <th>11:00-12:00</th>
-                        <th>12:00-13:00</th>
-                        <th>13:00-14:00</th>
-                        <th>14:00-15:00</th>
-                        <th>15:00-16:00</th>
-                        <th>16:00-17:00</th>
-                        <th>17:00-18:00</th>
-                        <th>18:00-19:00</th>
-                        <th>19:00-20:00</th>
-                        <th>20:00-21:00</th>
+                        <th class="hidden-480">负责人</th>
+                        <th class="hidden-480">学号</th>
+                        <th class="hidden-480">联系电话</th>
+
+                        <th>
+                            <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始时间
+
+                        </th>
+                        <th>结束时间</th>
+                        <th>活动团体</th>
+                        <th>活动主题</th>
+                        <th>举办学院</th>
+                        <th>指导教师</th>
+                        <th>状态</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <c:if test="${cid == 'all' or cid == null}">
-                        <c:forEach items="${statusLists}" var="statuslist" varStatus="loop">
+                    <c:forEach items="${orderList}" var="order">
+                        <form class="hidden-sm hidden-xs action-buttons"
+                              action="${pageContext.request.contextPath}/student/withdrawApplication.html"
+                              method="post">
                             <tr>
                                 <td class="center">
                                     <label class="pos-rel">
-                                            ${classroomList.get(loop.count-1).cid}
+                                            ${order.cid}
                                     </label>
                                 </td>
 
-                                <c:forEach items="${statuslist}" var="statusl">
-                                    <c:if test="${statusl == 1}">
-                                        <td class="btn-danger" title="此时间段已被预订"></td>
+                                <td class="hidden-480">${order.student.sname}</td>
+                                <td class="hidden-480">${order.snum}</td>
+                                <td class="hidden-480">${order.stelephone}</td>
+                                <td>${order.starttime.substring(0,order.starttime.length()-3)}</td>
+                                <td>${order.endtime.substring(0,order.starttime.length()-3)}</td>
+                                <td>${order.groupname}</td>
+                                <td>${order.theme}</td>
+                                <td>${order.faculty}</td>
+                                <td>${order.teacher}</td>
+                                <td>
+                                    <c:if test="${order.orderstatus == 0}">
+                                        <span class="label label-sm label-warning">申请中</span>
                                     </c:if>
-                                    <c:if test="${statusl == 0}">
-                                        <td>
-                                            <form action="${pageContext.request.contextPath}/student/application.html"
-                                                  method="post">
-                                                <input type="hidden" name="startdate" value="${startdate}"/>
-                                                <input type="hidden" name="cid"
-                                                       value="${classroomList.get(loop.count-1).cid}"/>
-                                                <input type="hidden" name="starttime"
-                                                       value="${classroomStatus.timeList.get(loop.count-1).toString()}"/>
-                                                <input type="hidden" name="endtime"
-                                                       value="${classroomStatus.timeList.get(loop.count).toString()}"/>
-                                                <input type="submit" value=""
-                                                       style="background: none; border: none; outline: none; width: 100%; height: 100%;"
-                                                       title="预订此时间段的${classroomList.get(loop.count-1).cid}教室"/>
-                                            </form>
-                                        </td>
+                                    <c:if test="${order.orderstatus == 1}">
+                                        <span class="label label-sm label-success">同意</span>
                                     </c:if>
-                                </c:forEach>
-
-                            </tr>
-                        </c:forEach>
-                    </c:if>
-
-                    <c:if test="${cid != 'all' and cid != null}">
-                        <c:forEach items="${classroomStatusList}" var="classroomStatus">
-                            <tr>
-                                <td class="center">
-                                    <label class="pos-rel">
-                                            ${classroomStatus.cid}
-                                    </label>
+                                    <c:if test="${order.orderstatus == 2}">
+                                        <span class="label label-sm label-inverse arrowed-in">拒绝</span>
+                                    </c:if>
+                                    <c:if test="${order.orderstatus == 3}">
+                                        <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                    </c:if>
+                                    <c:if test="${order.orderstatus == 4}">
+                                        <span class="label label-sm label-info">已使用</span>
+                                    </c:if>
                                 </td>
-                                <c:forEach items="${statusList}" var="status" varStatus="loop">
-                                    <c:if test="${status == 1}">
-                                        <td class="btn-danger" title="此时间段已被预订"></td>
+
+                                <td>
+
+
+                                    <input type="hidden" name="orderid" value="${order.orderid}"/>
+                                    <c:if test="${order.orderstatus == 0}">
+                                        <button type="submit" class="btn btn-minier btn-white btn-warning btn-bold">
+                                            <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
+                                            撤销申请
+                                        </button>
                                     </c:if>
-                                    <c:if test="${status == 0}">
-                                        <td>
-                                            <form action="${pageContext.request.contextPath}/student/application.html"
-                                                  method="post">
-                                                <input type="hidden" name="startdate" value="${startdate}"/>
-                                                <input type="hidden" name="cid" value="${classroomStatus.cid}"/>
-                                                <input type="submit" value=""
-                                                       style="background: none; border: none; outline: none; width: 100%; height: 100%;"
-                                                       title="预订${classroomStatus.timeList.get(loop.count-1).toString()}-${classroomStatus.timeList.get(loop.count).toString()}的${classroomStatus.cid}教室"/>
-                                            </form>
-                                        </td>
+
+                                    <c:if test="${order.orderstatus != 0}">
+                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold"
+                                                disabled>
+                                            <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
+                                            撤销申请
+                                        </button>
                                     </c:if>
-                                </c:forEach>
+                                </td>
                             </tr>
-                        </c:forEach>
-                    </c:if>
+                        </form>
+                    </c:forEach>
                     </tbody>
+
                 </table>
                 <div class="message-footer clearfix">
-                    <div class="pull-left"> ${classroomStatusList.size()} messages total</div>
+                    <div class="pull-left"> ${orderCount} messages total</div>
 
                     <div class="pull-right">
                         <div class="inline middle"> page 1 of 16</div>
@@ -811,21 +801,21 @@
                         &nbsp; &nbsp;
                         <ul class="pagination middle">
                             <li class="disabled">
-                                <span>
-                                    <i class="ace-icon fa fa-step-backward middle"></i>
-                                </span>
+																		<span>
+																			<i class="ace-icon fa fa-step-backward middle"></i>
+																		</span>
                             </li>
 
                             <li class="disabled">
-                                <span>
-                                    <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-                                </span>
+																		<span>
+																			<i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+																		</span>
                             </li>
 
                             <li>
-                                <span>
-                                    <input value="1" maxlength="3" type="text"/>
-                                </span>
+																		<span>
+																			<input value="1" maxlength="3" type="text"/>
+																		</span>
                             </li>
 
                             <li>
