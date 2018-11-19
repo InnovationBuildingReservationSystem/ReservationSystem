@@ -205,6 +205,30 @@ INSERT INTO `faculty` VALUES (1,'研究生学院'),(2,'环境与化学工程学�
 UNLOCK TABLES;
 
 --
+-- Table structure for table `teacher`
+--
+
+DROP TABLE IF EXISTS `teacher`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teacher` (
+  `tnum` varchar(50) NOT NULL,
+  `tname` varchar(50) NOT NULL,
+  `ttelphone` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`tnum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teacher`
+--
+
+LOCK TABLES `teacher` WRITE;
+/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping events for database 'reservationsystem'
 --
 
