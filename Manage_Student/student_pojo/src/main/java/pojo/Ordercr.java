@@ -15,31 +15,19 @@ public class Ordercr implements Serializable {
 
     private String snum;
 
-    private String stelephone;
-
     private String faculty;
 
     private String groupname;
 
     private String teacher;
 
-    private String ttelephone;
+    private String stelephone;
 
     private Integer attendcount;
 
     private Integer orderstatus;
 
     private String createtime;
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    private Student student;
 
     public Integer getOrderid() {
         return orderid;
@@ -143,13 +131,5 @@ public class Ordercr implements Serializable {
 
     public void setCreatetime(String createtime) {
         this.createtime = createtime == null ? null : createtime.trim();
-    }
-
-    public String getTtelephone() {
-        return ttelephone;
-    }
-
-    public void setTtelephone(String ttelephone) {
-        this.ttelephone = ttelephone;
     }
 }

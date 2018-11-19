@@ -1,111 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.OrderItemMapper">
+<mapper namespace="mapper.OrderItemMapper" >
     <sql id="orderInfo">
-        orderid, cid, starttime, endtime, theme, snum, stelephone, faculty, groupname, teacher, ttelephone, attendcount, orderstatus, createtime
+        orderid, cid, starttime, endtime, snum, faculty, groupname, teacher, stelephone, attendcount, orderstatus, createtime
     </sql>
-
-    <resultMap id="OrderListWithSname" type="pojo.Ordercr">
-        <id column="orderid" property="orderid" jdbcType="INTEGER"/>
-        <result column="cid" property="cid" jdbcType="VARCHAR"/>
-        <result column="starttime" property="starttime" jdbcType="VARCHAR"/>
-        <result column="endtime" property="endtime" jdbcType="VARCHAR"/>
-        <result column="theme" property="theme" jdbcType="VARCHAR"/>
-        <result column="snum" property="snum" jdbcType="VARCHAR"/>
-        <result column="stelephone" property="stelephone" jdbcType="VARCHAR"/>
-        <result column="faculty" property="faculty" jdbcType="VARCHAR"/>
-        <result column="groupname" property="groupname" jdbcType="VARCHAR"/>
-        <result column="teacher" property="teacher" jdbcType="VARCHAR"/>
-        <result column="ttelephone" property="ttelephone" jdbcType="VARCHAR"/>
-        <result column="attendcount" property="attendcount" jdbcType="INTEGER"/>
-        <result column="orderstatus" property="orderstatus" jdbcType="INTEGER"/>
-        <result column="createtime" property="createtime" jdbcType="VARCHAR"/>
-
-        <association property="student" javaType="pojo.Student">
-            <id column="snum" property="snum" jdbcType="VARCHAR"/>
-            <result column="sname" property="sname" jdbcType="VARCHAR"/>
-        </association>
-    </resultMap>
-
-    <select id="getOrderList" resultType="pojo.Ordercr">
-      select *
-      from ordercr
-    </select>
-
-    <select id="selectOrderByCid" resultType="pojo.Ordercr" parameterType="string">
-      select *
-      from ordercr
-      where cid = #{cid}
-    </select>
-
     <!--查询全部订单-->
-    <select id="getOrderItemList" resultMap="OrderListWithSname">
-        select
-        oc.orderid,
-        oc.cid,
-        oc.starttime,
-        oc.endtime,
-        oc.theme,
-        oc.snum,
-        oc.stelephone,
-        oc.faculty,
-        oc.groupname,
-        oc.teacher,
-        oc.ttelephone,
-        oc.attendcount,
-        oc.orderstatus,
-        oc.createtime,
-        s.sname
-        from ordercr oc inner join student s on oc.snum = s.snum
-        where oc.snum = #{snum}
-        order by starttime desc
-    </select>
-
-    <select id="selectByExample" resultMap="OrderListWithSname">
-        SELECT
-        oc.orderid,
-        oc.cid,
-        oc.starttime,
-        oc.endtime,
-        oc.theme,
-        oc.snum,
-        oc.stelephone,
-        oc.faculty,
-        oc.groupname,
-        oc.teacher,
-        oc.ttelephone,
-        oc.attendcount,
-        oc.orderstatus,
-        oc.createtime,
-        s.sname
-        from ordercr oc inner join student s on oc.snum = s.snum
-        where oc.snum = #{snum}
-        <if test='cid != "all"'>
-            and oc.cid = #{cid}
-        </if>
-        <if test="startdate != null">
-            and oc.starttime like concat('%',#{startdate},'%')
-        </if>
-        order by starttime desc
-    </select>
-
-    <!--查询用户当天是否预订过教室-->
-    <select id="hasOrderedToday" parameterType="string" resultType="INTEGER">
-        select count(*)
+    <select id="getOrderItemList" resultType="pojo.Ordercr">
+        SELECT *
         from ordercr
-        <where>
-            snum = #{snum}
-            and createtime like concat('%',#{createtime},'%')
-        </where>
-    </select>
-
-    <!--统计用户订单总数-->
-    <select id="messageCounter" parameterType="string" resultType="INTEGER">
-        select count(*)
-        from ordercr
-        <where>
-            snum = #{snum}
-        </where>
     </select>
 
     <!--查询学院列表-->
@@ -118,14 +20,6 @@
     <select id="getClassroomItemList" resultType="pojo.Classroom">
         SELECT *
         from classroom
-        <where>
-            <if test='cid != "all"'>
-                and cid = #{cid}
-            </if>
-            <if test="startdate != null">
-                and starttime like concat('%',#{startdate},'%')
-            </if>
-        </where>
     </select>
 
     <!--增加订单-->
@@ -134,14 +28,13 @@
             select LAST_INSERT_ID()
         </selectKey>
         insert into ordercr (<include refid="orderInfo"/>)
-        values
-        (#{orderid},#{cid},#{starttime},#{endtime},#{theme},#{snum},#{stelephone},#{faculty},#{groupname},#{teacher},#{ttelephone},#{attendcount},0,#{createtime})
+        values (#{orderid},#{cid},#{starttime},#{endtime},#{theme},#{snum},#{faculty},#{groupname},#{teacher},#{stelephone},#{attendcount},0,#{createtime})
     </insert>
 
     <!--修改订单-->
     <update id="updateOrderById" parameterType="pojo.Ordercr">
 		update ordercr
-		set cid = #{cid},starttime = #{starttime},endtime = #{endtime},snum = #{snum},stelephone = #{stelephone},faculty = #{faculty},groupname = #{groupname},teacher = #{teacher},ttelephone = #{ttelephone},orderstatus = 0
+		set cid = #{cid},starttime = #{starttime},endtime = #{endtime},snum = #{snum},faculty = #{faculty},groupname = #{groupname},groupname = #{groupname},teacher = #{teacher},stelephone = #{stelephone},orderstatus = 0
 		where orderid = #{orderid}
 	</update>
 
@@ -150,12 +43,4 @@
 		delete from ordercr
 		where orderid = #{orderid}
 	</delete>
-
-    <!--修改订单状态-->
-    <update id="updateOrderStatus" parameterType="pojo.Ordercr">
-		update ordercr
-		set orderstatus = #{orderstatus}
-		where orderid = #{orderid} and orderstatus = 0
-	</update>
-
 </mapper>

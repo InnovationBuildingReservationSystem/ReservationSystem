@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>教室申请 - 创新楼教室预约系统</title>
+    <title>Form Elements - Ace Admin</title>
 
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -73,12 +73,311 @@
             <a href="index.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    创新楼教室预约系统
+                    Ace Admin
                 </small>
             </a>
         </div>
 
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="grey dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="ace-icon fa fa-tasks"></i>
+                        <span class="badge badge-grey">4</span>
+                    </a>
 
+                    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                        <li class="dropdown-header">
+                            <i class="ace-icon fa fa-check"></i>
+                            4 Tasks to complete
+                        </li>
+
+                        <li class="dropdown-content">
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Software Update</span>
+                                            <span class="pull-right">65%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini">
+                                            <div style="width:65%" class="progress-bar"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Hardware Upgrade</span>
+                                            <span class="pull-right">35%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini">
+                                            <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Unit Testing</span>
+                                            <span class="pull-right">15%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini">
+                                            <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Bug Fixes</span>
+                                            <span class="pull-right">90%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini progress-striped active">
+                                            <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-footer">
+                            <a href="#">
+                                See tasks with details
+                                <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="purple dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                        <span class="badge badge-important">8</span>
+                    </a>
+
+                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                        <li class="dropdown-header">
+                            <i class="ace-icon fa fa-exclamation-triangle"></i>
+                            8 Notifications
+                        </li>
+
+                        <li class="dropdown-content">
+                            <ul class="dropdown-menu dropdown-navbar navbar-pink">
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+														New Comments
+													</span>
+                                            <span class="pull-right badge badge-info">+12</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="btn btn-xs btn-primary fa fa-user"></i>
+                                        Bob just signed up as an editor ...
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+														New Orders
+													</span>
+                                            <span class="pull-right badge badge-success">+8</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+														Followers
+													</span>
+                                            <span class="pull-right badge badge-info">+11</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-footer">
+                            <a href="#">
+                                See all notifications
+                                <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="green dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+                        <span class="badge badge-success">5</span>
+                    </a>
+
+                    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                        <li class="dropdown-header">
+                            <i class="ace-icon fa fa-envelope-o"></i>
+                            5 Messages
+                        </li>
+
+                        <li class="dropdown-content">
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar.png" class="msg-photo"
+                                             alt="Alex's Avatar"/>
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Alex:</span>
+														Ciao sociis natoque penatibus et auctor ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>a moment ago</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="ssets/images/avatars/avatar3.png" class="msg-photo"
+                                             alt="Susan's Avatar"/>
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Susan:</span>
+														Vestibulum id ligula porta felis euismod ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>20 minutes ago</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar4.png" class="msg-photo"
+                                             alt="Bob's Avatar"/>
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Bob:</span>
+														Nullam quis risus eget urna mollis ornare ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>3:15 pm</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar2.png" class="msg-photo"
+                                             alt="Kate's Avatar"/>
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Kate:</span>
+														Ciao sociis natoque eget urna mollis ornare ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>1:33 pm</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar5.png" class="msg-photo"
+                                             alt="Fred's Avatar"/>
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Fred:</span>
+														Vestibulum id penatibus et auctor  ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>10:09 am</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-footer">
+                            <a href="inbox.html">
+                                See all messages
+                                <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="profile.html">
+                                <i class="ace-icon fa fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div><!-- /.navbar-container -->
 </div>
 
@@ -339,7 +638,7 @@
             <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text"> 教室查询 </span>
+                    <span class="menu-text"> Tables </span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
@@ -348,9 +647,9 @@
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/student/ClassroomInfo.html">
+                        <a href="tables.html">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            教室使用情况
+                            Simple &amp; Dynamic
                         </a>
 
                         <b class="arrow"></b>
@@ -370,7 +669,7 @@
             <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-pencil-square-o"></i>
-                    <span class="menu-text"> 教室预订 </span>
+                    <span class="menu-text"> Forms </span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
@@ -379,18 +678,18 @@
 
                 <ul class="submenu">
                     <li class="active">
-                        <a href="${pageContext.request.contextPath}/student/application.html">
+                        <a href="form-elements.html">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            教室申请
+                            Form Elements
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/student/personalOrder.html">
+                        <a href="form-elements-2.html">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            个人申请情况
+                            Form Elements 2
                         </a>
 
                         <b class="arrow"></b>
@@ -620,13 +919,13 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="#">首页</a>
+                        <a href="#">Home</a>
                     </li>
 
                     <li>
-                        <a href="#">教室预订</a>
+                        <a href="#">Forms</a>
                     </li>
-                    <li class="active">教室申请</li>
+                    <li class="active">Form Elements</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -729,33 +1028,20 @@
                         </button>
                         <strong>提示!</strong>
 
-                        <c:if test="${errorFlag != 1}">
-                            &nbsp;&nbsp;一次最多可借连续的两小时
-                        </c:if>
-                        <c:if test="${errorFlag == 1}">
-                            &nbsp;&nbsp;<font style="color: red;">${errorMessage}</font>
-                        </c:if>
-
+                        &nbsp;&nbsp;一次最多可借连续的两小时
                     </div>
-
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form action="${pageContext.request.contextPath}/student/applicationClassroom.html"
-                              class="form-horizontal" id="stuApplication" role="form" method="post">
+                        <form action="${pageContext.request.contextPath}/student/applicationClassroom.html" class="form-horizontal" role="form" method="post">
                             <div class="row">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5"
                                            style="margin-left: -76px;">教室号</label>
                                     &nbsp;
-                                    <select style="margin-left: 5px;" name="cid" required>
-                                        <option value="">请选择</option>
+                                    <select style="margin-left: 5px;" name="cid">
+                                        <option value="-1">请选择</option>
                                         <c:forEach items="${classroomList}" var="classroom">
-                                            <c:if test="${cid == classroom.cid}">
-                                                <option value="${classroom.cid}" selected="selected">${classroom.cid}&nbsp;(${classroom.cnum}人)</option>
-                                            </c:if>
-                                            <c:if test="${cid != classroom.cid}">
-                                                <option value="${classroom.cid}">${classroom.cid}&nbsp;(${classroom.cnum}人)</option>
-                                            </c:if>
+                                            <option value="${classroom.cid}">${classroom.cid}&nbsp;(${classroom.cnum}人)</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -765,12 +1051,8 @@
                                            style="margin-left: -76px;">日期</label>
                                     <div class="col-sm-3">
                                         <div class="input-group">
-                                            <input class="form-control date-picker" name="startdate" id="datepicker"
-                                                   type="text"
-                                                   value="${startdate}" required="required"
-                                                   placeholder="(*必填)"
-                                                   readonly="readonly"
-                                                   onfocus="WdatePicker({maxDate:'%y-%M-{%d+6}',minDate:'%y-%M-%d'})"/>
+                                            <input class="form-control date-picker" name="startdate" id="datepicker" type="text"
+                                                   data-date-format="yyyy-mm-dd" required readonly="readonly"/>
                                             <span class="input-group-addon">
 														<i class="fa fa-calendar bigger-110"></i>
 													</span>
@@ -782,7 +1064,8 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-5"
                                            style="margin-left: -76px;">开始时间</label>
                                     &nbsp;
-                                    <select id="startTime" name="starttime" style="margin-left: 5px;" required>
+                                    <select id="startTime" name="starttime" style="margin-left: 5px;">
+                                        <option value="-1">请选择</option>
                                         <option value="08:00">08:00</option>
                                         <option value="09:00">09:00</option>
                                         <option value="10:00">10:00</option>
@@ -804,6 +1087,7 @@
                                            for="form-field-5" style="margin-left: -76px;">结束时间</label>
                                     &nbsp;
                                     <select id="endTime" name="endtime" style="margin-left: 5px;">
+                                        <option value="-1">请选择</option>
                                     </select>
                                 </div>
 
@@ -815,8 +1099,8 @@
 
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <input class="col-xs-1" type="text" id="form-field-5" placeholder="(*必填)"
-                                                   name="attendcount" value="${ordercr.attendcount}" required/>
+                                            <input class="col-xs-1" type="text" id="form-field-5" placeholder=""
+                                                   name="attendcount" value="${attendcount}" required/>
                                         </div>
                                         <div class="space-2"></div>
                                     </div>
@@ -828,9 +1112,7 @@
 
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <input class="col-xs-1" type="text" name="sname" id="form-field-5"
-                                                   placeholder=""
-                                                   value="${student.sname}" required readonly/>
+                                            <input class="col-xs-1" type="text" id="form-field-5" placeholder="" value="${student.sname}" required readonly/>
                                         </div>
 
                                         <div class="space-2"></div>
@@ -845,8 +1127,7 @@
 
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <input class="col-xs-1" type="text" name="snum" id="form-field-5"
-                                                   placeholder="" value="${student.snum}" required readonly/>
+                                            <input class="col-xs-1" type="text" name="snum" id="form-field-5" placeholder="" value="${student.snum}" required readonly/>
                                         </div>
 
                                         <div class="space-2"></div>
@@ -856,27 +1137,11 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-tags"
-                                           style="margin-left: -76px;">联系电话</label>
-
-                                    <div class="col-sm-9">
-                                        <div class="inline">
-                                            <input type="text" name="stelephone" id="form-field-tags"
-                                                   value="${student.stelphone}" placeholder="填自己在用的电话"
-                                                   title="填自己在用的电话，以便于老师临时通知"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags"
                                            style="margin-left: -76px;">活动主题</label>
 
                                     <div class="col-sm-9">
                                         <div class="inline">
-                                            <input type="text" id="form-field-tags" placeholder="不超过25字(*必填)"
-                                                   style="width: 360px;"
-                                                   name="theme"
-                                                   value="${ordercr.theme}" required maxlength="25"/>
+                                            <input type="text" id="form-field-tags" placeholder="" name="theme" value="${theme}"/>
                                         </div>
                                     </div>
                                 </div>
@@ -885,8 +1150,8 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-tags"
                                            style="margin-left: -71px;">活动组织学院</label>
                                     &nbsp;
-                                    <select style="width: 134px;" name="faculty" required>
-                                        <option value="">请选择</option>
+                                    <select style="width: 134px;" name="faculty">
+                                        <option value="-1">请选择</option>
                                         <c:forEach items="${facultyList}" var="faculty">
                                             <option value="${faculty}">${faculty}</option>
                                         </c:forEach>
@@ -899,9 +1164,8 @@
 
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <input class="col-xs-1" type="text" id="form-field-5" placeholder="(*必填)"
-                                                   name="groupname" required value="${ordercr.groupname}"
-                                                   style="width: 171.6px;"/>
+                                            <input class="col-xs-1" type="text" id="form-field-5" placeholder=""
+                                                   name="groupname"/>
                                         </div>
 
                                         <div class="space-2"></div>
@@ -916,9 +1180,8 @@
                                            style="margin-left: -76px;">指导老师</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="form-field-5" placeholder="教师姓名(*必填)"
-                                               style="width: 127px;"
-                                               name="teacher" value="${ordercr.teacher}" required/>
+                                        <input class="col-xs-1" type="text" id="form-field-5" placeholder=""
+                                               name="teacher"/>
                                     </div>
                                 </div>
 
@@ -926,13 +1189,12 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-tags"
-                                           style="margin-left: -76px;">指导老师联系电话</label>
+                                           style="margin-left: -76px;">联系电话</label>
 
                                     <div class="col-sm-9">
                                         <div class="inline">
-                                            <input type="text" name="ttelephone" id="form-field-tags"
-                                                   value="${ttelphone}" placeholder="填指导老师电话"
-                                                   title="填指导老师的电话，以便于临时通知老师"/>
+                                            <input type="text" name="stelephone" id="form-field-tags" value="${student.stelphone}" placeholder="填自己在用的电话"
+                                                   title="填自己在用的电话，以便于老师临时通知"/>
                                         </div>
                                     </div>
                                 </div>
@@ -1077,52 +1339,36 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.inputlimiter.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.maskedinput.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/bootstrap-tag.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.validate.min.js"></script>
 
 <!-- ace scripts -->
 <script src="${pageContext.request.contextPath}/assets/js/ace-elements.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/calendar/WdatePicker.js"></script>
-
 <!-- inline scripts related to this page -->
 
 <script type="text/javascript">
-
-    $('#startTime').bind('click', function () {
+    $('#startTime').bind('change', function () {
         $("#endTime").html("");
-
         var option1 = $("#startTime option:selected");//获取当前选中项
         var startTime = option1.text();
         var hours = parseInt(startTime.substring(0, 2));
         var end1 = hours + 1;
         var end2 = hours + 2;
-        var now = new Date();
         var html;
-        var startdate = document.getElementById("datepicker").value;
-        if (startdate != "") {
-
-            var chosenStarttime = new Date(startdate + " " + startTime + ":00");
+        if (end1.toString().length == 1) {
+            end1 = "0" + end1 + ":00";
+        } else
+            end1 = end1 + ":00";
+        if (end2.toString().length == 1) {
+            end2 = "0" + end2 + ":00";
+        } else
+            end2 = end2 + ":00";
+        if (startTime == "20:00") {
+            html = "<option value='" + end1 + "'>" + end1 + "</option>";
         }
-
-        if (chosenStarttime <= now || startTime == "请选择") {
-            html = "";
-        } else {
-            if (end1.toString().length == 1) {
-                end1 = "0" + end1 + ":00";
-            } else
-                end1 = end1 + ":00";
-            if (end2.toString().length == 1) {
-                end2 = "0" + end2 + ":00";
-            } else
-                end2 = end2 + ":00";
-            if (startTime == "20:00") {
-                html = "<option value='" + end1 + "'>" + end1 + "</option>";
-            }
-            else {
-                html = "<option value='" + end1 + "'>" + end1 + "</option>";
-                html += "<option value='" + end2 + "'>" + end2 + "</option>";
-            }
+        else {
+            html = "<option value='" + end1 + "'>" + end1 + "</option>";
+            html += "<option value='" + end2 + "'>" + end2 + "</option>";
         }
 
         $("#endTime").append(html);
@@ -1452,7 +1698,7 @@
 
         //datepicker plugin
         //link
-        /*$('.date-picker').datepicker({
+        $('.date-picker').datepicker({
             autoclose: true,
             todayHighlight: true
         })
@@ -1476,7 +1722,7 @@
         })
             .prev().on(ace.click_event, function () {
             $(this).next().focus();
-        });*/
+        });
 
 
         $('#timepicker1').timepicker({
@@ -1526,33 +1772,33 @@
         $(".knob").knob();
 
 
-        /* var tag_input = $('#form-field-tags');
-         try {
-             tag_input.tag(
-                 {
-                     placeholder: tag_input.attr('placeholder'),
-                     //enable typeahead by specifying the source array
-                     source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
-                     /!**
-                      //or fetch data from database, fetch those that match "query"
-                      source: function(query, process) {
-                           $.ajax({url: 'remote_source.php?q='+encodeURIComponent(query)})
-                           .done(function(result_items){
-                             process(result_items);
-                           });
-                         }
-                      *!/
-                 }
-             )
+       /* var tag_input = $('#form-field-tags');
+        try {
+            tag_input.tag(
+                {
+                    placeholder: tag_input.attr('placeholder'),
+                    //enable typeahead by specifying the source array
+                    source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
+                    /!**
+                     //or fetch data from database, fetch those that match "query"
+                     source: function(query, process) {
+						  $.ajax({url: 'remote_source.php?q='+encodeURIComponent(query)})
+						  .done(function(result_items){
+							process(result_items);
+						  });
+						}
+                     *!/
+                }
+            )
 
-             var index = $tag_obj.inValues('some tag');
-             $tag_obj.remove(index);
-         }
-         catch (e) {
-             //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
-             tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' + tag_input.val() + '</textarea>').remove();
-             //autosize($('#form-field-tags'));
-         }*/
+            var index = $tag_obj.inValues('some tag');
+            $tag_obj.remove(index);
+        }
+        catch (e) {
+            //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+            tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' + tag_input.val() + '</textarea>').remove();
+            //autosize($('#form-field-tags'));
+        }*/
 
 
         /////////
@@ -1584,6 +1830,8 @@
 					$(this).find('.modal-chosen').chosen();
 				})
          */
+
+
 
 
     });

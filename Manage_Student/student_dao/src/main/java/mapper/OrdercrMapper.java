@@ -27,6 +27,4 @@ public interface OrdercrMapper {
     int updateByPrimaryKeySelective(Ordercr record);
 
     int updateByPrimaryKey(Ordercr record);
-
-    List selectByExample1(OrdercrExample example);
 }

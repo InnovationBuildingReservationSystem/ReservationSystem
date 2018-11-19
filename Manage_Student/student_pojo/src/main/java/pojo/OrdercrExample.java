@@ -5,12 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdercrExample implements Serializable {
-//    private Student student;
-//    private String startdate;
-//    private String cid;
-//    private String snum;
-//    private String sname;
-//    private String starttime;
     protected String orderByClause;
 
     protected boolean distinct;
