@@ -588,7 +588,7 @@
                 </li>
 
                 <li class="active open">
-                    <a href="tables.html" class="dropdown-toggle">
+                    <a href="tables.reservationClassroom.jsp" class="dropdown-toggle">
                         <i class="menu-icon fa fa-list"></i>
                         <span class="menu-text"> 学生列表 </span>
 

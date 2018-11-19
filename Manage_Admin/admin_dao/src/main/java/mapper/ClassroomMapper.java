@@ -33,4 +33,5 @@ public interface ClassroomMapper {
     List<Classroom> selectAll();
     List<Classroom> selectPageBean(PageBean pageBean);
     Integer getTotalCount();
+    List<Classroom> getClassroomIdList(PageBean pageBean);
 }

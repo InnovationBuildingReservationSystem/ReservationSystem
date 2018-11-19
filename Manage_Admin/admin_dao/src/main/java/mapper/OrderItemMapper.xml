@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.OrderItemMapper" >
+
+    <select id="getOrderItemByCidAndStartDate" parameterType="String" resultType="pojo.OrderItem">
+        SELECT
+        cid,
+        starttime,
+        endtime
+        FROM
+        ordercr
+        WHERE
+        starttime LIKE  #{1}"%"
+        AND
+        cid = #{0}
+    </select>
+    <select id="getOrderItemTimeList" resultType="pojo.OrderItem">
+        SELECT
+        cid,
+        starttime,
+        endtime,
+        FROM
+        ordercr
+    </select>
  <select id="getOrderList" resultType="pojo.Ordercr">
    select * from ordercr;
  </select>
   <select id="getOrderItemList" resultType="pojo.OrderItem">
-
       SELECT
       ordercr.orderid,
       ordercr.cid,

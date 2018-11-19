@@ -1,8 +1,9 @@
 package pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PageBean
+public class PageBean implements Serializable
 {
     private  Integer pageSize;
     private  Integer currentPage;

@@ -9,5 +9,7 @@ public interface OrderItemMapper
 {
     List<Ordercr> getOrderList();
     List<OrderItem> getOrderItemList();
-    void  updateOrderStatus(Integer orderId,Integer orderStatus);
+    void  updateOrderStatus(Integer orderId, Integer orderStatus);
+    List<OrderItem> getOrderItemTimeList();
+    List<OrderItem> getOrderItemByCidAndStartDate(String cid,String startDate);
 }

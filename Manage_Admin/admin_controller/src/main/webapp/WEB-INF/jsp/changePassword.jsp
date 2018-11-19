@@ -121,7 +121,7 @@
                         </li>
 
                         <li class="">
-                            <a href="${pageContext.request.contextPath}/classroomInformation.html">
+                            <a href="${pageContext.request.contextPath}/admin/classroomInformation.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 教室信息管理
                             </a>
 
@@ -145,7 +145,7 @@
 
 
                         <li class="">
-                            <a href="${pageContext.request.contextPath}/orderTable.html">
+                            <a href="${pageContext.request.contextPath}/admin/orderTable.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 学生预约信息查询
                             </a>
 
@@ -153,7 +153,7 @@
                         </li>
 
                         <li class="">
-                            <a href="elements.html">
+                            <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 教室预约信息查询
                             </a>
 
@@ -164,7 +164,7 @@
 
 
                 <li class="">
-                    <a href="${pageContext.request.contextPath}/changePassword.html">
+                    <a href="${pageContext.request.contextPath}/admin/changePassword.html">
                         <i class="menu-icon fa fa-caret-right"></i> 修改密码
                     </a>
 
@@ -279,7 +279,6 @@
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
     </a>
-    </div>
     <!-- /.main-container -->
 
     <!-- basic scripts -->
