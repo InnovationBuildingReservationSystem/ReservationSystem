@@ -75,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
 
      * @Author: Zhancheng Liang
 
-     * @param :  学号snum
+     * @param :  学号snum，当前页数page
 
      * @return :    ordercrList订单列表
 
@@ -84,6 +84,12 @@ public class OrderServiceImpl implements OrderService {
      *
 
      */
+    @Override
+    public List<Ordercr> getOrderList(String snum, Integer page) {
+        List<Ordercr> ordercrList = orderItemMapper.getOrderItemListByPage(snum, 5 * (page - 1), 5);
+        return ordercrList;
+    }
+
     @Override
     public List<Ordercr> getOrderList(String snum) {
         List<Ordercr> ordercrList = orderItemMapper.getOrderItemList(snum);
@@ -106,7 +112,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean withdrawApplication(Integer orderid) {
         Ordercr ordercr = ordercrMapper.selectByPrimaryKey(orderid);
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date createtime = df.parse(ordercr.getCreatetime());
             Date nowtime = df.parse(df.format(new Date()));
@@ -152,7 +158,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void updateApplication(List<Ordercr> ordercrs) {
         for (Ordercr ordercr : ordercrs) {
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
                 Date createtime = df.parse(ordercr.getCreatetime());
                 Date nowtime = df.parse(df.format(new Date()));
@@ -169,6 +175,9 @@ public class OrderServiceImpl implements OrderService {
 
                 if ((nowtime.compareTo(allowtime) >= 0 || (nowtime.compareTo(starttime)) >= 0) && ordercr.getOrderstatus() == 0) {
                     ordercr.setOrderstatus(1);
+                    orderItemMapper.updateOrderStatus(ordercr);
+                } else if (ordercr.getOrderstatus() == 1 && nowtime.compareTo(starttime) >= 0) {
+                    ordercr.setOrderstatus(4);
                     orderItemMapper.updateOrderStatus(ordercr);
                 }
             } catch (Exception e) {
@@ -191,13 +200,13 @@ public class OrderServiceImpl implements OrderService {
 
      */
     @Override
-    public List getOrderList(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate) {
+    public List getOrderList(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate, @Param("page") Integer page) {
         List list = new ArrayList<>();
 
         if (cid.equals("all") && startdate.equals("")) {
-            list = orderItemMapper.getOrderItemList(snum);
+            list = orderItemMapper.getOrderItemListByPage(snum, 5 * (page - 1), 5);
         } else {
-            list = orderItemMapper.selectByExample(snum, cid, startdate);
+            list = orderItemMapper.selectByExample(snum, cid, startdate, 5 * (page - 1), 5);
         }
 
         return list;
@@ -260,7 +269,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public boolean isBeforeTime(Date date, String starttime, String endtime) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date start = df.parse(starttime);
             Date end = df.parse(endtime);
@@ -307,6 +316,26 @@ public class OrderServiceImpl implements OrderService {
 
      * @Author: Zhancheng Liang
 
+     * @param :  预订成功的订单号，学号
+
+     * @return :
+
+     * @Description:取消该用户预定成功的其他订单
+
+     *
+
+     */
+    @Override
+    public void otherOrderCancel(String snum) {
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        orderItemMapper.cancelOtherOrder(df.format(date), snum);
+    }
+
+    /*
+
+     * @Author: Zhancheng Liang
+
      * @param : 学号
 
      * @return :    Integer
@@ -317,8 +346,8 @@ public class OrderServiceImpl implements OrderService {
 
      */
     @Override
-    public Integer orderCount(String snum) {
-        return orderItemMapper.messageCounter(snum);
+    public Integer orderCount(String snum, String cid, String startdate) {
+        return orderItemMapper.messageCounter(snum, cid, startdate);
     }
 
 

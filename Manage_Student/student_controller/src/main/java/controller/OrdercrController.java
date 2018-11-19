@@ -1,5 +1,6 @@
 package controller;
 
+import org.apache.ibatis.annotations.Param;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,15 +50,23 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/personalOrder")
-    public String getOrderTableBySnum(@RequestParam(defaultValue = "16427024") String snum, Model model) throws ParseException {
-        List<Ordercr> orderList = orderService.getOrderList(snum);
+    public String getOrderTableBySnum(@RequestParam(defaultValue = "16427024") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
+        List<Ordercr> orderList = orderService.getOrderList(snum, page);
         List<Classroom> classroomList = classroomService.getClassroomList();
-        Integer orderCount = orderService.orderCount(snum);
+        Integer orderCount = orderService.orderCount(snum, "all", "");
 
         model.addAttribute("orderCount", orderCount);
         model.addAttribute("orderList", orderList);
         model.addAttribute("snum", snum);
         model.addAttribute("classroomList", classroomList);
+        model.addAttribute("prePage", page - 1);
+        model.addAttribute("thisPage", page);
+        model.addAttribute("nextPage", page + 1);
+        model.addAttribute("finalPage", orderCount / 5);
+
+        if (orderService.hasOrderedToday(snum)) {
+            orderService.otherOrderCancel(snum);
+        }
 
         orderService.updateApplication(orderList);
 
@@ -79,17 +88,33 @@ public class OrdercrController {
      */
     @RequestMapping("/student/application")
     public String getFaculty(Model model, @RequestParam(value = "snum", required = false, defaultValue = "16427024") String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
-        List<String> facultyList = orderService.getFacultyList();
-        List<Classroom> classroomList = classroomService.getClassroomList();
-        Student student = studentService.getStudentInfo(snum);
 
-        model.addAttribute("cid", cid);
-        model.addAttribute("startdate", startdate);
-        model.addAttribute("facultyList", facultyList);
-        model.addAttribute("student", student);
-        model.addAttribute("classroomList", classroomList);
-        model.addAttribute("starttime", starttime);
-        model.addAttribute("endtime", endtime);
+        if (orderService.hasOrderedToday(snum)) {
+            orderService.otherOrderCancel(snum);
+            List<Ordercr> orderList = orderService.getOrderList(snum);
+            List<Classroom> classroomList = classroomService.getClassroomList();
+            Integer orderCount = orderService.orderCount(snum, "all", "");
+
+            model.addAttribute("orderCount", orderCount);
+            model.addAttribute("orderList", orderList);
+            model.addAttribute("snum", snum);
+            model.addAttribute("classroomList", classroomList);
+
+            orderService.updateApplication(orderList);
+            model.addAttribute("message", "<script>alert('今天已成功预订过一次教室，当日不能再次申请');</script>");
+            return "personalOrder";
+        } else {
+            List<String> facultyList = orderService.getFacultyList();
+            List<Classroom> classroomList = classroomService.getClassroomList();
+            Student student = studentService.getStudentInfo(snum);
+            model.addAttribute("cid", cid);
+            model.addAttribute("startdate", startdate);
+            model.addAttribute("facultyList", facultyList);
+            model.addAttribute("student", student);
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("starttime", starttime);
+            model.addAttribute("endtime", endtime);
+        }
         return "application";
     }
 
@@ -221,7 +246,7 @@ public class OrdercrController {
             return "application";
 
         } else if (orderService.hasOrderedToday(snum)) {
-            errorMessage = "您今天已经预订过一次教室，已不能申请，请明天再重试！";
+            errorMessage = "您今天已经成功预订过一次教室，已不能申请，请明天再重试！";
 
             model.addAttribute("errorMessage", errorMessage);
             model.addAttribute("ordercr", ordercr);
@@ -247,7 +272,7 @@ public class OrdercrController {
             ordercr.setOrderstatus(0); // 订单状态默认是0-申请中
             ordercr.setCreatetime(df.format(date));
             orderService.addOrder(ordercr);
-            Integer orderCount = orderService.orderCount(snum);
+            Integer orderCount = orderService.orderCount(snum, "all", "");
 
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("errorFlag", 0);
@@ -279,26 +304,31 @@ public class OrdercrController {
         } else {
 
         }
-        Integer orderCount = orderService.orderCount(snum);
+        Integer orderCount = orderService.orderCount(snum, "all", "");
 
         model.addAttribute("orderCount", orderCount);
         return "redirect: personalOrder.html";
     }
 
     @RequestMapping("/student/queryOrder")
-    public String queryPersonalOrder(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate) {
-        List<Ordercr> list = orderService.getOrderList(snum, cid, startdate);
-        model.addAttribute("cid", cid);
-        model.addAttribute("startdate", startdate);
-        model.addAttribute("orderList", list);
+    public String queryPersonalOrder(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate, @RequestParam(defaultValue = "1") Integer page) {
+        List<Ordercr> list = orderService.getOrderList(snum, cid, startdate, page);
 
         List<Classroom> classroomList = classroomService.getClassroomList();
         Student student = studentService.getStudentInfo(snum);
-        Integer orderCount = orderService.orderCount(snum);
+        Integer orderCount = orderService.orderCount(snum, cid, startdate);
+
+        model.addAttribute("prePage", page - 1);
+        model.addAttribute("thisPage", page);
+        model.addAttribute("nextPage", page + 1);
+        model.addAttribute("finalPage", orderCount / 5);
 
         model.addAttribute("orderCount", orderCount);
         model.addAttribute("snum", snum);
         model.addAttribute("classroomList", classroomList);
+        model.addAttribute("cid", cid);
+        model.addAttribute("startdate", startdate);
+        model.addAttribute("orderList", list);
         return "personalOrder";
     }
 

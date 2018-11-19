@@ -57,6 +57,7 @@
 </head>
 
 <body class="no-skin">
+${message}
 <div id="navbar" class="navbar navbar-default          ace-save-state">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -388,7 +389,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="${pageContext.request.contextPath}/student/personalOrder.html">
+                        <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1">
                             <i class="menu-icon fa fa-caret-right"></i>
                             个人申请情况
                         </a>
@@ -664,7 +665,8 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/student/queryOrder.html">
+                        <form class="form-horizontal" role="form"
+                              action="${pageContext.request.contextPath}/student/queryOrder.html">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 教室 </label>
                                 <div class="col-sm-2">
@@ -678,7 +680,8 @@
                                 <label class="col-sm-1 control-label no-padding-right" for="datepicker">日期</label>
                                 <div class="col-sm-2">
                                     <div class="input-group ">
-                                        <input class="form-control date-picker" name="startdate" id="datepicker" type="text"
+                                        <input class="form-control date-picker" name="startdate" id="datepicker"
+                                               type="text"
                                                data-date-format="yyyy-mm-dd" value="${startdate}" required readonly/>
                                         <span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
@@ -719,10 +722,10 @@
 
                         </th>
                         <th>结束时间</th>
-                        <th>活动团体</th>
+                        <th class="hidden-480">活动团体</th>
                         <th>活动主题</th>
                         <th>举办学院</th>
-                        <th>指导教师</th>
+                        <th class="hidden-480">指导教师</th>
                         <th>状态</th>
                         <th>操作</th>
                     </tr>
@@ -745,10 +748,10 @@
                                 <td class="hidden-480">${order.stelephone}</td>
                                 <td>${order.starttime.substring(0,order.starttime.length()-3)}</td>
                                 <td>${order.endtime.substring(0,order.starttime.length()-3)}</td>
-                                <td>${order.groupname}</td>
+                                <td class="hidden-480">${order.groupname}</td>
                                 <td>${order.theme}</td>
                                 <td>${order.faculty}</td>
-                                <td>${order.teacher}</td>
+                                <td class="hidden-480">${order.teacher}</td>
                                 <td>
                                     <c:if test="${order.orderstatus == 0}">
                                         <span class="label label-sm label-warning">申请中</span>
@@ -776,6 +779,12 @@
                                             <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
                                             撤销申请
                                         </button>
+                                        <br/>
+                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold"
+                                                name="application-word-export" style="margin-top: 5px;">
+                                            <i class="ace-icon fa fa-file-o bigger-100 green"></i>
+                                            导出表格
+                                        </button>
                                     </c:if>
 
                                     <c:if test="${order.orderstatus != 0}">
@@ -793,39 +802,56 @@
 
                 </table>
                 <div class="message-footer clearfix">
-                    <div class="pull-left"> ${orderCount} messages total</div>
+                    <%--<div class="pull-left"> ${orderCount} messages total</div>--%>
 
                     <div class="pull-right">
-                        <div class="inline middle"> page 1 of 16</div>
+                        <%--<div class="inline middle"> page 1 of 16</div>--%>
 
                         &nbsp; &nbsp;
                         <ul class="pagination middle">
-                            <li class="disabled">
-																		<span>
-																			<i class="ace-icon fa fa-step-backward middle"></i>
-																		</span>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1&cid=${cid}&startdate=${startdate}">
+                                    <i class="ace-icon fa fa-step-backward middle"></i>
+                                </a>
                             </li>
-
-                            <li class="disabled">
+                            <c:if test="${thisPage == 1}">
+                                <li class="disabled">
 																		<span>
 																			<i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
 																		</span>
-                            </li>
+                                </li>
+                            </c:if>
+                            <c:if test="${thisPage != 1}">
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${prePage}&cid=${cid}&startdate=${startdate}">
+                                        <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+                                    </a>
+                                </li>
+                            </c:if>
 
                             <li>
 																		<span>
-																			<input value="1" maxlength="3" type="text"/>
+																			<input value="${thisPage}" maxlength="3"
+                                                                                   type="text"/>
 																		</span>
                             </li>
+                            <c:if test="${thisPage * 5 < orderCount}">
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${nextPage}&cid=${cid}&startdate=${startdate}">
+                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                                    </a>
+                                </li>
+                            </c:if>
+                            <c:if test="${thisPage * 5 >= orderCount}">
+                                <li class="disabled">
+                                    <span>
+                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                                    </span>
+                                </li>
+                            </c:if>
 
                             <li>
-                                <a href="#">
-                                    <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
+                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${finalPage}&cid=${cid}&startdate=${startdate}">
                                     <i class="ace-icon fa fa-step-forward middle"></i>
                                 </a>
                             </li>

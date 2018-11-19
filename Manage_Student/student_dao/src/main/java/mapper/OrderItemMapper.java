@@ -10,6 +10,8 @@ import java.util.List;
 public interface OrderItemMapper {
     List<Ordercr> getOrderList();
 
+    List getOrderItemListByPage(@Param("snum") String snum, @Param("offset")Integer offset, @Param("limit")Integer limit);
+
     List getOrderItemList(@Param("snum") String snum);
 
     List<String> getFacultyItemList();
@@ -18,12 +20,14 @@ public interface OrderItemMapper {
 
     void updateOrderStatus(Ordercr ordercr);
 
-    List selectByExample(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate);
+    List selectByExample(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate, @Param("offset")Integer offset, @Param("limit")Integer limit);
 
     List<Ordercr> selectOrderByCid(@Param("cid") String cid);
 
     Integer hasOrderedToday(@Param("createtime") String createtime, @Param("snum") String snum);
 
-    Integer messageCounter(@Param("snum") String snum);
+    Integer messageCounter(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate);
+
+    void cancelOtherOrder(@Param("createtime") String createtime, @Param("snum") String snum);
 
 }

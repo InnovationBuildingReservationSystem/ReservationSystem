@@ -388,7 +388,7 @@
                     </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/student/personalOrder.html">
+                        <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1">
                             <i class="menu-icon fa fa-caret-right"></i>
                             个人申请情况
                         </a>
