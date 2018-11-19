@@ -13,13 +13,15 @@ public class Ordercr {
 
     private String snum;
 
+    private String stelephone;
+
     private String faculty;
 
     private String groupname;
 
     private String teacher;
 
-    private String stelephone;
+    private String ttelephone;
 
     private Integer attendcount;
 
@@ -75,6 +77,14 @@ public class Ordercr {
         this.snum = snum == null ? null : snum.trim();
     }
 
+    public String getStelephone() {
+        return stelephone;
+    }
+
+    public void setStelephone(String stelephone) {
+        this.stelephone = stelephone == null ? null : stelephone.trim();
+    }
+
     public String getFaculty() {
         return faculty;
     }
@@ -99,12 +109,12 @@ public class Ordercr {
         this.teacher = teacher == null ? null : teacher.trim();
     }
 
-    public String getStelephone() {
-        return stelephone;
+    public String getTtelephone() {
+        return ttelephone;
     }
 
-    public void setStelephone(String stelephone) {
-        this.stelephone = stelephone == null ? null : stelephone.trim();
+    public void setTtelephone(String ttelephone) {
+        this.ttelephone = ttelephone == null ? null : ttelephone.trim();
     }
 
     public Integer getAttendcount() {
