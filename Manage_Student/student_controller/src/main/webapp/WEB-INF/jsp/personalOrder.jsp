@@ -832,17 +832,17 @@ ${message}
                             <li>
 																		<span>
 																			<input value="${thisPage}" maxlength="3"
-                                                                                   type="text"/>
+                                                                                   type="text" readonly="readonly"/>
 																		</span>
                             </li>
-                            <c:if test="${thisPage * 5 < orderCount}">
+                            <c:if test="${thisPage * 8 < orderCount}">
                                 <li>
                                     <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${nextPage}&cid=${cid}&startdate=${startdate}">
                                         <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
                                     </a>
                                 </li>
                             </c:if>
-                            <c:if test="${thisPage * 5 >= orderCount}">
+                            <c:if test="${thisPage * 8 >= orderCount}">
                                 <li class="disabled">
                                     <span>
                                         <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>

@@ -51,9 +51,14 @@ public class OrdercrController {
      */
     @RequestMapping("/student/personalOrder")
     public String getOrderTableBySnum(@RequestParam(defaultValue = "16427024") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
-        List<Ordercr> orderList = orderService.getOrderList(snum, page);
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(snum, "all", "");
+        List<Ordercr> orderList = orderService.getOrderList(snum, page);
+        if (orderService.hasOrderedToday(snum)) {
+            orderService.otherOrderCancel(snum);
+        } else {
+            orderService.updateApplication(orderList, snum);
+        }
 
         model.addAttribute("orderCount", orderCount);
         model.addAttribute("orderList", orderList);
@@ -62,13 +67,7 @@ public class OrdercrController {
         model.addAttribute("prePage", page - 1);
         model.addAttribute("thisPage", page);
         model.addAttribute("nextPage", page + 1);
-        model.addAttribute("finalPage", orderCount / 5);
-
-        if (orderService.hasOrderedToday(snum)) {
-            orderService.otherOrderCancel(snum);
-        }
-
-        orderService.updateApplication(orderList);
+        model.addAttribute("finalPage", orderCount / 8);
 
         return "personalOrder";
     }
@@ -100,8 +99,12 @@ public class OrdercrController {
             model.addAttribute("snum", snum);
             model.addAttribute("classroomList", classroomList);
 
-            orderService.updateApplication(orderList);
+            orderService.updateApplication(orderList, snum);
             model.addAttribute("message", "<script>alert('今天已成功预订过一次教室，当日不能再次申请');</script>");
+            model.addAttribute("prePage", 0);
+            model.addAttribute("thisPage", 1);
+            model.addAttribute("nextPage", 2);
+            model.addAttribute("finalPage", orderCount / 8);
             return "personalOrder";
         } else {
             List<String> facultyList = orderService.getFacultyList();
@@ -276,8 +279,12 @@ public class OrdercrController {
 
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("errorFlag", 0);
+            model.addAttribute("prePage", 0);
+            model.addAttribute("thisPage", 1);
+            model.addAttribute("nextPage", 2);
+            model.addAttribute("finalPage", orderCount / 8);
 
-            return "redirect: personalOrder.html";
+            return "redirect: personalOrder.html?page=1";
 
         }
         return "redirect:application.html";
@@ -321,7 +328,7 @@ public class OrdercrController {
         model.addAttribute("prePage", page - 1);
         model.addAttribute("thisPage", page);
         model.addAttribute("nextPage", page + 1);
-        model.addAttribute("finalPage", orderCount / 5);
+        model.addAttribute("finalPage", orderCount / 8);
 
         model.addAttribute("orderCount", orderCount);
         model.addAttribute("snum", snum);

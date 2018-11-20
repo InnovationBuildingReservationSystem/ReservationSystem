@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public List<Ordercr> getOrderList(String snum, Integer page) {
-        List<Ordercr> ordercrList = orderItemMapper.getOrderItemListByPage(snum, 5 * (page - 1), 5);
+        List<Ordercr> ordercrList = orderItemMapper.getOrderItemListByPage(snum, 8 * (page - 1), 8);
         return ordercrList;
     }
 
@@ -156,7 +156,8 @@ public class OrderServiceImpl implements OrderService {
 
      */
     @Override
-    public void updateApplication(List<Ordercr> ordercrs) {
+    public void updateApplication(List<Ordercr> ordercrs, String snum) {
+        int count = 1;
         for (Ordercr ordercr : ordercrs) {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
@@ -174,8 +175,18 @@ public class OrderServiceImpl implements OrderService {
                 allowtime = calendar.getTime();
 
                 if ((nowtime.compareTo(allowtime) >= 0 || (nowtime.compareTo(starttime)) >= 0) && ordercr.getOrderstatus() == 0) {
-                    ordercr.setOrderstatus(1);
-                    orderItemMapper.updateOrderStatus(ordercr);
+                    Date date = new Date();
+                    DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+                    if (count == 1) {
+                        if (orderItemMapper.orderStatusCount(snum, df1.format(new Date())) != 1) {
+                            //申请中的数目不为1，则判断更改状态
+                            orderItemMapper.cancelOtherOrder(df1.format(date), snum);
+                            orderItemMapper.acceptFirstApplication(df1.format(date), snum);
+                        }
+                        count++;
+                    }
+//                    ordercr.setOrderstatus(1);
+//                    orderItemMapper.updateOrderStatus(ordercr);
                 } else if (ordercr.getOrderstatus() == 1 && nowtime.compareTo(starttime) >= 0) {
                     ordercr.setOrderstatus(4);
                     orderItemMapper.updateOrderStatus(ordercr);
@@ -204,9 +215,9 @@ public class OrderServiceImpl implements OrderService {
         List list = new ArrayList<>();
 
         if (cid.equals("all") && startdate.equals("")) {
-            list = orderItemMapper.getOrderItemListByPage(snum, 5 * (page - 1), 5);
+            list = orderItemMapper.getOrderItemListByPage(snum, 8 * (page - 1), 8);
         } else {
-            list = orderItemMapper.selectByExample(snum, cid, startdate, 5 * (page - 1), 5);
+            list = orderItemMapper.selectByExample(snum, cid, startdate, 8 * (page - 1), 8);
         }
 
         return list;
@@ -316,7 +327,7 @@ public class OrderServiceImpl implements OrderService {
 
      * @Author: Zhancheng Liang
 
-     * @param :  预订成功的订单号，学号
+     * @param :  学号
 
      * @return :
 
@@ -330,6 +341,27 @@ public class OrderServiceImpl implements OrderService {
         Date date = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         orderItemMapper.cancelOtherOrder(df.format(date), snum);
+    }
+
+    /*
+
+     * @Author: Zhancheng Liang
+
+     * @param :  学号
+
+     * @return :
+
+     * @Description:取消该用户预定成功的其他订单
+
+     *
+
+     */
+
+    @Override
+    public void acceptFirstApplication(String snum) {
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        orderItemMapper.acceptFirstApplication(df.format(date), snum);
     }
 
     /*

@@ -1249,7 +1249,7 @@
                                     <div class="col-sm-9">
                                         <div class="clearfix">
                                             <input class="col-xs-1" type="text" id="form-field-5" placeholder="(*必填)"
-                                                   name="groupname" required value="${ordercr.groupname} "
+                                                   name="groupname" required value="${ordercr.groupname}"
                                                    style="width: auto;"
                                             />
                                         </div>
@@ -1281,7 +1281,7 @@
                                     <div class="col-sm-9">
                                         <div class="inline">
                                             <input type="text" name="ttelephone" id="form-field-tags"
-                                                   value="${ttelphone}" placeholder="填指导老师电话" style="width: auto;"
+                                                   value="${ordercr.ttelphone}" placeholder="填指导老师电话" style="width: auto;"
                                                    title="填指导老师的电话，以便于临时通知老师"/>
                                         </div>
                                     </div>

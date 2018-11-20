@@ -125,7 +125,7 @@
         </where>
     </select>
 
-    <!--取消其他教室-->
+    <!--按照订单创建时间升序，取消除第一个申请而外的其他订单-->
     <update id="cancelOtherOrder" parameterType="string">
         update ordercr
         set orderstatus = 3
@@ -135,6 +135,19 @@
             and orderstatus = 0
         </where>
     </update>
+
+    <!--同意第一次申请的教室-->
+    <select id="acceptFirstApplication" parameterType="string">
+        update ordercr
+        set orderstatus = 1
+        <where>
+            snum = #{snum}
+            and createtime like concat('%',#{createtime},'%')
+            and orderstatus = 3
+        </where>
+        order by createtime asc
+        limit 1
+    </select>
 
     <!--统计用户订单总数-->
     <select id="messageCounter" parameterType="string" resultType="INTEGER">
@@ -148,6 +161,17 @@
             <if test="startdate != null">
                 and starttime like concat('%',#{startdate},'%')
             </if>
+        </where>
+    </select>
+
+    <!--统计用户订单状态总数-->
+    <select id="orderStatusCount" parameterType="string" resultType="INTEGER">
+        select count(*)
+        from ordercr
+        <where>
+            snum = #{snum}
+            and createtime like concat('%',#{createtime},'%')
+            and orderstatus = 0
         </where>
     </select>
 
@@ -196,9 +220,12 @@
 
     <!--修改订单状态-->
     <update id="updateOrderStatus" parameterType="pojo.Ordercr">
-		update ordercr
-		set orderstatus = #{orderstatus}
-		where orderid = #{orderid}
-	</update>
+        update ordercr
+        set orderstatus = #{orderstatus}
+        <where>
+            orderid = #{orderid}
+            and orderstatus = 0
+        </where>
+    </update>
 
 </mapper>

@@ -30,4 +30,8 @@ public interface OrderItemMapper {
 
     void cancelOtherOrder(@Param("createtime") String createtime, @Param("snum") String snum);
 
+    List<Ordercr> acceptFirstApplication(@Param("createtime") String createtime, @Param("snum") String snum);
+
+    Integer orderStatusCount(@Param("snum") String snum, @Param("createtime")String createtime);
+
 }

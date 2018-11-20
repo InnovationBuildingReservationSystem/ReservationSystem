@@ -26,19 +26,22 @@ public interface OrderService {
 
     public boolean withdrawApplication(Integer orderid);
 
-    public void updateApplication(List<Ordercr> ordercrs);
+    public void updateApplication(List<Ordercr> ordercrs, String snum);
 
     public List<Ordercr> getOrderList(String snum, String cid, String startdate, Integer page);
 
     public boolean isOrdered(String cid, String starttime, String endtime);
 
-    boolean isBeforeTime(Date date, String starttime, String endtime);
+    public boolean isBeforeTime(Date date, String starttime, String endtime);
 
     //今天是否已成功预订过一次教室
-    boolean hasOrderedToday(String snum);
+    public boolean hasOrderedToday(String snum);
 
     //自动取消该用户当天其余订单
-    void otherOrderCancel(String snum);
+    public void otherOrderCancel(String snum);
 
-    Integer orderCount(String snum, String cid, String startdate);
+    public void acceptFirstApplication(String snum);
+
+    public Integer orderCount(String snum, String cid, String startdate);
+
 }
