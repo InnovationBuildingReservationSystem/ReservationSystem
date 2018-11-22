@@ -28,4 +28,15 @@ public class StudentServiceImpl implements StudentService {
     public void updatePassword(Student student) {
         studentItemMapper.updateSpwdBySnum(student);
     }
+
+    @Override
+    public boolean stuInfoValidate(String snum, String sname, String originalPwd) {
+        Student stuOld = studentMapper.selectByPrimaryKey(snum);
+        if (stuOld != null) {
+            if (snum.equals(stuOld.getSnum()) && sname.equals(stuOld.getSname()) && originalPwd.equals(stuOld.getSpwd())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

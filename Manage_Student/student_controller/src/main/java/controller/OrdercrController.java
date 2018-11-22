@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pojo.Classroom;
@@ -68,6 +69,7 @@ public class OrdercrController {
         model.addAttribute("thisPage", page);
         model.addAttribute("nextPage", page + 1);
         model.addAttribute("finalPage", orderCount / 8);
+        model.addAttribute("cid", "all");
 
         return "personalOrder";
     }
@@ -105,6 +107,7 @@ public class OrdercrController {
             model.addAttribute("thisPage", 1);
             model.addAttribute("nextPage", 2);
             model.addAttribute("finalPage", orderCount / 8);
+            model.addAttribute("cid", "all");
             return "personalOrder";
         } else {
             List<String> facultyList = orderService.getFacultyList();
@@ -162,7 +165,7 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/applicationClassroom")
-    public String handleApplication(Ordercr ordercr, @RequestParam("startdate") String startdate, @RequestParam("sname") String sname, @RequestParam("snum") String snum, Model model) {
+    public String handleApplication(@ModelAttribute Ordercr ordercr, @RequestParam("startdate") String startdate, @RequestParam("sname") String sname, @RequestParam("snum") String snum, Model model) {
 
         String errorMessage = null;
         Integer classAllowCount = classroomService.getClassroomByCid(ordercr.getCid()).getCnum();
@@ -195,7 +198,7 @@ public class OrdercrController {
 
         }
 
-        if (ordercr.getCid() == "" || ordercr.getStarttime() == "" || ordercr.getEndtime() == "" || ordercr.getTheme() == "" || ordercr.getSnum() == "" || ordercr.getFaculty() == "" || ordercr.getGroupname() == "" || ordercr.getTeacher() == "" || ordercr.getStelephone() == "" || ordercr.getAttendcount().toString() == "" || sname == "" || startdate == "" || !(isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString())) || ordercr.getAttendcount() <= 0d) {
+        if (ordercr.getCid() == "" || ordercr.getStarttime() == "" || ordercr.getEndtime() == "" || ordercr.getTheme() == "" || ordercr.getSnum() == "" || ordercr.getFaculty() == "" || ordercr.getGroupname() == "" || ordercr.getTeacher() == "" || ordercr.getStelephone() == "" || ordercr.getAttendcount().toString() == "" || sname == "" || startdate == "" || !(isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11 && isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString())) || ordercr.getAttendcount() <= 0) {
             errorMessage = "请检查信息是否填写完整，联系电话、参加人数等是否为有效信息！！";
             model.addAttribute("errorMessage", errorMessage);
             model.addAttribute("ordercr", ordercr);
@@ -262,10 +265,11 @@ public class OrdercrController {
             model.addAttribute("facultyList", facultyList);
             model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
+            model.addAttribute("cid", "all");
 
             return "application";
 
-        } else if (isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString())) {
+        } else if (isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString()) && isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11) {
             //判断手机号是否为纯数字和长度是否为11 且 参加人数是否为整数，若都满足，则进行插入，否则，退回到申请界面
             ordercr.setStarttime(starttime);
             ordercr.setEndtime(endtime);
@@ -283,6 +287,7 @@ public class OrdercrController {
             model.addAttribute("thisPage", 1);
             model.addAttribute("nextPage", 2);
             model.addAttribute("finalPage", orderCount / 8);
+            model.addAttribute("cid", "all");
 
             return "redirect: personalOrder.html?page=1";
 

@@ -1183,7 +1183,6 @@
     <column id="284" parent="241" name="stelphone">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="285" parent="241" name="spwd">
