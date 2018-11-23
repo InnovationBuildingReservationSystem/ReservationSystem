@@ -1,7 +1,5 @@
 package controller;
 
-import org.apache.ibatis.annotations.Param;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,6 +52,7 @@ public class OrdercrController {
     public String getOrderTableBySnum(@RequestParam(defaultValue = "16427024") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(snum, "all", "");
+        Student student = studentService.getStudentInfo(snum);
         List<Ordercr> orderList = orderService.getOrderList(snum, page);
         if (orderService.hasOrderedToday(snum)) {
             orderService.otherOrderCancel(snum);
@@ -70,6 +69,7 @@ public class OrdercrController {
         model.addAttribute("nextPage", page + 1);
         model.addAttribute("finalPage", orderCount / 8);
         model.addAttribute("cid", "all");
+        model.addAttribute("student", student);
 
         return "personalOrder";
     }
@@ -89,6 +89,8 @@ public class OrdercrController {
      */
     @RequestMapping("/student/application")
     public String getFaculty(Model model, @RequestParam(value = "snum", required = false, defaultValue = "16427024") String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
+        Student student = studentService.getStudentInfo(snum);
+        model.addAttribute("student", student);
 
         if (orderService.hasOrderedToday(snum)) {
             orderService.otherOrderCancel(snum);
@@ -108,15 +110,14 @@ public class OrdercrController {
             model.addAttribute("nextPage", 2);
             model.addAttribute("finalPage", orderCount / 8);
             model.addAttribute("cid", "all");
+
             return "personalOrder";
         } else {
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Student student = studentService.getStudentInfo(snum);
             model.addAttribute("cid", cid);
             model.addAttribute("startdate", startdate);
             model.addAttribute("facultyList", facultyList);
-            model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
             model.addAttribute("starttime", starttime);
             model.addAttribute("endtime", endtime);
@@ -166,6 +167,8 @@ public class OrdercrController {
      */
     @RequestMapping("/student/applicationClassroom")
     public String handleApplication(@ModelAttribute Ordercr ordercr, @RequestParam("startdate") String startdate, @RequestParam("sname") String sname, @RequestParam("snum") String snum, Model model) {
+        Student student = studentService.getStudentInfo(snum);
+        model.addAttribute("student", student);
 
         String errorMessage = null;
         Integer classAllowCount = classroomService.getClassroomByCid(ordercr.getCid()).getCnum();
@@ -187,10 +190,8 @@ public class OrdercrController {
 
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Student student = studentService.getStudentInfo(snum);
 
             model.addAttribute("facultyList", facultyList);
-            model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
             model.addAttribute("cid", ordercr.getCid());
 
@@ -206,10 +207,8 @@ public class OrdercrController {
 
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Student student = studentService.getStudentInfo(snum);
 
             model.addAttribute("facultyList", facultyList);
-            model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
             model.addAttribute("cid", ordercr.getCid());
 
@@ -224,10 +223,8 @@ public class OrdercrController {
 
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Student student = studentService.getStudentInfo(snum);
 
             model.addAttribute("facultyList", facultyList);
-            model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
             model.addAttribute("cid", ordercr.getCid());
 
@@ -243,10 +240,8 @@ public class OrdercrController {
 
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Student student = studentService.getStudentInfo(snum);
 
             model.addAttribute("facultyList", facultyList);
-            model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
 
             return "application";
@@ -260,10 +255,8 @@ public class OrdercrController {
 
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Student student = studentService.getStudentInfo(snum);
 
             model.addAttribute("facultyList", facultyList);
-            model.addAttribute("student", student);
             model.addAttribute("classroomList", classroomList);
             model.addAttribute("cid", "all");
 
@@ -310,6 +303,8 @@ public class OrdercrController {
      */
     @RequestMapping("/student/withdrawApplication")
     public String withdrawApplication(@RequestParam("orderid") Integer orderid, @RequestParam(value = "snum", defaultValue = "16427024") String snum, Model model) {
+        Student student = studentService.getStudentInfo(snum);
+        model.addAttribute("student", student);
         boolean flag = orderService.withdrawApplication(orderid);
         if (flag) {
 
@@ -327,9 +322,10 @@ public class OrdercrController {
         List<Ordercr> list = orderService.getOrderList(snum, cid, startdate, page);
 
         List<Classroom> classroomList = classroomService.getClassroomList();
-        Student student = studentService.getStudentInfo(snum);
         Integer orderCount = orderService.orderCount(snum, cid, startdate);
+        Student student = studentService.getStudentInfo(snum);
 
+        model.addAttribute("student", student);
         model.addAttribute("prePage", page - 1);
         model.addAttribute("thisPage", page);
         model.addAttribute("nextPage", page + 1);

@@ -78,12 +78,7 @@
             </a>
         </div>
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-                <li class="dropdown-modal" style="width: 71px; height:10px;border: none;"></li>
-                <li class="dropdown-modal" style="width: 71px; height: 10px;border: none;"></li>
-                <li class="dropdown-modal" style="width: 71px; height: 10px;border: none;"></li>
-
-
+            <ul class="nav ace-nav" style="text-align: right;">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo"
@@ -186,7 +181,7 @@
 
             <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
+                    <i class="menu-icon fa fa-user"></i>
                     <span class="menu-text">
 								个人信息
 							</span>

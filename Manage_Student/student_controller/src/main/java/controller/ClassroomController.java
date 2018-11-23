@@ -109,6 +109,8 @@ public class ClassroomController {
     @RequestMapping("/student/queryClassroom")
     public String queryClassroomInfo(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate) {
         List<Ordercr> list = orderService.getOrderList();
+        Student student = studentService.getStudentInfo(snum);
+        model.addAttribute("student", student);
         model.addAttribute("cid", cid);
         model.addAttribute("startdate", startdate);
         model.addAttribute("orderList", list);//所有订单集合
@@ -116,7 +118,6 @@ public class ClassroomController {
         List<Classroom> classList = classroomService.getClassroomList(cid, startdate);//教室列表
 
         List<Classroom> classroomList = classroomService.getClassroomList();
-        Student student = studentService.getStudentInfo(snum);
 
         /**
          按照日期条件查询，查询一次是一个集合，按照时间查询占有教室

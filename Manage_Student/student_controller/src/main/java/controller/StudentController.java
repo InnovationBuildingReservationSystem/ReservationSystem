@@ -1,5 +1,7 @@
 package controller;
 
+//mvn install -Dmaven.test.skip=true
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pojo.Student;
+import service.OrderService;
 import service.StudentService;
 
 @Controller
@@ -14,6 +17,9 @@ import service.StudentService;
 public class StudentController {
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private OrderService orderService;
 
     /*
 
@@ -30,6 +36,8 @@ public class StudentController {
      */
     @RequestMapping("/student/passwordChange")
     public String passwordChange(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+        Student student = studentService.getStudentInfo(snum);
+        model.addAttribute("student", student);
         return "passwordChange";
     }
 
@@ -58,6 +66,7 @@ public class StudentController {
     @RequestMapping("/student/updatePassword")
     public String updatePassword(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("originalPwd") String originalPwd, @RequestParam("newPwd") String newPwd, @RequestParam("newPwdConvinced") String newPwdConvinced) {
         Student student = studentService.getStudentInfo(snum);
+        model.addAttribute("student", student);
         if (snum.length() != 8 || !snum.matches("[0-9]+")) {
             model.addAttribute("snumError", "学号为8位数字，请检查！");
         }
@@ -101,7 +110,9 @@ public class StudentController {
     @RequestMapping("/student/userInfo")
     public String userInfo(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
         Student student = studentService.getStudentInfo(snum);
+        int appCount = orderService.orderCount(snum, "all", "");
         model.addAttribute("student", student);
+        model.addAttribute("appCount", appCount);
         return "userInfo";
     }
 

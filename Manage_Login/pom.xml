@@ -10,18 +10,20 @@
         <relativePath>../Manage_Parent/pom.xml</relativePath>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modules>
-        <module>student_controller</module>
-        <module>student_service</module>
-        <module>student_dao</module>
-        <module>student_pojo</module>
-    </modules>
-    <artifactId>Manage_Student</artifactId>
+    <groupId>com.DLDX</groupId>
+    <artifactId>Manage_Login</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Login_Controller</module>
+        <module>Login_Dao</module>
+        <module>Login_Pojo</module>
+        <module>Login_Service</module>
+    </modules>
     <packaging>pom</packaging>
 
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
     <distributionManagement>
         <site>
             <id>website</id>
@@ -76,14 +78,40 @@
             <artifactId>jsp-api</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.miemiedev</groupId>
+            <artifactId>mybatis-paginator</artifactId>
+        </dependency>
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
-
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations-java5</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -103,4 +131,12 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

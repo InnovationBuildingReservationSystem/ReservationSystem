@@ -80,12 +80,7 @@ ${message}
         </div>
 
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-                <li class="dropdown-modal" style="width: 71px; height:10px;border: none;"></li>
-                <li class="dropdown-modal" style="width: 71px; height: 10px;border: none;"></li>
-                <li class="dropdown-modal" style="width: 71px; height: 10px;border: none;"></li>
-
-
+            <ul class="nav ace-nav" style="text-align: right;">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo"
@@ -108,7 +103,7 @@ ${message}
                         </li>
 
                         <li>
-                            <a href="profile.html">
+                            <a href="${pageContext.request.contextPath}/student/userInfo.html">
                                 <i class="ace-icon fa fa-user"></i>
                                 个人详情
                             </a>
@@ -188,7 +183,7 @@ ${message}
 
             <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
+                    <i class="menu-icon fa fa-user"></i>
                     <span class="menu-text">
 								个人信息
 							</span>
@@ -756,11 +751,11 @@ ${message}
                         <th>
                             <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始时间
                         </th>
-                        <th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 结束时间
+                        <th class="hidden-320"><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 结束时间
                         </th>
                         <th class="hidden-480">活动团体</th>
                         <th>活动主题</th>
-                        <th>举办学院</th>
+                        <th class="hidden-480">举办学院</th>
                         <th class="hidden-480">指导教师</th>
                         <th>状态</th>
                         <th>操作</th>
@@ -783,26 +778,26 @@ ${message}
                                 <td class="hidden-480">${order.snum}</td>
                                 <td class="hidden-480">${order.stelephone}</td>
                                 <td>${order.starttime.substring(0,order.starttime.length()-3)}</td>
-                                <td>${order.endtime.substring(0,order.starttime.length()-3)}</td>
+                                <td class="hidden-320">${order.endtime.substring(0,order.starttime.length()-3)}</td>
                                 <td class="hidden-480">${order.groupname}</td>
                                 <td>${order.theme}</td>
-                                <td>${order.faculty}</td>
+                                <td class="hidden-480">${order.faculty}</td>
                                 <td class="hidden-480">${order.teacher}</td>
                                 <td>
                                     <c:if test="${order.orderstatus == 0}">
                                         <span class="label label-sm label-warning">申请中</span>
                                     </c:if>
                                     <c:if test="${order.orderstatus == 1}">
-                                        <span class="label label-sm label-success">同意</span>
+                                        <span class="label label-sm label-success arrowed">同意</span>
                                     </c:if>
                                     <c:if test="${order.orderstatus == 2}">
-                                        <span class="label label-sm label-inverse arrowed-in">拒绝</span>
+                                        <span class="label label-sm label-inverse arrowed-in-right">拒绝</span>
                                     </c:if>
                                     <c:if test="${order.orderstatus == 3}">
                                         <span class="label label-sm label-danger arrowed-in">撤销</span>
                                     </c:if>
                                     <c:if test="${order.orderstatus == 4}">
-                                        <span class="label label-sm label-info">已使用</span>
+                                        <span class="label label-sm label-info arrowed-in-right">已使用</span>
                                     </c:if>
                                 </td>
 
@@ -818,9 +813,8 @@ ${message}
                                         </button>
                                     </c:if>
 
-                                    <c:if test="${order.orderstatus != 1}">
-                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold"
-                                                disabled>
+                                    <c:if test="${order.orderstatus == 0}">
+                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold">
                                             <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
                                             撤销申请
                                         </button>
