@@ -141,33 +141,6 @@
         </script>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
@@ -742,9 +715,9 @@
             <!-- div.table-responsive
 
             <!-- div.dataTables_borderWrap -->
-            <span class="help-block">-----已被预订成功的教室标记为红色</span>
-            <div>
-                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+            <span class="help-block">-----已被预订成功的教室标记为红色，点击空白块即可预订</span>
+            <div class="table-responsive">
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover text-nowrap">
                     <thead>
                     <tr>
                         <th class="center">
@@ -835,49 +808,10 @@
                     </c:if>
                     </tbody>
                 </table>
-                <div class="message-footer clearfix">
-                    <div class="pull-left"> ${classroomStatusList.size()} messages total</div>
-
-                    <div class="hidden-480">
-                        <div class="pull-right">
-                            <div class="inline middle"> page 1 of 16</div>
-
-                            &nbsp; &nbsp;
-                            <ul class="pagination middle">
-                                <li class="disabled">
-                                <span>
-                                    <i class="ace-icon fa fa-step-backward middle"></i>
-                                </span>
-                                </li>
-
-                                <li class="disabled">
-                                <span>
-                                    <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-                                </span>
-                                </li>
-
-                                <li>
-                                <span>
-                                    <input value="1" maxlength="3" type="text"/>
-                                </span>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="ace-icon fa fa-step-forward middle"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
+        <div class="message-footer clearfix">
+            <div class="pull-left"> ${classroomStatusList.size()} messages total</div>
         </div>
     </div>
 </div><!-- /.main-container -->

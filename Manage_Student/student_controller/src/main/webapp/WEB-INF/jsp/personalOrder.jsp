@@ -142,33 +142,6 @@ ${message}
         </script>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
@@ -735,8 +708,8 @@ ${message}
             <!-- div.table-responsive
 
             <!-- div.dataTables_borderWrap -->
-            <div>
-                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+            <div class="table-responsive">
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover text-nowrap">
                     <thead>
                     <tr>
                         <th class="center">
@@ -751,12 +724,12 @@ ${message}
                         <th>
                             <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始时间
                         </th>
-                        <th class="hidden-320"><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 结束时间
+                        <th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 结束时间
                         </th>
-                        <th class="hidden-480">活动团体</th>
+                        <th>活动团体</th>
                         <th>活动主题</th>
-                        <th class="hidden-480">举办学院</th>
-                        <th class="hidden-480">指导教师</th>
+                        <th>举办学院</th>
+                        <th>指导教师</th>
                         <th>状态</th>
                         <th>操作</th>
                     </tr>
@@ -778,11 +751,11 @@ ${message}
                                 <td class="hidden-480">${order.snum}</td>
                                 <td class="hidden-480">${order.stelephone}</td>
                                 <td>${order.starttime.substring(0,order.starttime.length()-3)}</td>
-                                <td class="hidden-320">${order.endtime.substring(0,order.starttime.length()-3)}</td>
-                                <td class="hidden-480">${order.groupname}</td>
+                                <td>${order.endtime.substring(0,order.starttime.length()-3)}</td>
+                                <td>${order.groupname}</td>
                                 <td>${order.theme}</td>
-                                <td class="hidden-480">${order.faculty}</td>
-                                <td class="hidden-480">${order.teacher}</td>
+                                <td>${order.faculty}</td>
+                                <td>${order.teacher}</td>
                                 <td>
                                     <c:if test="${order.orderstatus == 0}">
                                         <span class="label label-sm label-warning">申请中</span>
@@ -826,62 +799,63 @@ ${message}
                     </tbody>
 
                 </table>
-                <div class="message-footer clearfix">
-                    <%--<div class="pull-left"> ${orderCount} messages total</div>--%>
 
-                    <div class="pull-right">
-                        <%--<div class="inline middle"> page 1 of 16</div>--%>
+            </div>
+            <div class="message-footer clearfix">
+                <%--<div class="pull-left"> ${orderCount} messages total</div>--%>
 
-                        &nbsp; &nbsp;
-                        <ul class="pagination middle">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1&cid=${cid}&startdate=${startdate}">
-                                    <i class="ace-icon fa fa-step-backward middle"></i>
-                                </a>
-                            </li>
-                            <c:if test="${thisPage == 1}">
-                                <li class="disabled">
+                <div class="pull-right">
+                    <%--<div class="inline middle"> page 1 of 16</div>--%>
+
+                    &nbsp; &nbsp;
+                    <ul class="pagination middle">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1&cid=${cid}&startdate=${startdate}">
+                                <i class="ace-icon fa fa-step-backward middle"></i>
+                            </a>
+                        </li>
+                        <c:if test="${thisPage == 1}">
+                            <li class="disabled">
 																		<span>
 																			<i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
 																		</span>
-                                </li>
-                            </c:if>
-                            <c:if test="${thisPage != 1}">
-                                <li>
-                                    <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${prePage}&cid=${cid}&startdate=${startdate}">
-                                        <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-                                    </a>
-                                </li>
-                            </c:if>
-
+                            </li>
+                        </c:if>
+                        <c:if test="${thisPage != 1}">
                             <li>
+                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${prePage}&cid=${cid}&startdate=${startdate}">
+                                    <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+                                </a>
+                            </li>
+                        </c:if>
+
+                        <li>
 																		<span>
 																			<input value="${thisPage}" maxlength="3"
                                                                                    type="text" readonly="readonly"/>
 																		</span>
+                        </li>
+                        <c:if test="${thisPage * 8 < orderCount}">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${nextPage}&cid=${cid}&startdate=${startdate}">
+                                    <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                                </a>
                             </li>
-                            <c:if test="${thisPage * 8 < orderCount}">
-                                <li>
-                                    <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${nextPage}&cid=${cid}&startdate=${startdate}">
-                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                                    </a>
-                                </li>
-                            </c:if>
-                            <c:if test="${thisPage * 8 >= orderCount}">
-                                <li class="disabled">
+                        </c:if>
+                        <c:if test="${thisPage * 8 >= orderCount}">
+                            <li class="disabled">
                                     <span>
                                         <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
                                     </span>
-                                </li>
-                            </c:if>
-
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${finalPage}&cid=${cid}&startdate=${startdate}">
-                                    <i class="ace-icon fa fa-step-forward middle"></i>
-                                </a>
                             </li>
-                        </ul>
-                    </div>
+                        </c:if>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${finalPage}&cid=${cid}&startdate=${startdate}">
+                                <i class="ace-icon fa fa-step-forward middle"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
