@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.Student;
+import pojo.StudentExample;
 import service.StudentService;
 
 @Service
@@ -36,6 +37,16 @@ public class StudentServiceImpl implements StudentService {
             if (snum.equals(stuOld.getSnum()) && sname.equals(stuOld.getSname()) && originalPwd.equals(stuOld.getSpwd())) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean validateStudent(String snum, String spwd) {
+        StudentExample example = new StudentExample();
+        example.createCriteria().andSnumEqualTo(snum).andSpwdEqualTo(snum);
+        if (studentMapper.selectByExample(example) != null) {
+            return true;
         }
         return false;
     }

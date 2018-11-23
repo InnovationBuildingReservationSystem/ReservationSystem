@@ -659,11 +659,9 @@ ${message}
                             个人预订
                         </h1>
                     </div>
-                    <h4 class="pink">
-                        <i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i>
-                        <a href="#modal-table" role="button" class="green" data-toggle="modal"> 手机点击此处查看列表 </a>
+                    <h4 class="pink" style="height: 40px">
+
                     </h4>
-                    <div class="hr hr-18 dotted hr-double"></div>
                 </div>
 
 
