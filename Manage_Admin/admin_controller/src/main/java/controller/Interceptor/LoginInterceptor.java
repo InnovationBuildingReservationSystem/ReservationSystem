@@ -1,25 +1,18 @@
 package controller.Interceptor;
 
-import mapper.StudentMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.NamedThreadLocal;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import pojo.Administrator;
 import pojo.Student;
-import service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static javax.swing.text.html.CSS.getAttribute;
-
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
-
-    @Autowired
-    private StudentService studentService;
 
     /**
      * preHandle方法是进行处理器拦截用的，顾名思义，该方法将在Controller处理之前进行调用，
@@ -33,28 +26,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         //获取登录session
-        /*Student student = (Student) request.getSession().getAttribute("student");
+        Administrator administrator = (Administrator) request.getSession().getAttribute("administrator");
 
-        String loginSnum = (String) request.getAttribute("snum");
-
-        if (loginSnum.equals("admin")) {
-            response.sendRedirect("http://localhost:8887/Manage_Login/login/login.html");
-            return false;
-        }
-        if (student != null) {
-            if (!loginSnum.equals(student.getSnum())) {
-                response.sendRedirect("http://localhost:8888/Manage_Student/student/personalOrder.html?" + student.getSnum());
-                return false;
-            }
-            response.sendRedirect("http://localhost:8888/Manage_Student/student/personalOrder.html?" + student.getSnum());
+        if (administrator != null) {
+            response.sendRedirect("http://localhost:8888/Manage_Admin/classroomInformation.html");
             return true;
         } else {
             //如果没有登录session，则返回到登录页面
-//            response.sendRedirect(request.getContextPath() + "/spring/index.html");
             response.sendRedirect("http://localhost:8887/Manage_Login/login/login.html");
             return false;
-        }*/
-        return true;
+        }
     }
 
     /**

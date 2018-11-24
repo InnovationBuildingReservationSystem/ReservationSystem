@@ -37,7 +37,8 @@
     <![endif]-->
 </head>
 
-<body class="login-layout light-login">
+<body class="login-layout light-login"
+      style="background: url(${pageContext.request.contextPath}/assets/images/background/background.png); background-color: #F7FAFC">
 <div class="main-container">
     <div class="main-content">
         <div class="row">
@@ -81,8 +82,7 @@
 
                                             <div class="clearfix">
                                                 <label class="inline">
-                                                    <input type="checkbox" class="ace"/>
-                                                    <span class="lbl"> 记住密码</span>
+
                                                 </label>
 
                                                 <button type="submit"

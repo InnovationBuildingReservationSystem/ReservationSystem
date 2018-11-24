@@ -16,7 +16,7 @@ import service.StudentService;
 
 @Controller
 @Transactional
-public class StudentController {
+public class UserController {
     @Autowired
     private StudentService studentService;
 

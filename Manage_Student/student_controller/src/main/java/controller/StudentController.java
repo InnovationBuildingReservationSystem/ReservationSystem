@@ -213,5 +213,6 @@ public class StudentController {
         session.invalidate();
         return "redirect:localhost:8887/Manage_Login/login/login.html";
     }
+    
 
 }

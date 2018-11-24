@@ -24,7 +24,7 @@ public class AdminServiceImpl implements AdminService {
         AdministratorExample example = new AdministratorExample();
         example.createCriteria().andAidEqualTo(aid).andApwdEqualTo(apwd);
         Integer count = administratorMapper.countByExample(example);
-        if(count != 1){
+        if(count != 0){
             return true;
         }
         return false;
