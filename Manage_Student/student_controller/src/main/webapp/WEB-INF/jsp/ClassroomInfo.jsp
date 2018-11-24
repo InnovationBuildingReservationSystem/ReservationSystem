@@ -111,7 +111,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/student/logout.html">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 退出
                             </a>

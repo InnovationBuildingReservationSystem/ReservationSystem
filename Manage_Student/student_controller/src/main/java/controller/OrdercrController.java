@@ -50,9 +50,16 @@ public class OrdercrController {
      */
     @RequestMapping("/student/personalOrder")
     public String getOrderTableBySnum(@RequestParam("snum") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
+
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(snum, "all", "");
         Student student = studentService.getStudentInfo(snum);
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > orderCount / 8) {
+            page = orderCount / 8;
+        }
         List<Ordercr> orderList = orderService.getOrderList(snum, page);
         if (orderService.hasOrderedToday(snum)) {
             orderService.otherOrderCancel(snum);

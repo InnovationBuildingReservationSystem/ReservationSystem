@@ -12,14 +12,11 @@ import service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Timestamp;
 
 import static javax.swing.text.html.CSS.getAttribute;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
-
-    private NamedThreadLocal<String> logContext = new NamedThreadLocal<String>("log-id");
 
     @Autowired
     private StudentService studentService;
@@ -34,37 +31,26 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        /*String host = request.getRemoteHost();
-        String url = request.getRequestURI();
-        TLogEntity entity = new TLogEntity();
-        entity.setCreateTime(new Timestamp(System.currentTimeMillis()));
-        entity.setCreateUser("admin");
-        entity.setIpAddress(host);
-        entity.setLogUrl(url);
-        entity.setIsSuccess("N");
-        logDao.save(entity);
-        logContext.set(entity.getLogId());
-
-        logger.debug("IP为---->>> " + host + " <<<-----访问了系统");*/
 
         //获取登录session
-        Student student = (Student) request.getSession().getAttribute("student");
+        /*Student student = (Student) request.getSession().getAttribute("student");
 
         String loginSnum = (String) request.getAttribute("snum");
 
         if (student != null) {
             if (!loginSnum.equals(student.getSnum())) {
-                response.sendRedirect("http://localhost:8887/Manage_Student/student/personalOrder.html?" + student.getSnum());
+                response.sendRedirect("http://localhost:8888/Manage_Student/student/personalOrder.html?" + student.getSnum());
                 return true;
             }
-            response.sendRedirect("http://localhost:8887/Manage_Student/student/personalOrder.html?" + student.getSnum());
+            response.sendRedirect("http://localhost:8888/Manage_Student/student/personalOrder.html?" + student.getSnum());
             return true;
         } else {
             //如果没有登录session，则返回到登录页面
 //            response.sendRedirect(request.getContextPath() + "/spring/index.html");
             response.sendRedirect("http://localhost:8887/Manage_Login/login/login.html");
             return false;
-        }
+        }*/
+        return true;
     }
 
     /**
@@ -87,13 +73,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-        /*String host = request.getRemoteHost();
-        String logId = logContext.get();
-        TLogEntity entity = logDao.findOne(logId);
-        entity.setIsSuccess("Y");
-        logDao.save(entity);
-
-        logger.debug("IP为---->>> " + host + " <<<-----访问成功");*/
     }
 
 }

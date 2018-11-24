@@ -46,7 +46,7 @@ public class ClassroomController {
 
      */
     @RequestMapping("/student/ClassroomInfo")
-    public String getClassroomInfo(Model model, @RequestParam(value = "snum", required = false, defaultValue = "16427024") String snum) throws ParseException {
+    public String getClassroomInfo(Model model, @RequestParam(value = "snum") String snum) throws ParseException {
         Date date = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         List<Classroom> classroomList = classroomService.getClassroomList();//教室列表
@@ -107,7 +107,7 @@ public class ClassroomController {
 
      */
     @RequestMapping("/student/queryClassroom")
-    public String queryClassroomInfo(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate) {
+    public String queryClassroomInfo(Model model, @RequestParam(value = "snum") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate) {
         List<Ordercr> list = orderService.getOrderList();
         Student student = studentService.getStudentInfo(snum);
         model.addAttribute("student", student);
