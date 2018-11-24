@@ -12,6 +12,8 @@ import pojo.Student;
 import service.OrderService;
 import service.StudentService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @Transactional
 public class StudentController {
@@ -35,7 +37,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/passwordChange")
-    public String passwordChange(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+    public String passwordChange(Model model, @RequestParam(value = "snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         model.addAttribute("student", student);
         return "passwordChange";
@@ -108,7 +110,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/userInfo")
-    public String userInfo(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+    public String userInfo(Model model, @RequestParam(value = "snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         int appCount = orderService.orderCount(snum, "all", "");
         model.addAttribute("student", student);
@@ -116,5 +118,101 @@ public class StudentController {
         return "userInfo";
     }
 
+    /*
+
+     * @Author: Zhancheng Liang
+
+     * @param : snum
+
+     * @return :    activeAccount.html
+
+     * @Description: 初次登录激活
+
+     *
+
+     */
+    @RequestMapping("/student/activeAccount")
+    public String activeAccount(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+        Student student = studentService.getStudentInfo(snum);
+        if (student.getSstatus() != 0) {
+            return "redirect: personalOrder.html?snum=" + snum;
+        }
+        model.addAttribute("snum", snum);
+        model.addAttribute("student", student);
+        return "activeAccount";
+    }
+
+    /*
+
+     * @Author: Zhancheng Liang
+
+     * @param : 激活账号
+
+     * @return :
+
+     * @Description:
+
+     *
+
+     */
+    @RequestMapping("/student/doActive")
+    public String doActive(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
+        Student student = studentService.getStudentInfo(snum);
+        if (!sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
+            model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            model.addAttribute("stelephone", stelphone);
+            return "activeAccount";
+        } else if (!spwd.equals(spwdConvinced)) {
+            model.addAttribute("errorMessage", "两次密码内容不一致！");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            model.addAttribute("stelephone", stelphone);
+            return "activeAccount";
+        } else if (spwd.length() < 6) {
+            model.addAttribute("errorMessage", "密码长度应不少于6位");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            model.addAttribute("stelphone", stelphone);
+            return "activeAccount";
+        }
+        student.setStelphone(stelphone);
+        student.setSstatus(1);
+        student.setSpwd(spwd);
+        studentService.updateStuInfo(student);
+        model.addAttribute("snum", snum);
+        return "redirect: personalOrder.html";
+    }
+
+    /*
+
+     * @Author: Zhancheng Liang
+
+     * @param :
+
+     * @return :
+
+     * @Description:退出登录
+
+     *
+
+     */
+
+    @RequestMapping("/student/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:localhost:8887/Manage_Login/login/login.html";
+    }
+    
 
 }

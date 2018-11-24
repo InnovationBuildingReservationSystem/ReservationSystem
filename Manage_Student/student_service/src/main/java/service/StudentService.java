@@ -8,4 +8,6 @@ public interface StudentService {
     void updatePassword(Student student);
 
     boolean stuInfoValidate(String snum, String sname, String originalPwd);
+
+    void updateStuInfo(Student student);
 }

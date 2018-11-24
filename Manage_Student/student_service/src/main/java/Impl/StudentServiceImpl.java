@@ -39,4 +39,9 @@ public class StudentServiceImpl implements StudentService {
         }
         return false;
     }
+
+    @Override
+    public void updateStuInfo(Student student) {
+        studentItemMapper.updateStuInfo(student);
+    }
 }

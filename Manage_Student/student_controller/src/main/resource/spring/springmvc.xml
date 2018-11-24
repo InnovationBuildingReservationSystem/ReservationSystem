@@ -15,4 +15,12 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<mvc:interceptors>
+		<!-- 日志拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="controller.Interceptor.LoginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans>

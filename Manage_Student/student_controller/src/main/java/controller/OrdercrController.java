@@ -49,10 +49,17 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/personalOrder")
-    public String getOrderTableBySnum(@RequestParam(defaultValue = "16427024") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
+    public String getOrderTableBySnum(@RequestParam("snum") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
+
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(snum, "all", "");
         Student student = studentService.getStudentInfo(snum);
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > orderCount / 8) {
+            page = orderCount / 8;
+        }
         List<Ordercr> orderList = orderService.getOrderList(snum, page);
         if (orderService.hasOrderedToday(snum)) {
             orderService.otherOrderCancel(snum);
@@ -88,7 +95,7 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/application")
-    public String getFaculty(Model model, @RequestParam(value = "snum", required = false, defaultValue = "16427024") String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
+    public String getFaculty(Model model, @RequestParam("snum") String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
         Student student = studentService.getStudentInfo(snum);
         model.addAttribute("student", student);
 
@@ -281,8 +288,9 @@ public class OrdercrController {
             model.addAttribute("nextPage", 2);
             model.addAttribute("finalPage", orderCount / 8);
             model.addAttribute("cid", "all");
+            model.addAttribute("page", 1);
 
-            return "redirect: personalOrder.html?page=1";
+            return "redirect: personalOrder.html";
 
         }
         return "redirect:application.html";
@@ -302,7 +310,7 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/withdrawApplication")
-    public String withdrawApplication(@RequestParam("orderid") Integer orderid, @RequestParam(value = "snum", defaultValue = "16427024") String snum, Model model) {
+    public String withdrawApplication(@RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum, Model model) {
         Student student = studentService.getStudentInfo(snum);
         model.addAttribute("student", student);
         boolean flag = orderService.withdrawApplication(orderid);
@@ -318,7 +326,7 @@ public class OrdercrController {
     }
 
     @RequestMapping("/student/queryOrder")
-    public String queryPersonalOrder(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate, @RequestParam(defaultValue = "1") Integer page) {
+    public String queryPersonalOrder(Model model, @RequestParam("snum") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate, @RequestParam(defaultValue = "1") Integer page) {
         List<Ordercr> list = orderService.getOrderList(snum, cid, startdate, page);
 
         List<Classroom> classroomList = classroomService.getClassroomList();
