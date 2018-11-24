@@ -1,12 +1,9 @@
 package pojo;
 
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdercrExample implements Serializable
-{
+public class OrdercrExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -517,6 +514,76 @@ public class OrdercrExample implements Serializable
             return (Criteria) this;
         }
 
+        public Criteria andStelephoneIsNull() {
+            addCriterion("stelephone is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneIsNotNull() {
+            addCriterion("stelephone is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneEqualTo(String value) {
+            addCriterion("stelephone =", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneNotEqualTo(String value) {
+            addCriterion("stelephone <>", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneGreaterThan(String value) {
+            addCriterion("stelephone >", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneGreaterThanOrEqualTo(String value) {
+            addCriterion("stelephone >=", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneLessThan(String value) {
+            addCriterion("stelephone <", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneLessThanOrEqualTo(String value) {
+            addCriterion("stelephone <=", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneLike(String value) {
+            addCriterion("stelephone like", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneNotLike(String value) {
+            addCriterion("stelephone not like", value, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneIn(List<String> values) {
+            addCriterion("stelephone in", values, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneNotIn(List<String> values) {
+            addCriterion("stelephone not in", values, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneBetween(String value1, String value2) {
+            addCriterion("stelephone between", value1, value2, "stelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andStelephoneNotBetween(String value1, String value2) {
+            addCriterion("stelephone not between", value1, value2, "stelephone");
+            return (Criteria) this;
+        }
+
         public Criteria andFacultyIsNull() {
             addCriterion("faculty is null");
             return (Criteria) this;
@@ -727,73 +794,73 @@ public class OrdercrExample implements Serializable
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneIsNull() {
-            addCriterion("stelephone is null");
+        public Criteria andTtelephoneIsNull() {
+            addCriterion("ttelephone is null");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneIsNotNull() {
-            addCriterion("stelephone is not null");
+        public Criteria andTtelephoneIsNotNull() {
+            addCriterion("ttelephone is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneEqualTo(String value) {
-            addCriterion("stelephone =", value, "stelephone");
+        public Criteria andTtelephoneEqualTo(String value) {
+            addCriterion("ttelephone =", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneNotEqualTo(String value) {
-            addCriterion("stelephone <>", value, "stelephone");
+        public Criteria andTtelephoneNotEqualTo(String value) {
+            addCriterion("ttelephone <>", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneGreaterThan(String value) {
-            addCriterion("stelephone >", value, "stelephone");
+        public Criteria andTtelephoneGreaterThan(String value) {
+            addCriterion("ttelephone >", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneGreaterThanOrEqualTo(String value) {
-            addCriterion("stelephone >=", value, "stelephone");
+        public Criteria andTtelephoneGreaterThanOrEqualTo(String value) {
+            addCriterion("ttelephone >=", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneLessThan(String value) {
-            addCriterion("stelephone <", value, "stelephone");
+        public Criteria andTtelephoneLessThan(String value) {
+            addCriterion("ttelephone <", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneLessThanOrEqualTo(String value) {
-            addCriterion("stelephone <=", value, "stelephone");
+        public Criteria andTtelephoneLessThanOrEqualTo(String value) {
+            addCriterion("ttelephone <=", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneLike(String value) {
-            addCriterion("stelephone like", value, "stelephone");
+        public Criteria andTtelephoneLike(String value) {
+            addCriterion("ttelephone like", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneNotLike(String value) {
-            addCriterion("stelephone not like", value, "stelephone");
+        public Criteria andTtelephoneNotLike(String value) {
+            addCriterion("ttelephone not like", value, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneIn(List<String> values) {
-            addCriterion("stelephone in", values, "stelephone");
+        public Criteria andTtelephoneIn(List<String> values) {
+            addCriterion("ttelephone in", values, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneNotIn(List<String> values) {
-            addCriterion("stelephone not in", values, "stelephone");
+        public Criteria andTtelephoneNotIn(List<String> values) {
+            addCriterion("ttelephone not in", values, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneBetween(String value1, String value2) {
-            addCriterion("stelephone between", value1, value2, "stelephone");
+        public Criteria andTtelephoneBetween(String value1, String value2) {
+            addCriterion("ttelephone between", value1, value2, "ttelephone");
             return (Criteria) this;
         }
 
-        public Criteria andStelephoneNotBetween(String value1, String value2) {
-            addCriterion("stelephone not between", value1, value2, "stelephone");
+        public Criteria andTtelephoneNotBetween(String value1, String value2) {
+            addCriterion("ttelephone not between", value1, value2, "ttelephone");
             return (Criteria) this;
         }
 

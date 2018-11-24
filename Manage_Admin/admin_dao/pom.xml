@@ -72,7 +72,6 @@
                 <!--目录中的文件类型-->
                 <includes>
                     <include>**/*.xml</include>
-                    <include>**/*.properties</include>
                 </includes>
             </resource>
         </resources>

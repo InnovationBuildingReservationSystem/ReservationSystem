@@ -105,7 +105,95 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf />
+=======
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_dao/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin_controller/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="80" column="27" lean-forward="false" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/db.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resource.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/resource.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_pojo/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -156,12 +244,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/admin_controller/src/main/java/controller/informationController.java" />
+=======
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        <option value="$PROJECT_DIR$/admin_service/src/main/java/Impl/ClassroomServiceImpl.java" />
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
         <option value="$PROJECT_DIR$/admin_controller/src/main/java/controller/InformationController.java" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/changePassword.jsp" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/blank.jsp" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/classroomInformation1.jsp" />
         <option value="$PROJECT_DIR$/admin_controller/target/admin_controller/WEB-INF/jsp/reservationClassroom.jsp" />
-        <option value="$PROJECT_DIR$/admin_controller/pom.xml" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/classroomInformation.jsp" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/orderTable.jsp" />
         <option value="$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Administrator.java" />
@@ -200,13 +295,22 @@
         <option value="$PROJECT_DIR$/admin_service/src/main/java/service/ClassroomService.java" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/java/controller/ClassroomInformationController.java" />
         <option value="$PROJECT_DIR$/admin_service/src/main/java/Impl/ChangePasswordImpl.java" />
-        <option value="$PROJECT_DIR$/admin_service/src/main/java/Impl/ReservationImpl.java" />
         <option value="$PROJECT_DIR$/admin_service/src/main/java/Impl/OrderListImpl.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/admin_service/src/main/java/Impl/ReservationImpl.java" />
+        <option value="$PROJECT_DIR$/admin_controller/pom.xml" />
+        <option value="$PROJECT_DIR$/admin_controller/src/main/resource/conf/db.properties" />
+        <option value="$PROJECT_DIR$/admin_dao/pom.xml" />
+=======
         <option value="$PROJECT_DIR$/admin_controller/src/main/resource/spring/springmvc.xml" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/java/controller/Interceptor/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/java/controller/changPasswordController.java" />
         <option value="$PROJECT_DIR$/admin_controller/src/main/resource/conf/db.properties" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/admin_dao/pom.xml" />
+=======
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
       </list>
     </option>
   </component>
@@ -297,6 +401,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+=======
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,15 +417,254 @@
               <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+              <item name="admin_pojo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Manage_Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Manage_Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
+=======
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+=======
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543037742586" />
@@ -594,9 +946,20 @@
       <workItem from="1542540410197" duration="109000" />
       <workItem from="1542540553564" duration="637000" />
       <workItem from="1542608510795" duration="664000" />
+<<<<<<< HEAD
+      <workItem from="1542614310192" duration="2063000" />
+      <workItem from="1542623676847" duration="706000" />
+      <workItem from="1542963877137" duration="2328000" />
+      <workItem from="1543042376098" duration="599000" />
+      <workItem from="1543043591602" duration="75000" />
+=======
       <workItem from="1542614310192" duration="934000" />
       <workItem from="1543036443711" duration="1319000" />
+<<<<<<< HEAD
       <workItem from="1543043143505" duration="478000" />
+=======
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
     </task>
     <servers />
   </component>
@@ -633,13 +996,59 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="159935000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="162975000" />
+=======
+    <option name="totallyTimeSpent" value="159457000" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="846" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2546917" />
+=======
+<<<<<<< HEAD
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30672747" sideWeight="0.5241416" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.49342105" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.472103" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30672747" sideWeight="0.47585836" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26233906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.70922744" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990878" sideWeight="0.49570817" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49356222" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5065789" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25134048" />
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -672,6 +1081,7 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="9" sideWeight="0.5065789" side_tool="true" weight="0.3299356" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2274678" />
@@ -718,66 +1128,15 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/admin_controller/target/test-classes/testOrdeItem.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.8/mybatis-3.2.8.jar!/org/apache/ibatis/session/Configuration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="794" column="13" selection-start-line="794" selection-start-column="13" selection-end-line="794" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/OrdercrMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/ClassroomMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/resource.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/AdministratorMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/lang/System.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/util/HashSet.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/util/Collections.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/lang/ClassLoader.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/util/HashMap.java" />
-    <entry file="file://$PROJECT_DIR$/admin_dao/src/test/java/testLike.java" />
-    <entry file="file://$PROJECT_DIR$/admin_dao/src/test/java/testAddOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+=======
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/OrderItemMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -792,18 +1151,232 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
           <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+=======
+    <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/NoticeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/test/java/testLike.java">
+>>>>>>> c5a7aba3b92e98beecf93a0df29390f3c2dc365c
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="232">
+          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+=======
+        <state relative-caret-position="361">
+          <caret line="271" selection-start-line="271" selection-end-line="271" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_controller/src/test/java/testDate.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="139">
-          <caret line="47" column="31" selection-start-line="46" selection-end-line="51" selection-end-column="9" />
+          <caret line="47" column="31" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="51" selection-end-column="9" />
+=======
+        <state relative-caret-position="336">
+          <caret line="794" column="13" selection-start-line="794" selection-start-column="13" selection-end-line="794" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/service/ReservationService.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="240">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
+        <state relative-caret-position="90">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="30" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Administrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Classroom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
+        <state relative-caret-position="180">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/ClassroomExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/ItemDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+<<<<<<< HEAD
+          <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+=======
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/ItemTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Notice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+<<<<<<< HEAD
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/NoticeExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Ordercr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/OrdercrExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/OrderTimeTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/PageBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+=======
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/lang/System.java" />
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/util/HashSet.java" />
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/util/Collections.java" />
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/lang/ClassLoader.java" />
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/util/HashMap.java" />
+    <entry file="file://$PROJECT_DIR$/admin_dao/src/test/java/testLike.java" />
+    <entry file="file://$PROJECT_DIR$/admin_dao/src/test/java/testAddOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/ReservationImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="472">
+          <caret line="80" column="12" lean-forward="false" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
+=======
+        <state relative-caret-position="142">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/java/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/java/controller/ClassroomInformationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2250">
+          <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/ChangePasswordImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/ClassroomServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/test/java/testDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="47" column="31" selection-start-line="46" selection-end-line="51" selection-end-column="9" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/OrderListImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="720">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/service/ClassroomService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+=======
         <state relative-caret-position="240">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
@@ -811,100 +1384,185 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Administrator.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/java/controller/ChangPasswordController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="420">
+          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding />
+=======
         <state relative-caret-position="120">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Classroom.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/java/controller/ReservationClassroomController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="810">
+          <caret line="38" column="11" lean-forward="false" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+=======
         <state relative-caret-position="330">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/ClassroomExample.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/spring/applicationContext-service.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+=======
         <state relative-caret-position="120">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/ItemDate.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar!/org/springframework/web/servlet/view/InternalResourceViewResolver.class">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="62">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+=======
         <state relative-caret-position="150">
           <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/ItemTime.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/orderTable.jsp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
         <state relative-caret-position="270">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Notice.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/webapp/WEB-INF/jsp/reservationClassroom.jsp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="210">
+          <caret line="225" column="79" lean-forward="false" selection-start-line="225" selection-start-column="69" selection-end-line="225" selection-end-column="79" />
+=======
         <state relative-caret-position="120">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/NoticeExample.java">
+    <entry file="file://$PROJECT_DIR$/admin_service/admin_service.iml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
         <state relative-caret-position="120">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Ordercr.java">
+    <entry file="file://$PROJECT_DIR$/admin_service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-629">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
         <state relative-caret-position="120">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/OrdercrExample.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-2471">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+=======
         <state relative-caret-position="450">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/OrderItem.java">
+    <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/StudentMapper.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-19">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+=======
         <state relative-caret-position="120">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/OrderTimeTable.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/mybatis/SqlMapConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+=======
         <state relative-caret-position="120">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="29" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/PageBean.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/spring/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
+<<<<<<< HEAD
+          <caret line="14" column="67" lean-forward="false" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
+          <folding />
+=======
           <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/StudentExample.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+<<<<<<< HEAD
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/src/main/java/pojo/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="150">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pojo/pom.xml">
+=======
         <state relative-caret-position="60">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
@@ -914,12 +1572,23 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/ReservationImpl.java">
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1130">
           <caret line="78" column="51" lean-forward="true" selection-start-line="78" selection-start-column="51" selection-end-line="78" selection-end-column="51" />
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/admin_dao/target/classes/mapper/StudentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="179" column="34" lean-forward="true" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
+          <folding />
+=======
     <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/OrderListImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -945,32 +1614,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4950">
           <caret line="225" column="79" selection-start-line="225" selection-start-column="69" selection-end-line="225" selection-end-column="79" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/java/controller/OrderController.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/resource.properties">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+=======
         <state relative-caret-position="619">
           <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/java/controller/ClassroomInformationController.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+=======
         <state relative-caret-position="619">
           <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/ChangePasswordImpl.java">
+    <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/conf/db.properties">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="90">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+=======
         <state relative-caret-position="506">
           <caret line="43" column="12" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_service/src/main/java/Impl/ClassroomServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/admin_dao/target/classes/mapper/AdministratorMapper.class">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_dao/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+          <folding />
+=======
         <state relative-caret-position="-2024">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
@@ -980,9 +1681,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/admin_dao/target/classes/mapper/OrdercrMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin_dao/target/classes/mapper/StudentMapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_dao/src/main/java/mapper/StudentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5040">
+          <caret line="90" column="32" lean-forward="false" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_controller/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="80" column="27" lean-forward="false" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+          <folding />
+=======
     <entry file="file://$PROJECT_DIR$/admin_controller/src/main/resource/spring/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1011,7 +1746,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+>>>>>>> 9e9a0b0eceb630e1257f9db259842d9783b37fe8
         </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_dao/pom.xml">
@@ -1027,7 +1766,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>admin_controller:war</last-edited>
+          <last-edited>admin_controller:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1080,7 +1819,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

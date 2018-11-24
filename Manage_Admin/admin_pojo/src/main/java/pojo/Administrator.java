@@ -1,8 +1,6 @@
 package pojo;
 
-import java.io.Serializable;
-
-public class Administrator implements Serializable{
+public class Administrator {
     private String aid;
 
     private String apwd;

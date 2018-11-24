@@ -1,9 +1,6 @@
 package pojo;
 
-import java.io.Serializable;
-
-public class Notice implements Serializable
-{
+public class Notice {
     private Integer nid;
 
     private String ntitle;
