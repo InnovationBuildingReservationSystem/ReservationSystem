@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>个人预订 - 创新楼教室预约系统</title>
+    <title>通知公告 - 创新楼教室预约系统</title>
 
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -57,7 +57,6 @@
 </head>
 
 <body class="no-skin">
-${message}
 <div id="navbar" class="navbar navbar-default          ace-save-state">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -352,7 +351,7 @@ ${message}
                 </ul>
             </li>
 
-            <li class="">
+            <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> 教室查询 </span>
@@ -372,7 +371,7 @@ ${message}
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="">
+                    <li class="active">
                         <a href="${pageContext.request.contextPath}/student/notice.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             通知公告
@@ -383,7 +382,7 @@ ${message}
                 </ul>
             </li>
 
-            <li class="active open">
+            <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-pencil-square-o"></i>
                     <span class="menu-text"> 教室预订 </span>
@@ -403,7 +402,7 @@ ${message}
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="active">
+                    <li class="">
                         <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1">
                             <i class="menu-icon fa fa-caret-right"></i>
                             个人申请情况
@@ -636,228 +635,74 @@ ${message}
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="#">首页</a>
+                        <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}">首页</a>
                     </li>
 
                     <li>
-                        <a href="#">教室预订</a>
+                        <a href="#">教室查询</a>
                     </li>
-                    <li class="active">个人申请情况</li>
-                </ul>
 
+                    <li class="active">教室使用情况</li>
+
+                </ul><!-- /.breadcrumb -->
             </div>
-
 
             <div class="page-content">
 
-                <div class="col-xs-12">
-                    <div class="clearfix">
-                        <div class="pull-right tableTools-container"></div>
-                    </div>
-                    <div class="page-header">
-                        <h1>
-                            个人预订
-                        </h1>
-                    </div>
-                    <h4 class="pink" style="height: 40px">
+                <div class="page-header">
+                    <h1>
+                        通知栏
+                    </h1>
+                </div><!-- /.page-header -->
 
-                    </h4>
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+                    <strong>注意</strong>
+
+                    请及时关注最新通知！
+                    <br/>
                 </div>
 
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <form class="form-horizontal" role="form"
-                              action="${pageContext.request.contextPath}/student/queryOrder.html">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 教室 </label>
-                                <div class="col-sm-2">
-                                    <select class="form-control" id="form-field-select-1" name="cid" required readonly>
-                                        <option value="all">全部</option>
-                                        <c:forEach items="${classroomList}" var="classroom">
-                                            <option value="${classroom.cid}">${classroom.cid}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <label class="col-sm-1 control-label no-padding-right" for="datepicker">日期</label>
-                                <div class="col-sm-2">
-                                    <div class="input-group ">
-                                        <input class="form-control date-picker" name="startdate" id="datepicker"
-                                               type="text"
-                                               data-date-format="yyyy-mm-dd" value="${startdate}" required readonly/>
-                                        <span class="input-group-addon">
-										<i class="fa fa-calendar bigger-110"></i>
-									</span>
+                <div id="accordion" class="accordion-style1 panel-group">
+                    <c:forEach items="${noticeList}" var="notice" varStatus="loop">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapseOne_${notice.nid}">
+                                        <span style="float: right">${notice.ntime}</span>
+                                        <i class="ace-icon fa fa-angle-down bigger-110"
+                                           data-icon-hide="ace-icon fa fa-angle-down"
+                                           data-icon-show="ace-icon fa fa-angle-right"></i>
+                                            ${notice.ntitle}
+                                    </a>
+                                </h4>
+                            </div>
+                            <c:if test="${loop.count==1}">
+                                <div class="panel-collapse collapse in" id="collapseOne_${notice.nid}">
+                                    <div class="panel-body">
+                                        <!--通知的具体内容-->
+                                            ${notice.ncontent}
                                     </div>
                                 </div>
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-1">
-                                    <button type="submit" class="btn btn-sm btn-primary">
-                                        <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-                                        搜索
-                                    </button>
+                            </c:if>
+                            <c:if test="${loop.count!=1}">
+                                <div class="panel-collapse collapse off" id="collapseOne_${notice.nid}">
+                                    <div class="panel-body">
+                                        <!--通知的具体内容-->
+                                            ${notice.ncontent}
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-            <!-- div.table-responsive
-
-            <!-- div.dataTables_borderWrap -->
-            <div class="table-responsive">
-                <table id="dynamic-table" class="table table-striped table-bordered table-hover text-nowrap">
-                    <thead>
-                    <tr>
-                        <th class="center">
-                            <label class="pos-rel">
-                                房间号
-                            </label>
-                        </th>
-                        <th class="hidden-480">负责人</th>
-                        <th class="hidden-480">学号</th>
-                        <th class="hidden-480">联系电话</th>
-
-                        <th>
-                            <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始时间
-                        </th>
-                        <th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 结束时间
-                        </th>
-                        <th>活动团体</th>
-                        <th>活动主题</th>
-                        <th>举办学院</th>
-                        <th>指导教师</th>
-                        <th>状态</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <c:forEach items="${orderList}" var="order">
-                        <form class="hidden-sm hidden-xs action-buttons"
-                              action="${pageContext.request.contextPath}/student/withdrawApplication.html"
-                              method="post">
-                            <tr>
-                                <td class="center">
-                                    <label class="pos-rel">
-                                            ${order.cid}
-                                    </label>
-                                </td>
-
-                                <td class="hidden-480">${order.student.sname}</td>
-                                <td class="hidden-480">${order.snum}</td>
-                                <td class="hidden-480">${order.stelephone}</td>
-                                <td>${order.starttime.substring(0,order.starttime.length()-3)}</td>
-                                <td>${order.endtime.substring(0,order.starttime.length()-3)}</td>
-                                <td>${order.groupname}</td>
-                                <td>${order.theme}</td>
-                                <td>${order.faculty}</td>
-                                <td>${order.teacher}</td>
-                                <td>
-                                    <c:if test="${order.orderstatus == 0}">
-                                        <span class="label label-sm label-warning">申请中</span>
-                                    </c:if>
-                                    <c:if test="${order.orderstatus == 1}">
-                                        <span class="label label-sm label-success arrowed">同意</span>
-                                    </c:if>
-                                    <c:if test="${order.orderstatus == 2}">
-                                        <span class="label label-sm label-inverse arrowed-in-right">拒绝</span>
-                                    </c:if>
-                                    <c:if test="${order.orderstatus == 3}">
-                                        <span class="label label-sm label-danger arrowed-in">撤销</span>
-                                    </c:if>
-                                    <c:if test="${order.orderstatus == 4}">
-                                        <span class="label label-sm label-info arrowed-in-right">已使用</span>
-                                    </c:if>
-                                </td>
-
-                                <td>
-
-
-                                    <input type="hidden" name="orderid" value="${order.orderid}"/>
-                                    <c:if test="${order.orderstatus == 1}">
-                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold"
-                                                name="application-word-export">
-                                            <i class="ace-icon fa fa-file-o bigger-100 green"></i>
-                                            导出表格
-                                        </button>
-                                    </c:if>
-
-                                    <c:if test="${order.orderstatus == 0}">
-                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold">
-                                            <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
-                                            撤销申请
-                                        </button>
-                                    </c:if>
-                                </td>
-                            </tr>
-                        </form>
+                            </c:if>
+                        </div>
                     </c:forEach>
-                    </tbody>
-
-                </table>
-
-            </div>
-            <div class="message-footer clearfix">
-                <%--<div class="pull-left"> ${orderCount} messages total</div>--%>
-
-                <div class="pull-right">
-                    <%--<div class="inline middle"> page 1 of 16</div>--%>
-
-                    &nbsp; &nbsp;
-                    <ul class="pagination middle">
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=1&cid=${cid}&startdate=${startdate}">
-                                <i class="ace-icon fa fa-step-backward middle"></i>
-                            </a>
-                        </li>
-                        <c:if test="${thisPage == 1}">
-                            <li class="disabled">
-																		<span>
-																			<i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-																		</span>
-                            </li>
-                        </c:if>
-                        <c:if test="${thisPage != 1}">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=${prePage}&cid=${cid}&startdate=${startdate}">
-                                    <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-                                </a>
-                            </li>
-                        </c:if>
-
-                        <li>
-																		<span>
-																			<input value="${thisPage}" maxlength="3"
-                                                                                   type="text" readonly="readonly"/>
-																		</span>
-                        </li>
-                        <c:if test="${thisPage * 8 < orderCount}">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=${nextPage}&cid=${cid}&startdate=${startdate}">
-                                    <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                                </a>
-                            </li>
-                        </c:if>
-                        <c:if test="${thisPage * 8 >= orderCount}">
-                            <li class="disabled">
-                                    <span>
-                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                                    </span>
-                            </li>
-                        </c:if>
-
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=${finalPage}&cid=${cid}&startdate=${startdate}">
-                                <i class="ace-icon fa fa-step-forward middle"></i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
+            </div><!-- /.page-content -->
+
         </div>
-    </div>
+    </div><!-- /.main-content -->
 </div><!-- /.main-container -->
 
 <!-- basic scripts -->
@@ -901,38 +746,6 @@ ${message}
 <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
-
-<script type="text/javascript">
-    $('#startTime').bind('change', function () {
-        $("#endTime").html("");
-        var option1 = $("#startTime option:selected");//获取当前选中项
-        var startTime = option1.text();
-        var hours = parseInt(startTime.substring(0, 2));
-        var end1 = hours + 1;
-        var end2 = hours + 2;
-        var html;
-        if (end1.toString().length == 1) {
-            end1 = "0" + end1 + ":00";
-        } else
-            end1 = end1 + ":00";
-        if (end2.toString().length == 1) {
-            end2 = "0" + end2 + ":00";
-        } else
-            end2 = end2 + ":00";
-        if (startTime == "20:00") {
-            html = "<option value='" + end1 + "'>" + end1 + "</option>";
-        }
-        else {
-            html = "<option value='" + end1 + "'>" + end1 + "</option>";
-            html += "<option value='" + end2 + "'>" + end2 + "</option>";
-        }
-
-        $("#endTime").append(html);
-        /*var option2=$("#endTime option:selected");
-        var endTime=option2.text();*/
-    })
-</script>
-
 
 <script type="text/javascript">
     jQuery(function ($) {
@@ -1386,6 +1199,7 @@ ${message}
 					$(this).find('.modal-chosen').chosen();
 				})
          */
+
 
     });
     $("#form-field-select-1").val("${cid}");
