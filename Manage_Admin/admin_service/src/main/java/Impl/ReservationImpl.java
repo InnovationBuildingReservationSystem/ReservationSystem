@@ -76,6 +76,9 @@ public class ReservationImpl implements ReservationService
         for (Classroom classroom:classroomIdList)
         {
             OrderTimeTable orderTimeTable = getOrderTimeTable(classroom.getCid(), orderDate);
+
+
+
             orderTimeTableList.add(orderTimeTable);
         }
         pageBean.setPageList(orderTimeTableList);

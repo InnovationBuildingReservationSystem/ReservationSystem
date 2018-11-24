@@ -1,9 +1,6 @@
 package pojo;
 
-import java.io.Serializable;
-
-public class Student  implements Serializable
-{
+public class Student {
     private String snum;
 
     private String sname;
