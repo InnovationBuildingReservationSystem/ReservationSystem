@@ -35,7 +35,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/passwordChange")
-    public String passwordChange(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+    public String passwordChange(Model model, @RequestParam(value = "snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         model.addAttribute("student", student);
         return "passwordChange";
@@ -108,7 +108,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/userInfo")
-    public String userInfo(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+    public String userInfo(Model model, @RequestParam(value = "snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         int appCount = orderService.orderCount(snum, "all", "");
         model.addAttribute("student", student);

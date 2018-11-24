@@ -57,8 +57,9 @@
 
                                     <div class="space-6"></div>
 
-                                    <span id="errorMessage">${errorMessage}</span>
-                                    <form action="${pageContext.request.contextPath}/login/loginValidate.html" method="post">
+                                    <span id="errorMessage" style="color:red;">${errorMessage}</span>
+                                    <form action="${pageContext.request.contextPath}/login/loginValidate.html"
+                                          method="post">
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">

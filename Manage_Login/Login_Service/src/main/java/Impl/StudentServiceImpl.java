@@ -44,8 +44,8 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public boolean validateStudent(String snum, String spwd) {
         StudentExample example = new StudentExample();
-        example.createCriteria().andSnumEqualTo(snum).andSpwdEqualTo(snum);
-        if (studentMapper.selectByExample(example) != null) {
+        example.createCriteria().andSnumEqualTo(snum).andSpwdEqualTo(spwd);
+        if (studentMapper.countByExample(example) != 0) {
             return true;
         }
         return false;
