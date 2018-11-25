@@ -1,13 +1,17 @@
 package controller.wordexport;
 
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import pojo.Ordercr;
 
-import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,7 +32,7 @@ public class WordTest {
         configuration.setDefaultEncoding("UTF-8");
     }
 
-    public void createWord(Ordercr ordercr, String sname) {
+    public File createWord(Ordercr ordercr, String sname) {
         Map<String, Object> dataMap = new HashMap<String, Object>();
         getData(dataMap, ordercr, sname);
         //configuration.setClassForTemplateLoading(this.getClass(), "classpath:/ftl/");//模板文件所在路径
@@ -57,6 +61,7 @@ public class WordTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return outFile;
     }
 
     private void getData(Map<String, Object> dataMap, Ordercr ordercr, String sname) {
@@ -98,5 +103,37 @@ public class WordTest {
         dataMap.put("endtime", ordercr.getEndtime().substring(11, 16));
         dataMap.put("snum", ordercr.getSnum());
         dataMap.put("groupname", ordercr.getGroupname());
+    }
+
+    public void exportMillCertificateWord(HttpServletRequest request, HttpServletResponse response, Ordercr ordercr, String sname) throws IOException {
+        File file = null;
+        InputStream fin = null;
+        ServletOutputStream out = null;
+        try {
+            // 调用工具类的createDoc方法生成Word文档
+            file = createWord(ordercr, sname);
+            fin = new FileInputStream(file);
+
+            response.setCharacterEncoding("utf-8");
+            response.setContentType("application/msword");
+            // 设置浏览器以下载的方式处理该文件名
+            String fileName = "创新楼创客教室学生活动备案审批表.doc";
+            response.setHeader("Content-Disposition", "attachment;filename="
+                    .concat(String.valueOf(URLEncoder.encode(fileName, "UTF-8"))));
+
+            out = response.getOutputStream();
+            byte[] buffer = new byte[512];  // 缓冲区
+            int bytesToRead = -1;
+            // 通过循环将读入的Word文件的内容输出到浏览器中
+            while ((bytesToRead = fin.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesToRead);
+            }
+        } finally {
+            if (fin != null) fin.close();
+            if (out != null) out.close();
+            if (file != null || file.exists()){
+                file.delete(); // 删除临时文件
+            }
+        }
     }
 }

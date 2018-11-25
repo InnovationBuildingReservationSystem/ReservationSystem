@@ -17,6 +17,9 @@ import service.OrderService;
 import service.StudentService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -355,11 +358,17 @@ public class OrdercrController {
     }
 
     @RequestMapping("/student/exportWord")
-    public String exportDocument(Model model, @RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum) {
+    public String exportDocument(Model model, @RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum, HttpServletRequest request, HttpServletResponse response) {
         Ordercr ordercr = orderService.getOrderById(orderid);
         Student student = studentService.getStudentInfo(ordercr.getSnum());
         WordTest test = new WordTest(freeMarkerConfigurer);
-        test.createWord(ordercr, student.getSname());
+        try{
+            test.exportMillCertificateWord(request,response,ordercr,student.getSname());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //test.createWord(ordercr, student.getSname());
         model.addAttribute("snum", snum);
         return "redirect:personalOrder.html";
     }
