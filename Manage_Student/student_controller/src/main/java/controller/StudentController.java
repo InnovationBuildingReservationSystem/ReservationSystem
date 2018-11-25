@@ -110,7 +110,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/userInfo")
-    public String userInfo(Model model, @RequestParam(value = "snum") String snum) {
+    public String userInfo(Model model, @RequestParam("snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         int appCount = orderService.orderCount(snum, "all", "");
         model.addAttribute("student", student);
@@ -132,7 +132,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/activeAccount")
-    public String activeAccount(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+    public String activeAccount(Model model, @RequestParam("snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         if (student.getSstatus() != 0) {
             return "redirect: personalOrder.html?snum=" + snum;
@@ -156,7 +156,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/doActive")
-    public String doActive(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
+    public String doActive(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
         Student student = studentService.getStudentInfo(snum);
         if (!sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
             model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
@@ -213,6 +213,6 @@ public class StudentController {
         session.invalidate();
         return "redirect:localhost:8887/Manage_Login/login/login.html";
     }
-    
+
 
 }

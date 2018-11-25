@@ -149,6 +149,7 @@ CREATE TABLE `student` (
   `spwd` varchar(50) NOT NULL, /*密码*/
   `sstatus` int(11) NOT NULL DEFAULT '0', /*激活状态：0-未激活，1-已激活*/
   `srole` int(11) NOT NULL DEFAULT '0', /*用户角色：学生为0*/
+  `scard` varchar(50) NOT NULL, /*学生卡号*/
   PRIMARY KEY (`snum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

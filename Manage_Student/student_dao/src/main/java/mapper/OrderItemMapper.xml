@@ -131,7 +131,7 @@
         set orderstatus = 3
         <where>
             snum = #{snum}
-            and createtime like concat('%',#{createtime},'%')
+            and createtime <![CDATA[ <= ]]> #{createtime}
             and orderstatus = 0
         </where>
     </update>
@@ -142,8 +142,8 @@
         set orderstatus = 1
         <where>
             snum = #{snum}
-            and createtime like concat('%',#{createtime},'%')
-            and orderstatus = 3
+            and createtime <![CDATA[ <= ]]> #{createtime}
+            and orderstatus = 0
         </where>
         order by createtime asc
         limit 1
@@ -170,7 +170,7 @@
         from ordercr
         <where>
             snum = #{snum}
-            and createtime like concat('%',#{createtime},'%')
+            and createtime <![CDATA[ <= ]]> #{createtime}
             and orderstatus = 0
         </where>
     </select>

@@ -1,5 +1,6 @@
 package controller;
 
+import controller.wordexport.WordTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import pojo.Classroom;
 import pojo.Ordercr;
 import pojo.Student;
@@ -14,6 +16,7 @@ import service.ClassroomService;
 import service.OrderService;
 import service.StudentService;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -34,6 +37,9 @@ public class OrdercrController {
 
     @Autowired
     private ClassroomService classroomService;
+
+    @Autowired
+    FreeMarkerConfigurer freeMarkerConfigurer;
 
     /*
 
@@ -348,5 +354,14 @@ public class OrdercrController {
         return "personalOrder";
     }
 
+    @RequestMapping("/student/exportWord")
+    public String exportDocument(Model model, @RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum) {
+        Ordercr ordercr = orderService.getOrderById(orderid);
+        Student student = studentService.getStudentInfo(ordercr.getSnum());
+        WordTest test = new WordTest(freeMarkerConfigurer);
+        test.createWord(ordercr, student.getSname());
+        model.addAttribute("snum", snum);
+        return "redirect:personalOrder.html";
+    }
 
 }

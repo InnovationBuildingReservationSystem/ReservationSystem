@@ -23,7 +23,7 @@ public class NoticeController {
     StudentService studentService;
 
     @RequestMapping("/student/notice")
-    public String getNotice(Model model, @RequestParam(value = "snum", defaultValue = "16427024") String snum) {
+    public String getNotice(Model model, @RequestParam("snum") String snum) {
         Student student = studentService.getStudentInfo(snum);
         List<Notice> list = noticeService.getNotice();
         model.addAttribute("noticeList", list);

@@ -777,11 +777,12 @@ ${message}
 
                                     <input type="hidden" name="orderid" value="${order.orderid}"/>
                                     <c:if test="${order.orderstatus == 1}">
-                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold"
-                                                name="application-word-export">
+                                        <a type="button" class="btn btn-minier btn-white btn-warning btn-bold"
+                                           name="application-word-export"
+                                           href="${pageContext.request.contextPath}/student/exportWord.html?snum=${snum}&orderid=${order.orderid}">
                                             <i class="ace-icon fa fa-file-o bigger-100 green"></i>
                                             导出表格
-                                        </button>
+                                        </a>
                                     </c:if>
 
                                     <c:if test="${order.orderstatus == 0}">

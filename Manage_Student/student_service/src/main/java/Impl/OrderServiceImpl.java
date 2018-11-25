@@ -178,10 +178,14 @@ public class OrderServiceImpl implements OrderService {
                     Date date = new Date();
                     DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
                     if (count == 1) {
-                        if (orderItemMapper.orderStatusCount(snum, df1.format(new Date())) != 1) {
-                            //申请中的数目不为1，则判断更改状态
-                            orderItemMapper.cancelOtherOrder(df1.format(date), snum);
+                        Integer zeroStatus = orderItemMapper.orderStatusCount(snum, df1.format(new Date()));
+                        if(zeroStatus == 1){
                             orderItemMapper.acceptFirstApplication(df1.format(date), snum);
+                        }
+                        if (zeroStatus != 1) {
+                            //申请中的数目不为1，则判断更改状态
+                            orderItemMapper.acceptFirstApplication(df1.format(date), snum);
+                            orderItemMapper.cancelOtherOrder(df1.format(date), snum);
                         }
                         count++;
                     }
@@ -380,6 +384,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Integer orderCount(String snum, String cid, String startdate) {
         return orderItemMapper.messageCounter(snum, cid, startdate);
+    }
+
+    @Override
+    public Ordercr getOrderById(Integer orderid) {
+        return ordercrMapper.selectByPrimaryKey(orderid);
     }
 
 

@@ -62,7 +62,7 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/student/personalOrder.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/login/login.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
