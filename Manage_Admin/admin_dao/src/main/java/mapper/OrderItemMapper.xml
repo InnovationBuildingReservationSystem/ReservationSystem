@@ -2,6 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.OrderItemMapper" >
 
+    <select id="getActivityPageBean" parameterType="pojo.ActivityPageBean" resultType="pojo.OrderItem">
+        SELECT
+        starttime,
+        endtime,
+        cid,
+        theme,
+        groupname
+        FROM
+        ordercr
+        WHERE
+        starttime <![CDATA[ >= ]]>  #{nowDate}
+        ORDER BY
+        starttime
+        limit #{start},#{pageSize}
+    </select>
+    <select id="getActivityTotalCount" parameterType="java.lang.String">
+        SELECT
+        COUNT (*)
+        FROM
+        ordercr
+        WHERE
+        starttime <![CDATA[ >= ]]>  #{nowDate}
+    </select>
     <select id="getOrderItemByCidAndStartDate" parameterType="String" resultType="pojo.OrderItem">
         SELECT
         cid,

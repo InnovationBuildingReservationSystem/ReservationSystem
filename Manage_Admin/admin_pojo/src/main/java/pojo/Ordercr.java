@@ -1,6 +1,9 @@
 package pojo;
 
-public class Ordercr {
+import java.io.Serializable;
+
+public class Ordercr implements Serializable
+{
     private Integer orderid;
 
     private String cid;
