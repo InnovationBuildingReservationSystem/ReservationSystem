@@ -28,8 +28,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         //获取登录session
         Administrator administrator = (Administrator) request.getSession().getAttribute("administrator");
 
-        if (administrator != null) {
-            response.sendRedirect("http://localhost:8888/Manage_Admin/classroomInformation.html");
+        if (administrator == null) {
+            response.sendRedirect("http://localhost:7777/Manage_Admin/classroomInformation.html");
             return true;
         } else {
             //如果没有登录session，则返回到登录页面

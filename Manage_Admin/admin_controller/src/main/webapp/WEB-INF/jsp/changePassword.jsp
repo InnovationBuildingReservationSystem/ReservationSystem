@@ -96,6 +96,44 @@
 
                     <b class="arrow"></b>
                 </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-desktop"></i>
+                        <span class="menu-text">
+                                信息发布
+							</span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+
+
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/noticeSend.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 通知信息发布
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
+                                <i class="menu-icon fa fa-caret-right"></i>通知历史记录
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="">
                     <a href="#" class="dropdown-toggle">
@@ -111,9 +149,8 @@
 
                     <ul class="submenu">
 
-
                         <li class="">
-                            <a href="typography.html">
+                            <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 学生信息管理
                             </a>
 
@@ -164,11 +201,14 @@
 
 
                 <li class="">
-                    <a href="${pageContext.request.contextPath}/admin/changePassword.html">
-                        <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                    <a href="${pageContext.request.contextPath}/admin/changePassword.html" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-desktop"></i>
+                        <span class="menu-text">
+                            修改密码
+							</span>
                     </a>
-
                     <b class="arrow"></b>
+
                 </li>
 
             </ul>
