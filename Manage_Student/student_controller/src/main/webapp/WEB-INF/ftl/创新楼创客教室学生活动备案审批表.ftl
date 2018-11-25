@@ -121,7 +121,7 @@
                                         <w:jc w:val="center"/>
                                     </w:pPr>
                                     <w:r>
-                                        <w:t>${year}</w:t>
+                                        <w:t>${year?string}</w:t>
                                     </w:r>
                                     <w:r w:rsidR="00BE0770">
                                         <w:rPr>
@@ -130,7 +130,7 @@
                                         <w:t>年</w:t>
                                     </w:r>
                                     <w:r>
-                                        <w:t>${month}</w:t>
+                                        <w:t>${month?string}</w:t>
                                     </w:r>
                                     <w:r w:rsidR="00BE0770">
                                         <w:rPr>
@@ -142,7 +142,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${day}</w:t>
+                                        <w:t>${day?string}</w:t>
                                     </w:r>
                                     <w:r w:rsidR="00BE0770">
                                         <w:rPr>
@@ -184,7 +184,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${cid}</w:t>
+                                        <w:t>${cid?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -222,7 +222,7 @@
                                         <w:jc w:val="center"/>
                                     </w:pPr>
                                     <w:r>
-                                        <w:t>${starttime}</w:t>
+                                        <w:t>${starttime?string}</w:t>
                                     </w:r>
                                     <w:r>
                                         <w:rPr>
@@ -231,7 +231,7 @@
                                         <w:t>-</w:t>
                                     </w:r>
                                     <w:r>
-                                        <w:t>${endtime}</w:t>
+                                        <w:t>${endtime?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -272,7 +272,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${theme}</w:t>
+                                        <w:t>${theme?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -312,7 +312,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${sname}</w:t>
+                                        <w:t>${sname?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -348,7 +348,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${stelphone}</w:t>
+                                        <w:t>${stelphone?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -383,7 +383,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${snum}</w:t>
+                                        <w:t>${snum?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -424,7 +424,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${faculty}</w:t>
+                                        <w:t>${faculty?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -460,7 +460,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${groupname}</w:t>
+                                        <w:t>${groupname?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -501,7 +501,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${teacher}</w:t>
+                                        <w:t>${teacher?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -537,7 +537,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${ttelphone}</w:t>
+                                        <w:t>${ttelphone?string}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -572,7 +572,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${attendcount}</w:t>
+                                        <w:t>${attendcount?number}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>

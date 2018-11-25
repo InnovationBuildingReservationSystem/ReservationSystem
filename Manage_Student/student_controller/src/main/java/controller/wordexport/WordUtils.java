@@ -2,42 +2,111 @@ package controller.wordexport;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import pojo.Ordercr;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class WordUtils {
-    //配置信息,代码本身写的还是很可读的,就不过多注解了
-    private static Configuration configuration = null;
-    //这里注意的是利用WordUtils的类加载器动态获得模板文件的位置
-    private static final String templateFolder = WordUtils.class.getClassLoader().getResource("../../").getPath() + "asserts/templete/";
 
-    static {
-        configuration = new Configuration();
-        configuration.setDefaultEncoding("utf-8");
+    private Configuration configuration = null;
+
+    public WordUtils(FreeMarkerConfigurer freeMarkerConfigurer) {
+        configuration = freeMarkerConfigurer.getConfiguration();
+        configuration.setDefaultEncoding("UTF-8");
+    }
+
+    public File createWord(Ordercr ordercr, String sname) {
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+        getData(dataMap, ordercr, sname);
+        //configuration.setClassForTemplateLoading(this.getClass(), "classpath:/ftl/");//模板文件所在路径
+        Template t = null;
         try {
-            configuration.setDirectoryForTemplateLoading(new File(templateFolder));
+            t = configuration.getTemplate("创新楼创客教室学生活动备案审批表.ftl"); //获取模板文件
         } catch (IOException e) {
             e.printStackTrace();
         }
+        File outFile = new File("D:/创新楼教室预约系统/outFile/创新楼创客教室学生活动备案审批表.doc"); //导出文件
+        Writer out = null;
+        try {
+            FileOutputStream fos = new FileOutputStream(outFile);
+            OutputStreamWriter oWriter = new OutputStreamWriter(fos, "UTF-8");
+            out = new BufferedWriter(oWriter);
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            t.process(dataMap, out); //将填充数据填入模板文件并输出到目标文件
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return outFile;
     }
 
-    private WordUtils() {
-        throw new AssertionError();
+    private void getData(Map<String, Object> dataMap, Ordercr ordercr, String sname) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date starttime = null;
+        Date endtime = null;
+        try {
+            starttime = df.parse(ordercr.getStarttime());
+            endtime = df.parse(ordercr.getEndtime());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+
+        start.setTime(starttime);
+        end.setTime(endtime);
+
+        String year = "" + start.get(start.YEAR);
+        int month = start.get(start.MONTH) + 1;
+        int day = start.get(start.DATE);
+
+        /*String stime = start.get(start.HOUR) + ":" + start.get(start.MINUTE);
+        String etime = end.get(end.HOUR) + ":" + end.get(end.MINUTE);*/
+
+        dataMap.put("sname", sname);
+        dataMap.put("year", year);
+        dataMap.put("month", month);
+        dataMap.put("day", day);
+        dataMap.put("cid", ordercr.getCid());
+        dataMap.put("stelphone", ordercr.getStelephone());
+        dataMap.put("ttelphone", ordercr.getTtelephone());
+        dataMap.put("faculty", ordercr.getFaculty());
+        dataMap.put("teacher", ordercr.getTeacher());
+        dataMap.put("attendcount", ordercr.getAttendcount());
+        dataMap.put("theme", ordercr.getTheme());
+        dataMap.put("starttime", ordercr.getStarttime().substring(11, 16));
+        dataMap.put("endtime", ordercr.getEndtime().substring(11, 16));
+        dataMap.put("snum", ordercr.getSnum());
+        dataMap.put("groupname", ordercr.getGroupname());
     }
 
-    public static void exportMillCertificateWord(HttpServletRequest request, HttpServletResponse response, Map map) throws IOException {
-        Template freemarkerTemplate = configuration.getTemplate("test.ftl");
+    public void exportMillCertificateWord(HttpServletRequest request, HttpServletResponse response, Ordercr ordercr, String sname) throws IOException {
         File file = null;
         InputStream fin = null;
         ServletOutputStream out = null;
         try {
             // 调用工具类的createDoc方法生成Word文档
-            file = createDoc(map, freemarkerTemplate);
+            file = createWord(ordercr, sname);
             fin = new FileInputStream(file);
 
             response.setCharacterEncoding("utf-8");
@@ -57,23 +126,9 @@ public class WordUtils {
         } finally {
             if (fin != null) fin.close();
             if (out != null) out.close();
-            if (file != null) file.delete(); // 删除临时文件
+            if (file != null || file.exists()){
+                file.delete(); // 删除临时文件
+            }
         }
-    }
-
-    private static File createDoc(Map<?, ?> dataMap, Template template) {
-        String name = "test.doc";
-        File f = new File(name);
-        Template t = template;
-        try {
-            // 这个地方不能使用FileWriter因为需要指定编码类型否则生成的Word文档会因为有无法识别的编码而无法打开
-            Writer w = new OutputStreamWriter(new FileOutputStream(f), "utf-8");
-            t.process(dataMap, w);
-            w.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new RuntimeException(ex);
-        }
-        return f;
     }
 }

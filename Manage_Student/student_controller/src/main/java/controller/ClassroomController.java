@@ -13,6 +13,8 @@ import service.ClassroomService;
 import service.OrderService;
 import service.StudentService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,15 +48,21 @@ public class ClassroomController {
 
      */
     @RequestMapping("/student/ClassroomInfo")
-    public String getClassroomInfo(Model model, @RequestParam(value = "snum") String snum) throws ParseException {
+    public String getClassroomInfo(HttpServletRequest request, Model model) throws ParseException {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
+        model.addAttribute("student", student);
+
         Date date = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         List<Classroom> classroomList = classroomService.getClassroomList();//教室列表
         List classList = classroomService.getClassroomList("all", df.format(date));//教室使用列表
-        Student student = studentService.getStudentInfo(snum);
         model.addAttribute("classroomList", classroomList);
         model.addAttribute("classList", classroomList);
-        model.addAttribute("student", student);
         model.addAttribute("startdate", df.format(date));
 
         String startdate = df.format(date);
@@ -107,10 +115,16 @@ public class ClassroomController {
 
      */
     @RequestMapping("/student/queryClassroom")
-    public String queryClassroomInfo(Model model, @RequestParam(value = "snum") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate) {
-        List<Ordercr> list = orderService.getOrderList();
-        Student student = studentService.getStudentInfo(snum);
+    public String queryClassroomInfo(HttpServletRequest request, Model model, @RequestParam("cid") String cid, @RequestParam("startdate") String startdate) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
+
+        List<Ordercr> list = orderService.getOrderList();
         model.addAttribute("cid", cid);
         model.addAttribute("startdate", startdate);
         model.addAttribute("orderList", list);//所有订单集合
@@ -177,7 +191,7 @@ public class ClassroomController {
             model.addAttribute("statusLists", statusLists);//状态列表
         }
 
-        model.addAttribute("snum", snum);
+        model.addAttribute("snum", student.getSnum());
         model.addAttribute("classroomList", classroomList);//下拉列表的班级列表
         model.addAttribute("classList", classList);//搜索出的某天的班级列表
 

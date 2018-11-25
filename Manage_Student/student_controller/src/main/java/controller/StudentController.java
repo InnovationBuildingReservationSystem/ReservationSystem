@@ -12,6 +12,7 @@ import pojo.Student;
 import service.OrderService;
 import service.StudentService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -37,8 +38,13 @@ public class StudentController {
 
      */
     @RequestMapping("/student/passwordChange")
-    public String passwordChange(Model model, @RequestParam(value = "snum") String snum) {
-        Student student = studentService.getStudentInfo(snum);
+    public String passwordChange(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
         return "passwordChange";
     }
@@ -66,10 +72,15 @@ public class StudentController {
 
      */
     @RequestMapping("/student/updatePassword")
-    public String updatePassword(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("originalPwd") String originalPwd, @RequestParam("newPwd") String newPwd, @RequestParam("newPwdConvinced") String newPwdConvinced) {
-        Student student = studentService.getStudentInfo(snum);
+    public String updatePassword(Model model, HttpServletRequest request, @RequestParam("sname") String sname, @RequestParam("originalPwd") String originalPwd, @RequestParam("newPwd") String newPwd, @RequestParam("newPwdConvinced") String newPwdConvinced) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
-        if (snum.length() != 8 || !snum.matches("[0-9]+")) {
+        if (student.getSnum().length() != 8 || !student.getSnum().matches("[0-9]+")) {
             model.addAttribute("snumError", "学号为8位数字，请检查！");
         }
         if (originalPwd.length() < 6) {
@@ -81,17 +92,20 @@ public class StudentController {
         if (!newPwd.equals(newPwdConvinced)) {
             model.addAttribute("newPwdConvincedError", "两次输入新密码内容不一致！");
         }
-        if (studentService.stuInfoValidate(snum, sname, originalPwd) && newPwdConvinced.equals(newPwd)) {
+        if (studentService.stuInfoValidate(student.getSnum(), sname, originalPwd) && newPwdConvinced.equals(newPwd)) {
+            student.setSpwd(newPwd);
             studentService.updatePassword(student);
             model.addAttribute("errorMessage", "更改成功！");
+            session.setAttribute("studentSession", student);
             return "passwordChange";
         }
         model.addAttribute("errorMessage", "所填写信息有误，请检查后重试！");
-        model.addAttribute("snum", snum);
+        model.addAttribute("snum", student.getSnum());
         model.addAttribute("sname", sname);
         model.addAttribute("originalPwd", originalPwd);
         model.addAttribute("newPwd", newPwd);
         model.addAttribute("newPwdConvinced", newPwdConvinced);
+        session.setAttribute("studentSession", student);
 
         return "passwordChange";
     }
@@ -110,10 +124,17 @@ public class StudentController {
 
      */
     @RequestMapping("/student/userInfo")
-    public String userInfo(Model model, @RequestParam("snum") String snum) {
-        Student student = studentService.getStudentInfo(snum);
-        int appCount = orderService.orderCount(snum, "all", "");
+    public String userInfo(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
+
+        int appCount = orderService.orderCount(student.getSnum(), "all", "");
+        session.setAttribute("studentSession", student);
         model.addAttribute("appCount", appCount);
         return "userInfo";
     }
@@ -132,14 +153,24 @@ public class StudentController {
 
      */
     @RequestMapping("/student/activeAccount")
-    public String activeAccount(Model model, @RequestParam("snum") String snum) {
-        Student student = studentService.getStudentInfo(snum);
-        if (student.getSstatus() != 0) {
-            return "redirect: personalOrder.html?snum=" + snum;
+    public String activeAccount(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session != null || student != null) {
+
+            //studentService.getStudentInfo(snum);
+            if (student.getSstatus() != 0) {
+                session.setAttribute("studentSession", student);
+                model.addAttribute("student", student);
+                return "redirect: personalOrder.html";
+            }
+            model.addAttribute("snum", student.getSnum());
+            session.setAttribute("studentSession", student);
+            model.addAttribute("student", student);
+            return "activeAccount";
+        } else {
+            return "login";
         }
-        model.addAttribute("snum", snum);
-        model.addAttribute("student", student);
-        return "activeAccount";
     }
 
     /*
@@ -156,41 +187,51 @@ public class StudentController {
 
      */
     @RequestMapping("/student/doActive")
-    public String doActive(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
-        Student student = studentService.getStudentInfo(snum);
-        if (!sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
+    public String doActive(Model model, HttpServletRequest request, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
+        model.addAttribute("student", student);
+
+        if (!snum.trim().equals(student.getSnum()) || !sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
             model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
-            model.addAttribute("snum", snum);
+            model.addAttribute("snum", student.getSnum());
             model.addAttribute("spwd", spwd);
             model.addAttribute("spwdConvinced", spwdConvinced);
             model.addAttribute("sname", sname);
             model.addAttribute("sid", sid);
             model.addAttribute("stelephone", stelphone);
+            session.setAttribute("studentSession", student);
             return "activeAccount";
         } else if (!spwd.equals(spwdConvinced)) {
             model.addAttribute("errorMessage", "两次密码内容不一致！");
-            model.addAttribute("snum", snum);
+            model.addAttribute("snum", student.getSnum());
             model.addAttribute("spwd", spwd);
             model.addAttribute("spwdConvinced", spwdConvinced);
             model.addAttribute("sname", sname);
             model.addAttribute("sid", sid);
             model.addAttribute("stelephone", stelphone);
+            session.setAttribute("studentSession", student);
             return "activeAccount";
         } else if (spwd.length() < 6) {
             model.addAttribute("errorMessage", "密码长度应不少于6位");
-            model.addAttribute("snum", snum);
+            model.addAttribute("snum", student.getSnum());
             model.addAttribute("spwd", spwd);
             model.addAttribute("spwdConvinced", spwdConvinced);
             model.addAttribute("sname", sname);
             model.addAttribute("sid", sid);
             model.addAttribute("stelphone", stelphone);
+            session.setAttribute("studentSession", student);
             return "activeAccount";
         }
         student.setStelphone(stelphone);
         student.setSstatus(1);
         student.setSpwd(spwd);
         studentService.updateStuInfo(student);
-        model.addAttribute("snum", snum);
+        session.setAttribute("studentSession", student);
         return "redirect: personalOrder.html";
     }
 
@@ -209,9 +250,14 @@ public class StudentController {
      */
 
     @RequestMapping("/student/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
         session.invalidate();
-        return "redirect:localhost:8887/Manage_Login/login/login.html";
+        return "redirect:login.html";
     }
 
 

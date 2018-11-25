@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.Student;
+import pojo.StudentExample;
 import service.StudentService;
 
 @Service
@@ -43,5 +44,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void updateStuInfo(Student student) {
         studentItemMapper.updateStuInfo(student);
+    }
+
+    @Override
+    public boolean validateStudent(String snum, String spwd) {
+        StudentExample example = new StudentExample();
+        example.createCriteria().andSnumEqualTo(snum).andSpwdEqualTo(spwd);
+        if (studentMapper.countByExample(example) != 0) {
+            return true;
+        }
+        return false;
     }
 }

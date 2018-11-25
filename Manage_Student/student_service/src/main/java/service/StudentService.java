@@ -10,4 +10,6 @@ public interface StudentService {
     boolean stuInfoValidate(String snum, String sname, String originalPwd);
 
     void updateStuInfo(Student student);
+
+    boolean validateStudent(String snum, String spwd);//登录验证
 }

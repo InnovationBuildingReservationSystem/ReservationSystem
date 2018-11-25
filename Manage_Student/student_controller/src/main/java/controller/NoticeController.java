@@ -11,6 +11,8 @@ import pojo.Student;
 import service.NoticeService;
 import service.StudentService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -23,12 +25,18 @@ public class NoticeController {
     StudentService studentService;
 
     @RequestMapping("/student/notice")
-    public String getNotice(Model model, @RequestParam("snum") String snum) {
-        Student student = studentService.getStudentInfo(snum);
+    public String getNotice(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
+        model.addAttribute("student", student);
         List<Notice> list = noticeService.getNotice();
         model.addAttribute("noticeList", list);
         model.addAttribute("student", student);
-        model.addAttribute("snum", snum);
+        model.addAttribute("snum", student.getSnum());
         return "notice";
     }
 }

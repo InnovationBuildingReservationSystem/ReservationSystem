@@ -1,6 +1,6 @@
 package controller;
 
-import controller.wordexport.WordTest;
+import controller.wordexport.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,11 +16,9 @@ import service.ClassroomService;
 import service.OrderService;
 import service.StudentService;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Field;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,27 +56,33 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/personalOrder")
-    public String getOrderTableBySnum(@RequestParam("snum") String snum, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
+    public String getOrderTableBySnum(HttpServletRequest request, Model model, @RequestParam(defaultValue = "1") Integer page) throws ParseException {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
+        model.addAttribute("student", student);
 
         List<Classroom> classroomList = classroomService.getClassroomList();
-        Integer orderCount = orderService.orderCount(snum, "all", "");
-        Student student = studentService.getStudentInfo(snum);
+        Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
         if (page < 1) {
             page = 1;
         }
         if (page > orderCount / 8) {
             page = orderCount / 8;
         }
-        List<Ordercr> orderList = orderService.getOrderList(snum, page);
-        if (orderService.hasOrderedToday(snum)) {
-            orderService.otherOrderCancel(snum);
+        List<Ordercr> orderList = orderService.getOrderList(student.getSnum(), page);
+        if (orderService.hasOrderedToday(student.getSnum())) {
+            orderService.otherOrderCancel(student.getSnum());
         } else {
-            orderService.updateApplication(orderList, snum);
+            orderService.updateApplication(orderList, student.getSnum());
         }
 
         model.addAttribute("orderCount", orderCount);
         model.addAttribute("orderList", orderList);
-        model.addAttribute("snum", snum);
+        model.addAttribute("snum", student.getSnum());
         model.addAttribute("classroomList", classroomList);
         model.addAttribute("prePage", page - 1);
         model.addAttribute("thisPage", page);
@@ -104,13 +108,18 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/application")
-    public String getFaculty(Model model, @RequestParam("snum") String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
-        Student student = studentService.getStudentInfo(snum);
+    public String getFaculty(HttpServletRequest request, Model model, String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
 
-        if (orderService.hasOrderedToday(snum)) {
-            orderService.otherOrderCancel(snum);
-            List<Ordercr> orderList = orderService.getOrderList(snum);
+        if (orderService.hasOrderedToday(student.getSnum())) {
+            orderService.otherOrderCancel(student.getSnum());
+            List<Ordercr> orderList = orderService.getOrderList(student.getSnum());
             List<Classroom> classroomList = classroomService.getClassroomList();
             Integer orderCount = orderService.orderCount(snum, "all", "");
 
@@ -182,9 +191,29 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/applicationClassroom")
-    public String handleApplication(@ModelAttribute Ordercr ordercr, @RequestParam("startdate") String startdate, @RequestParam("sname") String sname, @RequestParam("snum") String snum, Model model) {
-        Student student = studentService.getStudentInfo(snum);
+    public String handleApplication(HttpServletRequest request, @ModelAttribute Ordercr ordercr, @RequestParam("startdate") String startdate, @RequestParam("sname") String sname, String snum, Model model) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
+
+        if (!student.getSnum().equals(ordercr.getSnum())) {
+            model.addAttribute("errorMessage", "登录账号与提交学号不一致，请重试！");
+            model.addAttribute("ordercr", ordercr);
+            model.addAttribute("errorFlag", 1);
+
+            List<String> facultyList = orderService.getFacultyList();
+            List<Classroom> classroomList = classroomService.getClassroomList();
+
+            model.addAttribute("facultyList", facultyList);
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("cid", ordercr.getCid());
+            model.addAttribute("ttelphone", ordercr.getTtelephone());
+            return "application";
+        }
 
         String errorMessage = null;
         Integer classAllowCount = classroomService.getClassroomByCid(ordercr.getCid()).getCnum();
@@ -194,6 +223,7 @@ public class OrdercrController {
         model.addAttribute("endtime", ordercr.getEndtime());
         model.addAttribute("startdate", startdate);
         model.addAttribute("faculty", ordercr.getFaculty());
+        model.addAttribute("ttelphone", ordercr.getTtelephone());
 
         String starttime = startdate + " " + ordercr.getStarttime() + ":00";
         String endtime = startdate + " " + ordercr.getEndtime() + ":00";
@@ -262,7 +292,7 @@ public class OrdercrController {
 
             return "application";
 
-        } else if (orderService.hasOrderedToday(snum)) {
+        } else if (orderService.hasOrderedToday(student.getSnum())) {
             errorMessage = "您今天已经成功预订过一次教室，已不能申请，请明天再重试！";
 
             model.addAttribute("errorMessage", errorMessage);
@@ -319,8 +349,13 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/withdrawApplication")
-    public String withdrawApplication(@RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum, Model model) {
-        Student student = studentService.getStudentInfo(snum);
+    public String withdrawApplication(HttpServletRequest request, @RequestParam("orderid") Integer orderid, Model model) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
         boolean flag = orderService.withdrawApplication(orderid);
         if (flag) {
@@ -328,19 +363,25 @@ public class OrdercrController {
         } else {
 
         }
-        Integer orderCount = orderService.orderCount(snum, "all", "");
+        Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
 
         model.addAttribute("orderCount", orderCount);
         return "redirect: personalOrder.html";
     }
 
     @RequestMapping("/student/queryOrder")
-    public String queryPersonalOrder(Model model, @RequestParam("snum") String snum, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate, @RequestParam(defaultValue = "1") Integer page) {
-        List<Ordercr> list = orderService.getOrderList(snum, cid, startdate, page);
+    public String queryPersonalOrder(HttpServletRequest request, Model model, @RequestParam("cid") String cid, @RequestParam(value = "startdate") String startdate, @RequestParam(defaultValue = "1") Integer page) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
+        model.addAttribute("student", student);
+        List<Ordercr> list = orderService.getOrderList(student.getSnum(), cid, startdate, page);
 
         List<Classroom> classroomList = classroomService.getClassroomList();
-        Integer orderCount = orderService.orderCount(snum, cid, startdate);
-        Student student = studentService.getStudentInfo(snum);
+        Integer orderCount = orderService.orderCount(student.getSnum(), cid, startdate);
 
         model.addAttribute("student", student);
         model.addAttribute("prePage", page - 1);
@@ -349,7 +390,7 @@ public class OrdercrController {
         model.addAttribute("finalPage", orderCount / 8);
 
         model.addAttribute("orderCount", orderCount);
-        model.addAttribute("snum", snum);
+        model.addAttribute("snum", student.getSnum());
         model.addAttribute("classroomList", classroomList);
         model.addAttribute("cid", cid);
         model.addAttribute("startdate", startdate);
@@ -359,12 +400,18 @@ public class OrdercrController {
 
     @RequestMapping("/student/exportWord")
     public String exportDocument(Model model, @RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum, HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        if (session == null || student == null) {
+            return "login";
+        }
+        session.setAttribute("studentSession", student);
+        model.addAttribute("student", student);
         Ordercr ordercr = orderService.getOrderById(orderid);
-        Student student = studentService.getStudentInfo(ordercr.getSnum());
-        WordTest test = new WordTest(freeMarkerConfigurer);
-        try{
-            test.exportMillCertificateWord(request,response,ordercr,student.getSname());
-        } catch (Exception e){
+        WordUtils test = new WordUtils(freeMarkerConfigurer);
+        try {
+            test.exportMillCertificateWord(request, response, ordercr, student.getSname());
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
