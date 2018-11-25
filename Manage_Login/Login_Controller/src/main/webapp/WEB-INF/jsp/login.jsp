@@ -82,7 +82,7 @@
 
                                             <div class="clearfix">
                                                 <label class="inline">
-
+                                                    <a href="${pageContext.request.contextPath}/login/forgetPassword.html">找回密码</a>
                                                 </label>
 
                                                 <button type="submit"

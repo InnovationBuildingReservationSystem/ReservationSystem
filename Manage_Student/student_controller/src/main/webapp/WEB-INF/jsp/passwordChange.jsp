@@ -384,6 +384,14 @@
 
                         <b class="arrow"></b>
                     </li>
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/student/notice.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            通知公告
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
                 </ul>
             </li>
 

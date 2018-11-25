@@ -71,4 +71,59 @@ public class UserController {
         model.addAttribute("errorMessage", "用户名或密码错误");
         return "login";
     }
+
+    /*
+
+     * @Author: Zhancheng Liang
+
+     * @param :
+
+     * @return :
+
+     * @Description: 找回密码页面
+
+     *
+
+     */
+    @RequestMapping("login/forgetPassword")
+    public String forgetPassword() {
+        return "forgetPassword";
+    }
+
+    @RequestMapping("login/passwordReset")
+    public String passwordReset(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
+        Student student = studentService.getStudentInfo(snum);
+        if (!sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18 || !stelphone.trim().equals(student.getStelphone())) {
+            model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            model.addAttribute("stelephone", stelphone);
+            return "forgetPassword";
+        } else if (!spwd.equals(spwdConvinced)) {
+            model.addAttribute("errorMessage", "两次密码内容不一致！");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            model.addAttribute("stelephone", stelphone);
+            return "forgetPassword";
+        } else if (spwd.length() < 6) {
+            model.addAttribute("errorMessage", "密码长度应不少于6位");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            model.addAttribute("stelphone", stelphone);
+            return "forgetPassword";
+        }
+        student.setSpwd(spwd);
+        studentService.updatePassword(student);
+        model.addAttribute("snum", snum);
+        return "redirect: login.html";
+    }
 }

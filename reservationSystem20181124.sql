@@ -115,7 +115,7 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `nid` int(11) NOT NULL AUTO_INCREMENT, /*公告id*/
   `ntitle` varchar(50) NOT NULL, /*标题*/
-  `ncontent` varchar(50) NOT NULL, /*内容*/
+  `ncontent` text NOT NULL, /*内容*/
   `ntime` varchar(50) NOT NULL, /*发布时间*/
   PRIMARY KEY (`nid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

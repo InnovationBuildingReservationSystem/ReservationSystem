@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>账号激活 - 创新楼教室预约系统</title>
+    <title>找回密码 - 创新楼教室预约系统</title>
 
     <meta name="description" content="and Validation"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -70,49 +70,6 @@
             </a>
         </div>
 
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav" style="text-align: right;">
-                <li class="light-blue dropdown-modal">
-                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo"
-                             src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg"
-                             alt="User's Photo"/>
-                        <span class="user-info">
-									<small>Welcome,</small>
-									${student.sname}
-								</span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/passwordChange.html">
-                                <i class="ace-icon fa fa-cog"></i>
-                                修改密码
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/userInfo.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                个人详情
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/logout.html">
-                                <i class="ace-icon fa fa-power-off"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
     </div><!-- /.navbar-container -->
 </div>
 
@@ -137,7 +94,7 @@
                 <li>
                     <a href="#">个人信息</a>
                 </li>
-                <li class="active">账号激活</li>
+                <li class="active">找回密码</li>
             </ul><!-- /.breadcrumb -->
 
         </div>
@@ -146,17 +103,14 @@
 
             <div class="page-header">
                 <h1>
-                    账号激活
+                    找回密码
                 </h1>
             </div><!-- /.page-header -->
 
             <div class="row">
                 <div class="col-xs-12">
 
-                    <div class="hr hr-18 hr-double dotted"></div>
-
                     <div class="widget-box">
-
 
                         <div class="widget-body">
                             <div class="widget-main">
@@ -166,21 +120,22 @@
 
                                     <div class="step-content pos-rel">
                                         <div class="step-pane active" data-step="1">
-                                            <h3 class="lighter block green">激活账户</h3>
+                                            <h3 class="lighter block green">密码重置</h3>
                                             <span id="errorMessage" style="color:red;">${errorMessage}</span>
 
                                             <form class="form-horizontal" id="sample-form"
-                                                  action="${pageContext.request.contextPath}/student/doActive.html"
+                                                  action="${pageContext.request.contextPath}/login/passwordReset.html"
                                                   method="post">
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags">学号</label>
+                                                           for="form-field-tags-1">学号</label>
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
-                                                            <input type="text" id="form-field-tags-1" placeholder=""
+                                                            <input type="text" id="form-field-tags-1"
+                                                                   placeholder="请输入学号"
                                                                    name="snum"
-                                                                   value="${snum}" readonly="readonly"/>
+                                                                   value="${snum}" required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,11 +143,12 @@
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags">姓名</label>
+                                                           for="form-field-tags-2">姓名</label>
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
-                                                            <input type="text" id="form-field-tags-2" placeholder="请输入姓名"
+                                                            <input type="text" id="form-field-tags-2"
+                                                                   placeholder="请输入姓名"
 
                                                                    name="sname"
                                                                    value="${sname}" required/>
@@ -202,7 +158,7 @@
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags">身份证号</label>
+                                                           for="form-field-tags-3">身份证号</label>
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
@@ -216,7 +172,7 @@
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags">电话号码</label>
+                                                           for="form-field-tags-4">电话号码</label>
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
@@ -231,12 +187,12 @@
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags">修改密码</label>
+                                                           for="form-field-tags-5">新密码</label>
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
                                                             <input type="password" id="form-field-tags-5"
-                                                                   placeholder="请修改你的密码"
+                                                                   placeholder="请输入你的新密码"
 
                                                                    name="spwd"
                                                                    value="${spwd}" required/>
@@ -246,7 +202,7 @@
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags">确认密码</label>
+                                                           for="form-field-tags-6">确认密码</label>
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
@@ -264,8 +220,13 @@
                                                         <!--<div class="inline">-->
                                                         <button type="submit" class="btn btn-lg btn-success">
                                                             <i class="ace-icon fa fa-check"></i>
-                                                            激活
+                                                            重置密码
                                                         </button>
+                                                        <a type="button" class="btn btn-lg btn-back-message-list"
+                                                           href="${pageContext.request.contextPath}/login/login.html">
+                                                            <i class="ace-icon fa fa-backward"></i>
+                                                            返回
+                                                        </a>
                                                         <!--</div>-->
                                                     </div>
                                                 </div>
