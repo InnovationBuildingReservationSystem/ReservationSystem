@@ -23,6 +23,19 @@ public class StudentServiceImpl implements StudentService
     @Override
     public PageBean getStudentPageBean(String sid,Integer pageSize,Integer currentPage)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : sid 学号 pageSize 页面显示条数 currentPage 当前页码
+
+         * @return : pageBean 包含学生的所有信息
+
+         * @Description:
+
+         * 获取学生信息
+
+         */
         PageBean pageBean;
         if(sid!=null&&(!StringUtils.isEmpty(sid)))
         {

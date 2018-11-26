@@ -14,6 +14,19 @@ public class LoginServiceImpl implements LoginService
     @Override
     public boolean authentication(Administrator admin)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : admin 管理员账号密码
+
+         * @return : 验证管理员信息
+
+         * @Description:
+
+         * 管理员登录验证
+
+         */
         Administrator adminCheck = administratorMapper.selectByPrimaryKey(admin.getAid());
         if (adminCheck==null||!(adminCheck.getApwd().equals(admin.getApwd()))||(adminCheck.getArole()!=1))
         {

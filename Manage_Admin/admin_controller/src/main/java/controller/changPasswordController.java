@@ -44,7 +44,6 @@ public class changPasswordController
             if (check==0)
             return "fail";
         }
-        System.out.println(password+"   "+newPassword);
         check = changePasswordService.changePassword(aid, password, newPassword);
         if (check==1)
         return  "success";

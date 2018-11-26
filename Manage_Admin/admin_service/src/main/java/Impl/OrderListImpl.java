@@ -47,7 +47,7 @@ public class OrderListImpl implements OrderService
 
          */
         List<OrderItem> orderItemList = orderItemMapper.getOrderItemList();
-        System.out.println(orderItemList.size());
+       // System.out.println(orderItemList.size());
         for(int i=0;i<orderItemList.size();i++)
         {
             //判断并且更改预约状态

@@ -277,7 +277,7 @@
                         <a href="#">预约信息管理</a>
                     </li>
                     <li>
-                        <a href="">教室预约信息管理</a>
+                        <a href="">教室预约信息查询</a>
                     <li>
                 </ul>
                 <!-- /.breadcrumb -->
@@ -291,7 +291,7 @@
                         </div>
                         <div class="page-header">
                             <h1>
-                                教室使用情况
+                                教室预约信息查询
                             </h1>
                         </div>
 
@@ -308,17 +308,17 @@
                                     </label>
                                     <div class="col-sm-2">
                                         <C:if test="${pageBean.totalCount eq 1}">
-                                            <input value="${pageBean.pageList[0].cid}" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
+                                            <input onkeyup="value=value.replace(/[^\d]/g,'')" value="${pageBean.pageList[0].cid}" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
                                         </C:if>
-                                        <C:if test="${pageBean.totalCount gt 1}">
-                                            <input  class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
+                                        <C:if test="${pageBean.totalCount != 1}">
+                                            <input onkeyup="value=value.replace(/[^\d]/g,'')" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
                                         </C:if>
 
                                     </div>
                                     <label class="col-sm-1 control-label no-padding-right no-padding-top" for="datepicker">日期</label>
                                     <div class="col-sm-2">
                                         <div class="input-group ">
-                                            <input name="orderDate" value="${pageBean.pageList[0].orderDate}"  class="typeahead scrollable date-picker" id="datepicker" type="text"
+                                            <input readonly="readonly" name="orderDate" value="${pageBean.pageList[0].orderDate}"  class="typeahead scrollable date-picker" id="datepicker" type="text"
                                                    data-date-format="yyyy-mm-dd"/>
                                             <span class="input-group-addon">
 									        	<i class="fa fa-calendar bigger-110"></i>

@@ -285,7 +285,7 @@
                         </div>
                         <div class="page-header">
                             <h1>
-                                学生信息查询
+                                学生信息管理
                             </h1>
                         </div>
 
@@ -302,10 +302,10 @@
                                     </label>
                                     <div class="col-sm-2">
                                         <C:if test="${pageBean.totalCount eq 1}">
-                                            <input value="${pageBean.pageList[0].sid}" class="typeahead scrollable" name="sid" type="text" placeholder="学号" />
+                                            <input onkeyup="value=value.replace(/[^\d]/g,'')" value="${pageBean.pageList[0].snum}" class="typeahead scrollable" name="sid" type="text" placeholder="学号" />
                                         </C:if>
                                         <C:if test="${pageBean.totalCount gt 1}">
-                                            <input  class="typeahead scrollable" name="sid" type="text" placeholder="学号" />
+                                            <input onkeyup="value=value.replace(/[^\d]/g,'')" class="typeahead scrollable" name="sid" type="text" placeholder="学号" />
                                         </C:if>
 
                                     </div>
@@ -395,8 +395,12 @@
                                         ${order.stelphone}
                                 </td>
                                 <td class="center">
-
-                                        ${order.sstatus}
+                                    <C:if test="${order.sstatus eq 0}">
+                                        未激活
+                                    </C:if>
+                                    <C:if test="${order.sstatus == 1}">
+                                        已激活
+                                    </C:if>
                                 </td>
                             </tr>
                         </C:forEach>

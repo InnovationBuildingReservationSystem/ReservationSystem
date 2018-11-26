@@ -276,7 +276,9 @@
                     <li>
                         <a href="#">信息管理</a>
                     </li>
-                    <li class="active">教室信息管理</li>
+                    <li class="active">
+                        <a href="#">教室信息管理</a>
+                    </li>
                 </ul>
                 <!-- /.breadcrumb -->
 
@@ -301,7 +303,7 @@
                     </div>
                     <div class="page-header">
                         <h1>
-                            教室信息表
+                            教室信息管理
                         </h1>
                     </div>
 

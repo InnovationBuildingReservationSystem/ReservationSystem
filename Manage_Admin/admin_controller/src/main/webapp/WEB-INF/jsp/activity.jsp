@@ -163,7 +163,7 @@
                     </li>
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/activity.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
+                            <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
                         </a>
 
                         <b class="arrow"></b>
@@ -277,7 +277,7 @@
                         <a href="#">信息发布</a>
                     </li>
                     <li>
-                        <a href="">活动发布展示</a>
+                        <a href="">活动信息发布</a>
                     <li>
                 </ul>
                 <!-- /.breadcrumb -->

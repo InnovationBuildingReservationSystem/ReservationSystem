@@ -43,6 +43,7 @@ public class LoginInterceptor implements HandlerInterceptor{
         //获取Session
         HttpSession session = request.getSession();
         Administrator admin=(Administrator)session.getAttribute("admin");
+
         if(admin != null&&admin.getArole()==1){
             return true;
         }

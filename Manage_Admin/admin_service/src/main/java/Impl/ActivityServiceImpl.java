@@ -31,6 +31,7 @@ public class ActivityServiceImpl implements ActivityService
             SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH");
             date=dateFormat.format(new Date());
         }
+        //一天最晚预定时间
         String endDate=date.substring(0,10)+" 21:00:00";
         int totalCount = orderItemMapper.getActivityTotalCount(date,endDate);
      //   System.out.println(totalCount);

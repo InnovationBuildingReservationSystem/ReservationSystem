@@ -9,6 +9,7 @@ import pojo.Administrator;
 import service.LoginService;
 
 import javax.servlet.http.HttpSession;
+import java.util.regex.Pattern;
 
 @Controller
 public class LoginController
@@ -19,9 +20,14 @@ public class LoginController
     @RequestMapping("/admin/login")
     public String adminLogin(Administrator admin, HttpSession session)
     {
-        if (admin != null && admin.getAid() != null && admin.getApwd() != null && StringUtils.isEmpty(admin.getAid()) && StringUtils.isEmpty(admin.getApwd()))
+        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
+        if (admin == null || admin.getAid() == null || admin.getApwd() == null || StringUtils.isEmpty(admin.getAid()) || StringUtils.isEmpty(admin.getApwd()))
         {
             return "login";
+        }
+        if (!pattern.matcher(admin.getAid()).matches()||admin.getApwd().length()<8)
+        {
+            return  "login";
         }
         if (!loginService.authentication(admin))
         {

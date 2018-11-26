@@ -297,7 +297,7 @@
 
                 <div class="page-header">
                     <h1>
-                        通知栏
+                        通知历史记录
                     </h1>
                 </div><!-- /.page-header -->
 

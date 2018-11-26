@@ -265,7 +265,7 @@
                         <a href="#">信息展示</a>
                     </li>
                     <li>
-                        <a href="">发布通知</a>
+                        <a href="">通知信息发布</a>
                     <li>
                 </ul>
                 <!-- /.breadcrumb -->
@@ -370,15 +370,20 @@
     function sendNotice() {
         var noticeText=$("#editor1").html();
         var noticeTitle=$("#form-field-1").val();
-        $.ajax({
-            type: "GET",
-            url: "${pageContext.request.contextPath}/admin/noticeSendToStudent.html",
-            data: 'noticeText='+noticeText+'&'+'noticeTitle='+noticeTitle,
-            success:function () {
-                alert("通知发布成功!");
-                window.location.href="${pageContext.request.contextPath}/admin/noticeHistory.html";
-            }
-        });
+        if(noticeTitle!=""&&noticeText!="")
+        {
+            $.ajax({
+                type: "GET",
+                url: "${pageContext.request.contextPath}/admin/noticeSendToStudent.html",
+                data: 'noticeText='+noticeText+'&'+'noticeTitle='+noticeTitle,
+                success:function () {
+                    alert("通知发布成功!");
+                    window.location.href="${pageContext.request.contextPath}/admin/noticeHistory.html";
+                }
+            });
+        }
+        else
+              alert("发布的信息不可为空!");
     }
 
     jQuery(function($){
