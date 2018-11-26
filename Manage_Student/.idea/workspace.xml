@@ -6,88 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="f068a740-640a-4641-a96d-07b2f076690e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/artifacts/admin_controller_war_exploded.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/artifacts/admin_controller_war_exploded.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/dataSources/84da3a97-4b78-4879-828b-70a3bffb0093.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__com_github_miemiedev_mybatis_paginator_1_2_15.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__com_github_miemiedev_mybatis_paginator_1_2_15.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__javax_servlet_jsp_api_2_0.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__javax_servlet_jsp_api_2_0.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__jstl_jstl_1_2.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__junit_junit_4_11.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_32.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_32.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_7.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_7.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_mybatis_mybatis_3_2_8.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_mybatis_mybatis_3_2_8.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_2_2.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_2_2.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_aop_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_aop_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_aspects_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_aspects_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_beans_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_beans_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_context_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_context_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_core_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_core_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_expression_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_expression_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_jms_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_jms_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_messaging_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_messaging_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_tx_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_tx_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_web_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_web_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_4_RELEASE.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_4_RELEASE.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/admin_controller.iml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/admin_controller.iml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/pom.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/java/controller/ActivityInformationController.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/java/controller/ActivityInformationController.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/java/controller/NoticeController.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/java/controller/NoticeController.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/changePassword.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/changePassword.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/classroomInformation.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/classroomInformation.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/noticeHistory.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/noticeHistory.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/noticeSend.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/noticeSend.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/orderTable.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/orderTable.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/reservationClassroom.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/reservationClassroom.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/studentInformation.jsp" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_controller/src/main/webapp/WEB-INF/jsp/studentInformation.jsp" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_dao/admin_dao.iml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_dao/admin_dao.iml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_dao/pom.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_dao/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_dao/src/main/java/mapper/OrderItemMapper.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_dao/src/main/java/mapper/OrderItemMapper.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_dao/src/main/java/mapper/OrderItemMapper.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_dao/src/main/java/mapper/OrderItemMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_dao/src/main/java/mapper/StudentMapper.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_dao/src/main/java/mapper/StudentMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_pojo/src/main/java/pojo/ActivityPageBean.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_pojo/src/main/java/pojo/ActivityPageBean.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_pojo/src/main/java/pojo/OrdercrExample.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_pojo/src/main/java/pojo/OrdercrExample.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_pojo/src/main/java/pojo/Student.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_pojo/src/main/java/pojo/Student.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_service/admin_service.iml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_service/admin_service.iml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_service/pom.xml" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_service/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_service/src/main/java/Impl/ActivityServiceImpl.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_service/src/main/java/Impl/ActivityServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_service/src/main/java/Impl/ReservationImpl.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_service/src/main/java/Impl/ReservationImpl.java" />
-      <change beforePath="$PROJECT_DIR$/../Manage_Admin/admin_service/src/main/java/service/ActivityService.java" afterPath="$PROJECT_DIR$/../Manage_Admin/admin_service/src/main/java/service/ActivityService.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties" afterPath="$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/ClassroomInfo.jsp" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/ClassroomInfo.jsp" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/activeAccount.jsp" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/activeAccount.jsp" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/application.jsp" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/application.jsp" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/passwordChange.jsp" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/passwordChange.jsp" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/personalOrder.jsp" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/jsp/personalOrder.jsp" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/lib/student_dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/lib/student_dao-1.0-SNAPSHOT.jar" />
-      <change beforePath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/lib/student_service-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/student_controller/target/student_controller/WEB-INF/lib/student_service-1.0-SNAPSHOT.jar" />
-=======
     <list default="true" id="585b0a72-1b2b-4971-8684-192c50b75cfd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java" afterDir="false" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/student_pojo/target/" />
     <ignored path="$PROJECT_DIR$/student_dao/target/" />
+    <ignored path="$PROJECT_DIR$/student_pojo/target/" />
     <ignored path="$PROJECT_DIR$/student_service/target/" />
     <ignored path="$PROJECT_DIR$/student_controller/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,15 +36,20 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="reservationsystem@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="reservationsystem@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="reservationsystem@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="reservationsystem: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
-<<<<<<< HEAD
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="resource.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/resource.properties">
-=======
   <component name="FUSProjectUsageTrigger">
     <session id="1614926259">
       <usages-collector id="statistics.file.extensions.open">
@@ -131,7 +60,7 @@
           <entry key="ftl" value="11" />
           <entry key="html" value="12" />
           <entry key="iml" value="2" />
-          <entry key="java" value="212" />
+          <entry key="java" value="211" />
           <entry key="jsp" value="97" />
           <entry key="notice" value="2" />
           <entry key="ordercr" value="19" />
@@ -150,7 +79,7 @@
           <entry key="FTL" value="11" />
           <entry key="HTML" value="12" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="212" />
+          <entry key="JAVA" value="211" />
           <entry key="JSP" value="97" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="20" />
@@ -195,7 +124,6 @@
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.37" value="2" />
           <entry key="project.open.time.38" value="3" />
           <entry key="project.open.time.4" value="1" />
@@ -207,61 +135,14 @@
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.69" value="1" />
-          <entry key="project.opened" value="31" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/StudentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-=======
-        <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java">
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="60" column="74" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="224" column="16" lean-forward="true" selection-start-line="224" selection-start-column="16" selection-end-line="224" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="90">
-              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-              <folding />
-=======
-            <state relative-caret-position="254">
-              <caret line="109" column="57" lean-forward="true" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
-<<<<<<< HEAD
-=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -311,16 +192,12 @@
       <replace>${pageContext.request.contextPath}/assets/</replace>
     </replaceStrings>
   </component>
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties" />
-=======
         <option value="$PROJECT_DIR$/../../ace-master/tables.html" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/web.xml" />
         <option value="$USER_HOME$/Desktop/form-wizard.html" />
@@ -372,7 +249,6 @@
         <option value="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
       </list>
     </option>
   </component>
@@ -389,13 +265,6 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="157" />
-    <option name="y" value="40" />
-    <option name="width" value="1400" />
-    <option name="height" value="990" />
-=======
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -425,24 +294,17 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="width" value="1935" />
     <option name="height" value="1050" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
       <pane id="PackagesPane" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -450,195 +312,18 @@
               <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
               <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-<<<<<<< HEAD
-=======
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="wordexport" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-=======
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_service" type="462c0819:PsiDirectoryNode" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-      <pane id="PackagesPane" />
-=======
-<<<<<<< HEAD
-      <pane id="Scratches" />
-=======
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/创新楼教室预约系统/ReservationSystem/Manage_Student/student_controller/src/main/java/controller/OrdercrController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543214525215" />
-=======
-<<<<<<< HEAD
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543213787000" />
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -674,7 +359,6 @@
       <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\webapp" />
       <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\resource\ftl" />
     </key>
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -688,86 +372,6 @@
       </list>
     </option>
   </component>
-<<<<<<< HEAD
-  <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.31" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:7778/" />
-=======
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.11">
     <configuration name="WordTestTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.wordexport.WordTestTest" />
@@ -785,19 +389,16 @@
     <configuration name="Tomcat 9.0.11" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.11" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="student_controller:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/Manage_Student" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Manage_Student_3" />
-        <option name="HTTP_PORT" value="7778" />
-        <option name="JNDI_PORT" value="1100" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Manage_Student_4" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -805,7 +406,7 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60654" />
+        <option name="DEBUG_PORT" value="56599" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -858,13 +459,6 @@
         </option>
       </method>
     </configuration>
-<<<<<<< HEAD
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-=======
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings>
@@ -926,7 +520,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.Tomcat 9.0.11" />
@@ -943,15 +536,10 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f068a740-640a-4641-a96d-07b2f076690e" name="Default" comment="" />
-      <created>1543129931818</created>
+      <changelist id="585b0a72-1b2b-4971-8684-192c50b75cfd" name="Default Changelist" comment="" />
+      <created>1542615587463</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
-      <updated>1543129931818</updated>
-      <workItem from="1543129933134" duration="158000" />
-      <workItem from="1543151861897" duration="147000" />
-=======
       <updated>1542615587463</updated>
       <workItem from="1542615593647" duration="15856000" />
       <workItem from="1542636176417" duration="4129000" />
@@ -983,61 +571,12 @@
       <workItem from="1543128395854" duration="4098000" />
       <workItem from="1543133127003" duration="156000" />
       <workItem from="1543134678092" duration="14269000" />
-<<<<<<< HEAD
       <workItem from="1543210518483" duration="3992000" />
-      <workItem from="1543231575330" duration="242000" />
-=======
-      <workItem from="1543210518483" duration="3211000" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="170858000" />
-=======
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="305000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25375536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-=======
-    <option name="totallyTimeSpent" value="169835000" />
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
+    <option name="totallyTimeSpent" value="170616000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1051,7 +590,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="846" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49929875" visible="true" weight="0.269437" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49929875" visible="true" weight="0.2660858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1066,7 +605,7 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39130434" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32959327" />
       <window_info anchor="bottom" id="Spring" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32398316" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32398316" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.3828892" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
@@ -1084,7 +623,6 @@
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.2727882" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1100,22 +638,6 @@
       </configuration>
     </watches-manager>
   </component>
-<<<<<<< HEAD
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/resource.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-=======
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
@@ -1224,49 +746,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/student_pojo/src/main/java/pojo/Classroom.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="90">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/resource.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-=======
         <state relative-caret-position="88">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
@@ -1300,6 +784,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="647" column="30" lean-forward="true" selection-start-line="647" selection-start-column="30" selection-end-line="647" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1370,6 +857,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="88" column="52" lean-forward="true" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1419,6 +909,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1433,6 +926,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1468,6 +966,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="676" column="92" lean-forward="true" selection-start-line="676" selection-start-column="92" selection-end-line="676" selection-end-column="92" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1475,6 +976,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="59" column="86" lean-forward="true" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1485,25 +996,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/StudentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="110">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-=======
-        <state relative-caret-position="106">
-          <caret line="60" column="74" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
->>>>>>> 23877bc90813c8da64a460eafef371757eea6c41
-        </state>
-      </provider>
-    </entry>
   </component>
-<<<<<<< HEAD
-=======
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
@@ -1582,5 +1075,4 @@
       </state>
     </states>
   </component>
->>>>>>> 1ad0ffa5423b09cd7a16225e7c10075775017f57
 </project>
