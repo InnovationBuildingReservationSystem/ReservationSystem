@@ -670,7 +670,7 @@ ${message}
                         <form class="form-horizontal" role="form"
                               action="${pageContext.request.contextPath}/student/queryOrder.html">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 教室 </label>
+                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1-1"> 教室 </label>
                                 <div class="col-sm-2">
                                     <select class="form-control" id="form-field-select-1" name="cid" required readonly>
                                         <option value="all">全部</option>
@@ -786,10 +786,11 @@ ${message}
                                     </c:if>
 
                                     <c:if test="${order.orderstatus == 0}">
-                                        <button type="button" class="btn btn-minier btn-white btn-warning btn-bold">
+                                        <a type="button" class="btn btn-minier btn-white btn-warning btn-bold"
+                                           href="${pageContext.request.contextPath}/student/withdrawApplication.html?orderid=${order.orderid}">
                                             <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
                                             撤销申请
-                                        </button>
+                                        </a>
                                     </c:if>
                                 </td>
                             </tr>

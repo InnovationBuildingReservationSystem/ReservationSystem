@@ -179,7 +179,7 @@ public class OrderServiceImpl implements OrderService {
                     DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
                     if (count == 1) {
                         Integer zeroStatus = orderItemMapper.orderStatusCount(snum, df1.format(new Date()));
-                        if(zeroStatus == 1){
+                        if (zeroStatus == 1) {
                             orderItemMapper.acceptFirstApplication(df1.format(date), snum);
                         }
                         if (zeroStatus != 1) {
@@ -220,6 +220,8 @@ public class OrderServiceImpl implements OrderService {
 
         if (cid.equals("all") && startdate.equals("")) {
             list = orderItemMapper.getOrderItemListByPage(snum, 8 * (page - 1), 8);
+        } else if(cid.equals("all") && !startdate.equals("")) {
+            list = orderItemMapper.selectByExample(snum, "", startdate, 8 * (page - 1), 8);
         } else {
             list = orderItemMapper.selectByExample(snum, cid, startdate, 8 * (page - 1), 8);
         }

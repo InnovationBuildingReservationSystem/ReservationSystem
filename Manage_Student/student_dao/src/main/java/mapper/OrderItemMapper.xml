@@ -104,11 +104,11 @@
         s.sname
         from ordercr oc inner join student s on oc.snum = s.snum
         where oc.snum = #{snum}
-        <if test='cid != "all"'>
+        <if test="cid != 'all' and cid != null and cid != ''">
             and oc.cid = #{cid}
         </if>
-        <if test="startdate != null">
-            and oc.starttime like concat('%',#{startdate},'%')
+        <if test="startdate != null and startdate != ''">
+            and oc.createtime like concat('%',#{startdate},'%')
         </if>
         order by starttime desc
         limit #{offset},#{limit}

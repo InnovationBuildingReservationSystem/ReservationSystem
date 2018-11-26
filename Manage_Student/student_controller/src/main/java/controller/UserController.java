@@ -55,13 +55,16 @@ public class UserController {
             Student student = studentService.getStudentInfo(username.trim());
             /*model.addAttribute("snum", student.getSnum());
             model.addAttribute("student", student);*/
-            session.setAttribute("studentSession",student);
+            session.setAttribute("studentSession", student);
             return "redirect:activeAccount.html";
+        } else if (studentService.getStudentInfo(username.trim()).getSstatus() == 0) {
+            model.addAttribute("errorMessage", "该账号尚未激活，请登录以激活账号！（初始密码为学号）");
+        } else {
+            model.addAttribute("errorMessage", "用户名或密码错误");
         }
-
         model.addAttribute("username", username);
         model.addAttribute("pwd", pwd);
-        model.addAttribute("errorMessage", "用户名或密码错误");
+
         return "login";
     }
 

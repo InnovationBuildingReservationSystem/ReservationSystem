@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -67,13 +68,16 @@ public class OrdercrController {
 
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
-        if (page < 1) {
+        if (page <= 1) {
             page = 1;
         }
-        if (page > orderCount / 8) {
+        if (page > orderCount / 8 && orderCount >= 8) {
             page = orderCount / 8;
         }
-        List<Ordercr> orderList = orderService.getOrderList(student.getSnum(), page);
+        List<Ordercr> orderList = new ArrayList<>();
+        if (orderCount > 0) {
+            orderList = orderService.getOrderList(student.getSnum(), page);
+        }
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());
         } else {
@@ -230,6 +234,23 @@ public class OrdercrController {
 
         if (peopleCount < 0) {
             errorMessage = "参加人数大于教室容量，请修改！";
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("ordercr", ordercr);
+            model.addAttribute("errorFlag", 1);
+
+            List<String> facultyList = orderService.getFacultyList();
+            List<Classroom> classroomList = classroomService.getClassroomList();
+
+            model.addAttribute("facultyList", facultyList);
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("cid", ordercr.getCid());
+
+            return "application";
+
+        }
+
+        if (ordercr.getAttendcount() > 50) {
+            errorMessage = "参加人数应不超过50人，请修改！";
             model.addAttribute("errorMessage", errorMessage);
             model.addAttribute("ordercr", ordercr);
             model.addAttribute("errorFlag", 1);
