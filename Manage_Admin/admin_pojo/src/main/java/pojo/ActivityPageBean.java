@@ -11,7 +11,28 @@ public class ActivityPageBean implements Serializable
     private  Integer totalCount;
     private  Integer start;
     private  String nowDate;
+    private  String  endDate;
     private List pageList;
+
+    public String getEndDate()
+    {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate)
+    {
+        this.endDate = endDate;
+    }
+
+    public String getNowDate()
+    {
+        return nowDate;
+    }
+
+    public void setNowDate(String nowDate)
+    {
+        this.nowDate = nowDate;
+    }
 
     public ActivityPageBean(Integer pageSize, Integer currentPage, Integer totalCount)
     {

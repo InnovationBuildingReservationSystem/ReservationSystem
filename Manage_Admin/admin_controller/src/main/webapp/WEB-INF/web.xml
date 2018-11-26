@@ -5,7 +5,7 @@
          version="2.5">
   <display-name>admin_web</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>/admin/login.html</welcome-file>
   </welcome-file-list>
   <!-- 解决post乱码 -->
   <filter>

@@ -1,14 +1,12 @@
 package Impl;
 
+import com.mysql.jdbc.jdbc2.optional.SuspendableXAConnection;
 import mapper.ClassroomMapper;
 import mapper.OrdercrMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import pojo.Classroom;
-import pojo.Ordercr;
-import pojo.OrdercrExample;
-import pojo.PageBean;
+import pojo.*;
 import service.ClassroomService;
 
 import java.util.ArrayList;
@@ -101,7 +99,18 @@ public class ClassroomServiceImpl implements ClassroomService
         }
         return  pageBean;
     }
-
+    public  int checkClassroomExist(String cid)
+    {
+        ClassroomExample classroomExample=new ClassroomExample();
+        ClassroomExample.Criteria criteria = classroomExample.createCriteria();
+        criteria.andCidEqualTo(cid);
+        List<Classroom> classroomList = classroomMapper.selectByExample(classroomExample);
+        if(classroomList!=null&&classroomList.size()!=0)
+        {
+            return  1;
+        }
+        return 0;
+    }
     @Override
     public int getClassroomById(String cid)
     {

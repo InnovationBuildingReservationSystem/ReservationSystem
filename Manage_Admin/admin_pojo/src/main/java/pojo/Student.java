@@ -1,8 +1,6 @@
 package pojo;
 
-import java.io.Serializable;
-
-public class Student implements Serializable
+public class Student
 {
     private String snum;
 
@@ -23,6 +21,8 @@ public class Student implements Serializable
     private Integer sstatus;
 
     private Integer srole;
+
+    private String scard;
 
     public String getSnum() {
         return snum;
@@ -102,5 +102,13 @@ public class Student implements Serializable
 
     public void setSrole(Integer srole) {
         this.srole = srole;
+    }
+
+    public String getScard() {
+        return scard;
+    }
+
+    public void setScard(String scard) {
+        this.scard = scard == null ? null : scard.trim();
     }
 }

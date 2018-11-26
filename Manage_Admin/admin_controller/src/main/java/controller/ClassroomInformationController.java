@@ -62,7 +62,8 @@ public class ClassroomInformationController
         return "redirect:classroomInformation.html";
     }
     @RequestMapping("/admin/addClassroom")
-    public  Integer addClassroom(String cid,Integer cnum,Model model)
+    @ResponseBody
+    public  String addClassroom(String cid,Integer cnum,Model model)
     {
         /*
 
@@ -81,16 +82,16 @@ public class ClassroomInformationController
         Integer check=-1;
         if(cid==null||cnum==null|| StringUtils.isEmpty(cid)||StringUtils.isEmpty(cid))
         {
-            return check;
+                return "fail";
         }
-        if (classroomService.getClassroomById(cid)==1)
+
+        if(classroomService.checkClassroomExist(cid)==1)
         {
-            return check;
+            return "fail";
         }
         Classroom classroom=new Classroom();
         classroom.setCid(cid);
         classroom.setCnum(cnum);
-
         try
         {
            check= classroomService.addClassroom(classroom);
@@ -99,7 +100,11 @@ public class ClassroomInformationController
         {
             e.printStackTrace();
         }
-        model.addAttribute("check",check);
-        return  check;
+        if (check==1)
+        {
+            return "success";
+        }
+        else
+            return  "fail";
     }
 }
