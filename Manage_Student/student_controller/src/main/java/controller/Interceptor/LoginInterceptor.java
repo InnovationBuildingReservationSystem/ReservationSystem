@@ -33,27 +33,28 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         //获取登录session
-        /*Student student = (Student) request.getSession().getAttribute("student");
-
-        String loginSnum = (String) request.getAttribute("snum");
+        Student student = (Student) request.getSession().getAttribute("studentSession");
+        //String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + request.getServletPath();
+        /*String loginSnum = (String) request.getAttribute("snum");
 
         if (loginSnum.equals("admin")) {
-            response.sendRedirect("http://localhost:8887/Manage_Login/login/login.html");
-            return false;
-        }
-        if (student != null) {
-            if (!loginSnum.equals(student.getSnum())) {
-                response.sendRedirect("http://localhost:8888/Manage_Student/student/personalOrder.html?" + student.getSnum());
-                return false;
-            }
-            response.sendRedirect("http://localhost:8888/Manage_Student/student/personalOrder.html?" + student.getSnum());
-            return true;
-        } else {
-            //如果没有登录session，则返回到登录页面
-//            response.sendRedirect(request.getContextPath() + "/spring/index.html");
-            response.sendRedirect("http://localhost:8887/Manage_Login/login/login.html");
+            response.sendRedirect("/login/login");
             return false;
         }*/
+        if (student != null) {
+            /*if (!loginSnum.equals(student.getSnum())) {
+                response.sendRedirect("/student/personalOrder.html?" + student.getSnum());
+                return false;
+            }*/
+            /*if(!request.getServletPath().equals("/student/personalOrder.html?snum=" + student.getSnum())){
+                response.sendRedirect(request.getContextPath() + "/student/personalOrder.html?snum=" + student.getSnum());
+            }*/
+        } else {
+            if(!request.getServletPath().equals("/student/login.html") && !request.getServletPath().equals("/student/forgetPassword.html") && !request.getServletPath().equals("/student/passwordReset.html") && !request.getServletPath().equals("/student/loginValidate.html") && !request.getServletPath().equals("/student/logout.html")){
+                //如果没有登录session，则返回到登录页面
+                response.sendRedirect(request.getContextPath() + "/student/login.html");
+            }
+        }
         return true;
     }
 

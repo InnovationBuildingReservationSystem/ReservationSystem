@@ -74,16 +74,7 @@
         <resources>
             <resource>
                 <!--需要打包的目录-->
-                <directory>src/main/java</directory>
-                <!--目录中的文件类型-->
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <!--需要打包的目录-->
-                <directory>src/main/java</directory>
+                <directory>src/main/resource</directory>
                 <!--目录中的文件类型-->
                 <includes>
                     <include>**/*.xml</include>

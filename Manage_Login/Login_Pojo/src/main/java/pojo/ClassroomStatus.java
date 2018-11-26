@@ -1,9 +1,10 @@
 package pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassroomStatus {
+public class ClassroomStatus implements Serializable {
     private String cid;
     private String date;
     private List<String> timeList;

@@ -1019,7 +1019,7 @@
     </column>
     <column id="256" parent="239" name="ncontent">
       <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

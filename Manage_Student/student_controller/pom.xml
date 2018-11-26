@@ -40,17 +40,22 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <resources>
             <resource>
                 <!--需要打包的目录-->
-                <directory>src/main/java</directory>
+                <directory>src/main/resource</directory>
                 <!--目录中的文件类型-->
                 <includes>
-                    <include>**/*.xml</include>
+                    <include>**/*.ftl</include>
                     <include>**/*.properties</include>
+                    <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>

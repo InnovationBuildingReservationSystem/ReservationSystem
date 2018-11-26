@@ -44,4 +44,6 @@ public interface OrderService {
 
     public Integer orderCount(String snum, String cid, String startdate);
 
+    public Ordercr getOrderById(Integer orderid);
+
 }
