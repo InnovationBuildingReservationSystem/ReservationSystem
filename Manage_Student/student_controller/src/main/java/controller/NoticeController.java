@@ -19,10 +19,10 @@ import java.util.List;
 @Transactional
 public class NoticeController {
     @Autowired
-    NoticeService noticeService;
+    private NoticeService noticeService;
 
     @Autowired
-    StudentService studentService;
+    private StudentService studentService;
 
     @RequestMapping("/student/notice")
     public String getNotice(HttpServletRequest request, Model model) {

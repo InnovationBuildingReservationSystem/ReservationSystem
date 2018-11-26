@@ -472,32 +472,7 @@
                     <form class="form-horizontal" role="form"
                           action="${pageContext.request.contextPath}/student/updatePassword.html" method="post"
                           onsubmit="return validAll()">
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 学号 </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="snum" placeholder="学号"
-                                       class="col-xs-10 col-sm-5" value="${snum}" onblur="validSnum()"
-                                       onkeydown="validSnum()" onkeyup="validSnum()" required/>
-                                <span class="help-inline col-xs-12 col-sm-7">
-												<span class="middle" id="snumValid"
-                                                      style="color: red;">${snumError}</span>
-                                    </span>
-                            </div>
-                        </div>
-
-                        <div class="space-4"></div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="sname" placeholder="姓名"
-                                       class="col-xs-10 col-sm-5" value="${sname}" required/>
-                            </div>
-                        </div>
-
+                        <input type="hidden" name="snum" value="${student.snum}"/>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 原密码 </label>
 
@@ -604,28 +579,6 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    function checknum(value) {
-        var Regx = /^[0-9]*$/;
-        if (Regx.test(value)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    function validSnum() {
-        var obj = document.getElementById("form-field-1");
-        var snum = obj.value;
-
-        if (snum.length != 8 && checknum(snum)) {
-            document.getElementById("snumValid").innerHTML = "<font size='-1' color='red'>学号必须为8位纯数字</font>";
-            return false;
-        } else {
-            document.getElementById("snumValid").innerHTML = "<font size='-1' color='black'></font>";
-            return true;
-        }
-    }
 
     function validnewPwd() {
         var obj = document.getElementById("form-field-4");
@@ -657,7 +610,7 @@
     }
 
     function validAll() {
-        return validSnum() && validnewPwd() && validPwdConvinced();
+        return validnewPwd() && validPwdConvinced();
     }
 </script>
 

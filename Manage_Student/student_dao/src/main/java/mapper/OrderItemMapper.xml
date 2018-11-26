@@ -108,7 +108,7 @@
             and oc.cid = #{cid}
         </if>
         <if test="startdate != null and startdate != ''">
-            and oc.createtime like concat('%',#{startdate},'%')
+            and oc.starttime like concat('%',#{startdate},'%')
         </if>
         order by starttime desc
         limit #{offset},#{limit}

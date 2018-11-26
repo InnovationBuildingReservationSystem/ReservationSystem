@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import pojo.Classroom;
+import pojo.Notice;
 import pojo.Ordercr;
 import pojo.Student;
 import service.ClassroomService;
+import service.NoticeService;
 import service.OrderService;
 import service.StudentService;
 
@@ -41,7 +43,10 @@ public class OrdercrController {
     private ClassroomService classroomService;
 
     @Autowired
-    FreeMarkerConfigurer freeMarkerConfigurer;
+    private NoticeService noticeService;
+
+    @Autowired
+    private FreeMarkerConfigurer freeMarkerConfigurer;
 
     /*
 
@@ -134,13 +139,17 @@ public class OrdercrController {
 
             orderService.updateApplication(orderList, snum);
             model.addAttribute("message", "<script>alert('今天已成功预订过一次教室，当日不能再次申请');</script>");
-            model.addAttribute("prePage", 0);
+            List<Notice> list = noticeService.getNotice();
+            model.addAttribute("noticeList", list);
+            model.addAttribute("student", student);
+            model.addAttribute("snum", student.getSnum());
+            /*model.addAttribute("prePage", 0);
             model.addAttribute("thisPage", 1);
             model.addAttribute("nextPage", 2);
             model.addAttribute("finalPage", orderCount / 8);
-            model.addAttribute("cid", "all");
+            model.addAttribute("cid", "all");*/
 
-            return "personalOrder";
+            return "notice";
         } else {
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();

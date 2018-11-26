@@ -62,7 +62,7 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/student/personalOrder.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/student/activeAccount.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
@@ -87,14 +87,14 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/passwordChange.html">
+                            <a href="${pageContext.request.contextPath}/student/activeAccount.html">
                                 <i class="ace-icon fa fa-cog"></i>
                                 修改密码
                             </a>
                         </li>
 
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/userInfo.html">
+                            <a href="${pageContext.request.contextPath}/student/activeAccount.html">
                                 <i class="ace-icon fa fa-user"></i>
                                 个人详情
                             </a>
@@ -171,7 +171,7 @@
 
                                             <form class="form-horizontal" id="sample-form"
                                                   action="${pageContext.request.contextPath}/student/doActive.html"
-                                                  method="post">
+                                                  method="post" onsubmit="return validAll()">
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right"
                                                            for="form-field-tags">学号</label>
@@ -192,8 +192,8 @@
 
                                                     <div class="col-sm-9">
                                                         <div class="inline">
-                                                            <input type="text" id="form-field-tags-2" placeholder="请输入姓名"
-
+                                                            <input type="text" id="form-field-tags-2"
+                                                                   placeholder="请输入姓名"
                                                                    name="sname"
                                                                    value="${sname}" required/>
                                                         </div>
@@ -209,8 +209,10 @@
                                                             <input type="text" id="form-field-tags-3"
                                                                    placeholder="请输入18位身份证号"
                                                                    name="sid"
-                                                                   value="${sid}" required/>
+                                                                   value="${sid}" required onblur="validSid()"
+                                                                   onkeyup="validSid()" onkeydown="validSid()"/>
                                                         </div>
+                                                        <span id="sidError"></span>
                                                     </div>
                                                 </div>
 
@@ -224,8 +226,12 @@
                                                                    placeholder="请填写你的电话号码"
 
                                                                    name="stelphone"
-                                                                   value="${stelphone}" required/>
+                                                                   value="${stelphone}" required
+                                                                   onblur="validStelephone()"
+                                                                   onkeydown="validStelephone()"
+                                                                   onkeyup="validStelephone()"/>
                                                         </div>
+                                                        <span id="stelephoneError"></span>
                                                     </div>
                                                 </div>
 
@@ -239,8 +245,10 @@
                                                                    placeholder="请修改你的密码"
 
                                                                    name="spwd"
-                                                                   value="${spwd}" required/>
+                                                                   value="${spwd}" required onblur="validSpwd()"
+                                                                   onkeyup="validSpwd()" onkeydown="validSpwd()"/>
                                                         </div>
+                                                        <span id="spwdError"></span>
                                                     </div>
                                                 </div>
 
@@ -254,8 +262,12 @@
                                                                    placeholder="请再输入一次密码"
 
                                                                    name="spwdConvinced"
-                                                                   value="${spwdConvinced}" required/>
+                                                                   value="${spwdConvinced}" required
+                                                                   onblur="validSpwdConvinced()"
+                                                                   onkeyup="validSpwdConvinced()"
+                                                                   onkeydown="validSpwdConvinced()"/>
                                                         </div>
+                                                        <span id="spwdConvincedError"></span>
                                                     </div>
                                                 </div>
 
@@ -273,70 +285,6 @@
 
                                         </div>
 
-                                        <div class="step-pane" data-step="2">
-                                            <div>
-                                                <div class="alert alert-success">
-                                                    <button type="button" class="close" data-dismiss="alert">
-                                                        <i class="ace-icon fa fa-times"></i>
-                                                    </button>
-
-                                                    <strong>
-                                                        <i class="ace-icon fa fa-check"></i>
-                                                        Well done!
-                                                    </strong>
-
-                                                    You successfully read this important alert message.
-                                                    <br/>
-                                                </div>
-
-                                                <div class="alert alert-danger">
-                                                    <button type="button" class="close" data-dismiss="alert">
-                                                        <i class="ace-icon fa fa-times"></i>
-                                                    </button>
-
-                                                    <strong>
-                                                        <i class="ace-icon fa fa-times"></i>
-                                                        Oh snap!
-                                                    </strong>
-
-                                                    Change a few things up and try submitting again.
-                                                    <br/>
-                                                </div>
-
-                                                <div class="alert alert-warning">
-                                                    <button type="button" class="close" data-dismiss="alert">
-                                                        <i class="ace-icon fa fa-times"></i>
-                                                    </button>
-                                                    <strong>Warning!</strong>
-
-                                                    Best check yo self, you're not looking too good.
-                                                    <br/>
-                                                </div>
-
-                                                <div class="alert alert-info">
-                                                    <button type="button" class="close" data-dismiss="alert">
-                                                        <i class="ace-icon fa fa-times"></i>
-                                                    </button>
-                                                    <strong>Heads up!</strong>
-
-                                                    This alert needs your attention, but it's not super important.
-                                                    <br/>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="step-pane" data-step="3">
-                                            <div class="center">
-                                                <h3 class="blue lighter">This is step 3</h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="step-pane" data-step="4">
-                                            <div class="center">
-                                                <h3 class="green">Congrats!</h3>
-                                                Your product is ready to ship! Click finish to continue!
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -458,6 +406,80 @@
 <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
+<script type="text/javascript">
+    function checknum(value) {
+        var Regx = /^[0-9]*$/;
+        if (Regx.test(value)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function validSid() {
+        var obj = document.getElementById("form-field-tags-3");
+        var sid = obj.value;
+
+        if (sid.length != 18) {
+            document.getElementById("sidError").innerHTML = "<font size='-1' color='red'>身份证号码长度为18位</font>";
+            return false;
+        } else {
+            document.getElementById("sidError").innerHTML = "<font size='-1' color='black'></font>";
+            return true;
+        }
+    }
+
+    function validStelephone() {
+        var obj = document.getElementById("form-field-tags-4");
+        var stelephone = obj.value;
+
+        if (stelephone.length != 11 || !checknum(stelephone)) {
+            document.getElementById("stelephoneError").innerHTML = "<font size='-1' color='red'>手机号码长度为11位纯数字</font>";
+            return false;
+        } else {
+            document.getElementById("stelephoneError").innerHTML = "<font size='-1' color='black'></font>";
+            return true;
+        }
+    }
+
+    function validSpwd() {
+        var obj = document.getElementById("form-field-tags-5");
+        var spwd = obj.value;
+
+        if (spwd.length < 6) {
+            document.getElementById("spwdError").innerHTML = "<font size='-1' color='red'>密码长度小于6位</font>";
+            return false;
+        } else if (spwd == document.getElementById("form-field-tags-1").value) {
+            document.getElementById("spwdError").innerHTML = "<font size='-1' color='red'>密码不能与初始密码重复</font>";
+            return false;
+        } else {
+            document.getElementById("spwdError").innerHTML = "<font size='-1' color='black'></font>";
+            return true;
+        }
+    }
+
+    function validSpwdConvinced() {
+        var obj1 = document.getElementById("form-field-tags-6");
+        var obj = document.getElementById("form-field-tags-5");
+
+        var spwd = obj.value;
+        var spwdConvinced = obj1.value;
+
+        if (spwdConvinced != spwd) {
+            document.getElementById("spwdConvincedError").innerHTML = "<font size='-1' color='red'>两次密码输入不一致</font>";
+            return false;
+        } else {
+            document.getElementById("spwdConvincedError").innerHTML = "<font size='-1' color='black'></font>";
+            return true;
+        }
+    }
+
+    function validAll() {
+        return validSid() && validStelephone() && validSpwd() && validSpwdConvinced();
+    }
+</script>
+
 <script type="text/javascript">
     jQuery(function ($) {
 
