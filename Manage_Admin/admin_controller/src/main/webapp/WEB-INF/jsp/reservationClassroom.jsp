@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>Tables - Ace Admin</title>
+    <title>教室预约信息查询</title>
 
     <meta name="description" content="Static &amp; Dynamic Tables"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -54,14 +54,51 @@
 
 
         <div class="navbar-header pull-left">
-            <a href="index.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/admin/activity.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    首页
+                    创新楼教室预约系统
                 </small>
             </a>
         </div>
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
 
+
+
+
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>管理员</small>
+                                      ${admin.aid}
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                                <i class="ace-icon fa fa-cog"></i>
+                                修改密码
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                退出账号
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
     </div>
     <!-- /.navbar-container -->
@@ -86,7 +123,7 @@
 
         <ul class="nav nav-list">
             <li class="">
-                <a href="index.html">
+                <a href="${pageContext.request.contextPath}/admin/activity.html">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> 首页 </span>
                 </a>
@@ -94,10 +131,11 @@
                 <b class="arrow"></b>
             </li>
             <li class="">
+
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
+                    <i class="menu-icon fa fa-list-alt"></i>
                     <span class="menu-text">
-                                信息展示
+                                信息发布
 							</span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -110,15 +148,22 @@
 
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/noticeSend.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 通知信息
+                            <i class="menu-icon fa fa-caret-right"></i> 通知信息发布
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动信息
+                        <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/activity.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
                         </a>
 
                         <b class="arrow"></b>
@@ -127,10 +172,8 @@
             </li>
             <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-							    信息管理
-							</span>
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text"> 信息管理 </span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
@@ -192,14 +235,25 @@
 
 
             <li class="">
-                <a href="${pageContext.request.contextPath}/admin/changePassword.html" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-                            修改密码
-							</span>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-pencil-square-o"></i>
+                    <span class="menu-text"> 个人信息管理</span>
+                    <b class="arrow fa fa-angle-down"></b>
                 </a>
+
                 <b class="arrow"></b>
 
+                <ul class="submenu">
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
             </li>
 
         </ul>
@@ -223,7 +277,7 @@
                         <a href="#">预约信息管理</a>
                     </li>
                     <li>
-                        <a href="">学生预约信息管理</a>
+                        <a href="">教室预约信息管理</a>
                     <li>
                 </ul>
                 <!-- /.breadcrumb -->

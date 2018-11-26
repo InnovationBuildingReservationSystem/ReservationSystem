@@ -5,12 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import pojo.ActivityPageBean;
-import pojo.Classroom;
 import pojo.OrderItem;
-import pojo.PageBean;
 import service.ActivityService;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 @Service
 public class ActivityServiceImpl implements ActivityService
@@ -19,28 +18,31 @@ public class ActivityServiceImpl implements ActivityService
     private OrderItemMapper orderItemMapper;
 
     @Override
-    public PageBean getActivityPageBean(Integer pageSize, Integer currentPage, String nowDate)
+    public ActivityPageBean getActivityPageBean(Integer pageSize, Integer currentPage, String nowDate)
     {
-
-        orderItemMapper.getActivityTotalCount()
+        String date;
         ActivityPageBean activityPageBean;
         if(nowDate!=null&&(!StringUtils.isEmpty(nowDate)))
         {
-            orderItemMapper.getActivityPageBean(pageBean);
-            List<Classroom> classroomList=new ArrayList<>();
-            classroomList.add(classroom);
-            pageBean=new PageBean(pageSize,1,1);
-            pageBean.setPageList(classroomList);
+            date=nowDate;
         }
         else
         {
-            Integer totalCount=classroomMapper.getTotalCount();
-            pageBean=new PageBean(pageSize,currentPage,totalCount);
-            Integer start=(pageBean.getCurrentPage()-1)*pageBean.getPageSize();
-            pageBean.setStart(start);
-            List<Classroom> classroomList=classroomMapper.selectPageBean(pageBean);
-            pageBean.setPageList(classroomList);
+            SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH");
+            date=dateFormat.format(new Date());
         }
-        return  pageBean;
+        String endDate=date.substring(0,10)+" 21:00:00";
+        int totalCount = orderItemMapper.getActivityTotalCount(date,endDate);
+     //   System.out.println(totalCount);
+        activityPageBean=new ActivityPageBean(pageSize,currentPage,totalCount);
+        Integer start=(activityPageBean.getCurrentPage()-1)*activityPageBean.getPageSize();
+        activityPageBean.setStart(start);
+        activityPageBean.setNowDate(date);
+        activityPageBean.setEndDate(endDate);
+        List<OrderItem> orderItemList = orderItemMapper.getActivityPageBean(activityPageBean);
+   //     System.out.println(orderItemList.size());
+        activityPageBean.setPageList(orderItemList);
+        activityPageBean.setNowDate(date.substring(0,10));
+        return  activityPageBean;
     }
 }

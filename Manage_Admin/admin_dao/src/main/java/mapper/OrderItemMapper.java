@@ -14,6 +14,6 @@ public interface OrderItemMapper
     void  updateOrderStatus(Integer orderId, Integer orderStatus);
     List<OrderItem> getOrderItemTimeList();
     List<OrderItem> getOrderItemByCidAndStartDate(String cid,String startDate);
-    List<OrderItem> getActivityPageBean(ActivityPageBean pageBean);
-    Integer getActivityTotalCount(String nowDate);
+    List<OrderItem> getActivityPageBean(ActivityPageBean activityPageBean);
+    Integer getActivityTotalCount(String nowDate,String endDate);
 }

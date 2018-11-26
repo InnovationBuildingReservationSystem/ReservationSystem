@@ -12,6 +12,7 @@
     <result column="spwd" property="spwd" jdbcType="VARCHAR" />
     <result column="sstatus" property="sstatus" jdbcType="INTEGER" />
     <result column="srole" property="srole" jdbcType="INTEGER" />
+    <result column="scard" property="scard" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    snum, sname, sid, sfaculty, smajor, sclass, stelphone, spwd, sstatus, srole
+    snum, sname, sid, sfaculty, smajor, sclass, stelphone, spwd, sstatus, srole, scard
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.StudentExample" >
     select
@@ -108,11 +109,11 @@
     insert into student (snum, sname, sid, 
       sfaculty, smajor, sclass, 
       stelphone, spwd, sstatus, 
-      srole)
+      srole, scard)
     values (#{snum,jdbcType=VARCHAR}, #{sname,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, 
       #{sfaculty,jdbcType=VARCHAR}, #{smajor,jdbcType=VARCHAR}, #{sclass,jdbcType=VARCHAR}, 
       #{stelphone,jdbcType=VARCHAR}, #{spwd,jdbcType=VARCHAR}, #{sstatus,jdbcType=INTEGER}, 
-      #{srole,jdbcType=INTEGER})
+      #{srole,jdbcType=INTEGER}, #{scard,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="pojo.Student" >
     insert into student
@@ -147,6 +148,9 @@
       <if test="srole != null" >
         srole,
       </if>
+      <if test="scard != null" >
+        scard,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="snum != null" >
@@ -178,6 +182,9 @@
       </if>
       <if test="srole != null" >
         #{srole,jdbcType=INTEGER},
+      </if>
+      <if test="scard != null" >
+        #{scard,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -220,6 +227,9 @@
       <if test="record.srole != null" >
         srole = #{record.srole,jdbcType=INTEGER},
       </if>
+      <if test="record.scard != null" >
+        scard = #{record.scard,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -236,7 +246,8 @@
       stelphone = #{record.stelphone,jdbcType=VARCHAR},
       spwd = #{record.spwd,jdbcType=VARCHAR},
       sstatus = #{record.sstatus,jdbcType=INTEGER},
-      srole = #{record.srole,jdbcType=INTEGER}
+      srole = #{record.srole,jdbcType=INTEGER},
+      scard = #{record.scard,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -271,6 +282,9 @@
       <if test="srole != null" >
         srole = #{srole,jdbcType=INTEGER},
       </if>
+      <if test="scard != null" >
+        scard = #{scard,jdbcType=VARCHAR},
+      </if>
     </set>
     where snum = #{snum,jdbcType=VARCHAR}
   </update>
@@ -284,7 +298,8 @@
       stelphone = #{stelphone,jdbcType=VARCHAR},
       spwd = #{spwd,jdbcType=VARCHAR},
       sstatus = #{sstatus,jdbcType=INTEGER},
-      srole = #{srole,jdbcType=INTEGER}
+      srole = #{srole,jdbcType=INTEGER},
+      scard = #{scard,jdbcType=VARCHAR}
     where snum = #{snum,jdbcType=VARCHAR}
   </update>
 </mapper>

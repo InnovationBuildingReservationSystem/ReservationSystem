@@ -59,14 +59,52 @@
 
 
             <div class="navbar-header pull-left">
-                <a href="index.html" class="navbar-brand">
+                <a href="${pageContext.request.contextPath}/admin/activity.html" class="navbar-brand">
                     <small>
 							<i class="fa fa-leaf"></i>
-							首页
+                        创新楼教室预约系统
 						</small>
                 </a>
             </div>
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
 
+
+
+
+
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                            <span class="user-info">
+									<small>管理员</small>
+                                       ${admin.aid}
+                                <input type="hidden" value="${admin.aid}" id="adminId">
+								</span>
+
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                    修改密码
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    退出账号
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
         </div>
         <!-- /.navbar-container -->
@@ -86,10 +124,9 @@
                 } catch (e) {}
             </script>
 
-
             <ul class="nav nav-list">
                 <li class="">
-                    <a href="index.html">
+                    <a href="${pageContext.request.contextPath}/admin/activity.html">
                         <i class="menu-icon fa fa-tachometer"></i>
                         <span class="menu-text"> 首页 </span>
                     </a>
@@ -97,8 +134,9 @@
                     <b class="arrow"></b>
                 </li>
                 <li class="">
+
                     <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
+                        <i class="menu-icon fa fa-list-alt"></i>
                         <span class="menu-text">
                                 信息发布
 							</span>
@@ -118,29 +156,27 @@
 
                             <b class="arrow"></b>
                         </li>
+
                         <li class="">
                             <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
-                                <i class="menu-icon fa fa-caret-right"></i>通知历史记录
+                                <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
                             </a>
 
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
-                                <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
+                            <a href="${pageContext.request.contextPath}/admin/activity.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
                             </a>
 
                             <b class="arrow"></b>
                         </li>
                     </ul>
                 </li>
-
                 <li class="">
                     <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text">
-							    信息管理
-							</span>
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text"> 信息管理 </span>
 
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
@@ -148,6 +184,7 @@
                     <b class="arrow"></b>
 
                     <ul class="submenu">
+
 
                         <li class="">
                             <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
@@ -201,14 +238,25 @@
 
 
                 <li class="">
-                    <a href="${pageContext.request.contextPath}/admin/changePassword.html" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text">
-                            修改密码
-							</span>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                        <span class="menu-text"> 个人信息管理</span>
+                        <b class="arrow fa fa-angle-down"></b>
                     </a>
+
                     <b class="arrow"></b>
 
+                    <ul class="submenu">
+
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
                 </li>
 
             </ul>
@@ -225,7 +273,7 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="ace-icon fa fa-home home-icon"></i>
-                            <a href="#">主页面</a>
+                            <a href="#">首页</a>
                         </li>
                         <li>
                             <a href="#">修改密码</a>
@@ -249,11 +297,9 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 原密码 </label>
 
                                 <div class="col-sm-9">
-                                    <input id="password" name="password" type="password"  placeholder="原密码" class="col-xs-10 col-sm-5" />
+                                    <input onchange="errorHidden();" id="password" name="password" type="password"  placeholder="原密码" class="col-xs-10 col-sm-5" />
                                     <span class="help-inline col-xs-12 col-sm-7">
-                                    <C:if test="${check eq 0}">
-                                        <span class="middle" style="color: red">原密码输入错误</span>
-                                    </C:if>
+                                        <span id="oldPassword" class="middle" style="color: red"></span>
                                     </span>
                                 </div>
                             </div>
@@ -261,19 +307,19 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 新密码 </label>
 
                                 <div class="col-sm-9">
-                                    <input id="newPassword" name="newPassword" type="password" id="form-field-2" placeholder="新密码" class="col-xs-10 col-sm-5" />
-                                    <span id="checkPassword" class="help-inline col-xs-12 col-sm-7" style="display: none">
-												<span class="middle">两次密码输入不一致</span>
+                                    <input onchange="checkPassword();" name="newPassword" type="password" id="form-field-2" placeholder="新密码" class="col-xs-10 col-sm-5" />
+                                    <span class="help-inline col-xs-12 col-sm-7">
+                                        <span id="newPassword" class="middle" style="color: red"></span>
                                     </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 再一次输入密码 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 再一次输入密码 </label>
 
                                 <div class="col-sm-9">
-                                    <input id="newPassword1" name="newPassword1" type="password" id="form-field-2" placeholder="再次输入密码" class="col-xs-10 col-sm-5" />
-                                    <span class="help-inline col-xs-12 col-sm-7" style="display:none">
-												<span class="middle">Inline help text</span>
+                                    <input onchange="checkPasswordEqual();" name="newPassword1" type="password" id="form-field-1" placeholder="再次输入密码" class="col-xs-10 col-sm-5" />
+                                    <span class="help-inline col-xs-12 col-sm-7">
+                                        <span id="checkPassword" class="middle" style="color: red"></span>
                                     </span>
                                 </div>
                             </div>
@@ -360,25 +406,75 @@
     <!-- ace scripts -->
     <script src="${pageContext.request.contextPath}/assets/js/ace-elements.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.js" type="text/javascript"></script>
-
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.validate.js" type="text/javascript"></script>
     <!-- inline scripts related to this page -->
     <script type="text/javascript">
-
-        function  changePassword() {
-            var password =$("#password").val();
-            var newPassword=$("#newPassword").val();
-            var newPassword1=$("#newPassword1").val();
-            if(password.length<8||password.length>16)
+    function errorHidden(){
+        $("#oldPassword").html("");
+    }
+        function  checkPassword() {
+            var password=$("#form-field-2").val();
+            if(password.length<8)
             {
-
+                $("#newPassword").html("<font size='-1' color='red'>密码长度不能低于8位 </font>");
+                return false;
             }
-            if(!newPassword1==newPassword)
+            else
             {
-                $("#checkPassword").css('display','block');
+                $("#newPassword").html("");
+                return  true;
+            }
+
+        }
+        function checkPasswordEqual() {
+            var password=$("#form-field-2").val();
+            var checkPassword=$("#form-field-1").val();
+            if(password!=checkPassword)
+            {
+                $("#checkPassword").html("<font size='-1' color='red'>两次输入密码不一致! </font>");
+                return false;
+            }
+            else
+            {
+                $("#checkPassword").html("");
+            }
+            return true;
+        }
+        function  changePassword() {
+            var checkOne=checkPassword();
+            var checkTwo=checkPasswordEqual();
+            if(checkOne&&checkTwo)
+            {
+                $("#newPassword").html("");
+                $("#checkPassword").html("");
+                var password=$("#password").val();
+                var newPassword=$("#form-field-2").val();
+                var aid=$("#adminId").val();
+                $.ajax({
+                    type: "POST",
+                    url: "${pageContext.request.contextPath}/admin/changePasswordById.html",
+                    data: "password="+password+"&"+"newPassword="+newPassword+"&"+"aid="+aid,
+                    success: function(data){
+                        if(data=="success")
+                        {
+                            alert("修改成功！");
+                            $("#password").val("");
+                            $("#form-field-2").val("");
+                            $("#form-field-1").val("");
+                        }
+                        else
+                        {
+                            $("#oldPassword").html("<font size='-1' color='red'>原密码输入错误! </font>");
+                            $("#password").val("");
+                            $("#form-field-2").val("");
+                            $("#form-field-1").val("");
+
+                        }
+                    }
+                });
             }
         }
+
+
     </script>
 </body>
 

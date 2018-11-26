@@ -13,17 +13,21 @@
         ordercr
         WHERE
         starttime <![CDATA[ >= ]]>  #{nowDate}
+        AND
+        starttime <![CDATA[ <= ]]> #{endDate}
         ORDER BY
         starttime
         limit #{start},#{pageSize}
     </select>
-    <select id="getActivityTotalCount" parameterType="java.lang.String">
+    <select id="getActivityTotalCount" parameterType="java.lang.String" resultType="java.lang.Integer">
         SELECT
-        COUNT (*)
+        COUNT(*)
         FROM
         ordercr
         WHERE
-        starttime <![CDATA[ >= ]]>  #{nowDate}
+        starttime <![CDATA[ >= ]]>  #{0}
+        AND
+        starttime <![CDATA[ <= ]]> #{1}
     </select>
     <select id="getOrderItemByCidAndStartDate" parameterType="String" resultType="pojo.OrderItem">
         SELECT

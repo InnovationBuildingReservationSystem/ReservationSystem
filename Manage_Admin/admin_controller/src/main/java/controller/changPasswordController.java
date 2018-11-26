@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.ChangePasswordService;
 
 
@@ -21,7 +22,8 @@ public class changPasswordController
         return  "changePassword";
     }
     @RequestMapping("/admin/changePasswordById")
-    public String changePasswordById(@RequestParam(defaultValue = "6") String id, String password, String newPassword, Model model)
+    @ResponseBody
+    public String changePasswordById(String aid, String password, String newPassword)
     {
         /*
         
@@ -37,16 +39,17 @@ public class changPasswordController
         
          */
         int check=0;
-        model.addAttribute("check",check);
-        if((StringUtils.isEmpty(password)||StringUtils.isEmpty(newPassword)))
+        if((StringUtils.isEmpty(password)||StringUtils.isEmpty(newPassword))||newPassword.length()<8||password.length()<8)
         {
-            return "changePassword";
+            if (check==0)
+            return "fail";
         }
-        System.out.println(password + newPassword);
-        check = changePasswordService.changePassword(id, password, newPassword);
-        System.out.println(check);
-        model.addAttribute("check",check);
-        return  "changePassword";
+        System.out.println(password+"   "+newPassword);
+        check = changePasswordService.changePassword(aid, password, newPassword);
+        if (check==1)
+        return  "success";
+        else
+            return "fail";
     }
 
 }

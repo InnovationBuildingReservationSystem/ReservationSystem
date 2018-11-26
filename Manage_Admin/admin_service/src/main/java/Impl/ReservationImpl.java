@@ -131,7 +131,7 @@ public class ReservationImpl implements ReservationService
          */
         ItemDate itemDate=new ItemDate();
         //初始化记录表
-        Integer count[]={0,0,0,0,0,0,0,0,0,0,0,0,0};
+         Integer count[]={0,0,0,0,0,0,0,0,0,0,0,0,0};
         //初始化 itemTimeList
         List<ItemTime> itemTimeList=new ArrayList<>();
         //初始化时间列表
@@ -157,6 +157,8 @@ public class ReservationImpl implements ReservationService
                 while (start.compareTo(end)==-1)
                 {
                     String formatStart = dateFormat.format(start);
+                   /* System.out.println(formatStart.substring(11,13));
+                    System.out.println(dateTableList.indexOf(formatStart.substring(11,13)));*/
                     count[dateTableList.indexOf(formatStart.substring(11,13))]++;
                     gregorianCalendar.setTime(start);
                     gregorianCalendar.add(Calendar.HOUR, 1);
@@ -193,7 +195,7 @@ public class ReservationImpl implements ReservationService
          * 初始化一个日期字符数组
 
          */
-        String[] dateTable={"08","09","10 ","11","12","13","14","15","16","17","18","19","20","21"};
+        final  String[] dateTable={"08","09","10","11","12","13","14","15","16","17","18","19","20","21"};
         ArrayList<String> arrayList=new ArrayList<String>();
         for (int i=0;i<dateTable.length;i++)
         {

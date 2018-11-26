@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>修改密码</title>
+    <title>教室信息管理</title>
 
     <meta name="description" content="Common form elements and layouts" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -59,14 +59,51 @@
 
 
         <div class="navbar-header pull-left">
-            <a href="index.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/admin/activity.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    首页
+                    创新楼教室预约系统
                 </small>
             </a>
         </div>
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
 
+
+
+
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>管理员</small>
+                                       ${admin.aid}
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                                <i class="ace-icon fa fa-cog"></i>
+                                修改密码
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                退出账号
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
     </div>
     <!-- /.navbar-container -->
@@ -87,10 +124,9 @@
         </script>
 
 
-
         <ul class="nav nav-list">
             <li class="">
-                <a href="index.html">
+                <a href="${pageContext.request.contextPath}/admin/activity.html">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> 首页 </span>
                 </a>
@@ -98,8 +134,9 @@
                 <b class="arrow"></b>
             </li>
             <li class="">
+
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
+                    <i class="menu-icon fa fa-list-alt"></i>
                     <span class="menu-text">
                                 信息发布
 							</span>
@@ -119,29 +156,27 @@
 
                         <b class="arrow"></b>
                     </li>
+
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
-                            <i class="menu-icon fa fa-caret-right"></i>通知历史记录
+                            <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
                         </a>
 
                         <b class="arrow"></b>
                     </li>
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
+                        <a href="${pageContext.request.contextPath}/admin/activity.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
                         </a>
 
                         <b class="arrow"></b>
                     </li>
                 </ul>
             </li>
-
             <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-							    信息管理
-							</span>
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text"> 信息管理 </span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
@@ -149,6 +184,7 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
+
 
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
@@ -202,17 +238,28 @@
 
 
             <li class="">
-                <a href="${pageContext.request.contextPath}/admin/changePassword.html" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-                            修改密码
-							</span>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-pencil-square-o"></i>
+                    <span class="menu-text"> 个人信息管理</span>
+                    <b class="arrow fa fa-angle-down"></b>
                 </a>
+
                 <b class="arrow"></b>
 
-            </li>
-        <!-- /.nav-list -->
+                <ul class="submenu">
 
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
             <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
@@ -373,18 +420,20 @@
 
                         <div class="widget-body">
                             <div class="widget-main no-padding">
-                                <form>
+                                <form id="addClassroom"  method="post">
                                     <!-- <legend>Form</legend> -->
                                     <fieldset>
                                         <label>教室编号</label>
-                                        <input name="cid" id="model-cid" type="text" placeholder="教室编号&hellip;"/>
+                                        <input onkeyup="value=value.replace(/[^\d]/g,'')" name="cid" id="model-cid" type="text" placeholder="教室编号&hellip;"/>
                                         <hr/>
                                         <label>容纳人数</label>
-                                        <input  name="cnum" type="text" placeholder="可容纳人数&hellip;"/>
+                                        <input  onkeyup="value=value.replace(/[^\d]/g,'')"  id="model-cnum" name="cnum" type="text" placeholder="可容纳人数&hellip;"/>
+                                        <span class="help-inline col-xs-12 col-sm-7">
+                                        <span id="addAction" class="middle" style="color: red"></span>
+                                        </span>
                                     </fieldset>
-
                                     <div class="form-actions center">
-                                        <button type="submit" class="btn btn-sm btn-success" onclick="addClassroom();" >
+                                        <button type="button"  class="btn btn-sm btn-success" onclick="addClassroom();" >
                                             提交
                                             <i class="ace-icon fa  icon-on-right bigger-110"></i>
                                         </button>
@@ -476,24 +525,26 @@
 <!-- ace scripts -->
 <script src="${pageContext.request.contextPath}/assets/js/ace-elements.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/jquery.js" type="text/javascript"></script>
-
-<script src="${pageContext.request.contextPath}/assets/js/jquery.validate.js" type="text/javascript"></script>
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-
-    function  changePassword() {
-        var password =$("#password").val();
-        var newPassword=$("#newPassword").val();
-        var newPassword1=$("#newPassword1").val();
-        if(password.length<8||password.length>16)
-        {
-
-        }
-        if(!newPassword1==newPassword)
-        {
-            $("#checkPassword").css('display','block');
-        }
+    function addClassroom() {
+        var cid=$("#model-cid").val();
+        var cnum=$("#model-cnum").val();
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/admin/addClassroom.html",
+            data: "cid="+cid+"&"+"cnum="+cnum,
+            success: function(data){
+                if(data=="success")
+                {
+                    $("#addAction").html("<font size='-1' color='red'>添加成功! </font>")
+                    $("#model-cid").val("");
+                    $("#model-cnum").val("");
+                }
+                else
+                    $("#addAction").html("<font size='-1' color='red'>添加失败! </font>")
+            }
+        });
     }
 </script>
 </body>

@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Tables - Ace Admin</title>
+    <title>学生预约信息查询</title>
 
     <meta name="description" content="Static &amp; Dynamic Tables" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -52,14 +52,51 @@
 
 
         <div class="navbar-header pull-left">
-            <a href="index.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/admin/activity.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    首页
+                    创新楼教室预约系统
                 </small>
             </a>
         </div>
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
 
+
+
+
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>管理员</small>
+                                     ${admin.aid}
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                                <i class="ace-icon fa fa-cog"></i>
+                                修改密码
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                退出账号
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
     </div>
     <!-- /.navbar-container -->
@@ -82,7 +119,7 @@
 
             <ul class="nav nav-list">
                 <li class="">
-                    <a href="index.html">
+                    <a href="${pageContext.request.contextPath}/admin/activity.html">
                         <i class="menu-icon fa fa-tachometer"></i>
                         <span class="menu-text"> 首页 </span>
                     </a>
@@ -90,10 +127,11 @@
                     <b class="arrow"></b>
                 </li>
                 <li class="">
+
                     <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
+                        <i class="menu-icon fa fa-list-alt"></i>
                         <span class="menu-text">
-                                信息展示
+                                信息发布
 							</span>
 
                         <b class="arrow fa fa-angle-down"></b>
@@ -106,15 +144,22 @@
 
                         <li class="">
                             <a href="${pageContext.request.contextPath}/admin/noticeSend.html">
-                                <i class="menu-icon fa fa-caret-right"></i> 通知信息
+                                <i class="menu-icon fa fa-caret-right"></i> 通知信息发布
                             </a>
 
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
-                            <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
-                                <i class="menu-icon fa fa-caret-right"></i> 活动信息
+                            <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/activity.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
                             </a>
 
                             <b class="arrow"></b>
@@ -123,10 +168,8 @@
                 </li>
                 <li class="">
                     <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text">
-							    信息管理
-							</span>
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text"> 信息管理 </span>
 
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
@@ -135,6 +178,7 @@
 
                     <ul class="submenu">
 
+
                         <li class="">
                             <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 学生信息管理
@@ -142,6 +186,7 @@
 
                             <b class="arrow"></b>
                         </li>
+
                         <li class="">
                             <a href="${pageContext.request.contextPath}/admin/classroomInformation.html">
                                 <i class="menu-icon fa fa-caret-right"></i> 教室信息管理
@@ -184,16 +229,29 @@
                     </ul>
                 </li>
 
+
                 <li class="">
-                    <a href="${pageContext.request.contextPath}/admin/changePassword.html" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text">
-                            修改密码
-							</span>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                        <span class="menu-text"> 个人信息管理</span>
+                        <b class="arrow fa fa-angle-down"></b>
                     </a>
+
                     <b class="arrow"></b>
 
+                    <ul class="submenu">
+
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
                 </li>
+
             </ul>
             <!-- /.nav-list -->
 
@@ -214,7 +272,7 @@
                             <a href="#">预约管理</a>
                         </li>
                         <li>
-                            <a href="">教室预约信息</a>
+                            <a href="">学生预约信息</a>
                         <li>
                     </ul>
                     <!-- /.breadcrumb -->
@@ -228,12 +286,7 @@
 
                 <div class="hr hr-18 dotted hr-double"></div>
 
-                <h4 class="pink">
-                    <i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i>
-                    <a href="#modal-table" role="button" class="green" data-toggle="modal"> 手机点击此处查看列表 </a>
-                </h4>
 
-                <div class="hr hr-18 dotted hr-double"></div>
 
                 <div class="row">
                     <div class="col-xs-12">
@@ -326,81 +379,6 @@
                                             </td>
                                         </tr>
                                     </C:forEach>
-
-
-                                    <tr>
-                                        <td class="center">
-                                            <label class="pos-rel">
-															2
-															</label>
-                                        </td>
-
-                                        <td>
-                                            <a href="#">base.com</a>
-                                        </td>
-                                        <td>$35</td>
-                                        <td class="hidden-480">2,595</td>
-
-                                        <td>Feb 16</td>
-                                        <td>Feb 12</td>
-                                        <td>Feb 12</td>
-                                        <td>1</td>
-                                        <td class="hidden-480">
-                                            <span class="label label-sm label-success">同意</span>
-                                        </td>
-
-                                        <td>
-                                            <div class="hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <span class="label label-sm label-success">同意</span>
-                                                </a>
-                                                <a class="blue" href="#">
-                                                    <span class="label label-sm label-inverse arrowed-in">拒绝</span>
-                                                </a>
-
-                                            </div>
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td class="center">
-                                            <label class="pos-rel">
-																<input type="checkbox" class="ace" />
-																<span class="lbl"></span>
-															</label>
-                                        </td>
-
-                                        <td>
-                                            100
-                                        </td>
-                                        <td>$75</td>
-                                        <td class="hidden-480">6,500</td>
-
-                                        <td>Feb 16</td>
-                                        <td>Feb 12</td>
-                                        <td>Feb 12</td>
-                                        <td>1</td>
-                                        <td class="hidden-480">
-                                            <span class="label label-sm label-inverse arrowed-in">拒绝</span>
-                                        </td>
-                                        <td>
-                                            <div class="hidden-sm hidden-xs action-buttons">
-                                                <a class="blue" href="#">
-                                                    <span class="label label-sm label-success">同意</span>
-                                                </a>
-                                                <a class="blue" href="#">
-                                                    <span class="label label-sm label-inverse arrowed-in">拒绝</span>
-                                                </a>
-
-                                            </div>
-                                        </td>
-
-
-                                    </tr>
-
-
-
                                 </tbody>
                             </table>
                         </div>
@@ -414,26 +392,6 @@
 
     <!-- /.main-content -->
 
-    <div class="footer">
-        <div class="footer-inner">
-            <div class="footer-content">
-
-                <span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
-            </div>
-        </div>
-    </div>
 
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>

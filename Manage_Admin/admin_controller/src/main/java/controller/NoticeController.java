@@ -37,7 +37,6 @@ public class NoticeController
     @RequestMapping("/admin/noticeDelete")
     public  String deleteHistory(Integer nid)
     {
-        System.out.println("-----------");
         System.out.println(nid);
         noticeService.deleteHistory(nid);
         return  "noticeHistory";

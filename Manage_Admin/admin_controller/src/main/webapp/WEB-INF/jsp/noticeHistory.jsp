@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>通知公告 - 创新楼教室预约系统</title>
+    <title>通知历史记录</title>
 
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -86,8 +86,8 @@
                              src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg"
                              alt="User's Photo"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									${student.sname}
+									<small>管理员,</small>
+								    ${admin.aid}
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -95,23 +95,15 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/passwordChange.html">
+                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
                                 <i class="ace-icon fa fa-cog"></i>
                                 修改密码
                             </a>
                         </li>
 
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/userInfo.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                个人详情
-                            </a>
-                        </li>
-
                         <li class="divider"></li>
-
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/logout.html">
+                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 退出
                             </a>
@@ -140,12 +132,10 @@
             }
         </script>
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-        </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
             <li class="">
-                <a href="index.html">
+                <a href="${pageContext.request.contextPath}/admin/activity.html">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> 首页 </span>
                 </a>
@@ -153,8 +143,9 @@
                 <b class="arrow"></b>
             </li>
             <li class="">
+
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
+                    <i class="menu-icon fa fa-list-alt"></i>
                     <span class="menu-text">
                                 信息发布
 							</span>
@@ -174,29 +165,27 @@
 
                         <b class="arrow"></b>
                     </li>
+
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
-                            <i class="menu-icon fa fa-caret-right"></i>通知历史记录
+                            <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
                         </a>
 
                         <b class="arrow"></b>
                     </li>
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
+                        <a href="${pageContext.request.contextPath}/admin/activity.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
                         </a>
 
                         <b class="arrow"></b>
                     </li>
                 </ul>
             </li>
-
             <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-							    信息管理
-							</span>
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text"> 信息管理 </span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
@@ -204,6 +193,7 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
+
 
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
@@ -257,20 +247,30 @@
 
 
             <li class="">
-                <a href="${pageContext.request.contextPath}/admin/changePassword.html" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-                            修改密码
-							</span>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-pencil-square-o"></i>
+                    <span class="menu-text"> 个人信息管理</span>
+                    <b class="arrow fa fa-angle-down"></b>
                 </a>
+
                 <b class="arrow"></b>
 
+                <ul class="submenu">
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
             </li>
 
-
+        </ul>
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
-               data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
     </div>
 
@@ -280,15 +280,16 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}">首页</a>
+                        <a href="#">首页</a>
                     </li>
 
                     <li>
-                        <a href="#">教室查询</a>
+                        <a href="#">信息发布</a>
                     </li>
 
-                    <li class="active">教室使用情况</li>
-
+                    <li>
+                        <a href="#">通知历史记录</a>
+                    </li>
                 </ul><!-- /.breadcrumb -->
             </div>
 

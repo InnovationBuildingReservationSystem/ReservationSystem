@@ -1,9 +1,11 @@
 package pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdercrExample  implements Serializable{
+public class OrdercrExample  implements Serializable
+{
     protected String orderByClause;
 
     protected boolean distinct;

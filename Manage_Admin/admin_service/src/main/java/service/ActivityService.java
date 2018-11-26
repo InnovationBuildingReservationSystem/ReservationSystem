@@ -1,9 +1,9 @@
 package service;
 
-import pojo.PageBean;
 
+import pojo.ActivityPageBean;
 
 public interface ActivityService
 {
-    PageBean getActivityPageBean(Integer pageSize, Integer currentPage, String nowDate);
+    ActivityPageBean getActivityPageBean(Integer pageSize, Integer currentPage, String nowDate);
 }

@@ -10,4 +10,5 @@ public interface ClassroomService
     Integer addClassroom(Classroom classroom);
     PageBean getPageBean(Integer pageSize,Integer currentPage,String cid);
     int getClassroomById(String cid);
+    int checkClassroomExist(String cid);
 }
