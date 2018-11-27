@@ -455,7 +455,7 @@
             </div>
 
 
-            <div class="page-header">
+            <div class="page-header" style="margin-top: 10px; padding-left: 10px;">
                 <h1>
                     修改密码
 
@@ -465,80 +465,175 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <div style="text-align: center; color: red; font-size: 18px;">
-                        ${errorMessage}
-                    </div>
-                    <!-- PAGE CONTENT BEGINS -->
-                    <form class="form-horizontal" role="form"
-                          action="${pageContext.request.contextPath}/student/updatePassword.html" method="post"
-                          onsubmit="return validAll()">
-                        <input type="hidden" name="snum" value="${student.snum}"/>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 原密码 </label>
 
-                            <div class="col-sm-9">
-                                <input type="password" id="form-field-3" name="originalPwd" placeholder="原密码"
-                                       class="col-xs-10 col-sm-5" value="${originalPwd}" required/>
-                                <span class="help-inline col-xs-12 col-sm-7">
+                    <div class="widget-box">
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <div id="fuelux-wizard-container">
+
+                                    <hr/>
+
+                                    <div class="step-content pos-rel">
+                                        <div class="step-pane active" data-step="1">
+                                            <h3 class="lighter block green">修改密码</h3>
+                                            <span id="errorMessage" style="color:red;">${errorMessage}</span>
+
+                                            <form class="form-horizontal" role="form"
+                                                  action="${pageContext.request.contextPath}/student/updatePassword.html" method="post"
+                                                  onsubmit="return validAll()">
+                                                <input type="hidden" name="snum" value="${student.snum}"/>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 原密码 </label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="form-field-3" name="originalPwd" placeholder="原密码"
+                                                               class="col-xs-10 col-sm-5" value="${originalPwd}" required/>
+                                                        <span class="help-inline col-xs-12 col-sm-7">
 												<span class="middle" style="color: red;">${originalPwdError}</span>
                                     </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 新密码 </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 新密码 </label>
 
-                            <div class="col-sm-9">
-                                <input type="password" id="form-field-4" name="newPwd" placeholder="新密码"
-                                       class="col-xs-10 col-sm-5" value="${newPwd}" required onblur="validnewPwd()"
-                                       onkeyup="validnewPwd()" onkeydown="validnewPwd()"/>
-                                <span class="help-inline col-xs-12 col-sm-7">
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="form-field-4" name="newPwd" placeholder="新密码"
+                                                               class="col-xs-10 col-sm-5" value="${newPwd}" required onblur="validnewPwd()"
+                                                               onkeyup="validnewPwd()" onkeydown="validnewPwd()"/>
+                                                        <span class="help-inline col-xs-12 col-sm-7">
 												<span class="middle" id="newPwdValid"
                                                       style="color: red;">${newPwdError}</span>
                                     </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 再一次输入密码 </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 再一次输入密码 </label>
 
-                            <div class="col-sm-9">
-                                <input type="password" id="form-field-5" name="newPwdConvinced" placeholder="再次输入密码"
-                                       value="${newPwdConvinced}" required onblur="validPwdConvinced()"
-                                       onkeyup="validPwdConvinced()" onkeydown="validPwdConvinced()"
-                                       class="col-xs-10 col-sm-5"/>
-                                <span class="help-inline col-xs-12 col-sm-7">
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="form-field-5" name="newPwdConvinced" placeholder="再次输入密码"
+                                                               value="${newPwdConvinced}" required onblur="validPwdConvinced()"
+                                                               onkeyup="validPwdConvinced()" onkeydown="validPwdConvinced()"
+                                                               class="col-xs-10 col-sm-5"/>
+                                                        <span class="help-inline col-xs-12 col-sm-7">
 												<span class="middle" id="pwdConvince"
                                                       style="color: red;">${newPwdConvincedError}</span>
                                     </span>
+                                                    </div>
+                                                </div>
+                                                <div class="space-4"></div>
+
+
+                                                <div class="space-4"></div>
+
+
+                                                <div class="space-4"></div>
+
+                                                <div class="clearfix form-actions">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <button class="btn btn-info" type="submit">
+                                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                                            确认修改
+                                                        </button> &nbsp; &nbsp; &nbsp;
+                                                        <button class="btn" type="reset">
+                                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                                            重置信息
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr/>
+                            </div><!-- /.widget-main -->
+                        </div><!-- /.widget-body -->
+                    </div>
+
+                    <div id="modal-wizard" class="modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div id="modal-wizard-container">
+                                    <div class="modal-header">
+                                        <ul class="steps">
+                                            <li data-step="1" class="active">
+                                                <span class="step">1</span>
+                                                <span class="title">Validation states</span>
+                                            </li>
+
+                                            <li data-step="2">
+                                                <span class="step">2</span>
+                                                <span class="title">Alerts</span>
+                                            </li>
+
+                                            <li data-step="3">
+                                                <span class="step">3</span>
+                                                <span class="title">Payment Info</span>
+                                            </li>
+
+                                            <li data-step="4">
+                                                <span class="step">4</span>
+                                                <span class="title">Other Info</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="modal-body step-content">
+                                        <div class="step-pane active" data-step="1">
+                                            <div class="center">
+                                                <h4 class="blue">Step 1</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="step-pane" data-step="2">
+                                            <div class="center">
+                                                <h4 class="blue">Step 2</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="step-pane" data-step="3">
+                                            <div class="center">
+                                                <h4 class="blue">Step 3</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="step-pane" data-step="4">
+                                            <div class="center">
+                                                <h4 class="blue">Step 4</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer wizard-actions">
+                                    <button class="btn btn-sm btn-prev">
+                                        <i class="ace-icon fa fa-arrow-left"></i>
+                                        Prev
+                                    </button>
+
+                                    <button class="btn btn-success btn-sm btn-next" data-last="Finish">
+                                        Next
+                                        <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm pull-left" data-dismiss="modal">
+                                        <i class="ace-icon fa fa-times"></i>
+                                        Cancel
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="space-4"></div>
+                    </div><!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
 
-
-                        <div class="space-4"></div>
-
-
-                        <div class="space-4"></div>
-
-                        <div class="clearfix form-actions">
-                            <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info" type="submit">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    确认修改
-                                </button> &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="reset">
-                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                    重置信息
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
             <!-- PAGE CONTENT ENDS -->
         </div>
         <!-- /.col -->
     </div><!-- /.main-content -->
+
 
 
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
