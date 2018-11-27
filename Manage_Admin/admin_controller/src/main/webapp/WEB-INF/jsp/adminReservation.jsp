@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>通知历史记录</title>
+    <title>管理员预约申请</title>
 
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -77,7 +77,6 @@
                 </small>
             </a>
         </div>
-
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav" style="text-align: right;">
                 <li class="light-blue dropdown-modal">
@@ -86,8 +85,8 @@
                              src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg"
                              alt="User's Photo"/>
                         <span class="user-info">
-									<small>管理员,</small>
-
+									<small>Welcome,</small>
+									${student.sname}
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -95,15 +94,23 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
+                            <a href="${pageContext.request.contextPath}/student/passwordChange.html">
                                 <i class="ace-icon fa fa-cog"></i>
                                 修改密码
                             </a>
                         </li>
 
-                        <li class="divider"></li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/admin/existAdmin.html">
+                            <a href="profile.html">
+                                <i class="ace-icon fa fa-user"></i>
+                                个人详情
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/student/logout.html">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 退出
                             </a>
@@ -132,22 +139,25 @@
             }
         </script>
 
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+
+        </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
             <li class="">
-                <a href="${pageContext.request.contextPath}/admin/activity.html">
-                    <i class="menu-icon fa fa-tachometer"></i>
-                    <span class="menu-text"> 首页 </span>
-                </a>
+                <%--<a href="index.html">--%>
+                <%--<i class="menu-icon fa fa-tachometer"></i>--%>
+                <%--<span class="menu-text"> Dashboard </span>--%>
+                <%--</a>--%>
 
                 <b class="arrow"></b>
             </li>
-            <li class="">
 
+            <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-list-alt"></i>
+                    <i class="menu-icon fa fa-user"></i>
                     <span class="menu-text">
-                                信息发布
+								个人信息
 							</span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -157,35 +167,30 @@
 
                 <ul class="submenu">
 
-
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/noticeSend.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 通知信息发布
+                        <a href="${pageContext.request.contextPath}/student/userInfo.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            个人详情
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                    <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/activity.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
+                        <a href="${pageContext.request.contextPath}/student/passwordChange.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            修改密码
                         </a>
 
                         <b class="arrow"></b>
                     </li>
                 </ul>
             </li>
+
             <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text"> 信息管理 </span>
+                    <span class="menu-text"> 教室查询 </span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
@@ -193,51 +198,18 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-
-
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 学生信息管理
+                        <a href="${pageContext.request.contextPath}/student/ClassroomInfo.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            教室使用情况
                         </a>
 
                         <b class="arrow"></b>
                     </li>
-
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/classroomInformation.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 教室信息管理
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
-            <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-                                预约管理
-							</span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <b class="arrow"></b>
-
-                <ul class="submenu">
-
-
-                    <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/orderTable.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 学生预约信息查询
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 教室预约信息查询
+                        <a href="${pageContext.request.contextPath}/student/notice.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            通知公告
                         </a>
 
                         <b class="arrow"></b>
@@ -245,21 +217,30 @@
                 </ul>
             </li>
 
-
-            <li class="">
+            <li class="active open">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-pencil-square-o"></i>
-                    <span class="menu-text"> 个人信息管理</span>
+                    <span class="menu-text"> 教室预订 </span>
+
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
 
                 <b class="arrow"></b>
 
                 <ul class="submenu">
+                    <li class="active">
+                        <a href="${pageContext.request.contextPath}/student/application.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            教室申请
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/admin/changePassword.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 修改密码
+                        <a href="${pageContext.request.contextPath}/student/personalOrder.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            个人申请情况
                         </a>
 
                         <b class="arrow"></b>
@@ -267,10 +248,11 @@
 
                 </ul>
             </li>
+        </ul><!-- /.nav-list -->
 
-        </ul>
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+               data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
     </div>
 
@@ -284,72 +266,149 @@
                     </li>
 
                     <li>
-                        <a href="#">信息发布</a>
+                        <a href="#">教室预订</a>
                     </li>
-
-                    <li>
-                        <a href="#">通知历史记录</a>
-                    </li>
+                    <li class="active">教室申请</li>
                 </ul><!-- /.breadcrumb -->
+
             </div>
 
             <div class="page-content">
 
                 <div class="page-header">
                     <h1>
-                        通知历史记录
+                        教室申请
                     </h1>
                 </div><!-- /.page-header -->
 
-                <div class="alert alert-warning">
-                    <button type="button" class="close" data-dismiss="alert">
-                        <i class="ace-icon fa fa-times"></i>
-                    </button>
-                    <strong>注意</strong>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <form action="${pageContext.request.contextPath}/student/applicationClassroom.html"
+                              class="form-horizontal" id="stuApplication" role="form" method="post"
+                              onsubmit="return validAll()">
+                            <div class="row">
 
-                    请及时关注最新通知！
-                    <br/>
-                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                           for="form-field-5">周几</label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <select id="startTime" name="starttime" required>
+                                                <option value="">星期一</option>
+                                                <option value="">星期二</option>
+                                                <option value="">星期三</option>
+                                                <option value="">星期四</option>
+                                                <option value="">星期五</option>
+                                                <option value="">星期六</option>
+                                                <option value="">星期日</option>
 
-                <div id="accordion" class="accordion-style1 panel-group">
-                    <c:forEach items="${noticeList}" var="notice" varStatus="loop">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                       href="#collapseOne_${notice.nid}">
-                                        <input type="hidden" name="nid" value="${notice.nid}" id="nid" >
-                                        <span style="float: right">${notice.ntime}</span>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                        <i class="ace-icon fa fa-angle-down bigger-110"
-                                           data-icon-hide="ace-icon fa fa-angle-down"
-                                           data-icon-show="ace-icon fa fa-angle-right"></i>
-                                            ${notice.ntitle}
-                                    </a>
-                                </h4>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">开始日期</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <input class="form-control date-picker" name="startdate" id="datepicker"
+                                                   type="text"
+                                                   value="${startdate}" required="required"
+                                                   placeholder="(*必填)"
+                                                   readonly="readonly"
+                                                   onclick="WdatePicker({})"/>
+                                            <span class="input-group-addon">
+														<i class="fa fa-calendar bigger-110"></i>
+													</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                           for="form-field-5">开始时间</label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <select id="startTime" name="starttime" required>
+                                                <option value="08:00">08:00</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="20:00">20:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">结束日期</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <input class="form-control date-picker" name="enddate" id="enddatepicker"
+                                                   type="text"
+                                                   value="${startdate}" required="required"
+                                                   placeholder="(*必填)"
+                                                   readonly="readonly"
+                                                   onclick="WdatePicker({})"/>
+                                            <span class="input-group-addon">
+														<i class="fa fa-calendar bigger-110"></i>
+													</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--</div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                           for="form-field-5">结束时间</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <select id="endTime" name="endtime">
+                                                <option>09:00</option>
+                                                <option>10:00</option>
+                                            </select>
+                                        </div>
+                                        <div class="space-2"></div>
+                                    </div>
+                                </div>
+
+                                <div class="space-4"></div>
+
+                                <div class="space-4"></div>
+
+                                <div class="col-xs-12"><!--右-->
+
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button class="btn btn-info" type="submit">
+                                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                                提交
+                                            </button>
+
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn" type="reset">
+                                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                                重置
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <c:if test="${loop.count==1}">
-                                <div class="panel-collapse collapse in" id="collapseOne_${notice.nid}">
-                                    <div class="panel-body">
-                                        <!--通知的具体内容-->
-                                            ${notice.ncontent}
-                                    </div>
-                                </div>
-                            </c:if>
-                            <c:if test="${loop.count!=1}">
-                                <div class="panel-collapse collapse off" id="collapseOne_${notice.nid}">
-                                    <div class="panel-body">
-                                        <!--通知的具体内容-->
-                                            ${notice.ncontent}
-                                    </div>
-                                </div>
-                            </c:if>
-                            <button type="button" class="btn btn-white btn-default" onclick="deleteNotice('${notice.nid}');">删除</button>
-                        </div>
-                    </c:forEach>
+                        </form>
+                    </div>
                 </div>
-            </div><!-- /.page-content -->
-
+            </div>
         </div>
     </div><!-- /.main-content -->
 </div><!-- /.main-container -->
@@ -389,25 +448,170 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.inputlimiter.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.maskedinput.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/bootstrap-tag.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.validate.min.js"></script>
 
 <!-- ace scripts -->
 <script src="${pageContext.request.contextPath}/assets/js/ace-elements.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/calendar/WdatePicker.js"></script>
+
 <!-- inline scripts related to this page -->
+<script type="text/javascript">
+    function checknum(value) {
+        var Regx = /^[0-9]*$/;
+        if (Regx.test(value)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function validAttendcount() {
+        var obj = document.getElementById("form-field-1");
+        var attendcount = obj.value;
+        if (!checknum(attendcount)) {
+            document.getElementById("errorAttendcount").innerHTML = "<font size='-1' color='red'>人数必须为纯数字</font>";
+            return false;
+        } else {
+            document.getElementById("errorAttendcount").innerHTML = "<font size='-1'></font>";
+            return true;
+        }
+    }
+
+    function validStelephone() {
+        var obj = document.getElementById("form-field-tags-1");
+        var stelephone = obj.value;
+        if (stelephone.length != 11 || !checknum(stelephone)) {
+            document.getElementById("errorStelephone").innerHTML = "<font size='-1' color='red'>手机号必须为11位纯数字</font>";
+            return false;
+        } else {
+            document.getElementById("errorStelephone").innerHTML = "<font size='-1'></font>";
+            return true;
+        }
+    }
+
+    function validTtelephone() {
+        var obj = document.getElementById("form-field-tags-2");
+        var ttelephone = obj.value;
+        if (ttelephone.length != 11 || !checknum(ttelephone)) {
+            document.getElementById("errorTtelephone").innerHTML = "<font size='-1' color='red'>手机号必须为11位纯数字</font>";
+            return false;
+        } else {
+            document.getElementById("errorTtelephone").innerHTML = "<font size='-1'></font>";
+            return true;
+        }
+    }
+
+    function validAll() {
+        return validAttendcount() && validTtelephone() && validStelephone();
+    }
+</script>
 
 <script type="text/javascript">
-    function deleteNotice(nid) {
-        $.ajax({
-            type: "GET",
-            url: "${pageContext.request.contextPath}/admin/noticeDelete.html",
-            data: 'nid='+nid,
-            success:function () {
-                alert("通知删除成功!");
-                window.location.href="${pageContext.request.contextPath}/admin/noticeHistory.html";
-            }
-        });
+    var html;
+    var now = new Date();
+    var hours;
+    var end1;
+    var end2;
+
+    $(function(){
+        setdate();
+    });
+
+    function setdate(){
+        var sd=new Date();
+        sd.setDate(sd.getDate()-1);
+        var sy=sd.getFullYear();
+        var sm = sd.getMonth()+1;
+        var sdd=sd.getDate();
+        $("datepicker").val(sy+"-"+sm+"-"+sdd);
     }
+
+    $('#startTime').bind('change', function () {
+        $("#endTime").html("");
+
+        var option1 = $("#startTime option:selected");//获取当前选中项
+        var startTime = option1.text();
+        hours = parseInt(startTime.substring(0, 2));
+        end1 = hours + 1;
+        end2 = hours + 2;
+        var startdate = document.getElementById("datepicker").value;
+        if (startdate != "") {
+
+            var chosenStarttime = new Date(startdate + " " + startTime + ":00");
+        }
+
+        if (chosenStarttime <= now) {
+            html = "";
+        } else {
+            if (end1.toString().length == 1) {
+                end1 = "0" + end1 + ":00";
+            } else
+                end1 = end1 + ":00";
+            if (end2.toString().length == 1) {
+                end2 = "0" + end2 + ":00";
+            } else
+                end2 = end2 + ":00";
+
+            if (startTime == "20:00") {
+                html = "<option value='" + end1 + "'>" + end1 + "</option>";
+            }
+            else {
+                html = "<option value='" + end1 + "'>" + end1 + "</option>";
+                html += "<option value='" + end2 + "'>" + end2 + "</option>";
+            }
+        }
+        $("#endTime").append(html);
+        /*var option2=$("#endTime option:selected");
+        var endTime=option2.text();*/
+    })
+
+    function cDayFunc(dp){
+        $("#endTime").html("");
+        var year=$dp.cal.newdate.y;
+        var month=$dp.cal.newdate.M;
+        var day=$dp.cal.newdate.d;
+        var option1 = $("#startTime option:selected");//获取当前选中项
+        var startTime = option1.text();
+
+        hours = parseInt(startTime.substring(0, 2));
+        end1 = hours + 1;
+        end2 = hours + 2;
+        var startdate1 =year+"-"+month+"-"+day;
+        if (startdate1 != "") {
+            var chosenStarttime = new Date(startdate1 + " " + startTime + ":00");
+        }
+        if (chosenStarttime <= now) {
+            html = "";
+            $("#endTime").append(html);
+        }else {
+            if (end1.toString().length == 1) {
+                end1 = "0" + end1 + ":00";
+            } else
+                end1 = end1 + ":00";
+            if (end2.toString().length == 1) {
+                end2 = "0" + end2 + ":00";
+            } else
+                end2 = end2 + ":00";
+
+            if (startTime == "20:00") {
+                html = "<option value='" + end1 + "'>" + end1 + "</option>";
+            }
+            else {
+                html = "<option value='" + end1 + "'>" + end1 + "</option>";
+                html += "<option value='" + end2 + "'>" + end2 + "</option>";
+            }
+        }
+        $("#endTime").append(html);
+    }
+
+
+</script>
+
+
+<script type="text/javascript">
     jQuery(function ($) {
         $('#id-disable-check').on('click', function () {
             var inp = $('#form-input-readonly').get(0);
@@ -727,7 +931,7 @@
 
         //datepicker plugin
         //link
-        $('.date-picker').datepicker({
+        /*$('.date-picker').datepicker({
             autoclose: true,
             todayHighlight: true
         })
@@ -751,7 +955,7 @@
         })
             .prev().on(ace.click_event, function () {
             $(this).next().focus();
-        });
+        });*/
 
 
         $('#timepicker1').timepicker({
@@ -862,6 +1066,7 @@
 
 
     });
+
     $("#form-field-select-1").val("${cid}");
 </script>
 </body>

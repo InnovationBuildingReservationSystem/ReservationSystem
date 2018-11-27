@@ -4,6 +4,7 @@ import mapper.NoticeItemMapper;
 import mapper.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pojo.Notice;
 import service.NoticeService;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class NoticeServiceImpl implements NoticeService
  {
      @Autowired

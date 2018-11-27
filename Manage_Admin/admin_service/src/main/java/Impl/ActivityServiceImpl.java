@@ -3,6 +3,7 @@ package Impl;
 import mapper.OrderItemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import pojo.ActivityPageBean;
 import pojo.OrderItem;
@@ -12,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 @Service
+@Transactional
 public class ActivityServiceImpl implements ActivityService
 {
     @Autowired

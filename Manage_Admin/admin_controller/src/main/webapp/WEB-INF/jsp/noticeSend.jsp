@@ -45,7 +45,15 @@
 <body class="no-skin">
 <div id="navbar" class="navbar navbar-default          ace-save-state">
     <div class="navbar-container ace-save-state" id="navbar-container">
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+            <span class="sr-only">Toggle sidebar</span>
 
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+        </button>
         <div class="navbar-header pull-left">
             <a href="${pageContext.request.contextPath}/admin/activity.html" class="navbar-brand">
                 <small>
@@ -67,7 +75,6 @@
                         <img class="nav-user-photo" src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>管理员</small>
-                                        ${admin.aid}
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -310,8 +317,7 @@
 
                                 <div class="btn-group pull-right">
                                     <button class="btn btn-sm btn-success btn-white btn-round" onclick="sendNotice();">
-                                        <i class="ace-icon fa fa-globe bigger-125"></i>
-
+                                        <i onclick="sendNotice();" class="ace-icon fa fa-globe bigger-125"></i>
                                         发布
                                         <i class="ace-icon fa fa-arrow-right icon-on-right bigger-125"></i>
                                     </button>
@@ -376,15 +382,24 @@
                 type: "GET",
                 url: "${pageContext.request.contextPath}/admin/noticeSendToStudent.html",
                 data: 'noticeText='+noticeText+'&'+'noticeTitle='+noticeTitle,
-                success:function () {
+                async: false,
+                success : function (data) {
+
                     alert("通知发布成功!");
                     window.location.href="${pageContext.request.contextPath}/admin/noticeHistory.html";
+                },
+                error:function () {
+                    alert("通知发布错误!");
                 }
             });
+
+
         }
+
         else
               alert("发布的信息不可为空!");
     }
+
 
     jQuery(function($){
 

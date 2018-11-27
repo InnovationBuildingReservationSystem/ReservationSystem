@@ -9,4 +9,5 @@ public class testDateSubstring
         String str="2018-11-11 11:41";
         System.out.println(str.substring(0,10));
     }
+
 }

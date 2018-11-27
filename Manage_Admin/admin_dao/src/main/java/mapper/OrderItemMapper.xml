@@ -40,6 +40,10 @@
         starttime LIKE  #{1}"%"
         AND
         cid = #{0}
+        AND
+        orderstatus  <![CDATA[ != ]]> 2
+        AND
+       orderstatus  <![CDATA[ != ]]> 3
     </select>
     <select id="getOrderItemTimeList" resultType="pojo.OrderItem">
         SELECT

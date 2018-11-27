@@ -59,6 +59,6 @@ public class OrderController
             return "redirect:admin/orderTable.html";
         }
         orderListService.changeOption(oid, option);
-        return "redirect:admin/orderTable.html";
+        return "redirect:orderTable.html";
     }
 }

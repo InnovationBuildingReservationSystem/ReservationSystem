@@ -5,6 +5,7 @@ import mapper.ClassroomMapper;
 import mapper.OrdercrMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import pojo.*;
 import service.ClassroomService;
@@ -12,6 +13,7 @@ import service.ClassroomService;
 import java.util.ArrayList;
 import java.util.List;
 @Service
+@Transactional
 public class ClassroomServiceImpl implements ClassroomService
 {
     @Autowired

@@ -70,6 +70,11 @@ public class OrderListImpl implements OrderService
                 }
                 //同意
                 Long interval=nowDate.getTime()-createDate.getTime();
+           /*
+                测试时间间隔
+                System.out.println(nowDate.getTime());
+                System.out.println(createDate.getTime());
+                System.out.println(interval);*/
                 if(orderItemList.get(i).getOrderstatus()==0&&interval>maxTime)
                 {
                     orderItemList.get(i).setOrderstatus(1);

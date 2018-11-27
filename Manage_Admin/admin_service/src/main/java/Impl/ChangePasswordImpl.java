@@ -10,8 +10,9 @@ import service.ChangePasswordService;
 
 import java.util.List;
 
-@Transactional
+
 @Service
+@Transactional
 public class ChangePasswordImpl implements ChangePasswordService
 {
     @Autowired
