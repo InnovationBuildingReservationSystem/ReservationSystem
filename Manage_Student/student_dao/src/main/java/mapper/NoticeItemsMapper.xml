@@ -12,4 +12,10 @@
         from notice
         order by ntime desc
     </select>
+    <select id="getNoticeByPage" parameterType="Integer" resultMap="BaseResultMap">
+        select *
+        from notice
+        order by ntime desc
+        limit #{offset},#{limit}
+    </select>
 </mapper>

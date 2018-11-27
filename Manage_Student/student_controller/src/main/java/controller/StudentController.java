@@ -72,7 +72,7 @@ public class StudentController {
 
      */
     @RequestMapping("/student/updatePassword")
-    public String updatePassword(Model model, HttpServletRequest request, @RequestParam("sname") String sname, @RequestParam("originalPwd") String originalPwd, @RequestParam("newPwd") String newPwd, @RequestParam("newPwdConvinced") String newPwdConvinced) {
+    public String updatePassword(Model model, HttpServletRequest request, @RequestParam("originalPwd") String originalPwd, @RequestParam("newPwd") String newPwd, @RequestParam("newPwdConvinced") String newPwdConvinced) {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
         if (session == null || student == null) {
@@ -92,7 +92,7 @@ public class StudentController {
         if (!newPwd.equals(newPwdConvinced)) {
             model.addAttribute("newPwdConvincedError", "两次输入新密码内容不一致！");
         }
-        if (studentService.stuInfoValidate(student.getSnum(), sname, originalPwd) && newPwdConvinced.equals(newPwd)) {
+        if (studentService.stuInfoValidate(student.getSnum(), originalPwd) && newPwdConvinced.equals(newPwd)) {
             student.setSpwd(newPwd);
             studentService.updatePassword(student);
             model.addAttribute("errorMessage", "更改成功！");
@@ -101,7 +101,6 @@ public class StudentController {
         }
         model.addAttribute("errorMessage", "所填写信息有误，请检查后重试！");
         model.addAttribute("snum", student.getSnum());
-        model.addAttribute("sname", sname);
         model.addAttribute("originalPwd", originalPwd);
         model.addAttribute("newPwd", newPwd);
         model.addAttribute("newPwdConvinced", newPwdConvinced);
@@ -156,7 +155,7 @@ public class StudentController {
     public String activeAccount(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
-        if (session != null || student != null) {
+        if (session != null && student != null) {
 
             //studentService.getStudentInfo(snum);
             if (student.getSstatus() != 0) {
@@ -196,14 +195,14 @@ public class StudentController {
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
 
-        if (!snum.trim().equals(student.getSnum()) || !sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
+        if (!snum.trim().equals(student.getSnum()) || !sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18 || stelphone.trim().length() != 11) {
             model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
             model.addAttribute("snum", student.getSnum());
             model.addAttribute("spwd", spwd);
             model.addAttribute("spwdConvinced", spwdConvinced);
             model.addAttribute("sname", sname);
             model.addAttribute("sid", sid);
-            model.addAttribute("stelephone", stelphone);
+            model.addAttribute("stelphone", stelphone);
             session.setAttribute("studentSession", student);
             return "activeAccount";
         } else if (!spwd.equals(spwdConvinced)) {
@@ -213,7 +212,7 @@ public class StudentController {
             model.addAttribute("spwdConvinced", spwdConvinced);
             model.addAttribute("sname", sname);
             model.addAttribute("sid", sid);
-            model.addAttribute("stelephone", stelphone);
+            model.addAttribute("stelphone", stelphone);
             session.setAttribute("studentSession", student);
             return "activeAccount";
         } else if (spwd.length() < 6) {
@@ -232,7 +231,7 @@ public class StudentController {
         student.setSpwd(spwd);
         studentService.updateStuInfo(student);
         session.setAttribute("studentSession", student);
-        return "redirect: personalOrder.html";
+        return "redirect: notice.html";
     }
 
     /*

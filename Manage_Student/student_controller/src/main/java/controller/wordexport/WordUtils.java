@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -33,15 +34,16 @@ public class WordUtils {
         //configuration.setClassForTemplateLoading(this.getClass(), "classpath:/ftl/");//模板文件所在路径
         Template t = null;
         try {
-            t = configuration.getTemplate("创新楼创客教室学生活动备案审批表.ftl"); //获取模板文件
+            t = configuration.getTemplate("创新楼创客教室学生活动备案审批表(2003).ftl"); //获取模板文件
         } catch (IOException e) {
             e.printStackTrace();
         }
+        /*/usr/local/dataFile/创新楼创客教室学生活动备案审批表.doc*/
         File outFile = new File("D:/创新楼教室预约系统/outFile/创新楼创客教室学生活动备案审批表.doc"); //导出文件
         Writer out = null;
         try {
             FileOutputStream fos = new FileOutputStream(outFile);
-            OutputStreamWriter oWriter = new OutputStreamWriter(fos, "UTF-8");
+            OutputStreamWriter oWriter = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
             out = new BufferedWriter(oWriter);
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
@@ -124,10 +126,18 @@ public class WordUtils {
                 out.write(buffer, 0, bytesToRead);
             }
         } finally {
-            if (fin != null) fin.close();
-            if (out != null) out.close();
-            if (file != null || file.exists()){
-                file.delete(); // 删除临时文件
+            if (file != null) {
+                try {
+                    if (fin != null)
+                        fin.close();
+                    if (out != null)
+                        out.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    System.gc();
+                    file.delete();// 删除临时文件
+                }
             }
         }
     }

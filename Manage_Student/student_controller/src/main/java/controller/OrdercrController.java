@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import pojo.Classroom;
+import pojo.Notice;
 import pojo.Ordercr;
 import pojo.Student;
 import service.ClassroomService;
+import service.NoticeService;
 import service.OrderService;
 import service.StudentService;
 
@@ -41,7 +43,10 @@ public class OrdercrController {
     private ClassroomService classroomService;
 
     @Autowired
-    FreeMarkerConfigurer freeMarkerConfigurer;
+    private NoticeService noticeService;
+
+    @Autowired
+    private FreeMarkerConfigurer freeMarkerConfigurer;
 
     /*
 
@@ -123,10 +128,23 @@ public class OrdercrController {
 
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());
-            List<Ordercr> orderList = orderService.getOrderList(student.getSnum());
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Integer orderCount = orderService.orderCount(snum, "all", "");
+            Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
+            Integer page = 1;
+            Integer finalPage = orderCount / 8;
 
+            if (page > orderCount / 8 && orderCount >= 8) {
+                page = orderCount / 8;
+            }
+            List<Ordercr> orderList = new ArrayList<>();
+            if (orderCount > 0) {
+                orderList = orderService.getOrderList(student.getSnum(), page);
+            }
+            if (orderService.hasOrderedToday(student.getSnum())) {
+                orderService.otherOrderCancel(student.getSnum());
+            } else {
+                orderService.updateApplication(orderList, student.getSnum());
+            }
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("orderList", orderList);
             model.addAttribute("snum", snum);
@@ -134,10 +152,13 @@ public class OrdercrController {
 
             orderService.updateApplication(orderList, snum);
             model.addAttribute("message", "<script>alert('今天已成功预订过一次教室，当日不能再次申请');</script>");
+
+            model.addAttribute("student", student);
+            model.addAttribute("snum", student.getSnum());
             model.addAttribute("prePage", 0);
             model.addAttribute("thisPage", 1);
             model.addAttribute("nextPage", 2);
-            model.addAttribute("finalPage", orderCount / 8);
+            model.addAttribute("finalPage", finalPage);
             model.addAttribute("cid", "all");
 
             return "personalOrder";
@@ -267,7 +288,7 @@ public class OrdercrController {
         }
 
         if (ordercr.getCid() == "" || ordercr.getStarttime() == "" || ordercr.getEndtime() == "" || ordercr.getTheme() == "" || ordercr.getSnum() == "" || ordercr.getFaculty() == "" || ordercr.getGroupname() == "" || ordercr.getTeacher() == "" || ordercr.getStelephone() == "" || ordercr.getAttendcount().toString() == "" || sname == "" || startdate == "" || !(isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11 && isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString())) || ordercr.getAttendcount() <= 0) {
-            errorMessage = "请检查信息是否填写完整，联系电话、参加人数等是否为有效信息！！";
+            errorMessage = "请检查信息是否填写完整！";
             model.addAttribute("errorMessage", errorMessage);
             model.addAttribute("ordercr", ordercr);
             model.addAttribute("errorFlag", 1);
@@ -341,6 +362,21 @@ public class OrdercrController {
             orderService.addOrder(ordercr);
             Integer orderCount = orderService.orderCount(snum, "all", "");
 
+            Integer page = 1;
+
+            if (page > orderCount / 8 && orderCount >= 8) {
+                page = orderCount / 8;
+            }
+            List<Ordercr> orderList = new ArrayList<>();
+            if (orderCount > 0) {
+                orderList = orderService.getOrderList(student.getSnum(), page);
+            }
+            if (orderService.hasOrderedToday(student.getSnum())) {
+                orderService.otherOrderCancel(student.getSnum());
+            } else {
+                orderService.updateApplication(orderList, student.getSnum());
+            }
+
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("errorFlag", 0);
             model.addAttribute("prePage", 0);
@@ -403,6 +439,22 @@ public class OrdercrController {
 
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(student.getSnum(), cid, startdate);
+
+        if (page <= 1) {
+            page = 1;
+        }
+        if (page > orderCount / 8 && orderCount >= 8) {
+            page = orderCount / 8;
+        }
+        List<Ordercr> orderList = new ArrayList<>();
+        if (orderCount > 0) {
+            orderList = orderService.getOrderList(student.getSnum(), page);
+        }
+        if (orderService.hasOrderedToday(student.getSnum())) {
+            orderService.otherOrderCancel(student.getSnum());
+        } else {
+            orderService.updateApplication(orderList, student.getSnum());
+        }
 
         model.addAttribute("student", student);
         model.addAttribute("prePage", page - 1);

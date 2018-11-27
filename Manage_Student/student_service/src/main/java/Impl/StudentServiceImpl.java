@@ -31,10 +31,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean stuInfoValidate(String snum, String sname, String originalPwd) {
+    public boolean stuInfoValidate(String snum, String originalPwd) {
         Student stuOld = studentMapper.selectByPrimaryKey(snum);
         if (stuOld != null) {
-            if (snum.equals(stuOld.getSnum()) && sname.equals(stuOld.getSname()) && originalPwd.equals(stuOld.getSpwd())) {
+            if (snum.equals(stuOld.getSnum()) && originalPwd.equals(stuOld.getSpwd())) {
                 return true;
             }
         }
@@ -54,5 +54,12 @@ public class StudentServiceImpl implements StudentService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Integer existStudent(String snum) {
+        StudentExample example = new StudentExample();
+        example.createCriteria().andSnumEqualTo(snum);
+        return studentMapper.countByExample(example);
     }
 }

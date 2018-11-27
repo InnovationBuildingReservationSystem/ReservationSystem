@@ -79,12 +79,12 @@ public class ClassroomController {
             classroomStatusList.get(i).setDate(startdate);
 
             for (int j = 8; j < 21; j++) {
-                int status = 0;
+                int status = -1;
                 statusList.add(status);
                 if (orderService.isOrdered(classroomList.get(i).getCid(), startdate + " " + j + ":00:00", startdate + " " + (j + 1) + ":00:00")) {
                     statusList.set(j - 8, 1);
                 } else {
-                    statusList.set(j - 8, 0);
+                    statusList.set(j - 8, -1);
                 }
             }
             classroomStatusList.get(i).setStatus(statusList);
@@ -147,12 +147,12 @@ public class ClassroomController {
             classroomStatusList.get(0).setCid(cid);
             classroomStatusList.get(0).setDate(startdate);
             for (int i = 8; i < 21; i++) {
-                int status = 0;
+                int status = -1;
                 statusList.add(status);
                 if (orderService.isOrdered(cid, startdate + " " + i + ":00:00", startdate + " " + (i + 1) + ":00:00")) {
                     statusList.set(i - 8, 1);
                 } else {
-                    statusList.set(i - 8, 0);
+                    statusList.set(i - 8, -1);
                 }
             }
             classroomStatusList.get(0).setStatus(statusList);
@@ -171,12 +171,12 @@ public class ClassroomController {
                 classroomStatusList.get(i).setDate(startdate);
 
                 for (int j = 8; j < 21; j++) {
-                    int status = 0;
+                    int status = -1;
                     statusList.add(status);
                     if (orderService.isOrdered(classroomList.get(i).getCid(), startdate + " " + j + ":00:00", startdate + " " + (j + 1) + ":00:00")) {
                         statusList.set(j - 8, 1);
                     } else {
-                        statusList.set(j - 8, 0);
+                        statusList.set(j - 8, -1);
                     }
                 }
                 classroomStatusList.get(i).setStatus(statusList);
