@@ -701,7 +701,63 @@ ${message}
                     </c:forEach>
                 </div>
             </div><!-- /.page-content -->
+            <div class="message-footer clearfix">
+                <%--<div class="pull-left"> ${orderCount} messages total</div>--%>
 
+                <div class="pull-right">
+                    <%--<div class="inline middle"> page 1 of 16</div>--%>
+
+                    &nbsp; &nbsp;
+                    <ul class="pagination middle">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/student/notice.html">
+                                <i class="ace-icon fa fa-step-backward middle"></i>
+                            </a>
+                        </li>
+                        <c:if test="${thisPage == 1}">
+                            <li class="disabled">
+																		<span>
+																			<i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+																		</span>
+                            </li>
+                        </c:if>
+                        <c:if test="${thisPage != 1}">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/notice.html?page=${prePage}">
+                                    <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+                                </a>
+                            </li>
+                        </c:if>
+
+                        <li>
+																		<span>
+																			<input value="${thisPage}" maxlength="3"
+                                                                                   type="text" readonly="readonly"/>
+																		</span>
+                        </li>
+                        <c:if test="${thisPage * 8 < noticeCount}">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/notice.html?page=${nextPage}">
+                                    <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:if test="${thisPage * 8 >= noticeCount}">
+                            <li class="disabled">
+                                    <span>
+                                        <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                                    </span>
+                            </li>
+                        </c:if>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/student/notice.html?page=${finalPage}">
+                                <i class="ace-icon fa fa-step-forward middle"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div><!-- /.main-content -->
 </div><!-- /.main-container -->

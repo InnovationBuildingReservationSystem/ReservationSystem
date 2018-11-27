@@ -128,10 +128,23 @@ public class OrdercrController {
 
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());
-            List<Ordercr> orderList = orderService.getOrderList(student.getSnum());
             List<Classroom> classroomList = classroomService.getClassroomList();
-            Integer orderCount = orderService.orderCount(snum, "all", "");
+            Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
+            Integer page = 1;
+            Integer finalPage = orderCount / 8;
 
+            if (page > orderCount / 8 && orderCount >= 8) {
+                page = orderCount / 8;
+            }
+            List<Ordercr> orderList = new ArrayList<>();
+            if (orderCount > 0) {
+                orderList = orderService.getOrderList(student.getSnum(), page);
+            }
+            if (orderService.hasOrderedToday(student.getSnum())) {
+                orderService.otherOrderCancel(student.getSnum());
+            } else {
+                orderService.updateApplication(orderList, student.getSnum());
+            }
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("orderList", orderList);
             model.addAttribute("snum", snum);
@@ -139,17 +152,16 @@ public class OrdercrController {
 
             orderService.updateApplication(orderList, snum);
             model.addAttribute("message", "<script>alert('今天已成功预订过一次教室，当日不能再次申请');</script>");
-            List<Notice> list = noticeService.getNotice();
-            model.addAttribute("noticeList", list);
+
             model.addAttribute("student", student);
             model.addAttribute("snum", student.getSnum());
-            /*model.addAttribute("prePage", 0);
+            model.addAttribute("prePage", 0);
             model.addAttribute("thisPage", 1);
             model.addAttribute("nextPage", 2);
-            model.addAttribute("finalPage", orderCount / 8);
-            model.addAttribute("cid", "all");*/
+            model.addAttribute("finalPage", finalPage);
+            model.addAttribute("cid", "all");
 
-            return "notice";
+            return "personalOrder";
         } else {
             List<String> facultyList = orderService.getFacultyList();
             List<Classroom> classroomList = classroomService.getClassroomList();
@@ -350,6 +362,21 @@ public class OrdercrController {
             orderService.addOrder(ordercr);
             Integer orderCount = orderService.orderCount(snum, "all", "");
 
+            Integer page = 1;
+
+            if (page > orderCount / 8 && orderCount >= 8) {
+                page = orderCount / 8;
+            }
+            List<Ordercr> orderList = new ArrayList<>();
+            if (orderCount > 0) {
+                orderList = orderService.getOrderList(student.getSnum(), page);
+            }
+            if (orderService.hasOrderedToday(student.getSnum())) {
+                orderService.otherOrderCancel(student.getSnum());
+            } else {
+                orderService.updateApplication(orderList, student.getSnum());
+            }
+
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("errorFlag", 0);
             model.addAttribute("prePage", 0);
@@ -412,6 +439,22 @@ public class OrdercrController {
 
         List<Classroom> classroomList = classroomService.getClassroomList();
         Integer orderCount = orderService.orderCount(student.getSnum(), cid, startdate);
+
+        if (page <= 1) {
+            page = 1;
+        }
+        if (page > orderCount / 8 && orderCount >= 8) {
+            page = orderCount / 8;
+        }
+        List<Ordercr> orderList = new ArrayList<>();
+        if (orderCount > 0) {
+            orderList = orderService.getOrderList(student.getSnum(), page);
+        }
+        if (orderService.hasOrderedToday(student.getSnum())) {
+            orderService.otherOrderCancel(student.getSnum());
+        } else {
+            orderService.updateApplication(orderList, student.getSnum());
+        }
 
         model.addAttribute("student", student);
         model.addAttribute("prePage", page - 1);
