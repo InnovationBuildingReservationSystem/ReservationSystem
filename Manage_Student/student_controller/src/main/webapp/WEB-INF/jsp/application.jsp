@@ -334,7 +334,7 @@
                                                    value="${startdate}" required="required"
                                                    placeholder="(*必填)"
                                                    readonly="readonly"
-                                                   onfocus="WdatePicker({maxDate:'%y-%M-{%d+6}',minDate:'%y-%M-%d'})"/>
+                                                   onclick="WdatePicker({maxDate:'%y-%M-{%d+6}',minDate:'%y-%M-%d',onpicking:cDayFunc})"/>
                                             <span class="input-group-addon">
 														<i class="fa fa-calendar bigger-110"></i>
 													</span>
@@ -373,6 +373,8 @@
                                     <div class="col-sm-9">
                                         <div class="clearfix">
                                             <select id="endTime" name="endtime">
+                                                <option>09:00</option>
+                                                <option>10:00</option>
                                             </select>
                                         </div>
                                         <div class="space-2"></div>
@@ -464,7 +466,7 @@
                                            for="form-field-tags">活动组织学院</label>
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <select name="faculty" required>
+                                            <select name="faculty" required id="form-field-select-9">
                                                 <option value="">请选择</option>
                                                 <c:forEach items="${facultyList}" var="faculty">
                                                     <option value="${faculty}">${faculty}</option>
@@ -647,24 +649,26 @@
 </script>
 
 <script type="text/javascript">
-
-    $('#startTime').change('click', function () {
+    var html;
+    var now = new Date();
+    var hours;
+    var end1;
+    var end2;
+    $('#startTime').bind('change', function () {
         $("#endTime").html("");
 
         var option1 = $("#startTime option:selected");//获取当前选中项
         var startTime = option1.text();
-        var hours = parseInt(startTime.substring(0, 2));
-        var end1 = hours + 1;
-        var end2 = hours + 2;
-        var now = new Date();
-        var html;
+        hours = parseInt(startTime.substring(0, 2));
+        end1 = hours + 1;
+        end2 = hours + 2;
         var startdate = document.getElementById("datepicker").value;
         if (startdate != "") {
 
             var chosenStarttime = new Date(startdate + " " + startTime + ":00");
         }
 
-        if (chosenStarttime <= now || startTime == "请选择") {
+        if (chosenStarttime <= now) {
             html = "";
         } else {
             if (end1.toString().length == 1) {
@@ -675,6 +679,7 @@
                 end2 = "0" + end2 + ":00";
             } else
                 end2 = end2 + ":00";
+
             if (startTime == "20:00") {
                 html = "<option value='" + end1 + "'>" + end1 + "</option>";
             }
@@ -683,11 +688,50 @@
                 html += "<option value='" + end2 + "'>" + end2 + "</option>";
             }
         }
-
         $("#endTime").append(html);
         /*var option2=$("#endTime option:selected");
         var endTime=option2.text();*/
     })
+
+    function cDayFunc(dp) {
+        $("#endTime").html("");
+        var year = $dp.cal.newdate.y;
+        var month = $dp.cal.newdate.M;
+        var day = $dp.cal.newdate.d;
+        var option1 = $("#startTime option:selected");//获取当前选中项
+        var startTime = option1.text();
+
+        hours = parseInt(startTime.substring(0, 2));
+        end1 = hours + 1;
+        end2 = hours + 2;
+
+        var startdate1 = year + "-" + month + "-" + day;
+        if (startdate1 != "") {
+            var chosenStarttime = new Date(startdate1 + " " + startTime + ":00");
+        }
+        if (chosenStarttime <= now) {
+            html = "";
+            $("#endTime").append(html);
+        } else {
+            if (end1.toString().length == 1) {
+                end1 = "0" + end1 + ":00";
+            } else
+                end1 = end1 + ":00";
+            if (end2.toString().length == 1) {
+                end2 = "0" + end2 + ":00";
+            } else
+                end2 = end2 + ":00";
+
+            if (startTime == "20:00") {
+                html = "<option value='" + end1 + "'>" + end1 + "</option>";
+            }
+            else {
+                html = "<option value='" + end1 + "'>" + end1 + "</option>";
+                html += "<option value='" + end2 + "'>" + end2 + "</option>";
+            }
+        }
+        $("#endTime").append(html);
+    }
 </script>
 
 
@@ -1148,6 +1192,7 @@
     });
 
     $("#form-field-select-1").val("${cid}");
+    $("#form-field-select-9").val("${faculty}");
 </script>
 </body>
 </html>
