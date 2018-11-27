@@ -288,7 +288,7 @@ public class OrdercrController {
         }
 
         if (ordercr.getCid() == "" || ordercr.getStarttime() == "" || ordercr.getEndtime() == "" || ordercr.getTheme() == "" || ordercr.getSnum() == "" || ordercr.getFaculty() == "" || ordercr.getGroupname() == "" || ordercr.getTeacher() == "" || ordercr.getStelephone() == "" || ordercr.getAttendcount().toString() == "" || sname == "" || startdate == "" || !(isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11 && isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString())) || ordercr.getAttendcount() <= 0) {
-            errorMessage = "请检查信息是否填写完整，联系电话、参加人数等是否为有效信息！！";
+            errorMessage = "请检查信息是否填写完整！";
             model.addAttribute("errorMessage", errorMessage);
             model.addAttribute("ordercr", ordercr);
             model.addAttribute("errorFlag", 1);

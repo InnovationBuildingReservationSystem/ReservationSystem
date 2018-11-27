@@ -643,7 +643,7 @@ ${message}
                         <a href="#">教室查询</a>
                     </li>
 
-                    <li class="active">教室使用情况</li>
+                    <li class="active">通知公告</li>
 
                 </ul><!-- /.breadcrumb -->
             </div>

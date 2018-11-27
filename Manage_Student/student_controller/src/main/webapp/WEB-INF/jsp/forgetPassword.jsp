@@ -62,7 +62,7 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/login/login.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/student/login.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
@@ -169,24 +169,6 @@
                                                                    onkeyup="validSid()" onkeydown="validSid()"/>
                                                         </div>
                                                         <span id="sidError"></span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label no-padding-right"
-                                                           for="form-field-tags-4">电话号码</label>
-
-                                                    <div class="col-sm-9">
-                                                        <div class="inline">
-                                                            <input type="text" id="form-field-tags-4"
-                                                                   placeholder="请填写你的电话号码"
-                                                                   name="stelphone"
-                                                                   value="${stelphone}" required
-                                                                   onblur="validStelephone()"
-                                                                   onkeydown="validStelephone()"
-                                                                   onkeyup="validStelephone()"/>
-                                                        </div>
-                                                        <span id="stelephoneError"></span>
                                                     </div>
                                                 </div>
 
@@ -399,18 +381,6 @@
         }
     }
 
-    function validStelephone() {
-        var obj = document.getElementById("form-field-tags-4");
-        var stelephone = obj.value;
-
-        if (stelephone.length != 11 || !checknum(stelephone)) {
-            document.getElementById("stelephoneError").innerHTML = "<font size='-1' color='red'>手机号码长度为11位纯数字</font>";
-            return false;
-        } else {
-            document.getElementById("stelephoneError").innerHTML = "<font size='-1' color='black'></font>";
-            return true;
-        }
-    }
 
     function validSpwd() {
         var obj = document.getElementById("form-field-tags-5");

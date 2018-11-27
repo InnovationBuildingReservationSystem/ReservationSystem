@@ -34,11 +34,11 @@ public class WordUtils {
         //configuration.setClassForTemplateLoading(this.getClass(), "classpath:/ftl/");//模板文件所在路径
         Template t = null;
         try {
-            t = configuration.getTemplate("创新楼创客教室学生活动备案审批表.ftl"); //获取模板文件
+            t = configuration.getTemplate("创新楼创客教室学生活动备案审批表(2003).ftl"); //获取模板文件
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*/user/local/dataFile/创新楼创客教室学生活动备案审批表.doc*/
+        /*/usr/local/dataFile/创新楼创客教室学生活动备案审批表.doc*/
         File outFile = new File("D:/创新楼教室预约系统/outFile/创新楼创客教室学生活动备案审批表.doc"); //导出文件
         Writer out = null;
         try {

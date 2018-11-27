@@ -33,9 +33,18 @@
     </select>
 
     <select id="selectOrderByCid" resultType="pojo.Ordercr" parameterType="string">
-      select *
-      from ordercr
-      where cid = #{cid}
+        select *
+        from ordercr
+        <where>
+            orderstatus = 1
+            <if test="cid != 'all' and cid != null and cid != ''">
+                and cid = #{cid}
+            </if>
+            or orderstatus = 0
+            <if test="cid != 'all' and cid != null and cid != ''">
+                and cid = #{cid}
+            </if>
+        </where>
     </select>
 
     <!--分页查询全部订单-->
@@ -58,7 +67,7 @@
         s.sname
         from ordercr oc inner join student s on oc.snum = s.snum
         where oc.snum = #{snum}
-        order by starttime desc
+        order by starttime desc, createtime desc
         limit #{offset},#{limit}
     </select>
 
@@ -82,7 +91,7 @@
         s.sname
         from ordercr oc inner join student s on oc.snum = s.snum
         where oc.snum = #{snum}
-        order by starttime desc
+        order by starttime desc, createtime desc
     </select>
 
     <select id="selectByExample" resultMap="OrderListWithSname">

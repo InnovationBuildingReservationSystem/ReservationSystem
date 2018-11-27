@@ -755,7 +755,7 @@
                                     <c:if test="${statusl == 1}">
                                         <td class="btn-danger" title="此时间段已被预订"></td>
                                     </c:if>
-                                    <c:if test="${statusl == 0}">
+                                    <c:if test="${statusl == -1}">
                                         <td>
                                             <form action="${pageContext.request.contextPath}/student/application.html"
                                                   method="post">
