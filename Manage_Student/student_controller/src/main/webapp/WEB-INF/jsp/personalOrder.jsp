@@ -84,7 +84,7 @@ ${message}
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo"
-                             src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg"
+                             src="${pageContext.request.contextPath}/assets/images/avatars/avatar2.png"
                              alt="User's Photo"/>
                         <span class="user-info">
 									<small>Welcome,</small>
