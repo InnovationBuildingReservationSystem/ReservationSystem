@@ -90,7 +90,15 @@ public class UserController {
     @RequestMapping("student/passwordReset")
     public String passwordReset(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid) {
         Student student = studentService.getStudentInfo(snum);
-        if (!sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
+        if (studentService.existStudent(snum) == 0) {
+            model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
+            model.addAttribute("snum", snum);
+            model.addAttribute("spwd", spwd);
+            model.addAttribute("spwdConvinced", spwdConvinced);
+            model.addAttribute("sname", sname);
+            model.addAttribute("sid", sid);
+            return "forgetPassword";
+        } else if (!sname.trim().equals(student.getSname()) || !sid.trim().equals(student.getSid()) || spwd == null || sid.trim().length() != 18) {
             model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
             model.addAttribute("snum", snum);
             model.addAttribute("spwd", spwd);

@@ -125,7 +125,7 @@ public class OrdercrController {
         }
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
-
+        String endtime1 = null;
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());
             List<Classroom> classroomList = classroomService.getClassroomList();
@@ -169,9 +169,19 @@ public class OrdercrController {
             model.addAttribute("startdate", startdate);
             model.addAttribute("facultyList", facultyList);
             model.addAttribute("classroomList", classroomList);
-            model.addAttribute("starttime", starttime);
+            if (starttime == null || starttime.equals("08:00")) {
+                model.addAttribute("starttime", "08:00");
+                endtime = "09:00";
+                endtime1 = "10:00";
+            } else {
+                model.addAttribute("starttime", starttime);
+                endtime = "" + (Integer.parseInt(starttime.trim().substring(0, 2)) + 1) + ":00";
+                endtime1 = "" + (Integer.parseInt(starttime.trim().substring(0, 2)) + 2) + ":00";
+            }
             model.addAttribute("endtime", endtime);
+            model.addAttribute("endtime1", endtime1);
         }
+
         return "application";
     }
 

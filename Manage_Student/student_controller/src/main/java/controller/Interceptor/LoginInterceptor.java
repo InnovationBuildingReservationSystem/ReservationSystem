@@ -50,7 +50,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 response.sendRedirect(request.getContextPath() + "/student/personalOrder.html?snum=" + student.getSnum());
             }*/
         } else {
-            if(!request.getServletPath().equals("/student/login.html") && !request.getServletPath().equals("/student/forgetPassword.html") && !request.getServletPath().equals("/student/passwordReset.html") && !request.getServletPath().equals("/student/loginValidate.html") && !request.getServletPath().equals("/student/logout.html")){
+            if(!request.getServletPath().equals("/student/login.html") && !request.getServletPath().equals("/student/forgetPassword.html") && !request.getServletPath().equals("/student/passwordReset.html") && !request.getServletPath().equals("/student/loginValidate.html") && !request.getServletPath().equals("/student/logout.html") && !request.getServletPath().equals("/admin/login.html")){
                 //如果没有登录session，则返回到登录页面
                 response.sendRedirect(request.getContextPath() + "/student/login.html");
             }

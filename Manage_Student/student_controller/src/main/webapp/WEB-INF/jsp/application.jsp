@@ -334,7 +334,7 @@
                                                    value="${startdate}" required="required"
                                                    placeholder="(*必填)"
                                                    readonly="readonly"
-                                                   onclick="WdatePicker({maxDate:'%y-%M-{%d+6}',minDate:'%y-%M-%d',onpicking:cDayFunc})"/>
+                                                   onclick="WdatePicker({maxDate:'%y-%M-{%d+6}',minDate:'%y-%M-%d',onpicking:cDayFunc,isShowClear:false})"/>
                                             <span class="input-group-addon">
 														<i class="fa fa-calendar bigger-110"></i>
 													</span>
@@ -373,8 +373,8 @@
                                     <div class="col-sm-9">
                                         <div class="clearfix">
                                             <select id="endTime" name="endtime">
-                                                <option>09:00</option>
-                                                <option>10:00</option>
+                                                <option value="${endtime}">${endtime}</option>
+                                                <option value="${endtime1}">${endtime1}</option>
                                             </select>
                                         </div>
                                         <div class="space-2"></div>
@@ -536,10 +536,11 @@
                                             </button>
 
                                             &nbsp; &nbsp; &nbsp;
-                                            <button class="btn" type="reset">
+                                            <a class="btn" type="reset"
+                                               href="${pageContext.request.contextPath}/student/application.html">
                                                 <i class="ace-icon fa fa-undo bigger-110"></i>
                                                 重置
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -1193,6 +1194,18 @@
 
     $("#form-field-select-1").val("${cid}");
     $("#form-field-select-9").val("${faculty}");
+
+    $("#datepicker").ready(function () {
+        $("#startdate").val("${startdate}");
+    });
+
+    $("#startTime").ready(function () {
+        $("#startTime").val("${starttime}");
+    });
+
+    $("#startTime").ready(function () {
+        $("#endTime").val("${endtime}");
+    });
 </script>
 </body>
 </html>

@@ -57,6 +57,7 @@
 </head>
 
 <body class="no-skin">
+${message}
 <div id="navbar" class="navbar navbar-default          ace-save-state">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -751,7 +752,7 @@
                                     </label>
                                 </td>
 
-                                <c:forEach items="${statuslist}" var="statusl">
+                                <c:forEach items="${statuslist}" var="statusl" varStatus="loop2">
                                     <c:if test="${statusl == 1}">
                                         <td class="btn-danger" title="此时间段已被预订"></td>
                                     </c:if>
@@ -763,12 +764,12 @@
                                                 <input type="hidden" name="cid"
                                                        value="${classroomList.get(loop.count-1).cid}"/>
                                                 <input type="hidden" name="starttime"
-                                                       value="${classroomStatus.timeList.get(loop.count-1).toString()}"/>
+                                                       value="${classroomStatus1.timeList.get(loop2.count-1)}"/>
                                                 <input type="hidden" name="endtime"
-                                                       value="${classroomStatus.timeList.get(loop.count).toString()}"/>
+                                                       value="${classroomStatus1.timeList.get(loop2.count)}"/>
                                                 <input type="submit" value=""
                                                        style="background: none; border: none; outline: none; width: 100%; height: 100%;"
-                                                       title="预订此时间段的${classroomList.get(loop.count-1).cid}教室"/>
+                                                       title="预订${classroomStatus1.timeList.get(loop2.count-1)}-${classroomStatus1.timeList.get(loop2.count)}的${classroomList.get(loop.count-1).cid}教室"/>
                                             </form>
                                         </td>
                                     </c:if>
@@ -790,12 +791,16 @@
                                     <c:if test="${status == 1}">
                                         <td class="btn-danger" title="此时间段已被预订"></td>
                                     </c:if>
-                                    <c:if test="${status == 0}">
+                                    <c:if test="${status == -1}">
                                         <td>
                                             <form action="${pageContext.request.contextPath}/student/application.html"
                                                   method="post">
                                                 <input type="hidden" name="startdate" value="${startdate}"/>
                                                 <input type="hidden" name="cid" value="${classroomStatus.cid}"/>
+                                                <input type="hidden" name="starttime"
+                                                       value="${classroomStatus.timeList.get(loop.count-1).toString()}"/>
+                                                <input type="hidden" name="endtime"
+                                                       value="${classroomStatus.timeList.get(loop.count).toString()}"/>
                                                 <input type="submit" value=""
                                                        style="background: none; border: none; outline: none; width: 100%; height: 100%;"
                                                        title="预订${classroomStatus.timeList.get(loop.count-1).toString()}-${classroomStatus.timeList.get(loop.count).toString()}的${classroomStatus.cid}教室"/>
@@ -1212,7 +1217,9 @@
         //link
         $('.date-picker').datepicker({
             autoclose: true,
-            todayHighlight: true
+            todayHighlight: true,
+            startDate: "0",
+            endDate: ""
         })
         //show datepicker when clicking on the icon
             .next().on(ace.click_event, function () {

@@ -13,7 +13,9 @@ public class ClassroomStatus implements Serializable {
     public ClassroomStatus() {
         List<String> timeList = new ArrayList<>();
         List<Integer> status = new ArrayList<>();
-        for (int i = 8; i <= 21; i++) {
+        timeList.add("08:00".trim());
+        timeList.add("09:00".trim());
+        for (int i = 10; i <= 21; i++) {
             timeList.add((i + ":00").trim());
         }
         this.timeList = timeList;

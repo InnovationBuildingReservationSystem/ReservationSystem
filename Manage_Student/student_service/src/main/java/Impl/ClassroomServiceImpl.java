@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.Classroom;
+import pojo.ClassroomExample;
 import pojo.ClassroomStatus;
 import service.ClassroomService;
 
@@ -69,5 +70,12 @@ public class ClassroomServiceImpl implements ClassroomService {
             classroomList = classroomItemMapper.getClassroomListSingleDay(cid, startdate);
         }
         return classroomList;
+    }
+
+    @Override
+    public Integer getClassroomCount(String cid) {
+        ClassroomExample example = new ClassroomExample();
+        example.createCriteria().andCidEqualTo(cid);
+        return classroomMapper.countByExample(example);
     }
 }

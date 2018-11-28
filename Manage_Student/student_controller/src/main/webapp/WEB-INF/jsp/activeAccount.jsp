@@ -78,8 +78,7 @@
                              src="${pageContext.request.contextPath}/assets/images/avatars/user.jpg"
                              alt="User's Photo"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									${student.sname}
+									<small>Welcome</small>
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
