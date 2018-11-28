@@ -161,7 +161,7 @@ public class StudentController {
             if (student.getSstatus() != 0) {
                 session.setAttribute("studentSession", student);
                 model.addAttribute("student", student);
-                return "redirect: personalOrder.html";
+                return "redirect: notice.html";
             }
             model.addAttribute("snum", student.getSnum());
             session.setAttribute("studentSession", student);

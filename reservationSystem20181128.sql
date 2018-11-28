@@ -114,7 +114,7 @@ DROP TABLE IF EXISTS `notice`;
 /*公告表*/
 CREATE TABLE `notice` (
   `nid` int(11) NOT NULL AUTO_INCREMENT, /*公告id*/
-  `ntitle` varchar(50) NOT NULL, /*标题*/
+  `ntitle` text NOT NULL, /*标题*/
   `ncontent` text NOT NULL, /*内容*/
   `ntime` varchar(50) NOT NULL, /*发布时间*/
   PRIMARY KEY (`nid`)

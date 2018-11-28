@@ -71,7 +71,7 @@ ${message}
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/student/personalOrder.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/student/notice.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
@@ -141,18 +141,16 @@ ${message}
             }
         </script>
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-        </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            <%--<li class="">--%>
-            <%--<a href="index.html">--%>
-            <%--<i class="menu-icon fa fa-tachometer"></i>--%>
-            <%--<span class="menu-text"> Dashboard </span>--%>
-            <%--</a>--%>
+            <li class="active">
+                <a href="${pageContext.request.contextPath}/student/notice.html">
+                    <i class="menu-icon fa fa-newspaper-o"></i>
+                    <span class="menu-text"> 通知公告 </span>
+                </a>
 
-            <%--<b class="arrow"></b>--%>
-            <%--</li>--%>
+                <b class="arrow"></b>
+            </li>
 
             <li class="">
                 <a href="#" class="dropdown-toggle">
@@ -352,7 +350,7 @@ ${message}
                 </ul>
             </li>
 
-            <li class="active open">
+            <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> 教室查询 </span>
@@ -367,15 +365,6 @@ ${message}
                         <a href="${pageContext.request.contextPath}/student/ClassroomInfo.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             教室使用情况
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="active">
-                        <a href="${pageContext.request.contextPath}/student/notice.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            通知公告
                         </a>
 
                         <b class="arrow"></b>
@@ -636,11 +625,7 @@ ${message}
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}">首页</a>
-                    </li>
-
-                    <li>
-                        <a href="#">教室查询</a>
+                        <a href="${pageContext.request.contextPath}/student/notice.html">首页</a>
                     </li>
 
                     <li class="active">通知公告</li>

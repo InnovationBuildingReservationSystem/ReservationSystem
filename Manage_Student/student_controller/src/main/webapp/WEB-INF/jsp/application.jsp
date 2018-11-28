@@ -70,7 +70,7 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/student/personalOrder.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/student/notice.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
@@ -139,16 +139,12 @@
             }
         </script>
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-
-        </div><!-- /.sidebar-shortcuts -->
-
         <ul class="nav nav-list">
             <li class="">
-                <%--<a href="index.html">--%>
-                <%--<i class="menu-icon fa fa-tachometer"></i>--%>
-                <%--<span class="menu-text"> Dashboard </span>--%>
-                <%--</a>--%>
+                <a href="${pageContext.request.contextPath}/student/notice.html">
+                    <i class="menu-icon fa fa-newspaper-o"></i>
+                    <span class="menu-text"> 通知公告 </span>
+                </a>
 
                 <b class="arrow"></b>
             </li>
@@ -202,14 +198,6 @@
                         <a href="${pageContext.request.contextPath}/student/ClassroomInfo.html">
                             <i class="menu-icon fa fa-caret-right"></i>
                             教室使用情况
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                    <li class="">
-                        <a href="${pageContext.request.contextPath}/student/notice.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            通知公告
                         </a>
 
                         <b class="arrow"></b>
