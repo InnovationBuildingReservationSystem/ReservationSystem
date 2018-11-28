@@ -384,7 +384,6 @@
                 data: 'noticeText='+noticeText+'&'+'noticeTitle='+noticeTitle,
                 async: false,
                 success : function (data) {
-
                     alert("通知发布成功!");
                     window.location.href="${pageContext.request.contextPath}/admin/noticeHistory.html";
                 },

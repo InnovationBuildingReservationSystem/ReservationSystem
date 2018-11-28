@@ -1,14 +1,18 @@
 package service;
 
-import pojo.Ordercr;
-import pojo.PageBean;
+import pojo.*;
 
-import java.text.ParseException;
+import java.util.List;
 
 public interface AdminReservationService
 {
-    PageBean getPageBean(Integer pageSize, Integer currentPage);
-    boolean insertOrderAdmin(Ordercr orderAdmin,String orderDay);
-    boolean selectOrderByDateAndCid(Ordercr orderAdmin,String orderDay);
+    AdminOrderPageBean getPageBean(Integer pageSize, Integer currentPage, String orderDate, String cid);
+    boolean insertOrderAdmin(Ordercr orderAdmin, String startTime, String endTime, String orderDay);
+
+
+    boolean selectOrderByDateAndCid(Ordercr orderAdmin, String startTime, String endTime, String orderDay);
+
     String dateToWeek(String dateTime);
+    List<Classroom> getAllClassroom();
+    List<Faculty> getAllFaculty();
 }

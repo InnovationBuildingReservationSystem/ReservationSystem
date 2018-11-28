@@ -266,194 +266,206 @@
         </div>
     </div>
 
-    <div class="main-content">
-        <div class="main-content-inner">
-            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="#">首页</a>
-                    </li>
-                    <li>
-                        <a href="#">预约信息管理</a>
-                    </li>
-                    <li>
-                        <a href="">学生预约信息管理</a>
-                    <li>
-                </ul>
-                <!-- /.breadcrumb -->
+                <!-- div.table-responsive
+
+                <!-- div.dataTables_borderWrap -->
+                <div class="main-content">
+                    <div class="main-content-inner">
+                        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                            <ul class="breadcrumb">
+                                <li>
+                                    <i class="ace-icon fa fa-home home-icon"></i>
+                                    <a href="#">首页</a>
+                                </li>
+                                <li>
+                                    <a href="#">预约信息管理</a>
+                                </li>
+                                <li>
+                                    <a href="">教室预约信息查询</a>
+                                <li>
+                            </ul>
+                            <!-- /.breadcrumb -->
 
 
-                <div class="page-content">
+                            <div class="page-content">
 
-                    <div class="col-xs-12">
-                        <div class="clearfix">
-                            <div class="pull-right tableTools-container"></div>
-                        </div>
-                        <div class="page-header">
-                            <h1>
-                                学生信息管理
-                            </h1>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/admin/studentInformation.html">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right no-padding-top" >
-                                        学号
-                                    </label>
-                                    <div class="col-sm-2">
-                                        <C:if test="${pageBean.totalCount eq 1}">
-                                            <input onkeyup="value=value.replace(/[^\d]/g,'')" value="${pageBean.pageList[0].snum}" class="typeahead scrollable" name="sid" type="text" placeholder="学号" />
-                                        </C:if>
-                                        <C:if test="${pageBean.totalCount gt 1}">
-                                            <input onkeyup="value=value.replace(/[^\d]/g,'')" class="typeahead scrollable" name="sid" type="text" placeholder="学号" />
-                                        </C:if>
-
+                                <div class="col-xs-12">
+                                    <div class="clearfix">
+                                        <div class="pull-right tableTools-container"></div>
                                     </div>
-                                    <label style="display: none" class="col-sm-1 control-label no-padding-right no-padding-top" for="datepicker">日期</label>
-                                    <div style="display: none" class="col-sm-2">
-                                        <div class="input-group ">
-                                            <input name="orderDate"   class="typeahead scrollable date-picker" id="datepicker" type="text"
-                                                   data-date-format="yyyy-mm-dd"/>
-                                            <span class="input-group-addon">
-									        	<i class="fa fa-calendar bigger-110"></i>
-								        	</span>
-                                        </div>
+                                    <div class="page-header">
+                                        <h1>
+                                            教室预约信息查询
+                                        </h1>
                                     </div>
-                                    <div class="col-sm-2"></div>
-                                    <div class="col-sm-2 no-padding-top">
-                                        <button type="submit" class="btn btn-sm btn-primary ">
-                                            <span class="ace-icon fa fa-search icon-on-right bigger-150 "></span>
-                                            搜索
-                                        </button>
-                                    </div>
+
 
                                 </div>
 
 
-                            </form>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/admin/getAdminOrderList.html">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right no-padding-top" >
+                                                    教室
+                                                </label>
+                                                <div class="col-sm-2">
+                                                    <C:if test="${pageBean.totalCount eq 1}">
+                                                        <input onkeyup="value=value.replace(/[^\d]/g,'')" value="${pageBean.pageList[0].cid}" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
+                                                    </C:if>
+                                                    <C:if test="${pageBean.totalCount != 1}">
+                                                        <input onkeyup="value=value.replace(/[^\d]/g,'')" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
+                                                    </C:if>
 
-                        </div>
+                                                </div>
+                                                <label class="col-sm-1 control-label no-padding-right no-padding-top" for="datepicker">日期</label>
+                                                <div class="col-sm-2">
+                                                    <div class="input-group ">
+                                                        <input readonly="readonly" name="orderDate" value="${pageBean.orderDate}"  class="typeahead scrollable date-picker" id="datepicker" type="text"
+                                                               data-date-format="yyyy-mm-dd"/>
+                                                        <span class="input-group-addon">
+									        	<i class="fa fa-calendar bigger-110"></i>
+								        	</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-2 no-padding-top">
+                                                    <button type="submit" class="btn btn-sm btn-primary ">
+                                                        <span class="ace-icon fa fa-search icon-on-right bigger-150 "></span>
+                                                        搜索
+                                                    </button>
+                                                </div>
 
-                    </div>
+                                            </div>
 
-                </div>
-                <!-- div.table-responsive
 
-                <!-- div.dataTables_borderWrap -->
-                <div>
-                    <table id="dynamic-table" class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th class="center">
-                                学号
-                            </th>
-                            <th class="center">
-                                姓名
-                            </th>
-                            <th class="center">
-                                班级
-                            </th>
-                            <th class="center">
-                                专业
-                            </th>
-                            <th class="center">
-                                学院
-                            </th>
-                            <th class="center">
-                                手机号码
-                            </th>
-                            <th class="center">
-                                状态
-                            </th>
-                        </tr>
-                        </thead>
+                                        </form>
 
-                        <tbody>
+                                    </div>
 
-                        <C:forEach items="${pageBean.pageList}" var="order">
-                            <tr>
-                                <td class="center">
-                                    <label class="pos-rel">
-                                            ${order.snum}
-                                    </label>
-                                </td>
-                                <td class="center">
-                                    <label class="pos-rel">
-                                            ${order.sname}
-                                    </label>
-                                </td>
-                                <td class="center">
-                                            ${order.sclass}
-                                </td>
-                                <td class="center">
-                                            ${order.smajor}
-                                </td>
-                                <td class="center">
-                                        ${order.sfaculty}
-                                </td>
-                                <td class="center">
-                                        ${order.stelphone}
-                                </td>
-                                <td class="center">
-                                    <C:if test="${order.sstatus eq 0}">
-                                        未激活
-                                    </C:if>
-                                    <C:if test="${order.sstatus == 1}">
-                                        已激活
-                                    </C:if>
-                                </td>
-                            </tr>
-                        </C:forEach>
-                        </tbody>
-                    </table>
-                  <div class="message-footer clearfix">
-            <div class="pull-right">
+                                </div>
 
-                &nbsp; &nbsp;
-                <ul class="pagination middle">
-                    <li >
-                        <a href="${pageContext.request.contextPath}/admin/studentInformation.html?currentPage=1&orderDate=${pageBean.pageList[0]}">
-                            <i class="ace-icon fa fa-step-backward middle"></i>
-                        </a>
-                    </li>
+                            </div>
+                            <!-- div.table-responsive
 
-                    <li >
-                        <a href="${pageContext.request.contextPath}/admin/studentInformation.html?currentPage=${pageBean.currentPage-1}">
-                            <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
-                        </a>
-                    </li>
+                            <!-- div.dataTables_borderWrap -->
+                            <div>
+                                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="center">
 
-                    <li>
+
+                                            <label class="pos-rel">
+                                                房间号
+                                            </label>
+                                        </th>
+                                        <th>负责人</th>
+                                        <th>学号</th>
+                                        <th class="hidden-480">联系电话</th>
+
+                                        <th>
+                                            <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始时间
+
+                                        </th>
+                                        <th class="hidden-480">结束时间</th>
+                                        <th>活动团体</th>
+                                        <th>活动主题</th>
+                                        <th>状态</th>
+                                        <th class="hidden-480">操作</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <C:forEach items="${pageBean.pageList}" var="order">
+                                        <tr>
+                                            <td class="center">
+                                                <label class="pos-rel">
+                                                        ${order.cid}
+                                                </label>
+                                            </td>
+
+                                            <td>
+                                                    ${order.snum}
+                                            </td>
+                                            <td>${order.snum}</td>
+                                            <td class="hidden-480">${order.stelephone}</td>
+                                            <td>${order.starttime}</td>
+                                            <td>${order.endtime}</td>
+                                            <td>${order.groupname}</td>
+                                            <td>1</td>
+                                            <td class="hidden-480">
+                                                <C:if test="${order.orderstatus eq 0}">
+                                                    <span class="label label-sm label-warning">申请中</span>
+                                                </C:if>
+                                                <C:if test="${order.orderstatus eq 1}">
+                                                    <span class="label label-sm label-success">同意</span>
+                                                </C:if>
+                                                <C:if test="${order.orderstatus eq 2}">
+                                                    <span class="label label-sm label-inverse arrowed-in">拒绝</span>
+                                                </C:if>
+                                                <C:if test="${order.orderstatus eq 3}">
+                                                    <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                                </C:if>
+                                                <C:if test="${order.orderstatus eq 4}">
+                                                    <span class="label label-sm label-info">已使用</span>
+                                                </C:if>
+                                            </td>
+
+                                            <td>
+                                                    <div class="hidden-sm hidden-xs action-buttons">
+                                                        <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=2">
+                                                            <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                                        </a>
+                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </C:forEach>
+                                    </tbody>
+                                </table>
+                                <div class="message-footer clearfix">
+                                    <div class="pull-right">
+
+                                        &nbsp; &nbsp;
+                                        <ul class="pagination middle">
+                                            <li >
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=1&orderDate=${pageBean.orderDate}">
+                                                    <i class="ace-icon fa fa-step-backward middle"></i>
+                                                </a>
+                                            </li>
+
+                                            <li >
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.currentPage-1}">
+                                                    <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
+                                                </a>
+                                            </li>
+
+                                            <li>
                         <span>
                             <input readonly="readonly"  value="${pageBean.currentPage}" maxlength="3" type="text"/>
                         </span>
-                    </li>
+                                            </li>
 
-                    <li>
-                        <a href="${pageContext.request.contextPath}/admin/studentInformation.html?currentPage=${pageBean.currentPage+1}">
-                            <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
-                        </a>
-                    </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.currentPage+1}">
+                                                    <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
+                                                </a>
+                                            </li>
 
-                    <li>
-                        <a href="${pageContext.request.contextPath}/admin/studentInformation.html?currentPage=${pageBean.totalPage}">
-                            <i class="ace-icon fa fa-step-forward middle"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.totalPage}">
+                                                    <i class="ace-icon fa fa-step-forward middle"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div>
-</div>
-    </div>
 
     <%--
         <div id="modal-table" class="modal fade" tabindex="-1">

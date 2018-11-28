@@ -1,20 +1,16 @@
 package Impl;
 
-import mapper.OrdercrMapper;
+import mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pojo.Ordercr;
-import pojo.OrdercrExample;
-import pojo.PageBean;
+import org.springframework.util.StringUtils;
+import pojo.*;
 import service.AdminReservationService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Transactional
@@ -23,17 +19,44 @@ public class AdminReservationServiceImpl implements AdminReservationService
 
     @Autowired
     private OrdercrMapper ordercrMapper;
+    @Autowired
+    private ClassroomMapper classroomMapper;
+    @Autowired
+    private FacultyMapper facultyMapper;
+    @Autowired
+    private AdminOrderMapper adminOrderMapper;
+
     @Override
-    public PageBean getPageBean(Integer pageSize, Integer currentPage)
+    public AdminOrderPageBean getPageBean(Integer pageSize, Integer currentPage, String orderDate, String cid)
     {
-        return null;
+        OrdercrExample ordercrExample=new OrdercrExample();
+        OrdercrExample.Criteria criteria = ordercrExample.createCriteria();
+        if(cid!=null&& !StringUtils.isEmpty(cid))
+        {
+            criteria.andCidEqualTo(cid);
+        }
+        if(orderDate!=null && !StringUtils.isEmpty(orderDate))
+        {
+            criteria.andStarttimeLike(orderDate);
+        }
+        List<Ordercr> ordercrList = ordercrMapper.selectByExample(ordercrExample);
+        int totalCount = ordercrList.size();
+        System.out.println("totalCount : "+totalCount);
+        AdminOrderPageBean pageBean=new AdminOrderPageBean(pageSize,currentPage,totalCount);
+        System.out.println("pageBeanTotalCount : "+pageBean.getTotalCount());
+        Integer start=(pageBean.getCurrentPage()-1)*pageBean.getPageSize();
+        pageBean.setStart(start);
+        List<Ordercr> adminOrderList = adminOrderMapper.getAdminOrderPageBean(pageBean);
+        System.out.println(adminOrderList.size());
+        pageBean.setPageList(adminOrderList);
+        return  pageBean;
     }
 
     @Override
-    public boolean insertOrderAdmin(Ordercr orderAdmin,String orderDay)
+    public boolean insertOrderAdmin(Ordercr orderAdmin, String startTime, String endTime, String orderDay)
     {
 
-        if (selectOrderByDateAndCid(orderAdmin,orderDay))
+        if (selectOrderByDateAndCid(orderAdmin,startTime,endTime,orderDay))
         {
             String adminStartDate=orderAdmin.getStarttime();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -69,15 +92,25 @@ public class AdminReservationServiceImpl implements AdminReservationService
                 orderItem.setTeacher(orderAdmin.getTeacher());
                 orderItem.setTheme(orderAdmin.getTheme());
                 orderItem.setAttendcount(orderAdmin.getAttendcount());
-                orderItem.setCid(orderAdmin.getCid());
+                orderItem.setTtelephone(orderAdmin.getTtelephone());;
                 //如果startDate大 返回 1 相等 返回 0 小于返回 -1
                 while (startDate.compareTo(endDate) != 1)
                 {
                     String orderStart = format.format(startDate);
-                    String orderStartDate = orderStart + adminStartDate.substring(10, 16);
-                    String orderEndDate = orderStart + adminEndDate.substring(10, 16);
-                    orderItem.setEndtime(orderStartDate);
-                    orderItem.setStarttime(orderEndDate);
+             /*       System.out.println(orderStart);*/
+                    if( !dateToWeek(orderStart).equals(orderDay))
+                    {
+                        Calendar gregorianCalendar = new GregorianCalendar();
+                        gregorianCalendar.setTime(startDate);
+                        gregorianCalendar.add(Calendar.DAY_OF_MONTH, 1);
+                        startDate = gregorianCalendar.getTime();
+                        continue;
+                    }
+                    String orderStartDate = orderStart + " "+startTime;
+                    String orderEndDate = orderStart + " "+endTime;
+               /*     System.out.println(orderItem.toString());*/
+                    orderItem.setEndtime(orderEndDate);
+                    orderItem.setStarttime(orderStartDate);
                     ordercrMapper.insertSelective(orderItem);
                     Calendar gregorianCalendar = new GregorianCalendar();
                     gregorianCalendar.setTime(startDate);
@@ -91,8 +124,14 @@ public class AdminReservationServiceImpl implements AdminReservationService
     }
 
     @Override
-    public boolean selectOrderByDateAndCid(Ordercr orderAdmin,String orderDay)
+    public boolean selectOrderByDateAndCid(Ordercr orderAdmin,String startTime,String endTime,String orderDay)
     {
+        //设置筛选状态
+        List<Integer> status=new ArrayList<>();
+        //只需要 申请中，同意，及其已使用状态下的预约条件
+        status.add(0);
+        status.add(1);
+        status.add(4);
         String adminStartDate=orderAdmin.getStarttime();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         //日期字符串到日期类型的转换
@@ -108,6 +147,7 @@ public class AdminReservationServiceImpl implements AdminReservationService
         Date endDate= null;
         try
         {
+            System.out.println(adminEndDate);
             endDate = format.parse(adminEndDate);
         } catch (ParseException e)
         {
@@ -116,31 +156,47 @@ public class AdminReservationServiceImpl implements AdminReservationService
        if(startDate!=null&&endDate!=null)
        {
            //如果startDate大 返回 1 相等 返回 0 小于返回 -1
+         /*  System.out.println("orderDay : "+orderDay);*/
            while (startDate.compareTo(endDate) != 1)
            {
-
+               ;
                String orderStart = format.format(startDate);
-               if( dateToWeek(orderStart).equals(orderDay))
+               System.out.println("orderStart : "+orderStart);
+               if( !dateToWeek(orderStart).equals(orderDay))
                {
+                   Calendar gregorianCalendar = new GregorianCalendar();
+                   gregorianCalendar.setTime(startDate);
+                   gregorianCalendar.add(Calendar.DAY_OF_MONTH, 1);
+                   startDate = gregorianCalendar.getTime();
                    continue;
                }
-               String orderStartDate = orderStart + adminStartDate.substring(10, 16);
-               String orderEndDate = orderStart + adminEndDate.substring(10, 16);
+              //截取开始日期
+               String orderStartDate = orderStart + " "+startTime;
+               //截取结束日期
+               String orderEndDate = orderStart + " "+endTime;
                OrdercrExample ordercrExample = new OrdercrExample();
                OrdercrExample.Criteria criteria = ordercrExample.createCriteria();
+               //设置筛选日期
                criteria.andStarttimeGreaterThanOrEqualTo(orderStartDate);
                criteria.andEndtimeLessThanOrEqualTo(orderEndDate);
                criteria.andCidEqualTo(orderAdmin.getCid());
+
+               criteria.andOrderstatusIn(status);
                List<Ordercr> orderList = ordercrMapper.selectByExample(ordercrExample);
                //判断此教室在此时间段内有没有已经使用
                if (orderList != null && orderList.size() != 0)
                {
+                   for (Ordercr order:orderList)
+                   {
+                   /*    System.out.println(order.toString());*/
+                   }
                    return false;
                }
                Calendar gregorianCalendar = new GregorianCalendar();
                gregorianCalendar.setTime(startDate);
                gregorianCalendar.add(Calendar.DAY_OF_MONTH, 1);
                startDate = gregorianCalendar.getTime();
+           /*    System.out.println("startDate : " +startDate);*/
            }
        }
         return true;
@@ -160,5 +216,17 @@ public class AdminReservationServiceImpl implements AdminReservationService
         if (w < 0)
             w = 0;
         return weekDays[w];
+    }
+
+    @Override
+    public List<Classroom> getAllClassroom()
+    {
+        return classroomMapper.selectAll();
+    }
+
+    @Override
+    public List<Faculty> getAllFaculty()
+    {
+        return  facultyMapper.selectAll();
     }
 }

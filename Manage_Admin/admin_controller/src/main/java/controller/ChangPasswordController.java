@@ -12,7 +12,7 @@ import service.ChangePasswordService;
 
 
 @Controller
-public class changPasswordController
+public class ChangPasswordController
 {
     @Autowired
     private ChangePasswordService changePasswordService;
