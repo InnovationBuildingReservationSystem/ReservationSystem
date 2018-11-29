@@ -170,7 +170,7 @@
                     </li>
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/activity.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
+                            <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
                         </a>
 
                         <b class="arrow"></b>
@@ -239,7 +239,38 @@
                     </li>
                 </ul>
             </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-calendar"></i>
+                    <span class="menu-text">
+                                教室预约
+                    </span>
 
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/adminReservation.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约申请
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约历史
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
 
             <li class="">
                 <a href="#" class="dropdown-toggle">

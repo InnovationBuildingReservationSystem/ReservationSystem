@@ -139,25 +139,22 @@
             }
         </script>
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-
-        </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
             <li class="">
-                <%--<a href="index.html">--%>
-                <%--<i class="menu-icon fa fa-tachometer"></i>--%>
-                <%--<span class="menu-text"> Dashboard </span>--%>
-                <%--</a>--%>
+                <a href="${pageContext.request.contextPath}/admin/activity.html">
+                    <i class="menu-icon fa fa-tachometer"></i>
+                    <span class="menu-text"> 首页 </span>
+                </a>
 
                 <b class="arrow"></b>
             </li>
-
             <li class="">
+
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-user"></i>
+                    <i class="menu-icon fa fa-list-alt"></i>
                     <span class="menu-text">
-								个人信息
+                                信息发布
 							</span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -167,19 +164,119 @@
 
                 <ul class="submenu">
 
+
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/student/userInfo.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            个人详情
+                        <a href="${pageContext.request.contextPath}/admin/noticeSend.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 通知信息发布
                         </a>
 
                         <b class="arrow"></b>
                     </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/student/passwordChange.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            修改密码
+                        <a href="${pageContext.request.contextPath}/admin/noticeHistory.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 通知历史记录
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/activity.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text"> 信息管理 </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/studentInformation.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 学生信息管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/classroomInformation.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室信息管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-desktop"></i>
+                    <span class="menu-text">
+                                预约管理
+							</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/orderTable.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 学生预约信息查询
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/reservationClassroom.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约信息查询
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-calendar"></i>
+                    <span class="menu-text">
+                                教室预约
+                    </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/adminReservation.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约申请
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约历史
                         </a>
 
                         <b class="arrow"></b>
@@ -189,58 +286,18 @@
 
             <li class="">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text"> 教室查询 </span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <b class="arrow"></b>
-
-                <ul class="submenu">
-                    <li class="">
-                        <a href="${pageContext.request.contextPath}/student/ClassroomInfo.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            教室使用情况
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                    <li class="">
-                        <a href="${pageContext.request.contextPath}/student/notice.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            通知公告
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="active open">
-                <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-pencil-square-o"></i>
-                    <span class="menu-text"> 教室预订 </span>
-
+                    <span class="menu-text"> 个人信息管理</span>
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
 
                 <b class="arrow"></b>
 
                 <ul class="submenu">
-                    <li class="active">
-                        <a href="${pageContext.request.contextPath}/student/application.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            教室申请
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
 
                     <li class="">
-                        <a href="${pageContext.request.contextPath}/student/personalOrder.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            个人申请情况
+                        <a href="${pageContext.request.contextPath}/admin/changePassword.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 修改密码
                         </a>
 
                         <b class="arrow"></b>
@@ -248,7 +305,9 @@
 
                 </ul>
             </li>
-        </ul><!-- /.nav-list -->
+
+        </ul>
+        <!-- /.nav-list -->
 
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
             <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
@@ -266,9 +325,11 @@
                     </li>
 
                     <li>
-                        <a href="#">教室预订</a>
+                        <a href="#">教室预约</a>
                     </li>
-                    <li class="active">教室申请</li>
+                    <li class="active">
+                       <a href="#">教室预约申请  </a>
+                    </li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -277,7 +338,7 @@
 
                 <div class="page-header">
                     <h1>
-                        教室申请
+                        教室预约申请
                     </h1>
                 </div><!-- /.page-header -->
 
@@ -286,15 +347,7 @@
                         <button type="button" class="close" data-dismiss="alert">
                             <i class="ace-icon fa fa-times"></i>
                         </button>
-                        <strong>提示!</strong>
-
-                        <c:if test="${errorFlag != 1}">
-                            &nbsp;&nbsp;一次最多可借连续的两小时
-                        </c:if>
-                        <c:if test="${errorFlag == 1}">
-                            &nbsp;&nbsp;<font style="color: red;">${errorMessage}</font>
-                        </c:if>
-
+                        <font style="color: red;">${actionMessage}</font>
                     </div>
 
                     <div class="col-xs-12">
@@ -302,6 +355,7 @@
                         <form action="${pageContext.request.contextPath}/admin/adminOrder.html"
                               class="form-horizontal" id="stuApplication" role="form" method="post"
                               onsubmit="return validAll()">
+                            <input name="aid" value="${admin.aid}" type="hidden"/>
                             <div class="row">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right">教室号</label>

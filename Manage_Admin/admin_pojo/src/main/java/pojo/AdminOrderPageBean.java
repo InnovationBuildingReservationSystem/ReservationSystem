@@ -1,8 +1,9 @@
 package pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class AdminOrderPageBean
+public class AdminOrderPageBean implements Serializable
 {
     private  String cid;
     private  String orderDate;

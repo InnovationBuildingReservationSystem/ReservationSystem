@@ -15,4 +15,6 @@ public interface AdminReservationService
     String dateToWeek(String dateTime);
     List<Classroom> getAllClassroom();
     List<Faculty> getAllFaculty();
+
+    void changeStatus(Integer option, Integer orderid);
 }

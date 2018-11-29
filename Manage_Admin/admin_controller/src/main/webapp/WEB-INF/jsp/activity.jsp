@@ -239,7 +239,38 @@
                     </li>
                 </ul>
             </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-calendar"></i>
+                    <span class="menu-text">
+                                教室预约
+                    </span>
 
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/adminReservation.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约申请
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约历史
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
 
             <li class="">
                 <a href="#" class="dropdown-toggle">
@@ -313,7 +344,7 @@
                                     <label class="col-sm-1 control-label no-padding-right no-padding-top" for="datepicker">日期</label>
                                     <div class="col-sm-2">
                                         <div class="input-group ">
-                                            <input name="nowDate" value="${pageBean.nowDate}"  class="typeahead scrollable date-picker center" id="datepicker" type="text"
+                                            <input readonly="readonly" name="nowDate" value="${pageBean.nowDate}"  class="typeahead scrollable date-picker center" id="datepicker" type="text"
                                                    data-date-format="yyyy-mm-dd"/>
                                             <span class="input-group-addon">
 									        	<i class="fa fa-calendar bigger-110"></i>

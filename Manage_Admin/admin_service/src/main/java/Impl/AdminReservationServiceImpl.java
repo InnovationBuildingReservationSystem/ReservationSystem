@@ -2,6 +2,7 @@ package Impl;
 
 import mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -16,7 +17,10 @@ import java.util.*;
 @Transactional
 public class AdminReservationServiceImpl implements AdminReservationService
 {
-
+    @Value("${START_TIME}")
+    private  String START_TIME;
+    @Value("${END_TIME}")
+    private  String END_TIME;
     @Autowired
     private OrdercrMapper ordercrMapper;
     @Autowired
@@ -37,17 +41,24 @@ public class AdminReservationServiceImpl implements AdminReservationService
         }
         if(orderDate!=null && !StringUtils.isEmpty(orderDate))
         {
-            criteria.andStarttimeLike(orderDate);
+            String orderStartTime=orderDate+" "+START_TIME;
+            String orderEndTime=orderDate+" "+END_TIME;
+      /*      System.out.println(orderStartTime);
+            System.out.println(orderEndTime);*/
+            criteria.andStarttimeBetween(orderStartTime,orderEndTime);
         }
         List<Ordercr> ordercrList = ordercrMapper.selectByExample(ordercrExample);
         int totalCount = ordercrList.size();
-        System.out.println("totalCount : "+totalCount);
+/*        System.out.println("totalCount : "+totalCount);*/
         AdminOrderPageBean pageBean=new AdminOrderPageBean(pageSize,currentPage,totalCount);
-        System.out.println("pageBeanTotalCount : "+pageBean.getTotalCount());
+/*        System.out.println("pageBeanTotalCount : "+pageBean.getTotalCount());*/
         Integer start=(pageBean.getCurrentPage()-1)*pageBean.getPageSize();
         pageBean.setStart(start);
+        pageBean.setCid(cid);
+        pageBean.setOrderDate(orderDate);
         List<Ordercr> adminOrderList = adminOrderMapper.getAdminOrderPageBean(pageBean);
-        System.out.println(adminOrderList.size());
+
+/*        System.out.println(adminOrderList.size());*/
         pageBean.setPageList(adminOrderList);
         return  pageBean;
     }
@@ -102,6 +113,7 @@ public class AdminReservationServiceImpl implements AdminReservationService
                     {
                         Calendar gregorianCalendar = new GregorianCalendar();
                         gregorianCalendar.setTime(startDate);
+                  /*      System.out.println(startTime);*/
                         gregorianCalendar.add(Calendar.DAY_OF_MONTH, 1);
                         startDate = gregorianCalendar.getTime();
                         continue;
@@ -147,7 +159,7 @@ public class AdminReservationServiceImpl implements AdminReservationService
         Date endDate= null;
         try
         {
-            System.out.println(adminEndDate);
+/*            System.out.println(adminEndDate);*/
             endDate = format.parse(adminEndDate);
         } catch (ParseException e)
         {
@@ -161,7 +173,7 @@ public class AdminReservationServiceImpl implements AdminReservationService
            {
                ;
                String orderStart = format.format(startDate);
-               System.out.println("orderStart : "+orderStart);
+   /*            System.out.println("orderStart : "+orderStart);*/
                if( !dateToWeek(orderStart).equals(orderDay))
                {
                    Calendar gregorianCalendar = new GregorianCalendar();
@@ -228,5 +240,14 @@ public class AdminReservationServiceImpl implements AdminReservationService
     public List<Faculty> getAllFaculty()
     {
         return  facultyMapper.selectAll();
+    }
+
+    @Override
+    public void changeStatus(Integer option, Integer orderid)
+    {
+        Ordercr orderItem = ordercrMapper.selectByPrimaryKey(orderid);
+ /*       System.out.println("option : "+option);*/
+        orderItem.setOrderstatus(option);
+        ordercrMapper.updateByPrimaryKeySelective(orderItem);
     }
 }

@@ -4,27 +4,6 @@ import java.io.Serializable;
 
 public class Ordercr implements Serializable
 {
-    @Override
-    public String toString()
-    {
-        return "Ordercr{" +
-                "orderid=" + orderid +
-                ", cid='" + cid + '\'' +
-                ", starttime='" + starttime + '\'' +
-                ", endtime='" + endtime + '\'' +
-                ", theme='" + theme + '\'' +
-                ", snum='" + snum + '\'' +
-                ", stelephone='" + stelephone + '\'' +
-                ", faculty='" + faculty + '\'' +
-                ", groupname='" + groupname + '\'' +
-                ", teacher='" + teacher + '\'' +
-                ", ttelephone='" + ttelephone + '\'' +
-                ", attendcount=" + attendcount +
-                ", orderstatus=" + orderstatus +
-                ", createtime='" + createtime + '\'' +
-                '}';
-    }
-
     private Integer orderid;
 
     private String cid;

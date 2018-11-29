@@ -164,7 +164,7 @@
                     </li>
                     <li class="">
                         <a href="${pageContext.request.contextPath}/admin/activity.html">
-                            <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
+                            <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
                         </a>
 
                         <b class="arrow"></b>
@@ -233,7 +233,38 @@
                     </li>
                 </ul>
             </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-calendar"></i>
+                    <span class="menu-text">
+                                教室预约
+                    </span>
 
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/adminReservation.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约申请
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html">
+                            <i class="menu-icon fa fa-caret-right"></i> 教室预约历史
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
 
             <li class="">
                 <a href="#" class="dropdown-toggle">
@@ -278,10 +309,10 @@
                                     <a href="#">首页</a>
                                 </li>
                                 <li>
-                                    <a href="#">预约信息管理</a>
+                                    <a href="#">教室预约</a>
                                 </li>
                                 <li>
-                                    <a href="">教室预约信息查询</a>
+                                    <a href="">教室预约申请</a>
                                 <li>
                             </ul>
                             <!-- /.breadcrumb -->
@@ -295,7 +326,7 @@
                                     </div>
                                     <div class="page-header">
                                         <h1>
-                                            教室预约信息查询
+                                            教室预约历史
                                         </h1>
                                     </div>
 
@@ -311,13 +342,7 @@
                                                     教室
                                                 </label>
                                                 <div class="col-sm-2">
-                                                    <C:if test="${pageBean.totalCount eq 1}">
-                                                        <input onkeyup="value=value.replace(/[^\d]/g,'')" value="${pageBean.pageList[0].cid}" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
-                                                    </C:if>
-                                                    <C:if test="${pageBean.totalCount != 1}">
-                                                        <input onkeyup="value=value.replace(/[^\d]/g,'')" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
-                                                    </C:if>
-
+                                                        <input onkeyup="value=value.replace(/[^\d]/g,'')" value="${pageBean.cid}" class="typeahead scrollable" name="cid" type="text" placeholder="教室编号" />
                                                 </div>
                                                 <label class="col-sm-1 control-label no-padding-right no-padding-top" for="datepicker">日期</label>
                                                 <div class="col-sm-2">
@@ -415,9 +440,9 @@
 
                                             <td>
                                                     <div class="hidden-sm hidden-xs action-buttons">
-                                                        <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=2">
-                                                            <span class="label label-sm label-danger arrowed-in">撤销</span>
-                                                        </a>
+                                                            <a class="blue" href="${pageContext.request.contextPath}/admin/adminOptionStatus.html?orderid=${order.orderid}&option=3">
+                                                                <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                                            </a>
                                                     </div>
                                             </td>
                                         </tr>
@@ -430,13 +455,13 @@
                                         &nbsp; &nbsp;
                                         <ul class="pagination middle">
                                             <li >
-                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=1&orderDate=${pageBean.orderDate}">
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=1&orderDate=${pageBean.orderDate}&cid=${pageBean.cid}">
                                                     <i class="ace-icon fa fa-step-backward middle"></i>
                                                 </a>
                                             </li>
 
                                             <li >
-                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.currentPage-1}">
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.currentPage-1}&orderDate=${pageBean.orderDate}&cid=${pageBean.cid}">
                                                     <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
                                                 </a>
                                             </li>
@@ -448,13 +473,13 @@
                                             </li>
 
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.currentPage+1}">
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.currentPage+1}&orderDate=${pageBean.orderDate}&cid=${pageBean.cid}">
                                                     <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.totalPage}">
+                                                <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html?currentPage=${pageBean.totalPage}&orderDate=${pageBean.orderDate}&cid=${pageBean.cid}">
                                                     <i class="ace-icon fa fa-step-forward middle"></i>
                                                 </a>
                                             </li>

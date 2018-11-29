@@ -120,7 +120,8 @@
             <script type="text/javascript">
                 try {
                     ace.settings.loadState('sidebar')
-                } catch (e) {}
+                } catch (e) {
+                }
             </script>
 
 
@@ -166,7 +167,7 @@
                         </li>
                         <li class="">
                             <a href="${pageContext.request.contextPath}/admin/activity.html">
-                                <i class="menu-icon fa fa-caret-right"></i> 活动发布展示
+                                <i class="menu-icon fa fa-caret-right"></i> 活动信息发布
                             </a>
 
                             <b class="arrow"></b>
@@ -235,7 +236,38 @@
                         </li>
                     </ul>
                 </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-calendar"></i>
+                        <span class="menu-text">
+                                教室预约
+                    </span>
 
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+
+
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/adminReservation.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 教室预约申请
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="${pageContext.request.contextPath}/admin/getAdminOrderList.html">
+                                <i class="menu-icon fa fa-caret-right"></i> 教室预约历史
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="">
                     <a href="#" class="dropdown-toggle">
@@ -263,7 +295,8 @@
             <!-- /.nav-list -->
 
             <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-                <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+                <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+                   data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
             </div>
         </div>
 
@@ -378,17 +411,29 @@
                                                         <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=1">
                                                             <span class="label label-sm label-success">同意</span>
                                                         </a>
-                                                        <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=2">
-                                                            <span class="label label-sm label-inverse arrowed-in">拒绝</span>
-                                                        </a>
+                                                        <C:if test="${order.snum==admin.aid}">
+                                                            <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=2">
+                                                                <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                                            </a>
+                                                        </C:if>
+                                                        <C:if test="${order.snum != admin.aid}">
+                                                            <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=2">
+                                                                <span class="label label-sm label-inverse arrowed-in">拒绝</span>
+                                                            </a>
+                                                        </C:if>
                                                     </div>
                                                 </C:if>
                                                 <C:if test="${order.orderstatus == 1}">
-                                                    <div class="hidden-sm hidden-xs action-buttons">
+                                                    <C:if test="${order.snum == admin.aid}">
+                                                        <a class="blue" href="${pageContext.request.contextPath}/admin/adminOptionStatus.html?orderid=${order.orderid}&option=3">
+                                                            <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                                        </a>
+                                                    </C:if>
+                                                    <C:if test="${order.snum!=admin.aid}">
                                                         <a class="blue" href="${pageContext.request.contextPath}/admin/optionStatus.html?oid=${order.orderid}&option=2">
                                                             <span class="label label-sm label-inverse arrowed-in">拒绝</span>
                                                         </a>
-                                                    </div>
+                                                    </C:if>
                                                 </C:if>
                                             </td>
                                         </tr>

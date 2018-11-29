@@ -11,12 +11,10 @@
         starttime LIKE  CONCAT('${orderDate}','%' )
       </if>
       <if test="cid != null and cid !=''">
-        cid = ${cid}
+       AND  cid = ${cid}
       </if>
     </where>
-    ORDER BY
-    orderid
-    DESC
+    ORDER BY orderid DESC
     limit ${start},${pageSize};
   </select>
 </mapper>

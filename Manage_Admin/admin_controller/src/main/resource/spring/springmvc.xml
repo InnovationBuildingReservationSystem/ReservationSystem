@@ -16,11 +16,11 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-<!--    <mvc:interceptors>
-        &lt;!&ndash; 多个拦截器，顺序执行 &ndash;&gt;
+    <mvc:interceptors>
+        <!-- 多个拦截器，顺序执行 -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="controller.Interceptor.LoginInterceptor"/>
         </mvc:interceptor>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 </beans>
