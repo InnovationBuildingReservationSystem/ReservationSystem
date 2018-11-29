@@ -11,6 +11,8 @@
     <meta name="description" content="Common UI Features &amp; Elements"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
+    <link rel="shortcut icon"  href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico" type="image/x-icon" />
+
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet"
@@ -98,7 +100,7 @@
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo"
-                             src="${pageContext.request.contextPath}/assets/images/avatars/avatar2.png"
+                             src="${pageContext.request.contextPath}/assets/images/avatars/用户1.png"
                              alt="User's Photo"/>
                         <span class="user-info">
 									<small>Welcome,</small>
@@ -459,7 +461,7 @@
 												<span class="profile-picture">
 													<img id="avatar" class="editable img-responsive"
                                                          alt="${student.sname}的头像"
-                                                         src="${pageContext.request.contextPath}/assets/images/avatars/avatar2.png"/>
+                                                         src="${pageContext.request.contextPath}/assets/images/avatars/用户1.png"/>
 												</span>
 
                                         <div class="space-4"></div>

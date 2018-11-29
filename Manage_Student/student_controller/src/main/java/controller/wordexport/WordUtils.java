@@ -92,6 +92,7 @@ public class WordUtils {
 
         DateFormat codeDf = new SimpleDateFormat("yyyyMMddHH");
         DateFormat codeDf1 = new SimpleDateFormat("HH");
+        DateFormat df1 = new SimpleDateFormat("HH:mm");
         String orderId = "" + ordercr.getOrderid();
 
         while (orderId.length() != 6) {
@@ -112,8 +113,8 @@ public class WordUtils {
         dataMap.put("teacher", ordercr.getTeacher());
         dataMap.put("attendcount", ordercr.getAttendcount());
         dataMap.put("theme", ordercr.getTheme());
-        dataMap.put("starttime", ordercr.getStarttime().substring(11, 16));
-        dataMap.put("endtime", ordercr.getEndtime().substring(11, 16));
+        dataMap.put("starttime", df1.format(starttime));
+        dataMap.put("endtime", df1.format(endtime));
         dataMap.put("snum", ordercr.getSnum());
         dataMap.put("groupname", ordercr.getGroupname());
     }
