@@ -73,7 +73,7 @@ ${message}
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/student/notice.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/student/index.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
@@ -800,7 +800,7 @@ ${message}
                     &nbsp; &nbsp;
                     <ul class="pagination middle">
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=1&cid=${cid}&startdate=${startdate}">
+                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=1&cid=${cid}&startdate=${startdate}">
                                 <i class="ace-icon fa fa-step-backward middle"></i>
                             </a>
                         </li>
@@ -813,7 +813,7 @@ ${message}
                         </c:if>
                         <c:if test="${thisPage != 1}">
                             <li>
-                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=${prePage}&cid=${cid}&startdate=${startdate}">
+                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${prePage}&cid=${cid}&startdate=${startdate}">
                                     <i class="ace-icon fa fa-caret-left bigger-140 middle"></i>
                                 </a>
                             </li>
@@ -827,7 +827,7 @@ ${message}
                         </li>
                         <c:if test="${thisPage * 8 < orderCount}">
                             <li>
-                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=${nextPage}&cid=${cid}&startdate=${startdate}">
+                                <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${nextPage}&cid=${cid}&startdate=${startdate}">
                                     <i class="ace-icon fa fa-caret-right bigger-140 middle"></i>
                                 </a>
                             </li>
@@ -841,7 +841,7 @@ ${message}
                         </c:if>
 
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?snum=${snum}&page=${finalPage}&cid=${cid}&startdate=${startdate}">
+                            <a href="${pageContext.request.contextPath}/student/personalOrder.html?page=${finalPage}&cid=${cid}&startdate=${startdate}">
                                 <i class="ace-icon fa fa-step-forward middle"></i>
                             </a>
                         </li>

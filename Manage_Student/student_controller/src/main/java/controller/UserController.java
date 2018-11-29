@@ -51,7 +51,7 @@ public class UserController {
     public String validateLogin(Model model, String username, String pwd, HttpServletRequest request) {
 
         if (username == null || pwd == null) {
-            return "redirect: login.html";
+            return "login";
         }
         if (studentService.validateStudent(username.trim(), pwd.trim()) && !username.equals("admin")) {
             HttpSession session = request.getSession();
@@ -129,6 +129,16 @@ public class UserController {
         student.setSpwd(spwd);
         studentService.updatePassword(student);
         model.addAttribute("snum", snum);
-        return "redirect: login.html";
+        return "login";
+    }
+
+    @RequestMapping("student/index")
+    public String turnToLogin() {
+        return "login";
+    }
+
+    @RequestMapping("index")
+    public String turnToLogin1() {
+        return "login";
     }
 }

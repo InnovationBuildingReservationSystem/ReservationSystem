@@ -396,10 +396,10 @@ public class OrdercrController {
             model.addAttribute("cid", "all");
             model.addAttribute("page", 1);
 
-            return "redirect: personalOrder.html";
+            return "personalOrder";
 
         }
-        return "redirect:application.html";
+        return "application";
     }
 
     /*
@@ -433,7 +433,7 @@ public class OrdercrController {
         Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
 
         model.addAttribute("orderCount", orderCount);
-        return "redirect: personalOrder.html";
+        return "personalOrder";
     }
 
     @RequestMapping("/student/queryOrder")
@@ -473,7 +473,6 @@ public class OrdercrController {
         model.addAttribute("finalPage", orderCount / 8);
 
         model.addAttribute("orderCount", orderCount);
-        model.addAttribute("snum", student.getSnum());
         model.addAttribute("classroomList", classroomList);
         model.addAttribute("cid", cid);
         model.addAttribute("startdate", startdate);
@@ -502,7 +501,7 @@ public class OrdercrController {
         }
 
         //test.createWord(ordercr, student.getSname());
-        return "redirect:personalOrder.html";
+        return "personalOrder";
     }
 
 }

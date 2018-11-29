@@ -186,10 +186,10 @@ public class StudentController {
 
      */
     @RequestMapping("/student/doActive")
-    public String doActive(Model model, HttpServletRequest request, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid, @RequestParam("stelphone") String stelphone) {
+    public String doActive(Model model, HttpServletRequest request, String snum, String sname, String spwd, String spwdConvinced, String sid, String stelphone) {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
-        if (session == null || student == null) {
+        if (session == null || student == null || student.getSstatus() == 1) {
             return "login";
         }
         session.setAttribute("studentSession", student);
@@ -256,8 +256,22 @@ public class StudentController {
             return "login";
         }
         session.invalidate();
-        return "redirect:login.html";
+        return "login";
     }
 
+    @RequestMapping("student/err-500")
+    public String err500(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        model.addAttribute("studentSession", student);
+        return "error-500";
+    }
 
+    @RequestMapping("student/err-404")
+    public String err400(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        model.addAttribute("studentSession", student);
+        return "error-404";
+    }
 }

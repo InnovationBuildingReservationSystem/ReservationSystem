@@ -15,6 +15,7 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+    <mvc:resources location="assets/" mapping="/**"/>
 
 	<mvc:interceptors>
 		<!-- 日志拦截器 -->

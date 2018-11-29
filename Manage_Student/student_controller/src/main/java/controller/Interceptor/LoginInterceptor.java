@@ -12,6 +12,7 @@ import service.StudentService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import static javax.swing.text.html.CSS.getAttribute;
 
@@ -35,27 +36,38 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         //获取登录session
         Student student = (Student) request.getSession().getAttribute("studentSession");
         //String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + request.getServletPath();
-        /*String loginSnum = (String) request.getAttribute("snum");
 
-        if (loginSnum.equals("admin")) {
-            response.sendRedirect("/login/login");
-            return false;
-        }*/
-        if (student != null) {
-            /*if (!loginSnum.equals(student.getSnum())) {
-                response.sendRedirect("/student/personalOrder.html?" + student.getSnum());
-                return false;
-            }*/
-            /*if(!request.getServletPath().equals("/student/personalOrder.html?snum=" + student.getSnum())){
-                response.sendRedirect(request.getContextPath() + "/student/personalOrder.html?snum=" + student.getSnum());
-            }*/
+        /*if (student == null && (request.getServletPath().equals("/student/err-404.html") || request.getServletPath().equals("/student/err-500.html") || request.getServletPath().equals("/student/login.html") || request.getServletPath().equals("/student/forgetPassword.html") || request.getServletPath().equals("/student/passwordReset.html") || request.getServletPath().equals("/student/loginValidate.html") || request.getServletPath().equals("/student/logout.html") || request.getServletPath().equals("/admin/login.html"))) {
+            return true;
         } else {
-            if(!request.getServletPath().equals("/student/login.html") && !request.getServletPath().equals("/student/forgetPassword.html") && !request.getServletPath().equals("/student/passwordReset.html") && !request.getServletPath().equals("/student/loginValidate.html") && !request.getServletPath().equals("/student/logout.html") && !request.getServletPath().equals("/admin/login.html")){
+            if (student == null) {
                 //如果没有登录session，则返回到登录页面
                 response.sendRedirect(request.getContextPath() + "/student/login.html");
+                return false;
+            } else {
+                if (request.getServletPath().equals("/student/login.html") || request.getServletPath().equals("/student/forgetPassword.html") || request.getServletPath().equals("/student/passwordReset.html") || request.getServletPath().equals("/student/loginValidate.html") || request.getServletPath().equals("/admin/login.html")) {
+                    response.sendRedirect(request.getContextPath() + "/student/notice.html");
+                    return true;
+                }
+                return true;
+            }
+        }*/
+
+        if (student == null && (request.getServletPath().contains("err-404.html") || request.getServletPath().contains("err-500.html") || request.getServletPath().contains("login.html") || request.getServletPath().contains("forgetPassword.html") || request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("loginValidate.html") || request.getServletPath().contains("logout.html"))) {
+            return true;
+        } else {
+            if (student == null) {
+                //如果没有登录session，则返回到登录页面
+                response.sendRedirect(request.getContextPath() + "/student/login.html");
+                return false;
+            } else {
+                if (request.getServletPath().contains("login.html") || request.getServletPath().contains("forgetPassword.html") || request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("loginValidate.html")) {
+                    response.sendRedirect(request.getContextPath() + "/student/notice.html");
+                    return true;
+                }
+                return true;
             }
         }
-        return true;
     }
 
     /**
@@ -70,6 +82,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
     }
 
     /**
