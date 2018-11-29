@@ -6,6 +6,10 @@
     *
     FROM
     ordercr
+    JOIN
+    administrator
+    ON
+    ordercr.snum = administrator.aid
     <where>
       <if test="orderDate != null and orderDate != '' ">
         starttime LIKE  CONCAT('${orderDate}','%' )

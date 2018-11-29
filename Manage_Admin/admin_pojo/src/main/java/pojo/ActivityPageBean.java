@@ -14,6 +14,7 @@ public class ActivityPageBean implements Serializable
     private  String  endDate;
     private List pageList;
 
+
     public String getEndDate()
     {
         return endDate;

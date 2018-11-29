@@ -350,7 +350,7 @@
 
                                 <div class="btn-group pull-right">
                                     <button class="btn btn-sm btn-success btn-white btn-round" onclick="sendNotice();">
-                                        <i onclick="sendNotice();" class="ace-icon fa fa-globe bigger-125"></i>
+                                        <i  class="ace-icon fa fa-globe bigger-125"></i>
                                         发布
                                         <i class="ace-icon fa fa-arrow-right icon-on-right bigger-125"></i>
                                     </button>
@@ -425,8 +425,7 @@
                 }
             });
 
-
-        }
+    }
 
         else
               alert("发布的信息不可为空!");
