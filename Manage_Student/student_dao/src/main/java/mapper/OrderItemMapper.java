@@ -34,4 +34,6 @@ public interface OrderItemMapper {
 
     Integer orderStatusCount(@Param("snum") String snum, @Param("createtime")String createtime);
 
+    Integer getAcceptApplications();
+
 }

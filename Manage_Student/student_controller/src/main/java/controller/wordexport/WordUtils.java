@@ -22,10 +22,12 @@ import java.util.Map;
 public class WordUtils {
 
     private Configuration configuration = null;
+    private Integer max_count;
 
-    public WordUtils(FreeMarkerConfigurer freeMarkerConfigurer) {
+    public WordUtils(FreeMarkerConfigurer freeMarkerConfigurer, Integer max_count) {
         configuration = freeMarkerConfigurer.getConfiguration();
         configuration.setDefaultEncoding("UTF-8");
+        this.max_count = max_count;
     }
 
     public File createWord(Ordercr ordercr, String sname) {
@@ -64,6 +66,9 @@ public class WordUtils {
     private void getData(Map<String, Object> dataMap, Ordercr ordercr, String sname) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        String max_code = "" + (max_count + 1);
+        String numId = "";
+
         Date starttime = null;
         Date endtime = null;
         try {
@@ -85,6 +90,17 @@ public class WordUtils {
         /*String stime = start.get(start.HOUR) + ":" + start.get(start.MINUTE);
         String etime = end.get(end.HOUR) + ":" + end.get(end.MINUTE);*/
 
+        DateFormat codeDf = new SimpleDateFormat("yyyyMMddHH");
+        DateFormat codeDf1 = new SimpleDateFormat("HH");
+        String orderId = "" + ordercr.getOrderid();
+
+        while (orderId.length() != 6) {
+            orderId = "0" + orderId;
+        }
+
+        numId = codeDf.format(starttime) + codeDf1.format(endtime) + orderId;
+
+        dataMap.put("numId", numId);
         dataMap.put("sname", sname);
         dataMap.put("year", year);
         dataMap.put("month", month);

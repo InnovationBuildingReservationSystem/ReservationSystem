@@ -237,4 +237,13 @@
         </where>
     </update>
 
+    <!--查询所有被同意的订单数目-->
+    <select id="getAcceptApplications" resultType="Integer">
+        select count(*)
+        from ordercr
+        <where>
+            orderstatus = 1 or orderstatus = 4
+        </where>
+    </select>
+
 </mapper>

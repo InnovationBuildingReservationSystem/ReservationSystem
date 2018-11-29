@@ -393,5 +393,10 @@ public class OrderServiceImpl implements OrderService {
         return ordercrMapper.selectByPrimaryKey(orderid);
     }
 
+    @Override
+    public Integer getAcceptOrderCount() {
+        return orderItemMapper.getAcceptApplications();
+    }
+
 
 }

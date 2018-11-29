@@ -46,4 +46,6 @@ public interface OrderService {
 
     public Ordercr getOrderById(Integer orderid);
 
+    public Integer getAcceptOrderCount();
+
 }

@@ -767,7 +767,7 @@ ${message}
                                     <c:if test="${order.orderstatus == 1}">
                                         <a type="button" class="btn btn-minier btn-white btn-warning btn-bold"
                                            name="application-word-export"
-                                           href="${pageContext.request.contextPath}/student/exportWord.html?snum=${snum}&orderid=${order.orderid}">
+                                           href="${pageContext.request.contextPath}/student/exportWord.html?orderid=${order.orderid}">
                                             <i class="ace-icon fa fa-file-o bigger-100 green"></i>
                                             导出表格
                                         </a>

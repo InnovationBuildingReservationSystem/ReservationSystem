@@ -48,8 +48,11 @@ public class UserController {
      * @Description: 登录验证
      */
     @RequestMapping("student/loginValidate")
-    public String validateLogin(Model model, @RequestParam("username") String username, @RequestParam("pwd") String pwd, HttpServletRequest request) {
+    public String validateLogin(Model model, String username, String pwd, HttpServletRequest request) {
 
+        if (username == null || pwd == null) {
+            return "redirect: login.html";
+        }
         if (studentService.validateStudent(username.trim(), pwd.trim()) && !username.equals("admin")) {
             HttpSession session = request.getSession();
             Student student = studentService.getStudentInfo(username.trim());

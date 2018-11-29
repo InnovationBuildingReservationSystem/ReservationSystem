@@ -482,7 +482,7 @@ public class OrdercrController {
     }
 
     @RequestMapping("/student/exportWord")
-    public String exportDocument(Model model, @RequestParam("orderid") Integer orderid, @RequestParam("snum") String snum, HttpServletRequest request, HttpServletResponse response) {
+    public String exportDocument(Model model, @RequestParam("orderid") Integer orderid, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
         if (session == null || student == null) {
@@ -490,8 +490,11 @@ public class OrdercrController {
         }
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
+
+        Integer max_count = orderService.getAcceptOrderCount();
+
         Ordercr ordercr = orderService.getOrderById(orderid);
-        WordUtils test = new WordUtils(freeMarkerConfigurer);
+        WordUtils test = new WordUtils(freeMarkerConfigurer, max_count);
         try {
             test.exportMillCertificateWord(request, response, ordercr, student.getSname());
         } catch (Exception e) {
@@ -499,7 +502,6 @@ public class OrdercrController {
         }
 
         //test.createWord(ordercr, student.getSname());
-        model.addAttribute("snum", snum);
         return "redirect:personalOrder.html";
     }
 
