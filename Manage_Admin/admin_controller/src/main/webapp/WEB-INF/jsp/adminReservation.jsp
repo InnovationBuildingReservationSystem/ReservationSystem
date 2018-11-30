@@ -713,11 +713,11 @@
         {
             if(minEndTime==9)
             {
-                options+="<option value='09:00'>09:00</option>";
+                options+="<option value='09:00:00'>09:00</option>";
             }
             else
             {
-                options+="<option value='"+minEndTime.toString()+":00'>"+minEndTime+":00</option>";
+                options+="<option value='"+minEndTime.toString()+":00:00'>"+minEndTime+":00</option>";
             }
 
             ++minEndTime;

@@ -453,7 +453,7 @@
     <property name="SearchEverywhereHistoryKey" value="loginValid&#9;null&#9;null&#10;selectOrderByCid&#9;PSI&#9;JAVA://mapper.OrderItemMapper#selectOrderByCid&#10;stuInfoValidate&#9;PSI&#9;JAVA://Impl.StudentServiceImpl#stuInfoValidate" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543588814921" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543588941032" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
