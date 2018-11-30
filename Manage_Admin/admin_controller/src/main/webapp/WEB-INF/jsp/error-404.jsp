@@ -103,12 +103,15 @@
 												<i class="ace-icon fa fa-sitemap"></i>
 												404
 											</span>
-                                    Page Not Found
+                                    页面未找到
                                 </h1>
 
                                 <hr/>
-                                <h3 class="lighter smaller">We looked everywhere but we couldn't find it!</h3>
-
+                                <h3 class="lighter smaller">如果想要登录系统请点击首页，如果已经登录系统出现此页面其联系管理员</h3>
+                                <br>
+                                <hr/>
+                                <h3 class="lighter smaller">管理员QQ : 874492787 or 1115810371</h3>
+                                <br>
                                 <div>
                                     <%--<form class="form-search">--%>
 												<%--<span class="input-icon align-middle">--%>
