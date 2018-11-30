@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import pojo.Classroom;
-import pojo.Notice;
+import pojo.ClassroomStatus;
 import pojo.Ordercr;
 import pojo.Student;
 import service.ClassroomService;
@@ -117,7 +117,7 @@ public class OrdercrController {
 
      */
     @RequestMapping("/student/application")
-    public String getFaculty(HttpServletRequest request, Model model, String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
+    public String getApplicationInfo(HttpServletRequest request, Model model, String snum, String cid, String startdate, String starttime, String endtime) throws ParseException {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
         if (session == null || student == null) {
@@ -125,6 +125,64 @@ public class OrdercrController {
         }
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
+
+        String chooseTime = startdate + " " + starttime + ":00";
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date start = df.parse(chooseTime);
+            Date now = new Date();
+            if (now.compareTo(start) >= 0) {
+
+                ClassroomStatus classroomStatus1 = new ClassroomStatus();
+
+                Date date = new Date();
+                List<Classroom> classroomList = classroomService.getClassroomList();//教室列表
+                List classList = classroomService.getClassroomList("all", df.format(date));//教室使用列表
+                model.addAttribute("classroomList", classroomList);
+                model.addAttribute("classList", classroomList);
+                model.addAttribute("startdate", df.format(date));
+
+                startdate = df.format(date);
+
+                List<ClassroomStatus> classroomStatusList = new ArrayList<>();
+                List<Integer> statusList = new ArrayList<>();
+                List<Integer[]> statusLists = new ArrayList<>();//statusList的集合
+                //查询一系列教室的某天
+                for (int i = 0; i < classroomList.size(); i++) {
+                    //查询一个教室的某天
+                    ClassroomStatus classroomStatus = new ClassroomStatus();
+                    classroomStatusList.add(classroomStatus);
+                    classroomStatusList.get(i).setCid(classroomList.get(i).getCid());
+                    classroomStatusList.get(i).setDate(startdate);
+
+                    for (int j = 8; j < 21; j++) {
+                        int status = -1;
+                        statusList.add(status);
+                        if (orderService.isOrdered(classroomList.get(i).getCid(), startdate + " " + j + ":00:00", startdate + " " + (j + 1) + ":00:00")) {
+                            statusList.set(j - 8, 1);
+                        } else {
+                            statusList.set(j - 8, -1);
+                        }
+                    }
+                    classroomStatusList.get(i).setStatus(statusList);
+
+                    Integer[] integers = new Integer[statusList.size()];
+                    statusList.toArray(integers);
+
+                    statusLists.add(integers);
+                    statusList.clear();
+                }
+                model.addAttribute("classroomStatusList", classroomStatusList);//班级+状态列表
+                model.addAttribute("statusLists", statusLists);//状态列表
+                model.addAttribute("classroomStatus1", classroomStatus1);
+                model.addAttribute("cid", "all");
+                model.addAttribute("message", "<script>alert('请选择当前时刻之后的时间段！');</script>");
+                return "ClassroomInfo";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         String endtime1 = null;
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());

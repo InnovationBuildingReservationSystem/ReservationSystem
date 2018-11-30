@@ -11,7 +11,8 @@
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
-    <link rel="shortcut icon"  href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico"
+          type="image/x-icon"/>
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css"/>
@@ -103,7 +104,7 @@
                         </li>
 
                         <li>
-                            <a href="profile.html">
+                            <a href="${pageContext.request.contextPath}/student/userInfo.html">
                                 <i class="ace-icon fa fa-user"></i>
                                 个人详情
                             </a>
@@ -602,7 +603,10 @@
         var obj = document.getElementById("form-field-1");
         var attendcount = obj.value;
         if (!checknum(attendcount)) {
-            document.getElementById("errorAttendcount").innerHTML = "<font size='-1' color='red'>人数必须为纯数字</font>";
+            document.getElementById("errorAttendcount").innerHTML = "<font size='-1' color='red'>人数必须为纯数字且为整数</font>";
+            return false;
+        } else if (attendcount > 50) {
+            document.getElementById("errorAttendcount").innerHTML = "<font size='-1' color='red'>据规定，人数不能超过50人</font>";
             return false;
         } else {
             document.getElementById("errorAttendcount").innerHTML = "<font size='-1'></font>";
