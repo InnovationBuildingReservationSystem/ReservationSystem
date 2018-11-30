@@ -28,7 +28,7 @@ public class UserController {
      * @Description:登录界面
      */
     @RequestMapping("student/login")
-    public String login() {
+    public String login() throws Exception {
         return "login";
     }
 
@@ -49,18 +49,24 @@ public class UserController {
      */
     @RequestMapping("student/loginValidate")
     public String validateLogin(Model model, String username, String pwd, HttpServletRequest request) {
-
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
         if (username == null || pwd == null) {
-            return "login";
+            if (student == null) {
+                return "redirect:login.html";
+            } else {
+                return "redirect:activeAccount.html";
+            }
         }
         if (studentService.validateStudent(username.trim(), pwd.trim()) && !username.equals("admin")) {
-            HttpSession session = request.getSession();
-            Student student = studentService.getStudentInfo(username.trim());
+            session = request.getSession();
+            student = studentService.getStudentInfo(username.trim());
             session.setAttribute("studentSession", student);
             return "redirect:activeAccount.html";
         }
         if (studentService.existStudent(username) != 0 && studentService.getStudentInfo(username.trim()).getSstatus() == 0) {
             model.addAttribute("errorMessage", "该账号尚未激活，请登录以激活账号！（初始密码为学号）");
+            model.addAttribute("studentSession", null);
         } else if (studentService.existStudent(username) == 0) {
             model.addAttribute("errorMessage", "该账号不存在");
         } else {
@@ -91,7 +97,10 @@ public class UserController {
     }
 
     @RequestMapping("student/passwordReset")
-    public String passwordReset(Model model, @RequestParam("snum") String snum, @RequestParam("sname") String sname, @RequestParam("spwd") String spwd, @RequestParam("spwdConvinced") String spwdConvinced, @RequestParam("sid") String sid) {
+    public String passwordReset(Model model, String snum, String sname, String spwd, String spwdConvinced, String sid) {
+        if (snum == null || sname == null || spwd == null || spwdConvinced == null || sid == null) {
+            return "redirect:login.html";
+        }
         Student student = studentService.getStudentInfo(snum);
         if (studentService.existStudent(snum) == 0) {
             model.addAttribute("errorMessage", "所提交的信息有误，请检查后重试！");
@@ -129,16 +138,6 @@ public class UserController {
         student.setSpwd(spwd);
         studentService.updatePassword(student);
         model.addAttribute("snum", snum);
-        return "login";
-    }
-
-    @RequestMapping("student/index")
-    public String turnToLogin() {
-        return "login";
-    }
-
-    @RequestMapping("index")
-    public String turnToLogin1() {
         return "login";
     }
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,55 +61,12 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="${pageContext.request.contextPath}/student/index.html" class="navbar-brand">
+            <a href="${pageContext.request.contextPath}/admin/login.html" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     创新楼教室预约系统
                 </small>
             </a>
-        </div>
-
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav" style="text-align: right;">
-                <li class="light-blue dropdown-modal">
-                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo"
-                             src="${pageContext.request.contextPath}/assets/images/avatars/用户1.png"
-                             alt="User's Photo"/>
-                        <span class="user-info">
-									<small>Welcome,</small>
-									${student.sname}
-								</span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/passwordChange.html">
-                                <i class="ace-icon fa fa-cog"></i>
-                                修改密码
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/userInfo.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                个人详情
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="${pageContext.request.contextPath}/student/logout.html">
-                                <i class="ace-icon fa fa-power-off"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
         </div>
 
     </div><!-- /.navbar-container -->
@@ -127,10 +84,6 @@
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
                 <ul class="breadcrumb">
-                    <li>
-                        <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="${pageContext.request.contextPath}/student/index.html">首页</a>
-                    </li>
 
                     <li class="active">Error 500</li>
                 </ul><!-- /.breadcrumb -->
@@ -150,30 +103,30 @@
 												<i class="ace-icon fa fa-random"></i>
 												500
 											</span>
-                                    Something Went Wrong
+                                   服务器发生错误！
                                 </h1>
 
                                 <hr/>
                                 <h3 class="lighter smaller">
-                                    But we are working
+                                    请联系管理员！
                                     <i class="ace-icon fa fa-wrench icon-animated-wrench bigger-125"></i>
-                                    on it!
+                                    修复
                                 </h3>
 
                                 <div class="space"></div>
 
                                 <div>
-                                    <h4 class="lighter smaller">Meanwhile, try one of the following:</h4>
+                                    <h4 class="lighter smaller">管理员QQ : 874492787 or 1115810371</h4>
 
                                     <ul class="list-unstyled spaced inline bigger-110 margin-15">
                                         <li>
                                             <i class="ace-icon fa fa-hand-o-right blue"></i>
-                                            Read the faq
+                                           记录错误发生流程
                                         </li>
 
                                         <li>
                                             <i class="ace-icon fa fa-hand-o-right blue"></i>
-                                            Give us more info on how this specific error occurred!
+                                           记录错误发生时间
                                         </li>
                                     </ul>
                                 </div>
@@ -184,10 +137,10 @@
                                 <div class="center">
                                     <a href="javascript:history.back()" class="btn btn-grey">
                                         <i class="ace-icon fa fa-arrow-left"></i>
-                                        Go Back
+                                        返回
                                     </a>
 
-                                    <a href="${pageContext.request.contextPath}/student/index.html" class="btn btn-primary">
+                                    <a href="${pageContext.request.contextPath}/student/login.html" class="btn btn-primary">
                                         <i class="ace-icon fa fa-newspaper-o"></i>
                                         首页
                                     </a>

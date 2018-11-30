@@ -189,7 +189,8 @@ public class StudentController {
     public String doActive(Model model, HttpServletRequest request, String snum, String sname, String spwd, String spwdConvinced, String sid, String stelphone) {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
-        if (session == null || student == null || student.getSstatus() == 1) {
+        if (session == null || student == null || student.getSstatus() == 1 || snum == null || sname == null || spwd == null || spwdConvinced == null || sid == null || stelphone == null) {
+            session.invalidate();
             return "login";
         }
         session.setAttribute("studentSession", student);
@@ -253,25 +254,25 @@ public class StudentController {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
         if (session == null || student == null) {
-            return "login";
+            return "redirect:login.html";
         }
         session.invalidate();
+        return "redirect:login.html";
+    }
+
+    @RequestMapping("student/index")
+    public String turnToLogin(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        Student student = (Student) session.getAttribute("studentSession");
+        model.addAttribute("studentSession", student);
         return "login";
     }
 
-    @RequestMapping("student/err-500")
-    public String err500(HttpServletRequest request, Model model) {
+    @RequestMapping("index")
+    public String turnToLogin1(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("studentSession");
         model.addAttribute("studentSession", student);
-        return "error-500";
-    }
-
-    @RequestMapping("student/err-404")
-    public String err400(HttpServletRequest request, Model model) {
-        HttpSession session = request.getSession();
-        Student student = (Student) session.getAttribute("studentSession");
-        model.addAttribute("studentSession", student);
-        return "error-404";
+        return "login";
     }
 }

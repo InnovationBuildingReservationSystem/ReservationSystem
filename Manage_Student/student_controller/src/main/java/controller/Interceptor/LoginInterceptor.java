@@ -37,31 +37,22 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         Student student = (Student) request.getSession().getAttribute("studentSession");
         //String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + request.getServletPath();
 
-        /*if (student == null && (request.getServletPath().equals("/student/err-404.html") || request.getServletPath().equals("/student/err-500.html") || request.getServletPath().equals("/student/login.html") || request.getServletPath().equals("/student/forgetPassword.html") || request.getServletPath().equals("/student/passwordReset.html") || request.getServletPath().equals("/student/loginValidate.html") || request.getServletPath().equals("/student/logout.html") || request.getServletPath().equals("/admin/login.html"))) {
+        if(request.getServletPath().contains("error-404.html") || request.getServletPath().contains("error-500.html")){
             return true;
-        } else {
+        }
+
+        if (student == null && (request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("login.html") || request.getServletPath().contains("forgetPassword.html") || request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("loginValidate.html") || request.getServletPath().contains("logout.html") || request.getServletPath().contains("index.html"))) {
+            return true;
+        }  else {
             if (student == null) {
                 //如果没有登录session，则返回到登录页面
                 response.sendRedirect(request.getContextPath() + "/student/login.html");
                 return false;
             } else {
-                if (request.getServletPath().equals("/student/login.html") || request.getServletPath().equals("/student/forgetPassword.html") || request.getServletPath().equals("/student/passwordReset.html") || request.getServletPath().equals("/student/loginValidate.html") || request.getServletPath().equals("/admin/login.html")) {
-                    response.sendRedirect(request.getContextPath() + "/student/notice.html");
+                if(request.getServletPath().contains("loginValidate.html")){
                     return true;
                 }
-                return true;
-            }
-        }*/
-
-        if (student == null && (request.getServletPath().contains("err-404.html") || request.getServletPath().contains("err-500.html") || request.getServletPath().contains("login.html") || request.getServletPath().contains("forgetPassword.html") || request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("loginValidate.html") || request.getServletPath().contains("logout.html"))) {
-            return true;
-        } else {
-            if (student == null) {
-                //如果没有登录session，则返回到登录页面
-                response.sendRedirect(request.getContextPath() + "/student/login.html");
-                return false;
-            } else {
-                if (request.getServletPath().contains("login.html") || request.getServletPath().contains("forgetPassword.html") || request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("loginValidate.html")) {
+                if (request.getServletPath().contains("login.html") || request.getServletPath().contains("forgetPassword.html") || request.getServletPath().contains("passwordReset.html") || request.getServletPath().contains("index.html")) {
                     response.sendRedirect(request.getContextPath() + "/student/notice.html");
                     return true;
                 }
