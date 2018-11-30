@@ -312,7 +312,7 @@
                                     <a href="#">教室预约</a>
                                 </li>
                                 <li>
-                                    <a href="">教室预约申请</a>
+                                    <a href="">教室预约历史</a>
                                 <li>
                             </ul>
                             <!-- /.breadcrumb -->

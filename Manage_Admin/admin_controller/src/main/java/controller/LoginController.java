@@ -25,6 +25,7 @@ public class LoginController
     @RequestMapping("/admin/login")
     public String adminLogin(Administrator admin, HttpSession session)
     {
+
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
         if (admin == null || admin.getAid() == null || admin.getApwd() == null || StringUtils.isEmpty(admin.getAid()) || StringUtils.isEmpty(admin.getApwd()))
         {

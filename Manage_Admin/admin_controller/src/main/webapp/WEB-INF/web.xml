@@ -8,6 +8,21 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <!-- 解决post乱码 -->
+  <error-page>
+
+    <error-code>404</error-code>
+
+    <location>/WEB-INF/jsp/error-404.jsp</location>
+
+  </error-page>
+
+  <error-page>
+
+    <error-code>500</error-code>
+
+    <location>/WEB-INF/jsp/error-500.jsp</location>
+
+  </error-page>
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
