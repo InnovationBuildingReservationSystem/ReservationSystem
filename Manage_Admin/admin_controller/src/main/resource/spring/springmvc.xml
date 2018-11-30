@@ -9,8 +9,7 @@
 
     <context:component-scan base-package="controller"/>
     <mvc:annotation-driven/>
-<!--
-    <mvc:resources location="/assets/" mapping="/**/**"/>-->
+    <mvc:resources location="/assets/" mapping="/**/**"/>
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

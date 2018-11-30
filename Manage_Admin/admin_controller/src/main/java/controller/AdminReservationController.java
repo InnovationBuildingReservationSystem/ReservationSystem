@@ -84,7 +84,8 @@ public class AdminReservationController
     @RequestMapping("/admin/adminOptionStatus")
     public String adminOptionStatus(Integer option,Integer orderid)
     {
-        if (option!=null&&!StringUtils.isEmpty(option)&&orderid!=null&&StringUtils.isEmpty(orderid))
+    /*    System.out.println("orderId = "+orderid);*/
+        if (option!=null&&!StringUtils.isEmpty(option)&&orderid!=null&&!StringUtils.isEmpty(orderid))
         {
             adminReservationService.changeStatus(option,orderid);
         }

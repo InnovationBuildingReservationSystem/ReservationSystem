@@ -17,6 +17,11 @@ public class LoginController
     @Autowired
     private LoginService loginService;
 
+    @RequestMapping("/index")
+    public  String getIndexHtml()
+    {
+        return  "login";
+    }
     @RequestMapping("/admin/login")
     public String adminLogin(Administrator admin, HttpSession session)
     {

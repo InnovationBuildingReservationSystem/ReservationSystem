@@ -246,7 +246,8 @@ public class AdminReservationServiceImpl implements AdminReservationService
     public void changeStatus(Integer option, Integer orderid)
     {
         Ordercr orderItem = ordercrMapper.selectByPrimaryKey(orderid);
- /*       System.out.println("option : "+option);*/
+/*        System.out.println("orderId = "+ orderid );
+        System.out.println("option : "+option);*/
         orderItem.setOrderstatus(option);
         ordercrMapper.updateByPrimaryKeySelective(orderItem);
     }

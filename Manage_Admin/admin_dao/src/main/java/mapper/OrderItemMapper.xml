@@ -12,6 +12,8 @@
         FROM
         ordercr
         WHERE
+        (orderstatus = 0 or orderstatus =1)
+        AND
         starttime <![CDATA[ >= ]]>  #{nowDate}
         AND
         starttime <![CDATA[ <= ]]> #{endDate}
