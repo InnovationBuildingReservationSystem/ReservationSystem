@@ -19,8 +19,6 @@ public class ReservationClassroomController
     @Value("${CLASSROOM_PAGESIZE}")
     private  Integer pageSize;
     @Autowired
-    private OrderService orderService;
-    @Autowired
     private ReservationService reservationService;
     @RequestMapping("/admin/reservationClassroom")
 

@@ -21,4 +21,7 @@
     ORDER BY orderid DESC
     limit ${start},${pageSize};
   </select>
+  <select id="selectAllAdmin" resultType="java.lang.String">
+    select aid from administrator ;
+  </select>
 </mapper>

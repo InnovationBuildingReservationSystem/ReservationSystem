@@ -22,6 +22,19 @@ public class ActivityServiceImpl implements ActivityService
     @Override
     public ActivityPageBean getActivityPageBean(Integer pageSize, Integer currentPage, String nowDate)
     {
+        /*
+
+         * @Author: shize duan
+
+         * @param : pageSIze 页面显示条数 currentPage 当前页面数 nowDate 当天日期
+
+         * @return : ActivityPageBean 页面信息所需要的pageBean
+
+         * @Description:
+
+         * 当nowDate为空时从全部信息获取的页面信息 当nowDate!= null 时 通过日期筛选后获得
+
+         */
         String date;
         ActivityPageBean activityPageBean;
         if(nowDate!=null&&(!StringUtils.isEmpty(nowDate)))
