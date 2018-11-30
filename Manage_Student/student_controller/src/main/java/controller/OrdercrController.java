@@ -140,7 +140,7 @@ public class OrdercrController {
                 List classList = classroomService.getClassroomList("all", df.format(date));//教室使用列表
                 model.addAttribute("classroomList", classroomList);
                 model.addAttribute("classList", classroomList);
-                model.addAttribute("startdate", df.format(date));
+                model.addAttribute("startdate", startdate);
 
                 startdate = df.format(date);
 

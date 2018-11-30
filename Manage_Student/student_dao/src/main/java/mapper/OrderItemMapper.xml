@@ -44,6 +44,10 @@
             <if test="cid != 'all' and cid != null and cid != ''">
                 and cid = #{cid}
             </if>
+            or orderstatus = 4
+            <if test="cid != 'all' and cid != null and cid != ''">
+                and cid = #{cid}
+            </if>
         </where>
     </select>
 
