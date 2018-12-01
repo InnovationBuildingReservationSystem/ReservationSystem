@@ -407,12 +407,12 @@
 
 <script type="text/javascript">
     function sendNotice() {
-
-        var reg = new RegExp('{&nbsp}','g');
-        var noticeText=$("#editor1").html();
-        var noticeTitle=$("#form-field-1").val();
-        noticeText.replace(reg," ");
-        noticeTitle.replace("&nbsp"," ");
+        var reg1 = new RegExp("&nbsp;", "g");
+        var reg2 = new RegExp("&nbsp", "g");
+        var noticeText=$("#editor1").html().replace(reg1," ");
+        noticeText.replace(reg2," ");
+        var noticeTitle=$("#form-field-1").val().replace(reg1," ");
+        noticeTitle.replace(reg2," ");
         if(noticeTitle!=""&&noticeText!="")
         {
             $.ajax({
