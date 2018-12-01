@@ -409,6 +409,8 @@
     function sendNotice() {
         var noticeText=$("#editor1").html();
         var noticeTitle=$("#form-field-1").val();
+        noticeText.replace("&nbsp"," ");
+        noticeTitle.replace("&nbsp"," ");
         if(noticeTitle!=""&&noticeText!="")
         {
             $.ajax({
