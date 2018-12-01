@@ -24,6 +24,7 @@ public class NoticeController
     @ResponseBody
     public  String sendNotice(String noticeText,String noticeTitle)
     {
+        System.out.println(noticeText);
         noticeService.insertNotice(noticeText,noticeTitle);
         return  "success";
     }

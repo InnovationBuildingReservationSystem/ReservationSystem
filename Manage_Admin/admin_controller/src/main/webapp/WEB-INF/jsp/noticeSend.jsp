@@ -407,9 +407,11 @@
 
 <script type="text/javascript">
     function sendNotice() {
+
+        var reg = new RegExp('{&nbsp}','g');
         var noticeText=$("#editor1").html();
         var noticeTitle=$("#form-field-1").val();
-        noticeText.replace("&nbsp"," ");
+        noticeText.replace(reg," ");
         noticeTitle.replace("&nbsp"," ");
         if(noticeTitle!=""&&noticeText!="")
         {
@@ -428,7 +430,6 @@
             });
 
     }
-
         else
               alert("发布的信息不可为空!");
     }
