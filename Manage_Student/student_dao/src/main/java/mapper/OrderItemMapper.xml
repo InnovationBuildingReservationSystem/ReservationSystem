@@ -45,18 +45,11 @@
     <select id="selectOrderByCid" resultType="pojo.Ordercr" parameterType="string">
         select *
         from ordercr
-        <where>
-            (
-            orderstatus = 4
-            or
-            orderstatus = 0
-            or
-            orderstatus = 1
-            )
-            <if test="cid != 'all' and cid != null and cid != ''">
-                and cid = #{cid}
-            </if>
-        </where>
+        where
+        (orderstatus = 0 or orderstatus = 1 or orderstatus = 4)
+        <if test="cid != 'all' and cid != null and cid != ''">
+            and cid = #{cid}
+        </if>
     </select>
 
     <!--分页查询全部订单-->
@@ -257,6 +250,7 @@
         from ordercr
         where
         snum = #{snum}
+        and (orderstatus = 0 or orderstatus = 1)
         <if test="startdate != null">
             and starttime like concat('%',#{startdate},'%')
         </if>

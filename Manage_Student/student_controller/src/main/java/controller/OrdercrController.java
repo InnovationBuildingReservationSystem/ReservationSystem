@@ -131,7 +131,60 @@ public class OrdercrController {
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
 
-        if (orderService.hasOrderedTheDay(student.getSnum(), startdate) != 0) {
+
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String start1 = "";
+            Date start2 = new Date();
+            if (startdate == null || starttime == null) {
+                start1 = dateFormat.format(new Date());
+            } else {
+                start1 = startdate + " " + starttime + ":00";
+                start2 = dateFormat.parse(start1);
+            }
+
+            Date now1 = new Date();
+            if (startdate != null && now1.compareTo(start2) >= 0) {
+                List<Classroom> classroomList = classroomService.getClassroomList();
+                Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
+                Integer page = 1;
+                if (page > orderCount / 8 && orderCount >= 8) {
+                    page = orderCount / 8;
+                }
+                List<Ordercr> orderList = new ArrayList<>();
+                if (orderCount > 0) {
+                    orderList = orderService.getOrderList(student.getSnum(), page);
+                    for (Ordercr ordercr : orderList) {
+                        orderService.alreadyUsed(ordercr.getOrderid());
+                    }
+                }
+
+                if (orderService.hasOrderedToday(student.getSnum())) {
+                    orderService.otherOrderCancel(student.getSnum());
+                } else {
+                    orderService.updateApplication(orderList, student.getSnum());
+                }
+
+                model.addAttribute("message", "<script>alert('请选择当前时间之后的教室');</script>");
+
+                model.addAttribute("orderCount", orderCount);
+                model.addAttribute("orderList", orderList);
+                model.addAttribute("snum", student.getSnum());
+                model.addAttribute("classroomList", classroomList);
+                model.addAttribute("prePage", page - 1);
+                model.addAttribute("thisPage", page);
+                model.addAttribute("nextPage", page + 1);
+                model.addAttribute("finalPage", orderCount / 8);
+                model.addAttribute("cid", "all");
+                model.addAttribute("student", student);
+
+                return "personalOrder";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (startdate != null && orderService.hasOrderedTheDay(student.getSnum(), startdate) != 0) {
             List<Classroom> classroomList = classroomService.getClassroomList();
             Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
             Integer page = 1;
@@ -350,6 +403,7 @@ public class OrdercrController {
             model.addAttribute("classroomList", classroomList);
             model.addAttribute("cid", ordercr.getCid());
             model.addAttribute("ttelphone", ordercr.getTtelephone());
+            model.addAttribute("startdate", startdate);
             return "application";
         }
 
@@ -525,7 +579,7 @@ public class OrdercrController {
             model.addAttribute("student", student);
             model.addAttribute("startdate", "");
 
-            return "personalOrder";
+            return "redirect:personalOrder.html";
 
         }
         return "application";
@@ -557,7 +611,7 @@ public class OrdercrController {
         if (flag) {
 
         } else {
-            model.addAttribute("errorMessage","撤销失败，该申请已被同意");
+            model.addAttribute("errorMessage", "撤销失败，该申请已被同意");
             model.addAttribute("errorFlag", 1);
         }
         Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
