@@ -47,7 +47,7 @@ public class ActivityServiceImpl implements ActivityService
             date=dateFormat.format(new Date());
         }
         //一天最晚预定时间
-        String endDate=date.substring(0,10)+" 21:00:00";
+        String endDate=date.substring(0,10)+" 24:00:00";
         int totalCount = orderItemMapper.getActivityTotalCount(date,endDate);
      //   System.out.println(totalCount);
         activityPageBean=new ActivityPageBean(pageSize,currentPage,totalCount);
