@@ -10,12 +10,12 @@
     <select id="getNotice" resultMap="BaseResultMap">
         select *
         from notice
-        order by ntime desc
+        order by nid desc
     </select>
     <select id="getNoticeByPage" parameterType="Integer" resultMap="BaseResultMap">
         select *
         from notice
-        order by ntime desc
+        order by nid desc
         limit #{offset},#{limit}
     </select>
 </mapper>

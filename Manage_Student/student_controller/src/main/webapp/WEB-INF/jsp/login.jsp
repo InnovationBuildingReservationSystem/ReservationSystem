@@ -147,9 +147,13 @@
 <script type="text/javascript">
     function is_neizhi() {
         var ua = navigator.userAgent.toLowerCase();
+        var isIosQQ = (/ QQ/i.test(navigator.userAgent));
+        var isAndroidQQ = (/MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser')));
         if (ua.match(/MicroMessenger/i) == "micromessenger") {
             return "weixin";
-        } else if (ua.match(/QQ/i) == "qq") {
+        }
+        if (isIosQQ || isAndroidQQ) {
+            //qq内置浏览器
             return "QQ";
         } else if (ua.match(/Alipay/i) == "alipay" && payway == 2) {
             return "alipay";
