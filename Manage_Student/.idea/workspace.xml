@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="585b0a72-1b2b-4971-8684-192c50b75cfd" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../Manage_Activity/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Manage_Activity/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../Manage_Activity/Activity_controller/pom.xml" afterPath="$PROJECT_DIR$/../Manage_Activity/Activity_controller/pom.xml" />
       <change beforePath="$PROJECT_DIR$/../Manage_Activity/Activity_service/src/main/java/Impl/ActivityServiceImpl.java" afterPath="$PROJECT_DIR$/../Manage_Activity/Activity_service/src/main/java/Impl/ActivityServiceImpl.java" />
@@ -46,6 +47,17 @@
       <change beforePath="$PROJECT_DIR$/student_controller/student_controller.iml" afterPath="$PROJECT_DIR$/student_controller/student_controller.iml" />
       <change beforePath="$PROJECT_DIR$/student_dao/student_dao.iml" afterPath="$PROJECT_DIR$/student_dao/student_dao.iml" />
       <change beforePath="$PROJECT_DIR$/student_service/student_service.iml" afterPath="$PROJECT_DIR$/student_service/student_service.iml" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_controller/src/main/java/controller/wordexport/WordUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/java/controller/wordexport/WordUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_service/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/student_service/src/main/java/service/OrderService.java" afterDir="false" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/student_dao/target/" />
@@ -94,55 +106,55 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="apt" value="1" />
-          <entry key="class" value="25" />
+          <entry key="class" value="27" />
           <entry key="classroom" value="2" />
           <entry key="css" value="4" />
           <entry key="faculty" value="1" />
           <entry key="ftl" value="27" />
           <entry key="html" value="16" />
           <entry key="iml" value="2" />
-          <entry key="java" value="367" />
+          <entry key="java" value="410" />
           <entry key="js" value="2" />
-          <entry key="jsp" value="229" />
+          <entry key="jsp" value="232" />
           <entry key="notice" value="3" />
-          <entry key="ordercr" value="34" />
-          <entry key="properties" value="39" />
+          <entry key="ordercr" value="41" />
+          <entry key="properties" value="43" />
           <entry key="student" value="19" />
           <entry key="teacher" value="1" />
           <entry key="tld" value="1" />
           <entry key="xhtml" value="1" />
-          <entry key="xml" value="172" />
+          <entry key="xml" value="180" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="25" />
+          <entry key="CLASS" value="27" />
           <entry key="CSS" value="4" />
-          <entry key="Database Element" value="60" />
+          <entry key="Database Element" value="67" />
           <entry key="FTL" value="27" />
           <entry key="HTML" value="16" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="367" />
-          <entry key="JSP" value="229" />
+          <entry key="JAVA" value="410" />
+          <entry key="JSP" value="232" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Properties" value="39" />
+          <entry key="Properties" value="43" />
           <entry key="XHTML" value="1" />
-          <entry key="XML" value="168" />
+          <entry key="XML" value="176" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="308" />
+          <entry key="cell" value="337" />
           <entry key="css" value="10" />
           <entry key="dummy" value="8" />
           <entry key="ftl" value="108" />
           <entry key="html" value="18" />
-          <entry key="java" value="12727" />
-          <entry key="jsp" value="4782" />
-          <entry key="properties" value="149" />
+          <entry key="java" value="13493" />
+          <entry key="jsp" value="5052" />
+          <entry key="properties" value="199" />
           <entry key="tld" value="1" />
-          <entry key="xml" value="1471" />
+          <entry key="xml" value="1816" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -150,18 +162,18 @@
           <entry key="CSS" value="10" />
           <entry key="FTL" value="108" />
           <entry key="HTML" value="18" />
-          <entry key="JAVA" value="12727" />
-          <entry key="JSP" value="4782" />
+          <entry key="JAVA" value="13493" />
+          <entry key="JSP" value="5052" />
           <entry key="PLAIN_TEXT" value="34" />
-          <entry key="Properties" value="149" />
-          <entry key="SQL" value="52" />
-          <entry key="Scratch" value="308" />
-          <entry key="XML" value="1394" />
+          <entry key="Properties" value="199" />
+          <entry key="SQL" value="59" />
+          <entry key="Scratch" value="337" />
+          <entry key="XML" value="1732" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="45" />
+          <entry key="project.closed" value="50" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.17" value="1" />
@@ -173,14 +185,15 @@
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.33" value="2" />
           <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="2" />
           <entry key="project.open.time.38" value="5" />
-          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.41" value="2" />
-          <entry key="project.open.time.42" value="1" />
-          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.42" value="2" />
+          <entry key="project.open.time.43" value="3" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.47" value="3" />
@@ -190,17 +203,18 @@
           <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.59" value="1" />
-          <entry key="project.open.time.63" value="1" />
+          <entry key="project.open.time.63" value="2" />
           <entry key="project.open.time.64" value="1" />
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="48" />
+          <entry key="project.opened" value="54" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties">
           <provider selected="true" editor-type-id="text-editor">
@@ -229,6 +243,31 @@
             <state relative-caret-position="491">
               <caret line="59" column="33" lean-forward="true" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
               <folding />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="163" column="19" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="630" column="17" selection-start-line="630" selection-start-column="17" selection-end-line="630" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
             </state>
           </provider>
         </entry>
@@ -249,19 +288,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>active</find>
-      <find>sidebar-shortcuts</find>
-      <find>首页</find>
-      <find>通知公告</find>
-      <find>wel</find>
-      <find>user.jpg</find>
-      <find>number</find>
-      <find>Word</find>
-      <find>snum</find>
-      <find>attendcount?number</find>
-      <find>sna</find>
-      <find>sname</find>
-      <find>用户</find>
       <find>avatar2.png</find>
       <find>loginValid</find>
       <find>assets/</find>
@@ -279,12 +305,26 @@
       <find>logout</find>
       <find>isor</find>
       <find>selectOrderByCid</find>
+      <find>今天已成功预订过一次教室，当日不能再次申请</find>
+      <find>has</find>
+      <find>orderList = orderService.getOrderList(student.getSnum(), page);</find>
+      <find>hasOrderedTheDay</find>
+      <find>snum</find>
+      <find>with</find>
+      <find>update</find>
+      <find>acc</find>
+      <find>acceptFirstApplication</find>
+      <find>orderStatusCount</find>
+      <find>submit</find>
+      <find>exportMillCertificateWord</find>
+      <find>msw</find>
     </findStrings>
     <replaceStrings>
       <replace>${pageCotent.request.}/assets/</replace>
       <replace>avatar2.png</replace>
       <replace>用户1.png</replace>
       <replace>${pageContext.request.contextPath}/assets/</replace>
+      <replace>今天已成功预订过一次教室或正在申请中，现在不能申请</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -317,9 +357,6 @@
         <option value="D:/页面修改/new_file.html" />
         <option value="$PROJECT_DIR$/student_pojo/src/main/java/pojo/ClassroomStatus.java" />
         <option value="$USER_HOME$/Desktop/创新楼创客教室学生活动备案审批表(2003).ftl" />
-        <option value="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.java" />
-        <option value="$PROJECT_DIR$/student_service/src/main/java/service/OrderService.java" />
-        <option value="$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java" />
         <option value="$USER_HOME$/Desktop/创新楼创客教室学生活动备案审批表(2003).xml" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/ftl/创新楼创客教室学生活动备案审批表(2003).ftl" />
         <option value="$PROJECT_DIR$/student_controller/src/main/resource/conf/resource.properties" />
@@ -330,7 +367,6 @@
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/passwordChange.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/userInfo.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-400.jsp" />
-        <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/Interceptor/CustomException.java" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/Interceptor/SpringHandlerExceptionResolver.java" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java" />
@@ -339,14 +375,22 @@
         <option value="$PROJECT_DIR$/student_controller/src/main/resource/spring/springmvc.xml" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-404.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-500.jsp" />
-        <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/forgetPassword.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/StudentController.java" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/application.jsp" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/ClassroomController.java" />
-        <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java" />
         <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/ClassroomInfo.jsp" />
+        <option value="$PROJECT_DIR$/student_service/src/main/java/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.java" />
         <option value="$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp" />
+        <option value="$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp" />
+        <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java" />
+        <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/wordexport/WordUtils.java" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
         <option value="$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties" />
         <option value="$PROJECT_DIR$/student_controller/src/main/java/controller/wordexport/WordUtils.java" />
       </list>
@@ -385,9 +429,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
+    <option name="x" value="-10" />
     <option name="width" value="1935" />
-    <option name="height" value="1049" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -455,6 +499,7 @@
               <item name="student_controller" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="Interceptor" type="462c0819:PsiDirectoryNode" />
@@ -486,6 +531,8 @@
               <item name="student_controller" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
               <item name="resource" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -501,41 +548,7 @@
               <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
               <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
               <item name="student_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_controller" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Manage_Student" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Manage_Student" type="462c0819:PsiDirectoryNode" />
-              <item name="student_dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -548,12 +561,17 @@
     <property name="SearchEverywhereHistoryKey" value="loginValid&#9;null&#9;null&#10;selectOrderByCid&#9;PSI&#9;JAVA://mapper.OrderItemMapper#selectOrderByCid&#10;stuInfoValidate&#9;PSI&#9;JAVA://Impl.StudentServiceImpl#stuInfoValidate" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543588941032" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543918020030" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Manage_Admin" />
+    <property name="project.structure.last.edited" value="Modules" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -567,11 +585,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\webapp\assets\images\background" />
       <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\webapp\WEB-INF\jsp" />
       <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\webapp\WEB-INF\ftl" />
       <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\webapp\WEB-INF" />
       <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\webapp" />
-      <recent name="D:\创新楼教室预约系统\ReservationSystem\Manage_Student\student_controller\src\main\resource\ftl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Impl" />
@@ -830,13 +848,27 @@
       <workItem from="1543500330375" duration="4912000" />
       <workItem from="1543506084059" duration="479000" />
       <workItem from="1543551971785" duration="2362000" />
+<<<<<<< HEAD
       <workItem from="1543561961955" duration="18156000" />
       <workItem from="1543909369004" duration="989000" />
+=======
+      <workItem from="1543561961955" duration="19026000" />
+      <workItem from="1543758238549" duration="481000" />
+      <workItem from="1543805227875" duration="1441000" />
+      <workItem from="1543816813176" duration="2619000" />
+      <workItem from="1543845710799" duration="7476000" />
+      <workItem from="1543911888403" duration="1345000" />
+      <workItem from="1543913840867" duration="4088000" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="274167000" />
+=======
+    <option name="totallyTimeSpent" value="291498000" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -851,6 +883,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959327" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -884,6 +917,41 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959327" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6072931" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49929875" visible="true" weight="0.28619304" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Web" order="7" sideWeight="0.50070125" side_tool="true" weight="0.25268096" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32959327" />
+      <window_info anchor="bottom" id="Database Console" order="1" weight="0.32959327" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32959327" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49932975" weight="0.3828892" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39691445" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.32959327" />
+      <window_info anchor="bottom" id="Spring" order="6" weight="0.32959327" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" visible="true" weight="0.31276298" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.32398316" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Message" order="12" />
+      <window_info anchor="bottom" id="Find" order="13" weight="0.6072931" />
+      <window_info anchor="bottom" id="Cvs" order="14" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="15" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3297587" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.2727882" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -944,6 +1012,7 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -976,6 +1045,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     <entry file="file://$PROJECT_DIR$/student_service/src/main/java/service/StudentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1000,12 +1071,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/student_controller/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     </entry>
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-404.html" />
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/index.jsp.xhtml" />
@@ -1047,6 +1123,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -1055,11 +1132,24 @@
       </provider>
     </entry>
     <entry file="das://9d28d7b2-1e08-4d1a-8a80-6efb07cda4e3/schema/reservationsystem/table/student" />
+=======
+    <entry file="das://9d28d7b2-1e08-4d1a-8a80-6efb07cda4e3/schema/reservationsystem/table/student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/Interceptor/CustomException.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar!/org/springframework/web/servlet/HandlerExceptionResolver.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
+<<<<<<< HEAD
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+=======
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
         </state>
       </provider>
     </entry>
@@ -1078,11 +1168,49 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-404.jsp" />
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-500.jsp" />
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp" />
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/forgetPassword.jsp" />
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java" />
+=======
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-404.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="158" column="40" lean-forward="true" selection-start-line="158" selection-start-column="40" selection-end-line="158" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/error-500.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="140" column="40" lean-forward="true" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/forgetPassword.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/Interceptor/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/application.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -1104,68 +1232,179 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student_service/src/main/java/Impl/ClassroomServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/ClassroomInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-525">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+=======
+        <state relative-caret-position="326">
+          <caret line="751" column="51" selection-start-line="751" selection-start-column="51" selection-end-line="751" selection-end-column="51" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="201">
+          <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+=======
+        <state relative-caret-position="110">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/text/DateFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="365" selection-start-line="365" selection-end-line="365" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_service/src/main/java/Impl/StudentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="109">
+          <caret line="245" column="76" lean-forward="true" selection-start-line="245" selection-start-column="76" selection-end-line="245" selection-end-column="76" />
+=======
+        <state relative-caret-position="110">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_service/src/main/java/Impl/ClassroomServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="326">
+          <caret line="751" column="51" lean-forward="false" selection-start-line="751" selection-start-column="51" selection-end-line="751" selection-end-column="51" />
+=======
+        <state relative-caret-position="550">
+          <caret line="40" column="6" lean-forward="true" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/ClassroomController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+        <state relative-caret-position="-723">
+          <caret line="82" column="38" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="227" column="25" selection-start-line="227" selection-start-column="25" selection-end-line="227" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/student_service/src/main/java/service/OrderService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="245" column="76" lean-forward="true" selection-start-line="245" selection-start-column="76" selection-end-line="245" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/ClassroomInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="751" column="51" lean-forward="false" selection-start-line="751" selection-start-column="51" selection-end-line="751" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/StudentController.java">
-      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1020">
           <caret line="260" column="5" lean-forward="false" selection-start-line="260" selection-start-column="5" selection-end-line="260" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="das://9d28d7b2-1e08-4d1a-8a80-6efb07cda4e3/schema/reservationsystem/table/ordercr" />
+=======
+        <state relative-caret-position="96">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_pojo/src/main/java/pojo/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9d28d7b2-1e08-4d1a-8a80-6efb07cda4e3/schema/reservationsystem/table/ordercr">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.8/mybatis-3.2.8.jar!/org/apache/ibatis/binding/MapperProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
     <entry file="file://$PROJECT_DIR$/student_dao/src/main/java/mapper/OrderItemMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state relative-caret-position="168">
+          <caret line="185" column="21" lean-forward="true" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_service/src/main/java/Impl/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="179" column="37" lean-forward="true" selection-start-line="179" selection-start-column="37" selection-end-line="179" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/personalOrder.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="1388" column="56" lean-forward="true" selection-start-line="1388" selection-start-column="56" selection-end-line="1388" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/webapp/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="163" column="19" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/OrdercrController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="132">
           <caret line="125" column="51" lean-forward="false" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
+=======
+        <state relative-caret-position="176">
+          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/resource/conf/db.properties">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="90">
           <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
           <folding />
+=======
+        <state relative-caret-position="130">
+          <caret line="630" column="17" selection-start-line="630" selection-start-column="17" selection-end-line="630" selection-end-column="17" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
         </state>
       </provider>
     </entry>
@@ -1181,9 +1420,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/student_controller/src/main/java/controller/wordexport/WordUtils.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="491">
           <caret line="59" column="33" lean-forward="true" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
           <folding />
+=======
+        <state relative-caret-position="44">
+          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+>>>>>>> b9671d069966c76857947d4046bc8c3429394a7b
         </state>
       </provider>
     </entry>
@@ -1241,7 +1485,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Manage_Student</last-edited>
+          <last-edited>student_controller</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

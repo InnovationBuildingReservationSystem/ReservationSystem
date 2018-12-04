@@ -11,7 +11,8 @@
     <meta name="description" content="Common form elements and layouts"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
-    <link rel="shortcut icon"  href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico"
+          type="image/x-icon"/>
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css"/>
@@ -682,7 +683,7 @@ ${message}
                                 </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-1">
-                                    <button type="submit" class="btn btn-sm btn-primary">
+                                    <button type="submit" class="btn btn-sm btn-primary" id="sub_btn">
                                         <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
                                         搜索
                                     </button>
@@ -1381,6 +1382,17 @@ ${message}
 
     });
     $("#form-field-select-1").val("${cid}");
+
+    $(document).ready(function () {
+
+        if (location.href.indexOf("#reloaded") == -1) {
+            location.href = location.href + "#reloaded";
+            location.reload();
+        }
+    })
+
+
+
 </script>
 </body>
 </html>

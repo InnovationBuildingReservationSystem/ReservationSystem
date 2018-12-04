@@ -220,7 +220,7 @@ public class OrderServiceImpl implements OrderService {
 
         if (cid.equals("all") && startdate.equals("")) {
             list = orderItemMapper.getOrderItemListByPage(snum, 8 * (page - 1), 8);
-        } else if(cid.equals("all") && !startdate.equals("")) {
+        } else if (cid.equals("all") && !startdate.equals("")) {
             list = orderItemMapper.selectByExample(snum, "", startdate, 8 * (page - 1), 8);
         } else {
             list = orderItemMapper.selectByExample(snum, cid, startdate, 8 * (page - 1), 8);
@@ -396,6 +396,18 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Integer getAcceptOrderCount() {
         return orderItemMapper.getAcceptApplications();
+    }
+
+    @Override
+    public void alreadyUsed(Integer orderid) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String now = df.format(new Date());
+        orderItemMapper.alreadyUsed(orderid, now);
+    }
+
+    @Override
+    public Integer hasOrderedTheDay(String snum, String startdate) {
+        return orderItemMapper.hasOrderedTheDay(snum, startdate);
     }
 
 

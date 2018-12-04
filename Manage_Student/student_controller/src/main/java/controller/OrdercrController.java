@@ -82,9 +82,14 @@ public class OrdercrController {
         List<Ordercr> orderList = new ArrayList<>();
         if (orderCount > 0) {
             orderList = orderService.getOrderList(student.getSnum(), page);
+            for (Ordercr ordercr : orderList) {
+                orderService.alreadyUsed(ordercr.getOrderid());
+            }
         }
+
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());
+            orderService.updateApplication(orderService.getOrderList(student.getSnum()), student.getSnum());
         } else {
             orderService.updateApplication(orderList, student.getSnum());
         }
@@ -126,63 +131,101 @@ public class OrdercrController {
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
 
-        String chooseTime = startdate + " " + starttime + ":00";
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            Date start = df.parse(chooseTime);
-            Date now = new Date();
-            if (now.compareTo(start) >= 0) {
-
-                ClassroomStatus classroomStatus1 = new ClassroomStatus();
-
-                Date date = new Date();
-                List<Classroom> classroomList = classroomService.getClassroomList();//教室列表
-                List classList = classroomService.getClassroomList("all", df.format(date));//教室使用列表
-                model.addAttribute("classroomList", classroomList);
-                model.addAttribute("classList", classroomList);
-                model.addAttribute("startdate", startdate);
-
-                startdate = df.format(date);
-
-                List<ClassroomStatus> classroomStatusList = new ArrayList<>();
-                List<Integer> statusList = new ArrayList<>();
-                List<Integer[]> statusLists = new ArrayList<>();//statusList的集合
-                //查询一系列教室的某天
-                for (int i = 0; i < classroomList.size(); i++) {
-                    //查询一个教室的某天
-                    ClassroomStatus classroomStatus = new ClassroomStatus();
-                    classroomStatusList.add(classroomStatus);
-                    classroomStatusList.get(i).setCid(classroomList.get(i).getCid());
-                    classroomStatusList.get(i).setDate(startdate);
-
-                    for (int j = 8; j < 21; j++) {
-                        int status = -1;
-                        statusList.add(status);
-                        if (orderService.isOrdered(classroomList.get(i).getCid(), startdate + " " + j + ":00:00", startdate + " " + (j + 1) + ":00:00")) {
-                            statusList.set(j - 8, 1);
-                        } else {
-                            statusList.set(j - 8, -1);
-                        }
-                    }
-                    classroomStatusList.get(i).setStatus(statusList);
-
-                    Integer[] integers = new Integer[statusList.size()];
-                    statusList.toArray(integers);
-
-                    statusLists.add(integers);
-                    statusList.clear();
-                }
-                model.addAttribute("classroomStatusList", classroomStatusList);//班级+状态列表
-                model.addAttribute("statusLists", statusLists);//状态列表
-                model.addAttribute("classroomStatus1", classroomStatus1);
-                model.addAttribute("cid", "all");
-                model.addAttribute("message", "<script>alert('请选择当前时刻之后的时间段！');</script>");
-                return "ClassroomInfo";
+        if (orderService.hasOrderedTheDay(student.getSnum(), startdate) != 0) {
+            List<Classroom> classroomList = classroomService.getClassroomList();
+            Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
+            Integer page = 1;
+            if (page > orderCount / 8 && orderCount >= 8) {
+                page = orderCount / 8;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            List<Ordercr> orderList = new ArrayList<>();
+            if (orderCount > 0) {
+                orderList = orderService.getOrderList(student.getSnum(), page);
+                for (Ordercr ordercr : orderList) {
+                    orderService.alreadyUsed(ordercr.getOrderid());
+                }
+            }
+
+            if (orderService.hasOrderedToday(student.getSnum())) {
+                orderService.otherOrderCancel(student.getSnum());
+            } else {
+                orderService.updateApplication(orderList, student.getSnum());
+            }
+
+            model.addAttribute("message", "<script>alert('已成功预订过该天的教室或正在申请中，现在不能申请');</script>");
+
+            model.addAttribute("orderCount", orderCount);
+            model.addAttribute("orderList", orderList);
+            model.addAttribute("snum", student.getSnum());
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("prePage", page - 1);
+            model.addAttribute("thisPage", page);
+            model.addAttribute("nextPage", page + 1);
+            model.addAttribute("finalPage", orderCount / 8);
+            model.addAttribute("cid", "all");
+            model.addAttribute("student", student);
+
+            return "personalOrder";
         }
 
+        if (startdate != null) {
+            String chooseTime = startdate + " " + starttime + ":00";
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            try {
+                Date start = df.parse(chooseTime);
+                Date now = new Date();
+                if (now.compareTo(start) >= 0) {
+
+                    ClassroomStatus classroomStatus1 = new ClassroomStatus();
+
+                    Date date = new Date();
+                    List<Classroom> classroomList = classroomService.getClassroomList();//教室列表
+                    List classList = classroomService.getClassroomList("all", df.format(date));//教室使用列表
+                    model.addAttribute("classroomList", classroomList);
+                    model.addAttribute("classList", classroomList);
+                    model.addAttribute("startdate", startdate);
+
+                    startdate = df.format(date);
+
+                    List<ClassroomStatus> classroomStatusList = new ArrayList<>();
+                    List<Integer> statusList = new ArrayList<>();
+                    List<Integer[]> statusLists = new ArrayList<>();//statusList的集合
+                    //查询一系列教室的某天
+                    for (int i = 0; i < classroomList.size(); i++) {
+                        //查询一个教室的某天
+                        ClassroomStatus classroomStatus = new ClassroomStatus();
+                        classroomStatusList.add(classroomStatus);
+                        classroomStatusList.get(i).setCid(classroomList.get(i).getCid());
+                        classroomStatusList.get(i).setDate(startdate);
+
+                        for (int j = 8; j < 21; j++) {
+                            int status = -1;
+                            statusList.add(status);
+                            if (orderService.isOrdered(classroomList.get(i).getCid(), startdate + " " + j + ":00:00", startdate + " " + (j + 1) + ":00:00")) {
+                                statusList.set(j - 8, 1);
+                            } else {
+                                statusList.set(j - 8, -1);
+                            }
+                        }
+                        classroomStatusList.get(i).setStatus(statusList);
+
+                        Integer[] integers = new Integer[statusList.size()];
+                        statusList.toArray(integers);
+
+                        statusLists.add(integers);
+                        statusList.clear();
+                    }
+                    model.addAttribute("classroomStatusList", classroomStatusList);//班级+状态列表
+                    model.addAttribute("statusLists", statusLists);//状态列表
+                    model.addAttribute("classroomStatus1", classroomStatus1);
+                    model.addAttribute("cid", "all");
+                    model.addAttribute("message", "<script>alert('请选择当前时刻之后的时间段！');</script>");
+                    return "ClassroomInfo";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         String endtime1 = null;
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());
@@ -197,6 +240,9 @@ public class OrdercrController {
             List<Ordercr> orderList = new ArrayList<>();
             if (orderCount > 0) {
                 orderList = orderService.getOrderList(student.getSnum(), page);
+                for (Ordercr ordercr : orderList) {
+                    orderService.alreadyUsed(ordercr.getOrderid());
+                }
             }
             if (orderService.hasOrderedToday(student.getSnum())) {
                 orderService.otherOrderCancel(student.getSnum());
@@ -205,11 +251,10 @@ public class OrdercrController {
             }
             model.addAttribute("orderCount", orderCount);
             model.addAttribute("orderList", orderList);
-            model.addAttribute("snum", snum);
             model.addAttribute("classroomList", classroomList);
 
-            orderService.updateApplication(orderList, snum);
-            model.addAttribute("message", "<script>alert('今天已成功预订过一次教室，当日不能再次申请');</script>");
+            orderService.updateApplication(orderList, student.getSnum());
+            model.addAttribute("message", "<script>alert('今天已成功预订过一次教室或正在申请中，现在不能申请');</script>");
 
             model.addAttribute("student", student);
             model.addAttribute("snum", student.getSnum());
@@ -292,6 +337,21 @@ public class OrdercrController {
         }
         session.setAttribute("studentSession", student);
         model.addAttribute("student", student);
+
+        if (orderService.hasOrderedTheDay(student.getSnum(), startdate) != 0) {
+            model.addAttribute("errorMessage", "您已有订单在该天处于申请或同意状态，不能预约该天！");
+            model.addAttribute("ordercr", ordercr);
+            model.addAttribute("errorFlag", 1);
+
+            List<String> facultyList = orderService.getFacultyList();
+            List<Classroom> classroomList = classroomService.getClassroomList();
+
+            model.addAttribute("facultyList", facultyList);
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("cid", ordercr.getCid());
+            model.addAttribute("ttelphone", ordercr.getTtelephone());
+            return "application";
+        }
 
         if (!student.getSnum().equals(ordercr.getSnum())) {
             model.addAttribute("errorMessage", "登录账号与提交学号不一致，请重试！");
@@ -428,16 +488,24 @@ public class OrdercrController {
             ordercr.setOrderstatus(0); // 订单状态默认是0-申请中
             ordercr.setCreatetime(df.format(date));
             orderService.addOrder(ordercr);
-            Integer orderCount = orderService.orderCount(snum, "all", "");
+            Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
 
             Integer page = 1;
 
+            List<Classroom> classroomList = classroomService.getClassroomList();
+
+            if (page <= 1) {
+                page = 1;
+            }
             if (page > orderCount / 8 && orderCount >= 8) {
                 page = orderCount / 8;
             }
             List<Ordercr> orderList = new ArrayList<>();
             if (orderCount > 0) {
                 orderList = orderService.getOrderList(student.getSnum(), page);
+                for (Ordercr ordercr1 : orderList) {
+                    orderService.alreadyUsed(ordercr1.getOrderid());
+                }
             }
             if (orderService.hasOrderedToday(student.getSnum())) {
                 orderService.otherOrderCancel(student.getSnum());
@@ -446,13 +514,16 @@ public class OrdercrController {
             }
 
             model.addAttribute("orderCount", orderCount);
-            model.addAttribute("errorFlag", 0);
-            model.addAttribute("prePage", 0);
-            model.addAttribute("thisPage", 1);
-            model.addAttribute("nextPage", 2);
+            model.addAttribute("orderList", orderList);
+            model.addAttribute("snum", student.getSnum());
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("prePage", page - 1);
+            model.addAttribute("thisPage", page);
+            model.addAttribute("nextPage", page + 1);
             model.addAttribute("finalPage", orderCount / 8);
             model.addAttribute("cid", "all");
-            model.addAttribute("page", 1);
+            model.addAttribute("student", student);
+            model.addAttribute("startdate", "");
 
             return "personalOrder";
 
@@ -486,12 +557,13 @@ public class OrdercrController {
         if (flag) {
 
         } else {
-
+            model.addAttribute("errorMessage","撤销失败，该申请已被同意");
+            model.addAttribute("errorFlag", 1);
         }
         Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
 
         model.addAttribute("orderCount", orderCount);
-        return "personalOrder";
+        return "redirect:personalOrder.html";
     }
 
     @RequestMapping("/student/queryOrder")
@@ -517,6 +589,9 @@ public class OrdercrController {
         List<Ordercr> orderList = new ArrayList<>();
         if (orderCount > 0) {
             orderList = orderService.getOrderList(student.getSnum(), page);
+            for (Ordercr ordercr : orderList) {
+                orderService.alreadyUsed(ordercr.getOrderid());
+            }
         }
         if (orderService.hasOrderedToday(student.getSnum())) {
             orderService.otherOrderCancel(student.getSnum());

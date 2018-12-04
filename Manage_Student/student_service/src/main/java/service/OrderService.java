@@ -34,7 +34,7 @@ public interface OrderService {
 
     public boolean isBeforeTime(Date date, String starttime, String endtime);
 
-    //今天是否已成功预订过一次教室
+    //今天是否已成功预订过一次教室(包含申请中和同意两种状态)
     public boolean hasOrderedToday(String snum);
 
     //自动取消该用户当天其余订单
@@ -47,5 +47,9 @@ public interface OrderService {
     public Ordercr getOrderById(Integer orderid);
 
     public Integer getAcceptOrderCount();
+
+    public void alreadyUsed(Integer orderid);
+
+    public Integer hasOrderedTheDay(String snum, String startdate);
 
 }

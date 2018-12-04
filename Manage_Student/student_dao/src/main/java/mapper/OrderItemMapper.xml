@@ -32,6 +32,16 @@
       from ordercr
     </select>
 
+    <update id="alreadyUsed" parameterType="INTEGER">
+        update ordercr
+        set orderstatus = 4
+        <where>
+            and orderid = #{orderid}
+            and orderstatus = 1
+            and starttime <![CDATA[ <= ]]> #{starttime}
+        </where>
+    </update>
+
     <select id="selectOrderByCid" resultType="pojo.Ordercr" parameterType="string">
         select *
         from ordercr
@@ -130,9 +140,9 @@
         select count(*)
         from ordercr
         <where>
-            snum = #{snum}
+            and snum = #{snum}
             and createtime like concat('%',#{createtime},'%')
-            and orderstatus = 1
+            and (orderstatus = 1 or orderstatus = 0)
         </where>
     </select>
 
@@ -141,24 +151,22 @@
         update ordercr
         set orderstatus = 3
         <where>
-            snum = #{snum}
+            and snum = #{snum}
             and createtime <![CDATA[ <= ]]> #{createtime}
             and orderstatus = 0
         </where>
     </update>
 
     <!--同意第一次申请的教室-->
-    <select id="acceptFirstApplication" parameterType="string">
+    <update id="acceptFirstApplication" parameterType="string">
         update ordercr
         set orderstatus = 1
-        <where>
+        where
             snum = #{snum}
-            and createtime <![CDATA[ <= ]]> #{createtime}
             and orderstatus = 0
-        </where>
         order by createtime asc
         limit 1
-    </select>
+    </update>
 
     <!--统计用户订单总数-->
     <select id="messageCounter" parameterType="string" resultType="INTEGER">
@@ -179,11 +187,9 @@
     <select id="orderStatusCount" parameterType="string" resultType="INTEGER">
         select count(*)
         from ordercr
-        <where>
+        where
             snum = #{snum}
-            and createtime <![CDATA[ <= ]]> #{createtime}
             and orderstatus = 0
-        </where>
     </select>
 
     <!--查询学院列表-->
@@ -233,19 +239,27 @@
     <update id="updateOrderStatus" parameterType="pojo.Ordercr">
         update ordercr
         set orderstatus = #{orderstatus}
-        <where>
+        where
             orderid = #{orderid}
             and orderstatus = 0
-        </where>
     </update>
 
     <!--查询所有被同意的订单数目-->
     <select id="getAcceptApplications" resultType="Integer">
         select count(*)
         from ordercr
-        <where>
+        where
             orderstatus = 1 or orderstatus = 4
-        </where>
+    </select>
+
+    <select id="hasOrderedTheDay" parameterType="string" resultType="INTEGER">
+        select count(*)
+        from ordercr
+        where
+        snum = #{snum}
+        <if test="startdate != null">
+            and starttime like concat('%',#{startdate},'%')
+        </if>
     </select>
 
 </mapper>
