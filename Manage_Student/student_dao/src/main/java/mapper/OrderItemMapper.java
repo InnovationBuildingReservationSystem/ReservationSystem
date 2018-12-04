@@ -10,7 +10,7 @@ import java.util.List;
 public interface OrderItemMapper {
     List<Ordercr> getOrderList();
 
-    List getOrderItemListByPage(@Param("snum") String snum, @Param("offset")Integer offset, @Param("limit")Integer limit);
+    List getOrderItemListByPage(@Param("snum") String snum, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     List getOrderItemList(@Param("snum") String snum);
 
@@ -20,7 +20,7 @@ public interface OrderItemMapper {
 
     void updateOrderStatus(Ordercr ordercr);
 
-    List selectByExample(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate, @Param("offset")Integer offset, @Param("limit")Integer limit);
+    List selectByExample(@Param("snum") String snum, @Param("cid") String cid, @Param("startdate") String startdate, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     List<Ordercr> selectOrderByCid(@Param("cid") String cid);
 
@@ -30,10 +30,14 @@ public interface OrderItemMapper {
 
     void cancelOtherOrder(@Param("createtime") String createtime, @Param("snum") String snum);
 
-    List<Ordercr> acceptFirstApplication(@Param("createtime") String createtime, @Param("snum") String snum);
+    void acceptFirstApplication(@Param("createtime") String createtime, @Param("snum") String snum);
 
-    Integer orderStatusCount(@Param("snum") String snum, @Param("createtime")String createtime);
+    Integer orderStatusCount(@Param("snum") String snum, @Param("createtime") String createtime);
 
     Integer getAcceptApplications();
+
+    void alreadyUsed(@Param("orderid") Integer orderid, @Param("starttime") String starttime);
+
+    Integer hasOrderedTheDay(@Param("snum") String snum, @Param("startdate") String startdate);
 
 }

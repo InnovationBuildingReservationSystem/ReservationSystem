@@ -9,7 +9,8 @@
     <meta name="description" content="User login page"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
-    <link rel="shortcut icon"  href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo/favicon.ico"
+          type="image/x-icon"/>
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css"/>
@@ -40,7 +41,8 @@
 </head>
 
 <body class="login-layout light-login"
-      style="background: url(${pageContext.request.contextPath}/assets/images/background/background.png); background-color: #F7FAFC">
+      style="background: url(${pageContext.request.contextPath}/assets/images/background/background.png); background-color: #F7FAFC"
+      onload="is_neizhi()">
 <div class="main-container">
     <div class="main-content">
         <div class="row">
@@ -141,6 +143,47 @@
 
     //you don't need this, just used for changing background
 
+</script>
+<script type="text/javascript">
+    function is_neizhi() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return "weixin";
+        } else if (ua.match(/QQ/i) == "qq") {
+            return "QQ";
+        } else if (ua.match(/Alipay/i) == "alipay" && payway == 2) {
+            return "alipay";
+        }
+        return false;
+    }
+
+    var isNeizhi = is_neizhi();  //调用上面js判断
+    var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;  //网页可视区高度
+    var weixinTip = $('<div id="weixinTip"><p><img src="${pageContext.request.contextPath}/assets/images/background/live_weixin.png" alt="用浏览器打开"/></p></div>');
+
+    if (isNeizhi) {
+        $("body").append(weixinTip);
+    }
+    $("#weixinTip").css({
+        "position": "fixed",
+        "left": "0",
+        "top": "0",
+        "height": winHeight,
+        "width": "100%",
+        "z-index": "1000",
+        "background-color": "rgba(0,0,0,0.8)",
+        "filter": "alpha(opacity=80)",
+    });
+    $("#weixinTip p").css({
+        "text-align": "center",
+        "margin-top": "10%",
+        "padding-left": "5%",
+        "padding-right": "5%"
+    });
+    $("#weixinTip p img").css({
+        "max-width": "100%",
+        "height": "auto"
+    });
 </script>
 </body>
 </html>
