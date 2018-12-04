@@ -386,7 +386,7 @@
                                             <td>${order.starttime}</td>
                                             <td>${order.endtime}</td>
                                             <td>${order.groupname}</td>
-                                            <td>1</td>
+                                            <td>${order.theme}</td>
                                             <td class="hidden-480">
                                                 <C:if test="${order.orderstatus eq 0}">
                                                     <span class="label label-sm label-warning">申请中</span>
