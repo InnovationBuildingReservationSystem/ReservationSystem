@@ -469,6 +469,23 @@ public class OrdercrController {
 
         }
 
+        if (ordercr.getTheme().length() <= 5) {
+            errorMessage = "主题不能少于6个字符，请修改！";
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("ordercr", ordercr);
+            model.addAttribute("errorFlag", 1);
+
+            List<String> facultyList = orderService.getFacultyList();
+            List<Classroom> classroomList = classroomService.getClassroomList();
+
+            model.addAttribute("facultyList", facultyList);
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("cid", ordercr.getCid());
+
+            return "application";
+
+        }
+
         if (ordercr.getCid() == "" || ordercr.getStarttime() == "" || ordercr.getEndtime() == "" || ordercr.getTheme() == "" || ordercr.getSnum() == "" || ordercr.getFaculty() == "" || ordercr.getGroupname() == "" || ordercr.getTeacher() == "" || ordercr.getStelephone() == "" || ordercr.getAttendcount().toString() == "" || sname == "" || startdate == "" || !(isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11 && isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString())) || ordercr.getAttendcount() <= 0) {
             errorMessage = "请检查信息是否填写完整！";
             model.addAttribute("errorMessage", errorMessage);
@@ -532,7 +549,7 @@ public class OrdercrController {
 
             return "application";
 
-        } else if (isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString()) && isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11) {
+        } else if (ordercr.getTheme().length() > 5 && isNumeric(ordercr.getStelephone()) && ordercr.getStelephone().length() == 11 && isNumeric(ordercr.getAttendcount().toString()) && isInteger(ordercr.getAttendcount().toString()) && isNumeric(ordercr.getTtelephone()) && ordercr.getTtelephone().length() == 11) {
             //判断手机号是否为纯数字和长度是否为11 且 参加人数是否为整数，若都满足，则进行插入，否则，退回到申请界面
             ordercr.setStarttime(starttime);
             ordercr.setEndtime(endtime);

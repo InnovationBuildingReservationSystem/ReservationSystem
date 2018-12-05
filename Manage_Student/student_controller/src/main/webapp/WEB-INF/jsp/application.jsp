@@ -447,8 +447,11 @@
                                     <div class="col-sm-9">
                                         <div class="inline">
                                             <input type="text" id="form-field-tags" placeholder="不超过25字(*必填)"
-                                                   name="theme" value="${ordercr.theme}" required maxlength="25"/>
+                                                   name="theme" value="${ordercr.theme}" required maxlength="25"
+                                                   onblur="validThemeLength()" onkeydown="validThemeLength()"
+                                                   onkeyup="validThemeLength()"/>
                                         </div>
+                                        <span id="errorTheme"></span>
                                     </div>
                                 </div>
 
@@ -626,6 +629,18 @@
         }
     }
 
+    function validThemeLength(){
+        var obj = document.getElementById("form-field-tags");
+        var theme = obj.value;
+        if (theme.length <= 5) {
+            document.getElementById("errorTheme").innerHTML = "<font size='-1' color='red'>主题应大于5个字符！</font>";
+            return false;
+        } else {
+            document.getElementById("errorTheme").innerHTML = "<font size='-1'></font>";
+            return true;
+        }
+    }
+
     function validTtelephone() {
         var obj = document.getElementById("form-field-tags-2");
         var ttelephone = obj.value;
@@ -639,7 +654,7 @@
     }
 
     function validAll() {
-        return validAttendcount() && validTtelephone() && validStelephone();
+        return validAttendcount() && validTtelephone() && validStelephone() && validThemeLength();
     }
 </script>
 
@@ -1194,7 +1209,11 @@
     });
 
     $("#startTime").ready(function () {
-        $("#startTime").val("${starttime}");
+        if($("#startTime").val("${starttime}")==null){
+            $("#startTime").val("08:00");
+        } else {
+            $("#startTime").val("${starttime}");
+        }
     });
 
     $("#startTime").ready(function () {

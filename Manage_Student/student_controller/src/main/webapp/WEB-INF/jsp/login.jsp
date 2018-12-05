@@ -97,6 +97,10 @@
                                             </div>
 
                                             <div class="space-4"></div>
+                                            <div class="block clearfix">
+                                                <span class="blue lighter" style="float: left;"><i class="ace-icon fa fa-phone"></i>管理员联系电话：0411-87403475</span>
+                                            </div>
+                                            <div class="space-4"></div>
                                         </fieldset>
                                     </form>
 
