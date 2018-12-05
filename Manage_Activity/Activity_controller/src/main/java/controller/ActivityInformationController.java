@@ -18,10 +18,15 @@ public class ActivityInformationController
     @RequestMapping("/admin/activity")
     public  String  getActivityInformation(Integer currentPage,  Model model)
     {
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
         String  nowDate=dateFormat.format(new Date());
-        ActivityPageBean pageBean =  activityService.getActivityPageBean(15, currentPage, nowDate);
+        ActivityPageBean pageBean =  activityService.getActivityPageBean(10, currentPage, nowDate);
         model.addAttribute("pageBean",pageBean);
         return "activity";
+    }
+    @RequestMapping("/admin/information")
+    public  String getInformation()
+    {
+        return "information";
     }
 }
