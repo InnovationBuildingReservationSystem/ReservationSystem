@@ -76,6 +76,7 @@
       ordercr.createtime
       FROM
       ordercr LEFT  JOIN student s ON ordercr.snum = s.snum
+      ORDER BY createtime DESC
   </select>
     <update id="updateOrderStatus" parameterType="java.lang.Integer">
         update ordercr set  orderstatus =#{1}  where orderid=#{0};

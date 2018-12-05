@@ -377,13 +377,17 @@
                         <thead>
                         <tr>
                             <th class="center">
+                                教室编号
+                            </th>
+                            <th class="center">
                                     开始时间
                             </th>
                             <th class="center">
                                     结束时间
                             </th>
                             <th class="center">
-                                活动主题                            </th>
+                                活动主题
+                            </th>
                             <th class="center">
                                组织单位
                             </th>
@@ -397,6 +401,9 @@
 
                         <C:forEach items="${pageBean.pageList}" var="order">
                             <tr>
+                                <td class="center">
+                                    ${order.cid}
+                                </td>
                                 <td class="center">
                                         ${order.starttime}
                                 </td>
@@ -452,7 +459,7 @@
         </div>
     </div>
 </div>
-</div>
+</div></div>
 
 
 

@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <meta http-equiv="refresh" content="1800;url='${pageContext.request.contextPath}/admin/activity.html'">
+    <meta http-equiv="refresh" content="45;url='${pageContext.request.contextPath}/admin/information.html'">
     <title>活动发布展示</title>
 
     <meta name="description" content="Static &amp; Dynamic Tables"/>
@@ -86,14 +86,15 @@
 
                     <div class="col-xs-12">
                         <div class="clearfix">
-                            <div class="pull-right tableTools-container"></div>
-                        </div>
-                        <div class="page-header center">
-                            <h1 style="font-size: 60px">
-                                活动信息发布
-                            </h1>
+                            <div class="pull-right tableTools-container">
+                            </div>
                         </div>
 
+                        <div class="page-header center">
+                            <h1 style="font-size: 60px">
+                                创新创业活动信息
+                            </h1>
+                        </div>
 
                     </div>
 
@@ -117,6 +118,9 @@
                         <thead>
                         <tr>
                             <th class="center">
+                                教室编号
+                            </th>
+                            <th class="center">
                                     开始时间
                             </th>
                             <th class="center">
@@ -137,6 +141,9 @@
 
                         <C:forEach items="${pageBean.pageList}" var="order">
                             <tr>
+                                <td class="center">
+                                    ${order.cid}
+                                </td>
                                 <td class="center">
                                         ${order.starttime}
                                 </td>

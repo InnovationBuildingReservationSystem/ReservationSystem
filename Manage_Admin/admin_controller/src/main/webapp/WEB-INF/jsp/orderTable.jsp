@@ -356,7 +356,7 @@
                                         <th>负责人</th>
                                         <th>学号</th>
                                         <th class="hidden-480">联系电话</th>
-
+                                        <th>申请时间</th>
                                         <th>
                                             <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始时间
 
@@ -383,6 +383,7 @@
                                             </td>
                                             <td>${order.snum}</td>
                                             <td class="hidden-480">${order.stelephone}</td>
+                                            <td>${order.createtime}</td>
                                             <td>${order.starttime}</td>
                                             <td>${order.endtime}</td>
                                             <td>${order.groupname}</td>
@@ -502,7 +503,7 @@
                     "aoColumns": [{
                             "bSortable": false
                         },
-                        null, null, null, null, null, null, null, null, {
+                        null, null, null, null, null, null, null, null, null,{
                             "bSortable": false
                         }
                     ],
