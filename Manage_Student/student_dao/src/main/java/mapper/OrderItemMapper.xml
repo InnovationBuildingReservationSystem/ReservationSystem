@@ -250,7 +250,7 @@
         from ordercr
         where
         snum = #{snum}
-        and (orderstatus = 0 or orderstatus = 1)
+        and (orderstatus = 0 or orderstatus = 1 or orderstatus = 4)
         <if test="startdate != null">
             and starttime like concat('%',#{startdate},'%')
         </if>

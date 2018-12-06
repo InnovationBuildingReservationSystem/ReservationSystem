@@ -184,6 +184,10 @@ public class OrdercrController {
             e.printStackTrace();
         }
 
+        if (startdate == null) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            startdate = dateFormat.format(new Date());
+        }
         if (startdate != null && orderService.hasOrderedTheDay(student.getSnum(), startdate) != 0) {
             List<Classroom> classroomList = classroomService.getClassroomList();
             Integer orderCount = orderService.orderCount(student.getSnum(), "all", "");
@@ -221,7 +225,7 @@ public class OrdercrController {
             return "personalOrder";
         }
 
-        if (startdate != null) {
+        if (startdate != null && starttime != null) {
             String chooseTime = startdate + " " + starttime + ":00";
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
