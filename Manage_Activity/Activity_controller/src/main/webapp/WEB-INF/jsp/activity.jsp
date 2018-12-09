@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
     <meta http-equiv="refresh" content="45;url='${pageContext.request.contextPath}/admin/information.html'">
-    <title>活动发布展示</title>
+    <title>创新创业活动信息</title>
 
     <meta name="description" content="Static &amp; Dynamic Tables"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -117,18 +117,18 @@
                     <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th class="center">
+                            <th class="center" style="font-size: 20px">
                                 教室编号
                             </th>
-                            <th class="center">
+                            <th class="center" style="font-size: 20px">
                                     开始时间
                             </th>
-                            <th class="center">
+                            <th class="center" style="font-size: 20px">
                                     结束时间
                             </th>
-                            <th class="center">
+                            <th class="center" style="font-size: 20px">
                                 活动主题                            </th>
-                            <th class="center">
+                            <th class="center" style="font-size: 20px">
                                组织单位
                             </th>
 
@@ -141,19 +141,19 @@
 
                         <C:forEach items="${pageBean.pageList}" var="order">
                             <tr>
-                                <td class="center">
+                                <td class="center" style="font-size: 20px">
                                     ${order.cid}
                                 </td>
-                                <td class="center">
+                                <td class="center" style="font-size: 20px">
                                         ${order.starttime}
                                 </td>
-                                <td class="center">
+                                <td class="center" style="font-size: 20px">
                                     ${order.endtime}
                             </td>
-                                <td class="center">
+                                <td class="center" style="font-size: 20px">
                                         ${order.theme}
                                 </td>
-                                <td class="center">
+                                <td class="center" style="font-size: 20px">
                                         ${order.groupname}
                                 </td>
                             </tr>
