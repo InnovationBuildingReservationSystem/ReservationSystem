@@ -456,6 +456,22 @@ public class OrdercrController {
 
         }
 
+        if (ordercr.getDetails().length() < 50 || ordercr.getDetails().length() > 150) {
+            errorMessage = "活动详情字数应在50到150字之间";
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("ordercr", ordercr);
+            model.addAttribute("errorFlag", 1);
+
+            List<String> facultyList = orderService.getFacultyList();
+            List<Classroom> classroomList = classroomService.getClassroomList();
+
+            model.addAttribute("facultyList", facultyList);
+            model.addAttribute("classroomList", classroomList);
+            model.addAttribute("cid", ordercr.getCid());
+
+            return "application";
+        }
+
         if (ordercr.getAttendcount() > 50) {
             errorMessage = "参加人数应不超过50人，请修改！";
             model.addAttribute("errorMessage", errorMessage);
