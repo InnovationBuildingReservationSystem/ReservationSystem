@@ -347,11 +347,7 @@
                                 <thead>
                                     <tr>
                                         <th class="center">
-
-
-                                                <label class="pos-rel">
-															房间号
-															</label>
+                                            房间号
                                         </th>
                                         <th>负责人</th>
                                         <th>学号</th>
@@ -456,7 +452,6 @@
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
     </a>
-    </div>
     <!-- /.main-container -->
 
     <!-- basic scripts -->
@@ -501,7 +496,7 @@
                 .DataTable({
                     bAutoWidth: false,
                     "aoColumns": [{
-                            "bSortable": false
+
                         },
                         null, null, null, null, null, null, null, null, null,{
                             "bSortable": false
