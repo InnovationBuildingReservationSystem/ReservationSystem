@@ -17,6 +17,9 @@
     <result column="orderstatus" property="orderstatus" jdbcType="INTEGER" />
     <result column="createtime" property="createtime" jdbcType="VARCHAR" />
   </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="pojo.Ordercr" extends="BaseResultMap" >
+    <result column="details" property="details" jdbcType="LONGVARCHAR" />
+  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -79,6 +82,25 @@
     orderid, cid, starttime, endtime, theme, snum, stelephone, faculty, groupname, teacher, 
     ttelephone, attendcount, orderstatus, createtime
   </sql>
+  <sql id="Blob_Column_List" >
+    details
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="pojo.OrdercrExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ordercr
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pojo.OrdercrExample" >
     select
     <if test="distinct" >
@@ -93,9 +115,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from ordercr
     where orderid = #{orderid,jdbcType=INTEGER}
   </select>
@@ -114,12 +138,14 @@
       endtime, theme, snum, 
       stelephone, faculty, groupname, 
       teacher, ttelephone, attendcount, 
-      orderstatus, createtime)
+      orderstatus, createtime, details
+      )
     values (#{orderid,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
       #{endtime,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{snum,jdbcType=VARCHAR}, 
       #{stelephone,jdbcType=VARCHAR}, #{faculty,jdbcType=VARCHAR}, #{groupname,jdbcType=VARCHAR}, 
       #{teacher,jdbcType=VARCHAR}, #{ttelephone,jdbcType=VARCHAR}, #{attendcount,jdbcType=INTEGER}, 
-      #{orderstatus,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR})
+      #{orderstatus,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, #{details,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="pojo.Ordercr" >
     insert into ordercr
@@ -166,6 +192,9 @@
       <if test="createtime != null" >
         createtime,
       </if>
+      <if test="details != null" >
+        details,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="orderid != null" >
@@ -209,6 +238,9 @@
       </if>
       <if test="createtime != null" >
         #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="details != null" >
+        #{details,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -263,7 +295,31 @@
       <if test="record.createtime != null" >
         createtime = #{record.createtime,jdbcType=VARCHAR},
       </if>
+      <if test="record.details != null" >
+        details = #{record.details,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ordercr
+    set orderid = #{record.orderid,jdbcType=INTEGER},
+      cid = #{record.cid,jdbcType=VARCHAR},
+      starttime = #{record.starttime,jdbcType=VARCHAR},
+      endtime = #{record.endtime,jdbcType=VARCHAR},
+      theme = #{record.theme,jdbcType=VARCHAR},
+      snum = #{record.snum,jdbcType=VARCHAR},
+      stelephone = #{record.stelephone,jdbcType=VARCHAR},
+      faculty = #{record.faculty,jdbcType=VARCHAR},
+      groupname = #{record.groupname,jdbcType=VARCHAR},
+      teacher = #{record.teacher,jdbcType=VARCHAR},
+      ttelephone = #{record.ttelephone,jdbcType=VARCHAR},
+      attendcount = #{record.attendcount,jdbcType=INTEGER},
+      orderstatus = #{record.orderstatus,jdbcType=INTEGER},
+      createtime = #{record.createtime,jdbcType=VARCHAR},
+      details = #{record.details,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -330,7 +386,28 @@
       <if test="createtime != null" >
         createtime = #{createtime,jdbcType=VARCHAR},
       </if>
+      <if test="details != null" >
+        details = #{details,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="pojo.Ordercr" >
+    update ordercr
+    set cid = #{cid,jdbcType=VARCHAR},
+      starttime = #{starttime,jdbcType=VARCHAR},
+      endtime = #{endtime,jdbcType=VARCHAR},
+      theme = #{theme,jdbcType=VARCHAR},
+      snum = #{snum,jdbcType=VARCHAR},
+      stelephone = #{stelephone,jdbcType=VARCHAR},
+      faculty = #{faculty,jdbcType=VARCHAR},
+      groupname = #{groupname,jdbcType=VARCHAR},
+      teacher = #{teacher,jdbcType=VARCHAR},
+      ttelephone = #{ttelephone,jdbcType=VARCHAR},
+      attendcount = #{attendcount,jdbcType=INTEGER},
+      orderstatus = #{orderstatus,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      details = #{details,jdbcType=LONGVARCHAR}
     where orderid = #{orderid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="pojo.Ordercr" >

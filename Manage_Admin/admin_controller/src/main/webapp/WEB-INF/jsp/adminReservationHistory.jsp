@@ -350,8 +350,8 @@
                                                         <input readonly="readonly" name="orderDate" value="${pageBean.orderDate}"  class="typeahead scrollable date-picker" id="datepicker" type="text"
                                                                data-date-format="yyyy-mm-dd"/>
                                                         <span class="input-group-addon">
-									        	<i class="fa fa-calendar bigger-110"></i>
-								        	</span>
+									        	                <i class="fa fa-calendar bigger-110"></i>
+								        	            </span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2"></div>
@@ -449,7 +449,7 @@
                                     </C:forEach>
                                     </tbody>
                                 </table>
-                                <div class="message-footer clearfix">下·
+                                <div class="message-footer clearfix">
                                     <div class="pull-right">
 
                                         &nbsp; &nbsp;

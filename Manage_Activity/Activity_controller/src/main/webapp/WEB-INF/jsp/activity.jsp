@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,6 +95,7 @@
                             <h1 style="font-size: 60px">
                                 创新创业活动信息
                             </h1>
+
                         </div>
 
                     </div>
@@ -117,18 +119,19 @@
                     <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th class="center" style="font-size: 20px">
+                            <th class="center" >
                                 教室编号
                             </th>
-                            <th class="center" style="font-size: 20px">
+                            <th class="center">
                                     开始时间
                             </th>
-                            <th class="center" style="font-size: 20px">
+                            <th class="center" >
                                     结束时间
                             </th>
-                            <th class="center" style="font-size: 20px">
-                                活动主题                            </th>
-                            <th class="center" style="font-size: 20px">
+                            <th class="center">
+                                活动主题
+                            </th>
+                            <th class="center">
                                组织单位
                             </th>
 
@@ -141,19 +144,19 @@
 
                         <C:forEach items="${pageBean.pageList}" var="order">
                             <tr>
-                                <td class="center" style="font-size: 20px">
+                                <td class="center" >
                                     ${order.cid}
                                 </td>
-                                <td class="center" style="font-size: 20px">
+                                <td class="center" >
                                         ${order.starttime}
                                 </td>
-                                <td class="center" style="font-size: 20px">
+                                <td class="center">
                                     ${order.endtime}
                             </td>
-                                <td class="center" style="font-size: 20px">
+                                <td class="center" >
                                         ${order.theme}
                                 </td>
-                                <td class="center" style="font-size: 20px">
+                                <td class="center" >
                                         ${order.groupname}
                                 </td>
                             </tr>

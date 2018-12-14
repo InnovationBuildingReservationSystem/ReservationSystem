@@ -1,9 +1,6 @@
 package pojo;
 
-import java.io.Serializable;
-
-public class Ordercr implements Serializable
-{
+public class Ordercr {
     private Integer orderid;
 
     private String cid;
@@ -31,6 +28,8 @@ public class Ordercr implements Serializable
     private Integer orderstatus;
 
     private String createtime;
+
+    private String details;
 
     public Integer getOrderid() {
         return orderid;
@@ -142,5 +141,13 @@ public class Ordercr implements Serializable
 
     public void setCreatetime(String createtime) {
         this.createtime = createtime == null ? null : createtime.trim();
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details == null ? null : details.trim();
     }
 }
