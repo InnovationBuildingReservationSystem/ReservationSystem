@@ -87,6 +87,7 @@ CREATE TABLE `ordercr` (
   `attendcount` int(11) NOT NULL, /*参加人数*/
   `orderstatus` int(11) NOT NULL, /*订单状态：0-申请中，1-同意，2-拒绝，3-撤销，4-已使用*/
   `createtime` varchar(50) NOT NULL, /*订单创建时间*/
+  `details` text NOT NULL, /*订单详情*/
   PRIMARY KEY (`orderid`),
   KEY `FK_1_idx` (`cid`),
   KEY `FK_2_idx` (`snum`),

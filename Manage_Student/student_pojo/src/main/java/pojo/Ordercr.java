@@ -31,6 +31,8 @@ public class Ordercr implements Serializable {
 
     private String createtime;
 
+    private String details;
+
     public Student getStudent() {
         return student;
     }
@@ -151,5 +153,13 @@ public class Ordercr implements Serializable {
 
     public void setTtelephone(String ttelephone) {
         this.ttelephone = ttelephone;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 }

@@ -1119,121 +1119,126 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="273" parent="240" name="FK_1_idx">
+    <column id="273" parent="240" name="details">
+      <Position>15</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="274" parent="240" name="FK_1_idx">
       <ColNames>cid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="274" parent="240" name="FK_2_idx">
+    <index id="275" parent="240" name="FK_2_idx">
       <ColNames>snum</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="275" parent="240" name="PRIMARY">
+    <key id="276" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>orderid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="276" parent="240" name="FK_1">
+    <foreign-key id="277" parent="240" name="FK_1">
       <ColNames>cid</ColNames>
       <RefSchemaName>reservationsystem</RefSchemaName>
       <RefTableName>classroom</RefTableName>
       <RefColNames>cid</RefColNames>
     </foreign-key>
-    <foreign-key id="277" parent="240" name="FK_2">
+    <foreign-key id="278" parent="240" name="FK_2">
       <ColNames>snum</ColNames>
       <RefSchemaName>reservationsystem</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>snum</RefColNames>
     </foreign-key>
-    <column id="278" parent="241" name="snum">
+    <column id="279" parent="241" name="snum">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="241" name="sname">
+    <column id="280" parent="241" name="sname">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="241" name="sid">
+    <column id="281" parent="241" name="sid">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="241" name="sfaculty">
+    <column id="282" parent="241" name="sfaculty">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="241" name="smajor">
+    <column id="283" parent="241" name="smajor">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="241" name="sclass">
+    <column id="284" parent="241" name="sclass">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="241" name="stelphone">
+    <column id="285" parent="241" name="stelphone">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="241" name="spwd">
+    <column id="286" parent="241" name="spwd">
       <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="241" name="sstatus">
+    <column id="287" parent="241" name="sstatus">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="241" name="srole">
+    <column id="288" parent="241" name="srole">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="241" name="scard">
+    <column id="289" parent="241" name="scard">
       <Position>11</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="289" parent="241" name="PRIMARY">
+    <key id="290" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>snum</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="290" parent="242" name="tnum">
+    <column id="291" parent="242" name="tnum">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="242" name="tname">
+    <column id="292" parent="242" name="tname">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="242" name="ttelphone">
+    <column id="293" parent="242" name="ttelphone">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="293" parent="242" name="PRIMARY">
+    <key id="294" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tnum</ColNames>
       <Primary>1</Primary>

@@ -518,6 +518,25 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags"
+                                    >活动详情</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="inline">
+                                            <textarea name="details" id="form-field-tags-3"
+                                                      placeholder="活动详情介绍（50-150字）" maxlength="150"
+                                                      style="width: 299px; height: 121px; resize: none;"
+                                                      onblur="validDetails()"
+                                                      onkeydown="validDetails()"
+                                                      onkeyup="validDetails()" required>${ordercr.details}</textarea>
+                                        </div>
+                                        <br/>
+                                        <span id="errorDetails"></span>
+                                        <div class="space-2"></div>
+                                    </div>
+                                </div>
+
                                 <div class="space-4"></div>
 
                                 <div class="col-xs-12"><!--右-->
@@ -629,7 +648,7 @@
         }
     }
 
-    function validThemeLength(){
+    function validThemeLength() {
         var obj = document.getElementById("form-field-tags");
         var theme = obj.value;
         if (theme.length <= 5) {
@@ -653,8 +672,20 @@
         }
     }
 
+    function validDetails() {
+        var obj = document.getElementById("form-field-tags-3");
+        var details = obj.value;
+        if (details.length < 50 || details.length > 150) {
+            document.getElementById("errorDetails").innerHTML = "<font size='-1' color='red'>描述字数必须在50到150字之间</font>";
+            return false;
+        } else {
+            document.getElementById("errorDetails").innerHTML = "<font size='-1'></font>";
+            return true;
+        }
+    }
+
     function validAll() {
-        return validAttendcount() && validTtelephone() && validStelephone() && validThemeLength();
+        return validAttendcount() && validTtelephone() && validStelephone() && validThemeLength() && validDetails();
     }
 </script>
 
@@ -1209,7 +1240,7 @@
     });
 
     $("#startTime").ready(function () {
-        if($("#startTime").val("${starttime}")==null){
+        if ($("#startTime").val("${starttime}") == null) {
             $("#startTime").val("08:00");
         } else {
             $("#startTime").val("${starttime}");

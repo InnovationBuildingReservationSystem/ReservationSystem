@@ -20,6 +20,7 @@
         <result column="attendcount" property="attendcount" jdbcType="INTEGER"/>
         <result column="orderstatus" property="orderstatus" jdbcType="INTEGER"/>
         <result column="createtime" property="createtime" jdbcType="VARCHAR"/>
+        <result column="details" property="details" jdbcType="VARCHAR"/>
 
         <association property="student" javaType="pojo.Student">
             <id column="snum" property="snum" jdbcType="VARCHAR"/>
@@ -69,6 +70,7 @@
         oc.attendcount,
         oc.orderstatus,
         oc.createtime,
+        oc.details,
         s.sname
         from ordercr oc inner join student s on oc.snum = s.snum
         where oc.snum = #{snum}
@@ -93,6 +95,7 @@
         oc.attendcount,
         oc.orderstatus,
         oc.createtime,
+        oc.details,
         s.sname
         from ordercr oc inner join student s on oc.snum = s.snum
         where oc.snum = #{snum}
@@ -115,6 +118,7 @@
         oc.attendcount,
         oc.orderstatus,
         oc.createtime,
+        oc.details,
         s.sname
         from ordercr oc inner join student s on oc.snum = s.snum
         where oc.snum = #{snum}
@@ -212,13 +216,13 @@
         </selectKey>
         insert into ordercr (<include refid="orderInfo"/>)
         values
-        (#{orderid},#{cid},#{starttime},#{endtime},#{theme},#{snum},#{stelephone},#{faculty},#{groupname},#{teacher},#{ttelephone},#{attendcount},0,#{createtime})
+        (#{orderid},#{cid},#{starttime},#{endtime},#{theme},#{snum},#{stelephone},#{faculty},#{groupname},#{teacher},#{ttelephone},#{attendcount},0,#{createtime},#{details})
     </insert>
 
     <!--修改订单-->
     <update id="updateOrderById" parameterType="pojo.Ordercr">
 		update ordercr
-		set cid = #{cid},starttime = #{starttime},endtime = #{endtime},snum = #{snum},stelephone = #{stelephone},faculty = #{faculty},groupname = #{groupname},teacher = #{teacher},ttelephone = #{ttelephone},orderstatus = 0
+		set cid = #{cid},starttime = #{starttime},endtime = #{endtime},snum = #{snum},stelephone = #{stelephone},faculty = #{faculty},groupname = #{groupname},teacher = #{teacher},ttelephone = #{ttelephone},orderstatus = 0, details = #{details}
 		where orderid = #{orderid}
 	</update>
 
