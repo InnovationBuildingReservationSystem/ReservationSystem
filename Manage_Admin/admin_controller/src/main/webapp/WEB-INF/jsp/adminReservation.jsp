@@ -416,7 +416,7 @@
                                                 <option value="星期四">星期四</option>
                                                 <option value="星期五">星期五</option>
                                                 <option value="星期六">星期六</option>
-                                                <option value="7星期日">星期日</option>
+                                                <option value="星期日">星期日</option>
                                             </select>
                                         </div>
                                     </div>

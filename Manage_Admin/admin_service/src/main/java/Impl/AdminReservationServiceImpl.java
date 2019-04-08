@@ -59,8 +59,7 @@ public class AdminReservationServiceImpl implements AdminReservationService
             System.out.println(orderEndTime);*/
             criteria.andStarttimeBetween(orderStartTime,orderEndTime);
         }
-        List<String> adminList= adminOrderMapper.selectAllAdmin();
-        criteria.andCidIn(adminList);
+        criteria.andSnumEqualTo("874492787");
         List<Ordercr> ordercrList = ordercrMapper.selectByExample(ordercrExample);
         int totalCount = ordercrList.size();
 /*        System.out.println("totalCount : "+totalCount);*/

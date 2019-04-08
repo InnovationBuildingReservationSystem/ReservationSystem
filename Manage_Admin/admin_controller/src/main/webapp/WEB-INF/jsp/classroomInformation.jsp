@@ -581,12 +581,12 @@
             success: function(data){
                 if(data=="success")
                 {
-                    $("#addAction").html("<font size='-1' color='red'>添加成功! </font>")
+                    $("#addAction").html("<font size='-1' color='red'>添加成功! </font>");
                     $("#model-cid").val("");
                     $("#model-cnum").val("");
                 }
                 else
-                    $("#addAction").html("<font size='-1' color='red'>添加失败! </font>")
+                    $("#addAction").html("<font size='-1' color='red'>添加失败! </font>");
             }
         });
     }

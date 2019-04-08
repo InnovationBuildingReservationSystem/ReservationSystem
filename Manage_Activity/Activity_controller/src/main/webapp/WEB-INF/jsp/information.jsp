@@ -4,12 +4,11 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
     <meta charset="utf-8"/>
-    <meta http-equiv="refresh" content="15;url='${pageContext.request.contextPath}/admin/activity.html'">
+    <meta http-equiv="refresh" content="25;url='${pageContext.request.contextPath}/admin/activity.html'">
     <title>活动发布展示</title>
 
-    <meta name="description" content="Static &amp; Dynamic Tables"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
@@ -97,17 +96,7 @@
 <script src="${pageContext.request.contextPath}/assets/js/ace-elements.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/ace.min.js"></script>
 
-<!-- inline scripts related to this page -->
-<script type="text/javascript">
 
-    jQuery(function ($) {
-
-        $("#datepicker").datepicker({
-            showOtherMonths: true,
-            selectOtherMonths: false
-        });
-    })
-</script>
 </body>
 
 </html>
