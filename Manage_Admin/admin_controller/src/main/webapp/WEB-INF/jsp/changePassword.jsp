@@ -331,7 +331,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form id="changePasswordForm" class="form-horizontal" role="form" action="${pageContext.request.contextPath}/changePasswordById.html" method="post">
+                        <form id="changePasswordForm" class="form-horizontal" role="form" action="${pageContext.request.contextPath}/chang.action" method="post">
 
 
                             <div class="form-group">

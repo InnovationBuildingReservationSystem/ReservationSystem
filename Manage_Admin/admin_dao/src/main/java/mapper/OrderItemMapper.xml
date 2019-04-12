@@ -43,9 +43,7 @@
         AND
         cid = #{0}
         AND
-        orderstatus  <![CDATA[ != ]]> 2
-        AND
-       orderstatus  <![CDATA[ != ]]> 3
+        (orderstatus = 1 or orderstatus=0 or orderstatus=4)
     </select>
     <select id="getOrderItemTimeList" resultType="pojo.OrderItem">
         SELECT
